@@ -1,0 +1,48 @@
+* text=auto
+
+*.config  text
+*.css     text
+*.scss    text
+*.sass    text
+*.dist    text
+*.engine  text
+*.html    text
+*.inc     text
+*.install text
+*.js      text
+*.ts      text
+*.json    text
+*.lock    text
+*.map     text
+*.md      text
+*.module  text
+*.php     text
+*.po      text
+*.profile text
+*.script  text
+*.sh      text
+*.sql     text
+*.svg     text
+*.theme   text
+*.twig    text
+*.txt     text
+*.xml     text
+*.yml     text
+
+# Define binary file attributes.
+# - Do not treat them as text.
+# - Include binary diff in patches instead of "binary files differ."
+*.eot     -text diff
+*.exe     -text diff
+*.gif     -text diff
+*.gz      -text diff
+*.ico     -text diff
+*.jpeg    -text diff
+*.jpg     -text diff
+*.otf     -text diff
+*.phar    -text diff
+*.png     -text diff
+*.svgz    -text diff
+*.ttf     -text diff
+*.woff    -text diff
+*.woff2   -text diff

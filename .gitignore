@@ -1,0 +1,15 @@
+/joomla/tmp/*
+!/joomla/tmp/index.html
+/joomla/web.config.txt
+/joomla/LICENSE.txt
+/joomla/README.txt
+/joomla/configuration.php
+/joomla/htaccess.txt
+/joomla/administrator/cache/*
+!/joomla/administrator/cache/index.html
+/joomla/administrator/logs/*
+!/joomla/administrator/logs/index.html
+/joomla/cache/*
+!/joomla/cache/index.html
+/joomla/media/cache/*
+!/joomla/media/cache/index.html

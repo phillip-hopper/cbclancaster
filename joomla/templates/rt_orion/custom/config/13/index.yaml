@@ -1,0 +1,87 @@
+name: 13
+timestamp: 1648304591
+version: 7
+preset:
+  image: 'gantry-admin://images/layouts/default.png'
+  name: home_-_particles
+  timestamp: 1648304591
+positions: {  }
+sections:
+  top: Top
+  navigation: Navigation
+  slideshow: Slideshow
+  above: Above
+  feature: Feature
+  showcase: Showcase
+  utility: Utility
+  expanded: Expanded
+  extension: Extension
+  bottom: Bottom
+  copyright: Copyright
+  header: Header
+  sidebar: Sidebar
+  aside: Aside
+  mainbar: Main
+  footer: Footer
+  offcanvas: Offcanvas
+particles:
+  promo:
+    promo-6483: Promo
+  slider:
+    slider-8051: Slider
+  logos:
+    logos-1631: Logos
+  infolist:
+    infolist-7988: 'Info List'
+  showcase:
+    showcase-4509: Showcase
+  iconpromo:
+    iconpromo-7044: 'Icon Promo'
+  testimonials:
+    testimonials-7527: Testimonials
+  pricingtable:
+    pricingtable-1875: 'Pricing Table'
+  comparisontable:
+    comparisontable-2623: 'Comparison Table'
+  video:
+    video-8023: Video
+  simplecontent:
+    simplecontent-6925: 'Simple Content'
+    simplecontent-9874: 'Simple Content'
+  button:
+    button-9920: Button
+    button-5829: Button
+  stories:
+    stories-4803: 'User Stories'
+  gridstatistic:
+    gridstatistic-9706: 'Grid Statistic'
+  mobile-menu:
+    mobile-menu-2576: 'Mobile Menu'
+  messages:
+    system-messages-5198: 'System Messages'
+  logo:
+    logo-3175: 'Logo / Image'
+  menu:
+    menu-5681: Menu
+  social:
+    social-1790: Social
+  simplemenu:
+    simplemenu-1744: 'Simple Menu'
+  newsletter:
+    newsletter-4605: Newsletter
+  copyright:
+    copyright-8297: Copyright
+inherit:
+  default:
+    top: top
+    navigation: navigation
+    footer: footer
+    copyright: copyright
+    system-messages-5198: system-messages-7654
+    logo-3175: logo-1499
+    menu-5681: menu-5171
+    social-1790: social-9065
+    simplecontent-9874: simplecontent-6366
+    simplemenu-1744: simplemenu-3409
+    newsletter-4605: newsletter-6896
+    copyright-8297: copyright-9597

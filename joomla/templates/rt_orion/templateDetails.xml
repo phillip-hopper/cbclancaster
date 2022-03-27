@@ -42,6 +42,7 @@
         <position>above-a</position>
         <position>aside-a</position>
         <position>bottom-a</position>
+        <position>debug</position>
         <position>expanded-a</position>
         <position>extension-a</position>
         <position>feature-a</position>

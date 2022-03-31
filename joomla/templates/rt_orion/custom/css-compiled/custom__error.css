@@ -19,4 +19,7 @@ div .g-logo img {
 #g-container-top #g-navigation {
   background: #393939;
 }
+#g-container-top #g-navigation .g-content {
+  padding: 0.5rem 1.5rem;
+}
 /*# sourceMappingURL=custom__error.css.map */

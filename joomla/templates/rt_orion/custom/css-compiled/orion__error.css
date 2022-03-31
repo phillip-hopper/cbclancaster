@@ -390,7 +390,7 @@ html body #g-page-surround #g-container-top:before {
   left: 0;
   width: 100%;
   height: 90%;
-  background-image: url('../../images/backgrounds/base/bg-01.svg?623f21cf');
+  background-image: url('../../images/backgrounds/base/bg-01.svg?6245cbff');
   background-repeat: no-repeat;
   background-size: cover;
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
@@ -872,19 +872,19 @@ a:hover {
   font-family: "heebo";
   font-style: normal;
   font-weight: 400;
-  src: url('../../fonts/heebo/heebo-v9-latin-regular.eot?623f21cf#iefix') format("embedded-opentype"), url('../../fonts/heebo/heebo-v9-latin-regular.woff2?623f21cf') format("woff2"), url('../../fonts/heebo/heebo-v9-latin-regular.woff?623f21cf') format("woff"), url('../../fonts/heebo/heebo-v9-latin-regular.ttf?623f21cf') format("truetype"), url('../../fonts/heebo/heebo-v9-latin-regular.svg?623f21cf#heebo') format("svg");
+  src: url('../../fonts/heebo/heebo-v9-latin-regular.eot?6245cbff#iefix') format("embedded-opentype"), url('../../fonts/heebo/heebo-v9-latin-regular.woff2?6245cbff') format("woff2"), url('../../fonts/heebo/heebo-v9-latin-regular.woff?6245cbff') format("woff"), url('../../fonts/heebo/heebo-v9-latin-regular.ttf?6245cbff') format("truetype"), url('../../fonts/heebo/heebo-v9-latin-regular.svg?6245cbff#heebo') format("svg");
 }
 @font-face {
   font-family: "heebo";
   font-style: normal;
   font-weight: 500;
-  src: url('../../fonts/heebo/heebo-v9-latin-500.eot?623f21cf#iefix') format("embedded-opentype"), url('../../fonts/heebo/heebo-v9-latin-500.woff2?623f21cf') format("woff2"), url('../../fonts/heebo/heebo-v9-latin-500.woff?623f21cf') format("woff"), url('../../fonts/heebo/heebo-v9-latin-500.ttf?623f21cf') format("truetype"), url('../../fonts/heebo/heebo-v9-latin-500.svg?623f21cf#heebo') format("svg");
+  src: url('../../fonts/heebo/heebo-v9-latin-500.eot?6245cbff#iefix') format("embedded-opentype"), url('../../fonts/heebo/heebo-v9-latin-500.woff2?6245cbff') format("woff2"), url('../../fonts/heebo/heebo-v9-latin-500.woff?6245cbff') format("woff"), url('../../fonts/heebo/heebo-v9-latin-500.ttf?6245cbff') format("truetype"), url('../../fonts/heebo/heebo-v9-latin-500.svg?6245cbff#heebo') format("svg");
 }
 @font-face {
   font-family: "heebo";
   font-style: normal;
   font-weight: 800;
-  src: url('../../fonts/heebo/heebo-v9-latin-800.eot?623f21cf#iefix') format("embedded-opentype"), url('../../fonts/heebo/heebo-v9-latin-800.woff2?623f21cf') format("woff2"), url('../../fonts/heebo/heebo-v9-latin-800.woff?623f21cf') format("woff"), url('../../fonts/heebo/heebo-v9-latin-800.ttf?623f21cf') format("truetype"), url('../../fonts/heebo/heebo-v9-latin-800.svg?623f21cf#heebo') format("svg");
+  src: url('../../fonts/heebo/heebo-v9-latin-800.eot?6245cbff#iefix') format("embedded-opentype"), url('../../fonts/heebo/heebo-v9-latin-800.woff2?6245cbff') format("woff2"), url('../../fonts/heebo/heebo-v9-latin-800.woff?6245cbff') format("woff"), url('../../fonts/heebo/heebo-v9-latin-800.ttf?6245cbff') format("truetype"), url('../../fonts/heebo/heebo-v9-latin-800.svg?6245cbff#heebo') format("svg");
 }
 body {
   font-family: "heebo", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
@@ -2116,7 +2116,7 @@ input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focu
   position: absolute;
   top: 0;
   left: 0;
-  background-image: url('../../images/backgrounds/slideshow/bg-01.svg?623f21cf');
+  background-image: url('../../images/backgrounds/slideshow/bg-01.svg?6245cbff');
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: 100% 80%;
@@ -2169,7 +2169,7 @@ input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focu
 #g-above {
   color: #000000;
   background: rgba(255, 255, 255, 0);
-  background-image: url('../../images/backgrounds/above/bg-01.svg?623f21cf');
+  background-image: url('../../images/backgrounds/above/bg-01.svg?6245cbff');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -2199,7 +2199,7 @@ input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focu
 #g-showcase {
   color: #000000;
   background: rgba(255, 255, 255, 0);
-  background-image: url('../../images/backgrounds/showcase/bg-01.svg?623f21cf');
+  background-image: url('../../images/backgrounds/showcase/bg-01.svg?6245cbff');
   background-size: cover;
 }
 @media print {
@@ -2211,7 +2211,7 @@ input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focu
 #g-utility {
   color: #000000;
   background: rgba(255, 255, 255, 0);
-  background-image: url('../../images/backgrounds/utility/bg-01.svg?623f21cf');
+  background-image: url('../../images/backgrounds/utility/bg-01.svg?6245cbff');
   background-size: auto 100%;
   background-repeat: no-repeat;
   background-position: right;
@@ -2228,7 +2228,7 @@ input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focu
 #g-feature {
   color: #000000;
   background: rgba(255, 255, 255, 0);
-  background-image: url('../../images/backgrounds/feature/bg-01.svg?623f21cf');
+  background-image: url('../../images/backgrounds/feature/bg-01.svg?6245cbff');
   background-repeat: no-repeat;
   background-position: center 10%;
 }
@@ -2271,7 +2271,7 @@ input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focu
 #g-expanded {
   color: #000000;
   background: rgba(255, 255, 255, 0);
-  background-image: url('../../images/backgrounds/expanded/bg-01.svg?623f21cf');
+  background-image: url('../../images/backgrounds/expanded/bg-01.svg?6245cbff');
   background-repeat: no-repeat;
   background-size: 100%;
   background-position-y: 170%;
@@ -2286,7 +2286,7 @@ input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focu
   color: #000000;
   background: rgba(255, 255, 255, 0);
   position: relative;
-  background-image: url('../../images/backgrounds/extension/bg-01.svg?623f21cf');
+  background-image: url('../../images/backgrounds/extension/bg-01.svg?6245cbff');
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: right bottom;
@@ -4027,7 +4027,7 @@ textarea, select[multiple=multiple], input[type="color"], input[type="date"], in
   margin-right: auto;
   bottom: 50%;
   margin-bottom: -40px;
-  background: url('../../images/owlcarousel/play.svg?623f21cf') no-repeat;
+  background: url('../../images/owlcarousel/play.svg?6245cbff') no-repeat;
   background-size: contain;
   cursor: pointer;
   opacity: 1;
@@ -4051,7 +4051,7 @@ textarea, select[multiple=multiple], input[type="color"], input[type="date"], in
   }
 }
 .g-video-container .g-video .g-videolocal-play.pause {
-  background: url('../../images/owlcarousel/paused.svg?623f21cf');
+  background: url('../../images/owlcarousel/paused.svg?6245cbff');
   background-size: contain;
   opacity: 0;
 }

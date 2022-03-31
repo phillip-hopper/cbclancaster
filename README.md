@@ -19,3 +19,13 @@ sudo n stable
 sudo apt-get install php8.1-ldap
 sudo apt-get install php8.1-intl
 ```
+
+
+## Need to be writable
+
+`joomla/cache`
+`joomla/administrator/cache`
+`joomla/templates/rt_orion/custom`
+`joomla/tmp`
+
+`sudo chmod -R 2775 joomla`

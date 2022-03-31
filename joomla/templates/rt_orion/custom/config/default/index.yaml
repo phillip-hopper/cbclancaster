@@ -1,0 +1,73 @@
+name: default
+timestamp: 1648340804
+version: 7
+preset:
+  image: 'gantry-admin://images/layouts/default.png'
+  name: default
+  timestamp: 1648304591
+positions:
+  slideshow-a: 'Slideshow A'
+  header-a: 'Header A'
+  above-a: 'Above A'
+  feature-a: 'Feature A'
+  showcase-a: 'Showcase A'
+  utility-a: 'Utility A'
+  sidebar-a: 'Sidebar A'
+  mainbar-a: 'MainBar A'
+  aside-a: 'Aside A'
+  expanded-a: 'Expanded A'
+  extension-a: 'Extension A'
+  bottom-a: 'Bottom A'
+sections:
+  top: Top
+  navigation: Navigation
+  slideshow: Slideshow
+  above: Above
+  feature: Feature
+  showcase: Showcase
+  utility: Utility
+  expanded: Expanded
+  extension: Extension
+  bottom: Bottom
+  copyright: Copyright
+  header: Header
+  sidebar: Sidebar
+  aside: Aside
+  mainbar: Main
+  footer: Footer
+  offcanvas: Offcanvas
+particles:
+  messages:
+    system-messages-9828: 'System Messages'
+  logo:
+    logo-3453: 'Logo / Image'
+  menu:
+    menu-2872: Menu
+  social:
+    social-7974: Social
+  position:
+    position-position-6661: 'Slideshow A'
+    position-position-7051: 'Header A'
+    position-position-3264: 'Above A'
+    position-position-7980: 'Feature A'
+    position-position-9435: 'Showcase A'
+    position-position-5239: 'Utility A'
+    position-position-9414: 'Sidebar A'
+    position-position-8547: 'MainBar A'
+    position-position-8807: 'Aside A'
+    position-position-8124: 'Expanded A'
+    position-position-4800: 'Extension A'
+    position-position-3343: 'Bottom A'
+  content:
+    system-content-1120: 'Page Content'
+  simplecontent:
+    simplecontent-4419: 'Simple Content'
+  simplemenu:
+    simplemenu-2324: 'Simple Menu'
+  newsletter:
+    newsletter-5881: Newsletter
+  copyright:
+    copyright-6444: Copyright
+  mobile-menu:
+    mobile-menu-2576: 'Mobile Menu'
+inherit: {  }

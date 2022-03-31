@@ -1,0 +1,64 @@
+name: _error
+timestamp: 1648340804
+version: 7
+preset:
+  image: 'gantry-admin://images/layouts/default.png'
+  name: _error
+  timestamp: 1648304591
+positions: {  }
+sections:
+  top: Top
+  navigation: Navigation
+  slideshow: Slideshow
+  above: Above
+  showcase: Showcase
+  utility: Utility
+  feature: Feature
+  expanded: Expanded
+  extension: Extension
+  bottom: Bottom
+  copyright: Copyright
+  header: Header
+  sidebar: Sidebar
+  aside: Aside
+  mainbar: Main
+  footer: Footer
+  offcanvas: Offcanvas
+particles:
+  simplecontent:
+    simplecontent-7992: 'Simple Content'
+    simplecontent-7913: 'Simple Content'
+  content:
+    system-content-1560: 'Page Content'
+  messages:
+    system-messages-8068: 'System Messages'
+  logo:
+    logo-4027: 'Logo / Image'
+  menu:
+    menu-2179: Menu
+  social:
+    social-1421: Social
+  simplemenu:
+    simplemenu-6671: 'Simple Menu'
+  newsletter:
+    newsletter-2562: Newsletter
+  copyright:
+    copyright-2277: Copyright
+  mobile-menu:
+    mobile-menu-5835: 'Mobile Menu'
+inherit:
+  default:
+    top: top
+    navigation: navigation
+    footer: footer
+    copyright: copyright
+    offcanvas: offcanvas
+    system-messages-8068: system-messages-9828
+    logo-4027: logo-3453
+    menu-2179: menu-2872
+    social-1421: social-7974
+    simplecontent-7913: simplecontent-4419
+    simplemenu-6671: simplemenu-2324
+    newsletter-2562: newsletter-5881
+    copyright-2277: copyright-6444
+    mobile-menu-5835: mobile-menu-2576

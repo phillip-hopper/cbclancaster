@@ -1,0 +1,3 @@
+preset: preset1
+base:
+  background-clipping: '1'

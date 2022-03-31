@@ -6,8 +6,8 @@ blueprints/gantry/theme/details.yaml	2df98086982b4c31ae1ff521d5b4a2ee
 blueprints/menu/menu.yaml	97bfc9e993a9459303397d6be3a99cda
 blueprints/menu/menuitem.yaml	ed87e1e9e82216285ce528e5f7a79640
 config.xml	c0955cc0cfc79ea0a37512592f186d8d
-css-compiled/g-admin.css	13f44eccfad6f28aca82cc2ed6a68675
-css-compiled/joomla-g-admin.css	5a3533538cf0090a6e7124a8328bce00
+css-compiled/g-admin.css	98af27c2e14ecafd11ec39e599373dcf
+css-compiled/joomla-g-admin.css	a4c31a26b2687c20a6a3e153cb4f0980
 fonts/roboto_bold_macroman/Roboto-Bold-webfont.eot	ecdd509cadbf1ea78b8d2e31ec52328c
 fonts/roboto_bold_macroman/Roboto-Bold-webfont.svg	375c4f3bd35840adee24a1535bbb2018
 fonts/roboto_bold_macroman/Roboto-Bold-webfont.ttf	3dcc0e0f2287e2e955cd8ce8cb08dae0
@@ -43,8 +43,8 @@ images/layouts/offline.png	62be3bedd74a07f5e038fe62accc4432
 install/templates/install.php	fb09f677a8b8ee98b883f80b0b117ca4
 install/templates/style.php	bdd5fb9ae6c2a0a05a8db969a32ddcc5
 install/templates/update.php	6870e04e2d6c83863179114d1edf41ea
-js/google-fonts.json	9a0bac44e508abd837a36e3ffdccabb6
-js/main.js	8bd0ad085be74f2c0b23a7b1511bbf06
+js/google-fonts.json	a7119c14db137a6ad79b5504679c0b9f
+js/main.js	a7cecdebae279831b2ce9cece10402bb
 js/tooltips.js	2462fb34ec347c0391c56569c1c5b419
 language/en-GB/en-GB.com_gantry5.ini	6060639038a5a8f4695441eaa9a6b64d
 language/en-GB/en-GB.com_gantry5.sys.ini	1b323ed9c4a083e2652935665e50b4dd

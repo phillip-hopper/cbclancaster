@@ -16,6 +16,16 @@
       "version": "5.0.0"
     },
     {
+      "name": "short-and-sweet",
+      "type": "script",
+      "uri": "vendor/short-and-sweet/short-and-sweet.min.js",
+      "attributes": {
+        "defer": true
+      },
+      "package": "short-and-sweet",
+      "version": "1.0.4"
+    },
+    {
       "name": "wcpolyfill",
       "type": "script",
       "uri": "vendor/webcomponentsjs/webcomponents-bundle.js",
@@ -38,16 +48,6 @@
       },
       "package": "accessibility",
       "version": "3.0.15"
-    },
-    {
-      "name": "short-and-sweet",
-      "type": "script",
-      "uri": "vendor/short-and-sweet/short-and-sweet.min.js",
-      "attributes": {
-        "defer": true
-      },
-      "package": "short-and-sweet",
-      "version": "1.0.4"
     },
     {
       "name": "awesomplete",
@@ -108,7 +108,7 @@
       "type": "style",
       "uri": "vendor/choicesjs/choices.min.css",
       "package": "choices.js",
-      "version": "9.0.1"
+      "version": "9.1.0"
     },
     {
       "name": "choicesjs",
@@ -118,7 +118,7 @@
         "defer": true
       },
       "package": "choices.js",
-      "version": "9.0.1"
+      "version": "9.1.0"
     },
     {
       "name": "choicesjs",
@@ -128,7 +128,14 @@
         "choicesjs#script"
       ],
       "package": "choices.js",
-      "version": "9.0.1"
+      "version": "9.1.0"
+    },
+    {
+      "name": "focus-visible",
+      "type": "script",
+      "uri": "vendor/focus-visible/focus-visible.min.js",
+      "package": "focus-visible",
+      "version": "5.2.0"
     },
     {
       "name": "dragula",
@@ -158,13 +165,6 @@
       "version": "3.7.3"
     },
     {
-      "name": "focus-visible",
-      "type": "script",
-      "uri": "vendor/focus-visible/focus-visible.min.js",
-      "package": "focus-visible",
-      "version": "5.2.0"
-    },
-    {
       "name": "jquery-migrate",
       "type": "script",
       "uri": "vendor/jquery-migrate/jquery-migrate.min.js",
@@ -180,121 +180,6 @@
       "uri": "vendor/jquery/jquery.min.js",
       "package": "jquery",
       "version": "3.6.0"
-    },
-    {
-      "name": "chosen",
-      "type": "style",
-      "uri": "vendor/chosen/chosen.css",
-      "package": "chosen-js",
-      "version": "1.8.7"
-    },
-    {
-      "name": "chosen",
-      "type": "script",
-      "uri": "vendor/chosen/chosen.jquery.js",
-      "dependencies": [
-        "jquery"
-      ],
-      "package": "chosen-js",
-      "version": "1.8.7"
-    },
-    {
-      "name": "chosen",
-      "type": "preset",
-      "dependencies": [
-        "chosen#style",
-        "chosen#script"
-      ],
-      "package": "chosen-js",
-      "version": "1.8.7"
-    },
-    {
-      "name": "minicolors",
-      "type": "style",
-      "uri": "vendor/minicolors/jquery.minicolors.css",
-      "package": "@claviska/jquery-minicolors",
-      "version": "2.3.6"
-    },
-    {
-      "name": "minicolors",
-      "type": "script",
-      "uri": "vendor/minicolors/jquery.minicolors.min.js",
-      "dependencies": [
-        "jquery"
-      ],
-      "attributes": {
-        "defer": true
-      },
-      "package": "@claviska/jquery-minicolors",
-      "version": "2.3.6"
-    },
-    {
-      "name": "minicolors",
-      "type": "preset",
-      "dependencies": [
-        "minicolors#style",
-        "minicolors#script"
-      ],
-      "package": "@claviska/jquery-minicolors",
-      "version": "2.3.6"
-    },
-    {
-      "name": "skipto",
-      "type": "script",
-      "uri": "vendor/skipto/skipto.min.js",
-      "attributes": {
-        "defer": true
-      },
-      "package": "skipto",
-      "version": "4.1.3"
-    },
-    {
-      "name": "qrcode",
-      "type": "script",
-      "uri": "vendor/qrcode/qrcode.js",
-      "package": "qrcode-generator",
-      "version": "1.4.4"
-    },
-    {
-      "name": "qrcode_SJIS",
-      "type": "script",
-      "uri": "vendor/qrcode/qrcode_SJIS.js",
-      "dependencies": [
-        "qrcode"
-      ],
-      "package": "qrcode-generator",
-      "version": "1.4.4"
-    },
-    {
-      "name": "qrcode_UTF8",
-      "type": "script",
-      "uri": "vendor/qrcode/qrcode_UTF8.js",
-      "dependencies": [
-        "qrcode"
-      ],
-      "package": "qrcode-generator",
-      "version": "1.4.4"
-    },
-    {
-      "name": "qrcode",
-      "type": "preset",
-      "dependencies": [
-        "qrcode#script",
-        "qrcode_SJIS#script",
-        "qrcode_UTF8#script"
-      ],
-      "package": "qrcode-generator",
-      "version": "1.4.4"
-    },
-    {
-      "name": "metismenujs",
-      "type": "script",
-      "uri": "vendor/metismenujs/metismenujs.min.js",
-      "attributes": {
-        "defer": true
-      },
-      "package": "metismenujs",
-      "version": "1.3.1"
     },
     {
       "name": "webcomponent.joomla-alert",
@@ -363,6 +248,121 @@
       ],
       "package": "joomla-ui-custom-elements",
       "version": "0.2.0"
+    },
+    {
+      "name": "minicolors",
+      "type": "style",
+      "uri": "vendor/minicolors/jquery.minicolors.css",
+      "package": "@claviska/jquery-minicolors",
+      "version": "2.3.6"
+    },
+    {
+      "name": "minicolors",
+      "type": "script",
+      "uri": "vendor/minicolors/jquery.minicolors.min.js",
+      "dependencies": [
+        "jquery"
+      ],
+      "attributes": {
+        "defer": true
+      },
+      "package": "@claviska/jquery-minicolors",
+      "version": "2.3.6"
+    },
+    {
+      "name": "minicolors",
+      "type": "preset",
+      "dependencies": [
+        "minicolors#style",
+        "minicolors#script"
+      ],
+      "package": "@claviska/jquery-minicolors",
+      "version": "2.3.6"
+    },
+    {
+      "name": "chosen",
+      "type": "style",
+      "uri": "vendor/chosen/chosen.css",
+      "package": "chosen-js",
+      "version": "1.8.7"
+    },
+    {
+      "name": "chosen",
+      "type": "script",
+      "uri": "vendor/chosen/chosen.jquery.js",
+      "dependencies": [
+        "jquery"
+      ],
+      "package": "chosen-js",
+      "version": "1.8.7"
+    },
+    {
+      "name": "chosen",
+      "type": "preset",
+      "dependencies": [
+        "chosen#style",
+        "chosen#script"
+      ],
+      "package": "chosen-js",
+      "version": "1.8.7"
+    },
+    {
+      "name": "metismenujs",
+      "type": "script",
+      "uri": "vendor/metismenujs/metismenujs.min.js",
+      "attributes": {
+        "defer": true
+      },
+      "package": "metismenujs",
+      "version": "1.3.1"
+    },
+    {
+      "name": "qrcode",
+      "type": "script",
+      "uri": "vendor/qrcode/qrcode.js",
+      "package": "qrcode-generator",
+      "version": "1.4.4"
+    },
+    {
+      "name": "qrcode_SJIS",
+      "type": "script",
+      "uri": "vendor/qrcode/qrcode_SJIS.js",
+      "dependencies": [
+        "qrcode"
+      ],
+      "package": "qrcode-generator",
+      "version": "1.4.4"
+    },
+    {
+      "name": "qrcode_UTF8",
+      "type": "script",
+      "uri": "vendor/qrcode/qrcode_UTF8.js",
+      "dependencies": [
+        "qrcode"
+      ],
+      "package": "qrcode-generator",
+      "version": "1.4.4"
+    },
+    {
+      "name": "qrcode",
+      "type": "preset",
+      "dependencies": [
+        "qrcode#script",
+        "qrcode_SJIS#script",
+        "qrcode_UTF8#script"
+      ],
+      "package": "qrcode-generator",
+      "version": "1.4.4"
+    },
+    {
+      "name": "skipto",
+      "type": "script",
+      "uri": "vendor/skipto/skipto.min.js",
+      "attributes": {
+        "defer": true
+      },
+      "package": "skipto",
+      "version": "4.1.3"
     },
     {
       "name": "fontawesome",

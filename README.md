@@ -29,3 +29,10 @@ sudo apt-get install php8.1-intl
 `joomla/tmp`
 
 `sudo chmod -R 2775 joomla`
+
+
+## Link resource files
+```bash
+ln -s `pwd`/config/configuration.php `pwd`/joomla/configuration.php
+ln -s `pwd`/resources/favicon.ico `pwd`/joomla/templates/rt_orion/favicon.ico
+```

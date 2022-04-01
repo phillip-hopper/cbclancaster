@@ -15,9 +15,9 @@ layout:
       -
         /slideshow/:
           -
-            - promo-6483
-          -
             - slider-8051
+          -
+            - promo-6483
   /header/:
     -
       - logos-1631
@@ -188,11 +188,6 @@ structure:
       extra: {  }
       swipe: '0'
 content:
-  promo-6483:
-    attributes:
-      headline: 'Available Today'
-      title: 'Make an Incredible Product Website'
-      text: 'Orion is a fast, friendly design for any project.'
   slider-8051:
     attributes:
       source: particle
@@ -261,6 +256,12 @@ content:
           link:
             enabled: show
             target: _self
+  promo-6483:
+    attributes:
+      enabled: 0
+      headline: 'Available Today'
+      title: 'Make an Incredible Product Website'
+      text: 'Orion is a fast, friendly design for any project.'
   logos-1631:
     attributes:
       logos:

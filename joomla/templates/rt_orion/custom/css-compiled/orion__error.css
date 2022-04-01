@@ -2358,7 +2358,7 @@ input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focu
   }
 }
 #g-offcanvas {
-  background: #0069e3;
+  background: #333333;
   width: 13rem;
   color: #ffffff;
 }
@@ -2468,7 +2468,7 @@ input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focu
   position: absolute;
 }
 #g-offcanvas #g-mobilemenu-container ul {
-  background: #0069e3;
+  background: #333333;
 }
 #g-offcanvas #g-mobilemenu-container ul > li > .g-menu-item-container {
   color: #ffffff;

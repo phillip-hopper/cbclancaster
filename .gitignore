@@ -1,3 +1,4 @@
+/config/
 /joomla/tmp/*
 !/joomla/tmp/index.html
 /joomla/web.config.txt
@@ -13,3 +14,4 @@
 !/joomla/cache/index.html
 /joomla/media/cache/*
 !/joomla/media/cache/index.html
+/joomla/templates/rt_orion/favicon.ico

@@ -1,11 +1,6 @@
-div .g-logo {
-  max-width: 100%;
-  justify-content: unset;
 
-  img {
-    margin-top: -1.5rem;
-    margin-bottom: -1.5rem;
-  }
+.g-offcanvas-toggle {
+  top: 1rem;
 }
 
 #g-container-top #g-navigation {
@@ -13,5 +8,58 @@ div .g-logo {
 
   .g-content {
     padding: 0.5rem 1.5rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .g-logo {
+    max-width: 100%;
+    justify-content: unset;
+    margin-right: -1.5rem;
+
+    img {
+      //margin-top: -1.5rem;
+      //margin-bottom: -1.5rem;
+      object-fit: contain;
+      min-height: 2.5rem;
+    }
   }
 }
+
+@media only all and (max-width: $breakpoints-tablet-container - 0.01rem) {
+  .g-logo {
+    img {
+      height: 2.5rem;
+    }
+  }
+}
+
+//@mixin breakpoint($breakpoint, $media: all) {
+//  @if $breakpoint == large-desktop-range {
+//    @media only #{$media} and (min-width: $breakpoints-large-desktop-container) { @content; }
+//  }
+//  @else if $breakpoint == desktop-range {
+//    @media only #{$media} and (min-width: $breakpoints-desktop-container) and (max-width: $breakpoints-large-desktop-container - 0.01rem) { @content; }
+//  }
+//  @else if $breakpoint == desktop-only {
+//    @media only #{$media} and (min-width: $breakpoints-desktop-container) { @content; }
+//  }
+//  @else if $breakpoint == tablet-range {
+//    @media only #{$media} and (min-width: $breakpoints-tablet-container) and (max-width: $breakpoints-desktop-container - 0.01rem) { @content; }
+//  }
+//  @else if $breakpoint == large-mobile-range {
+//    @media only #{$media} and (min-width: $breakpoints-large-mobile-container + 0.01rem) and (max-width: $breakpoints-tablet-container - 0.01rem) { @content; }
+//  }
+//  @else if $breakpoint == small-mobile-range {
+//    @media only #{$media} and (max-width: $breakpoints-large-mobile-container) { @content; }
+//  }
+//  @else if $breakpoint == no-mobile {
+//    @media only #{$media} and (min-width: $breakpoints-tablet-container) { @content; }
+//  }
+//  @else if $breakpoint == mobile-only {
+//    @media only #{$media} and (max-width: $breakpoints-tablet-container - 0.01rem) { @content; }
+//  }
+//  @else if $breakpoint == no-desktop {
+//    @media only #{$media} and (max-width: $breakpoints-desktop-container - 0.01rem) { @content; }
+//  }
+//}

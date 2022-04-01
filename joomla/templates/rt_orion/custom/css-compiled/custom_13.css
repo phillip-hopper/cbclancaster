@@ -8,15 +8,29 @@
  * http://docs.gantry.org/gantry5/tutorials/adding-a-custom-style-sheet
  */
 
-div .g-logo {
-  max-width: 100%;
-  justify-content: unset;
-}
-div .g-logo img {
-  margin-top: -1.5rem;
-  margin-bottom: -1.5rem;
+.g-offcanvas-toggle {
+  top: 1rem;
 }
 #g-container-top #g-navigation {
   background: #393939;
+}
+#g-container-top #g-navigation .g-content {
+  padding: 0.5rem 1.5rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#g-container-top #g-navigation .g-logo {
+  max-width: 100%;
+  justify-content: unset;
+  margin-right: -1.5rem;
+}
+#g-container-top #g-navigation .g-logo img {
+  object-fit: contain;
+  min-height: 2.5rem;
+}
+@media only all and (max-width: 50.99rem) {
+  .g-logo img {
+    height: 2.5rem;
+  }
 }
 /*# sourceMappingURL=custom_13.css.map */

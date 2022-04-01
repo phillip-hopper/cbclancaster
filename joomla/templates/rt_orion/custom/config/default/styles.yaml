@@ -1,0 +1,83 @@
+preset: preset1
+base:
+  background: '#ffffff'
+  background-image: 'gantry-media://backgrounds/base/bg-01.svg'
+  background-clipping: '1'
+  text-color: '#888888'
+accent:
+  color-1: '#0069e3'
+  color-2: '#00c8ad'
+font:
+  family-title: 'heebo, Helvetica, Tahoma, Geneva, Arial, sans-serif'
+  family-default: 'heebo, Helvetica, Tahoma, Geneva, Arial, sans-serif'
+menustyle:
+  background: 'rgba(255,255,255,0)'
+  text-color: '#000000'
+  text-color-active: '#000000'
+  sublevel-text-color: '#0069e3'
+  sublevel-text-color-active: '#0069e3'
+  sublevel-background: '#ffffff'
+  sublevel-background-active: '#d9e9fb'
+top:
+  background: 'rgba(255,255,255,0)'
+  text-color: '#000000'
+navigation:
+  background: 'rgba(255,255,255,0)'
+  text-color: '#000000'
+header:
+  background: 'rgba(255,255,255,0)'
+  text-color: '#888888'
+above:
+  background: 'rgba(255,255,255,0)'
+  background-image: 'gantry-media://backgrounds/above/bg-01.svg'
+  text-color: '#000000'
+main:
+  background: 'rgba(255,255,255,0)'
+  text-color: '#000000'
+showcase:
+  background: 'rgba(255,255,255,0)'
+  background-image: 'gantry-media://backgrounds/showcase/bg-01.svg'
+  text-color: '#000000'
+slideshow:
+  background: 'rgba(255,255,255,0)'
+  background-image: 'gantry-media://backgrounds/slideshow/bg-01.svg'
+  text-color: '#000000'
+utility:
+  background: 'rgba(255,255,255,0)'
+  background-image: 'gantry-media://backgrounds/utility/bg-01.svg'
+  text-color: '#000000'
+feature:
+  background: 'rgba(255,255,255,0)'
+  background-image: 'gantry-media://backgrounds/feature/bg-01.svg'
+  text-color: '#000000'
+expanded:
+  background: 'rgba(255,255,255,0)'
+  background-image: 'gantry-media://backgrounds/expanded/bg-01.svg'
+  text-color: '#000000'
+extension:
+  background: 'rgba(255,255,255,0)'
+  background-image: 'gantry-media://backgrounds/extension/bg-01.svg'
+  text-color: '#000000'
+bottom:
+  background: 'rgba(255,255,255,0)'
+  text-color: '#000000'
+footer:
+  background: '#000000'
+  text-color: '#cccccc'
+copyright:
+  background: '#000000'
+  text-color: '#888888'
+offcanvas:
+  background: '#333333'
+  text-color: '#ffffff'
+  toggle-color: '#000000'
+  width: 13rem
+  toggle-visibility: '1'
+breakpoints:
+  large-desktop-container: 88rem
+  desktop-container: 76rem
+  tablet-container: 51rem
+  large-mobile-container: 30rem
+  mobile-menu-breakpoint: 51rem
+menu:
+  animation: g-fade

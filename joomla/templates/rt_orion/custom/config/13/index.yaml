@@ -1,5 +1,5 @@
 name: '13'
-timestamp: 1648759294
+timestamp: 1648815368
 version: 7
 preset:
   image: 'gantry-admin://images/layouts/default.png'
@@ -33,8 +33,8 @@ particles:
     menu-4627: Menu
   social:
     social-3097: Social
-  slider:
-    slider-8051: Slider
+  module:
+    position-module-7216: 'Module Instance'
   promo:
     promo-6483: Promo
   logos:

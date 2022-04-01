@@ -15,7 +15,7 @@ layout:
       -
         /slideshow/:
           -
-            - slider-8051
+            - position-module-7216
           -
             - promo-6483
   /header/:
@@ -188,74 +188,10 @@ structure:
       extra: {  }
       swipe: '0'
 content:
-  slider-8051:
+  position-module-7216:
+    title: 'Module Instance'
     attributes:
-      source: particle
-      height: 60vh
-      heightMobile: 500px
-      nav: enabled
-      autoplay: enabled
-      autoplayTimeout: '8000'
-      loop: enabled
-      speed: '800'
-      centered: enabled
-      thumbs: disabled
-      touchmove: enabled
-      items:
-        -
-          description: ''
-          image: 'gantry-media://home/slideshow/img-01.png'
-          link: ''
-          linktarget: modal
-          title: 'Item 1'
-        -
-          description: ''
-          image: 'gantry-media://home/slideshow/img-01.png'
-          link: ''
-          linktarget: modal
-          title: 'Item 2'
-        -
-          description: ''
-          image: 'gantry-media://home/slideshow/img-01.png'
-          link: ''
-          linktarget: modal
-          title: 'Item 3'
-      largedesktopslides: '1'
-      largedesktopgroup: '1'
-      largedesktopspace: '35'
-      desktopslides: '1'
-      desktopgroup: '1'
-      desktopspace: '35'
-      tabletslides: '1'
-      tabletgroup: '1'
-      tabletspace: '35'
-      mobileslides: '1'
-      mobilegroup: '1'
-      mobilespace: '35'
-      article:
-        filter:
-          categories: ''
-          articles: ''
-          featured: include
-        limit:
-          total: '5'
-          start: '0'
-        sort:
-          orderby: publish_up
-          ordering: ASC
-        display:
-          image:
-            enabled: intro
-          text:
-            type: intro
-            limit: ''
-            formatting: text
-          title:
-            enabled: show
-            limit: ''
-          link:
-            enabled: show
-            target: _self
+      module_id: '112'
   promo-6483:
     attributes:
       enabled: 0

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-02-21 14:21+0100\n"
+"POT-Creation-Date: 2022-04-19 14:57+0200\n"
 "PO-Revision-Date: 2020-03-10 19:30+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -26,10 +26,6 @@ msgid "CURL disabled in your php.ini configuration. Please enable it!"
 msgstr ""
 
 msgid "Unable to contact with the licensing server, please try again later!"
-msgstr ""
-
-msgctxt "Default Google font family for admin"
-msgid "Montserrat"
 msgstr ""
 
 msgid "You are not allowed to upload!"
@@ -1088,7 +1084,7 @@ msgstr ""
 msgid "Group"
 msgstr ""
 
-msgid "Edit slider"
+msgid "Edit Slider"
 msgstr ""
 
 msgid "Up"
@@ -1910,13 +1906,15 @@ msgstr ""
 msgid "Why upgrade to Smart Slider 3 Pro?"
 msgstr ""
 
-msgid "120+ slider templates"
+#, php-format
+msgid "%d+ slider templates"
 msgstr ""
 
 msgid "Full slide library access"
 msgstr ""
 
-msgid "20 new layers"
+#, php-format
+msgid "%d new layers"
 msgstr ""
 
 msgid "Extra advanced options"
@@ -2866,7 +2864,7 @@ msgstr ""
 msgid "Cache expiration"
 msgstr ""
 
-msgid "hours"
+msgid "Hours"
 msgstr ""
 
 msgid "Start index"
@@ -3279,22 +3277,13 @@ msgstr ""
 msgid "Whole group"
 msgstr ""
 
-msgid "Select slider"
+msgid "Select Slider"
 msgstr ""
 
 msgid "OR"
 msgstr ""
 
-msgid "Select A Slider"
-msgstr ""
-
 msgid "Insert a slider into your content"
-msgstr ""
-
-msgid "Select Slider"
-msgstr ""
-
-msgid "Edit Slider"
 msgstr ""
 
 msgid "Select the slider you want to insert."
@@ -4168,9 +4157,6 @@ msgstr ""
 msgid "Bullets"
 msgstr ""
 
-msgid "Bullet"
-msgstr ""
-
 msgid "Side"
 msgstr ""
 
@@ -4355,43 +4341,22 @@ msgstr ""
 msgid "Sparkling"
 msgstr ""
 
-msgid "Curve 1"
-msgstr ""
-
-msgid "Curve 2"
-msgstr ""
-
-msgid "Curve 3"
-msgstr ""
-
-msgid "Curve 4"
+#, php-format
+msgid "Curve %d"
 msgstr ""
 
 msgid "Curves"
 msgstr ""
 
-msgid "Fan 1"
-msgstr ""
-
-msgid "Fan 2"
-msgstr ""
-
-msgid "Fan 3"
-msgstr ""
-
-msgid "Fan 4"
+#, php-format
+msgid "Fan %d"
 msgstr ""
 
 msgid "Hills"
 msgstr ""
 
-msgid "Incline 1"
-msgstr ""
-
-msgid "Incline 2"
-msgstr ""
-
-msgid "Incline 3"
+#, php-format
+msgid "Incline %d"
 msgstr ""
 
 msgid "Inverse arrow"
@@ -4403,43 +4368,27 @@ msgstr ""
 msgid "Slopes"
 msgstr ""
 
-msgid "Tilt 1"
+#, php-format
+msgid "Tilt %d"
 msgstr ""
 
-msgid "Tilt 2"
+#, php-format
+msgid "Triangle %d"
 msgstr ""
 
-msgid "Triangle 1"
-msgstr ""
-
-msgid "Triangle 2"
-msgstr ""
-
-msgid "Wave 1"
-msgstr ""
-
-msgid "Wave 2"
+#, php-format
+msgid "Wave %d"
 msgstr ""
 
 msgid "Waves"
 msgstr ""
 
-msgid "Columns 1"
+#, php-format
+msgid "Columns %d"
 msgstr ""
 
-msgid "Columns 2"
-msgstr ""
-
-msgid "Paper 1"
-msgstr ""
-
-msgid "Paper 2"
-msgstr ""
-
-msgid "Paper 3"
-msgstr ""
-
-msgid "Paper 4"
+#, php-format
+msgid "Paper %d"
 msgstr ""
 
 msgid "2 Colors"
@@ -4461,7 +4410,10 @@ msgid "The App ID is empty. Please insert that value too!"
 msgstr ""
 
 #, php-format
-msgid "%1$s allows HTTPS Redirect URIs only! You must move your site to HTTPS in order to use this generator! - %2$s How to get SSL for my WordPress site? %3$s"
+msgid "%1$s allows HTTPS Redirect URIs only! You must move your site to HTTPS in order to use this generator!"
+msgstr ""
+
+msgid "How to get SSL for my website?"
 msgstr ""
 
 #, php-format
@@ -4675,6 +4627,9 @@ msgstr ""
 msgid "Images"
 msgstr ""
 
+msgid "Offset hours"
+msgstr ""
+
 msgid "Timezone offset in hours. For example: +2 or -7."
 msgstr ""
 
@@ -4716,51 +4671,6 @@ msgstr ""
 
 #, php-format
 msgid "Creates slides from %1$s content."
-msgstr ""
-
-msgid "Items"
-msgstr ""
-
-msgid "Locations"
-msgstr ""
-
-msgid "Types"
-msgstr ""
-
-msgid "Expired"
-msgstr ""
-
-msgid "Started"
-msgstr ""
-
-msgid "Auction"
-msgstr ""
-
-msgid "Negotiable price"
-msgstr ""
-
-msgid "Blocked by User"
-msgstr ""
-
-msgid "Paid"
-msgstr ""
-
-msgid "Buynow"
-msgstr ""
-
-msgid "Menu item (item ID)"
-msgstr ""
-
-msgid "Your url will point to the item within this menu item. You will only get a good result, if you will pick one of your DJ Classifields menu items or leave it on 'Default'."
-msgstr ""
-
-msgid "Start date"
-msgstr ""
-
-msgid "Expiration date"
-msgstr ""
-
-msgid "Price"
 msgstr ""
 
 msgid "Include subcategories"
@@ -4812,6 +4722,9 @@ msgid "Separate them by comma."
 msgstr ""
 
 msgid "Banned user IDs"
+msgstr ""
+
+msgid "Started"
 msgstr ""
 
 msgid "Ended"
@@ -4895,10 +4808,16 @@ msgstr ""
 msgid "Manufacturer language"
 msgstr ""
 
+msgid "Price"
+msgstr ""
+
 msgid "Product name"
 msgstr ""
 
 msgid "Product ID"
+msgstr ""
+
+msgid "Locations"
 msgstr ""
 
 msgid "Recurring"
@@ -4914,6 +4833,12 @@ msgid "Only recurring event parents"
 msgstr ""
 
 msgid "Only not recurring events"
+msgstr ""
+
+msgid "Menu item (item ID)"
+msgstr ""
+
+msgid "Start date"
 msgstr ""
 
 msgid "End date"
@@ -4958,6 +4883,9 @@ msgstr ""
 msgid "Only display items with these IDs"
 msgstr ""
 
+msgid "Timezone offset in hours. For example: +2 or -7. If you leave it empty, Joomla's System -> Global Configuration -> Server -> Server Time Zone setting will be used."
+msgstr ""
+
 msgid "Brand"
 msgstr ""
 
@@ -4994,10 +4922,10 @@ msgstr ""
 msgid "Date language"
 msgstr ""
 
-msgid "Offset value"
+msgid "Date variable offset"
 msgstr ""
 
-msgid "Timezone offset in hours. For example: +2 or -7. If you leave it empty, Joomla's System -> Global Configuration -> Server -> Server Time Zone setting will be used."
+msgid "Date filter offset"
 msgstr ""
 
 msgid "Status"
@@ -5009,6 +4937,9 @@ msgstr ""
 msgid "Ask down all product images"
 msgstr ""
 
+msgid "Items"
+msgstr ""
+
 msgid "View item"
 msgstr ""
 
@@ -5016,15 +4947,6 @@ msgid "Viewed"
 msgstr ""
 
 msgid "View image"
-msgstr ""
-
-msgid "Supplier"
-msgstr ""
-
-msgid "On sale"
-msgstr ""
-
-msgid "Discount price"
 msgstr ""
 
 msgid "All day event"
@@ -5501,21 +5423,6 @@ msgstr ""
 msgid "Caption text"
 msgstr ""
 
-msgid "2"
-msgstr ""
-
-msgid "4"
-msgstr ""
-
-msgid "6"
-msgstr ""
-
-msgid "8"
-msgstr ""
-
-msgid "10"
-msgstr ""
-
 msgid "Before image alt tag"
 msgstr ""
 
@@ -5576,9 +5483,6 @@ msgstr ""
 msgid "Days"
 msgstr ""
 
-msgid "Hours"
-msgstr ""
-
 msgid "Minutes"
 msgstr ""
 
@@ -5633,67 +5537,36 @@ msgstr ""
 msgid "Choose what happens after the counter reached zero."
 msgstr ""
 
-msgid "Circle 1"
+#, php-format
+msgid "Circle %d"
 msgstr ""
 
-msgid "Circle 2"
+#, php-format
+msgid "Curly %d"
 msgstr ""
 
-msgid "Circle 3"
+#, php-format
+msgid "Highlight %d"
 msgstr ""
 
-msgid "Curly 1"
+#, php-format
+msgid "Line Through %d"
 msgstr ""
 
-msgid "Curly 2"
+#, php-format
+msgid "Rectangle %d"
 msgstr ""
 
-msgid "Highlight 1"
+#, php-format
+msgid "Underline %d"
 msgstr ""
 
-msgid "Highlight 2"
+#, php-format
+msgid "Underline double %d"
 msgstr ""
 
-msgid "Highlight 3"
-msgstr ""
-
-msgid "Line Through 1"
-msgstr ""
-
-msgid "Line Through 2"
-msgstr ""
-
-msgid "Line Through 3"
-msgstr ""
-
-msgid "Rectangle 1"
-msgstr ""
-
-msgid "Rectangle 2"
-msgstr ""
-
-msgid "Underline 1"
-msgstr ""
-
-msgid "Underline 2"
-msgstr ""
-
-msgid "Underline 3"
-msgstr ""
-
-msgid "Underline double 1"
-msgstr ""
-
-msgid "Underline double 2"
-msgstr ""
-
-msgid "ZigZag 1"
-msgstr ""
-
-msgid "ZigZag 2"
-msgstr ""
-
-msgid "ZigZag 3"
+#, php-format
+msgid "ZigZag %d"
 msgstr ""
 
 msgid "Highlighted text"
@@ -5813,9 +5686,6 @@ msgstr ""
 msgid "Icon not found"
 msgstr ""
 
-msgid "Aria label"
-msgstr ""
-
 #, php-format
 msgid "Enter an %1$s aria-label attribute %2$s that describes the link."
 msgstr ""
@@ -5823,19 +5693,16 @@ msgstr ""
 msgid "Iframe"
 msgstr ""
 
-msgid "iframe"
-msgstr ""
-
 msgid "Please note, that <b>we do not support</b> customized coding! The iframe layer often needs code customizations what you have to do yourself, so we only suggest using this layer if you are a developer!"
 msgstr ""
 
-msgid "iframe url"
+msgid "Iframe url"
 msgstr ""
 
 msgid "You can disable the scroll on the iframe content."
 msgstr ""
 
-msgid "iframe title"
+msgid "Iframe title"
 msgstr ""
 
 msgid "Image area"

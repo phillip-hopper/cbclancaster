@@ -125,12 +125,12 @@ class SliderDeveloper extends AbstractSliderTab {
             'height' => 26,
             'resize' => 'both'
         ));
-
         $row4 = $table->createRow('developer-4');
         new Textarea($row4, 'callbacks', n2_('JavaScript callbacks'), '', array(
             'height' => 26,
             'resize' => 'both'
         ));
+    
 
         $row11 = $table->createRow('developer-11');
         new Number($row11, 'loading-time', n2_('Loading animation waiting time'), 2000, array(

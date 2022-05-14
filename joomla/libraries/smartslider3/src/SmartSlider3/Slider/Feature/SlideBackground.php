@@ -311,10 +311,10 @@ class SlideBackground {
                         'media'  => implode($mediaQueryMinPixelRatio . ',', $mediaQueries['desktopportrait']) . $mediaQueryMinPixelRatio
                     )), false, false);
                 }
-                if (!empty($mediaQueries['desktopLandscape'])) {
+                if (!empty($mediaQueries['desktoplandscape'])) {
                     $sources[] = HTML::tag('source', Html::addExcludeLazyLoadAttributes(array(
                         'srcset' => $backgroundImageDesktopRetina,
-                        'media'  => implode($mediaQueryMinPixelRatio . ',', $mediaQueries['desktopLandscape']) . $mediaQueryMinPixelRatio
+                        'media'  => implode($mediaQueryMinPixelRatio . ',', $mediaQueries['desktoplandscape']) . $mediaQueryMinPixelRatio
                     )), false, false);
                 }
 

@@ -5,6 +5,7 @@ namespace Nextend\SmartSlider3\Slider\Feature;
 
 
 use Nextend\Framework\Parser\Common;
+use Nextend\Framework\Sanitize;
 use Nextend\SmartSlider3\Settings;
 
 class TranslateUrl {
@@ -18,7 +19,7 @@ class TranslateUrl {
     public function __construct($slider) {
 
         $this->slider = $slider;
-        list($this->from, $this->to) = (array)Common::parse(Settings::get('translate-url', '||'));
+        list($this->from, $this->to) = (array)Common::parse(Sanitize::esc_attr(Settings::get('translate-url', '||')));
     }
 
     public function replaceUrl($string) {

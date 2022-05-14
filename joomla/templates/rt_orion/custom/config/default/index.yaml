@@ -1,5 +1,5 @@
 name: default
-timestamp: 1648340804
+timestamp: 1652235124
 version: 7
 preset:
   image: 'gantry-admin://images/layouts/default.png'
@@ -60,12 +60,8 @@ particles:
     position-position-3343: 'Bottom A'
   content:
     system-content-1120: 'Page Content'
-  simplecontent:
-    simplecontent-4419: 'Simple Content'
-  simplemenu:
-    simplemenu-2324: 'Simple Menu'
-  newsletter:
-    newsletter-5881: Newsletter
+  custom:
+    custom-9551: 'Custom HTML'
   copyright:
     copyright-6444: Copyright
   mobile-menu:

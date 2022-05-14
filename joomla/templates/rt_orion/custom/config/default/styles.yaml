@@ -62,11 +62,11 @@ bottom:
   background: 'rgba(255,255,255,0)'
   text-color: '#000000'
 footer:
-  background: '#000000'
-  text-color: '#cccccc'
+  background: '#2280b6'
+  text-color: '#ffffff'
 copyright:
-  background: '#000000'
-  text-color: '#888888'
+  background: '#3388b9'
+  text-color: '#ffffff'
 offcanvas:
   background: '#333333'
   text-color: '#ffffff'

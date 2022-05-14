@@ -36,7 +36,7 @@ particles/assets.yaml	7301addeae37a1b8a99dd4a7865ce31f
 particles/branding.html.twig	162bcc6af168b8c113a3d365c8e6c7b4
 particles/branding.yaml	e17cb1fcbad0c9af4d9119f8544d3bc9
 particles/content.yaml	68d6d57c5f088d16e2c6b03e0c8753e0
-particles/contentarray.html.twig	292bcf028d78d296499da3d29366906e
+particles/contentarray.html.twig	52540362d38a6442fb3c78f992791c3c
 particles/contentarray.yaml	ad0819d1dd23f46f56a6b47fd4c1227a
 particles/copyright.html.twig	9cdfc98efcfa0bd5f37c012bad8e2345
 particles/copyright.yaml	2f80b0c680382d94eabc8c83478ff979
@@ -318,7 +318,7 @@ templates/layout/offcanvas.html.twig	04001d9f6b7c5573236c14b9a28cfa7a
 templates/layout/section.html.twig	9fbd8525cbb293ea652d74bbf1aec361
 templates/layout/wrapper.html.twig	80575cb54b77a5b88b8299c99fda28e1
 templates/page.html.twig	0229fef74c34bb96b0f7dc95d06611f5
-templates/page_head.html.twig	8f23edb6fb1461f1b8f4ae838c0c4a60
+templates/page_head.html.twig	7733f8efba607694f6cd048229915015
 templates/partials/particle.html.twig	07935cff8475093e4c5e315985b39b99
 twig/component.html.twig	abdb4071d7588181a6c4c196436b3e5d
 twig/error.html.twig	53af3ecf22a84bc4e01e7f2c64c4da0d

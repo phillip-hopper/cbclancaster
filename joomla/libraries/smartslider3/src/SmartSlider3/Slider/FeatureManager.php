@@ -121,9 +121,8 @@ class FeatureManager {
 
         $return         = array(
             'admin'                   => $this->slider->isAdmin,
-            'callbacks'               => $this->slider->params->get('callbacks', ''),
             'background.video.mobile' => intval($this->slider->params->get('slides-background-video-mobile', 1)),
-            'loadingTime'=>intval($this->slider->params->get('loading-time', 2000))
+            'loadingTime'             => intval($this->slider->params->get('loading-time', 2000))
         );
         $randomizeCache = $this->slider->params->get('randomize-cache', 0);
         if (!$this->slider->isAdmin && $randomizeCache) {
@@ -132,6 +131,8 @@ class FeatureManager {
                 'randomizeFirst' => intval($this->slider->params->get('randomizeFirst', 0))
             );
         }
+        $return['callbacks'] = $this->slider->params->get('callbacks', '');
+    
 
         $return['alias'] = array(
             'id'           => intval($this->slider->params->get('alias-id', 0)),

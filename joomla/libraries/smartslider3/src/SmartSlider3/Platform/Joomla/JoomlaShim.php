@@ -41,6 +41,7 @@ class JoomlaShim {
             $excludedPlugins[] = 'plgcontentshortcode_ultimate';
             $excludedPlugins[] = 'plgcontentarkcontent';
             $excludedPlugins[] = 'plgcontentosyoutube';
+            $excludedPlugins[] = 'plgsystemt4';
         }
 
         return $excludedPlugins;

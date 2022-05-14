@@ -61,7 +61,7 @@ class SliderTypeSimpleFrontend extends AbstractSliderTypeFrontend {
         $slides = $this->slider->getSlides();
         ?>
 
-        <div class="n2-ss-slider-1 n2_ss__touch_element n2-ow" style="<?php echo Sanitize::esc_attr($sliderCSS); ?>">
+        <div class="n2-ss-slider-1 n2_ss__touch_element n2-ow"<?php echo empty($sliderCSS) ? '' : ' style="' . Sanitize::esc_attr($sliderCSS) . '"'; ?>>
             <div class="n2-ss-slider-2 n2-ow">
                 <?php
                 echo $this->getBackgroundVideo($params);
@@ -69,7 +69,7 @@ class SliderTypeSimpleFrontend extends AbstractSliderTypeFrontend {
                 <?php if ($this->backgroundAnimation): ?>
                     <div class="n2-ss-background-animation n2-ow"></div>
                 <?php endif; ?>
-                <div class="n2-ss-slider-3 n2-ow" style="<?php echo $slideCSS; ?>">
+                <div class="n2-ss-slider-3 n2-ow"<?php echo empty($slideCSS) ? '' : ' style="' . $slideCSS . '"'; ?>>
 
                     <?php
                     echo $this->slider->staticHtml;

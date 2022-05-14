@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-01-17 09:52+0100\n"
-"PO-Revision-Date: 2022-01-17 13:27+0100\n"
+"POT-Creation-Date: 2022-02-23 13:55+0100\n"
+"PO-Revision-Date: 2022-02-24 13:36+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -182,6 +182,16 @@ msgstr "Frontend"
 
 msgid "You can load Google Fonts on the frontend."
 msgstr "Puedes cargar fuentes de Google Fonts en el frontend."
+
+msgid "Save fonts locally"
+msgstr "Grabar las fuentes en forma local"
+
+msgid ""
+"You can store the used Google Fonts on your server. This way all Google "
+"Fonts will load from your own domain."
+msgstr ""
+"Puedes almacenar las fuentes de Google Font en su servidor. De esta manera "
+"se cargarán las fuentes desde tu propio dominio."
 
 msgid "Backend"
 msgstr "Backend"
@@ -2625,7 +2635,7 @@ msgstr "Mostrar"
 
 #, php-format
 msgid "Showing %s to %s of %s projects"
-msgstr "Mostrando %s de %s de %s proyectos"
+msgstr "Mostrando %s a %s de %s proyectos"
 
 msgid "No projects to show"
 msgstr "No hay proyectos para mostrar"
@@ -2644,7 +2654,7 @@ msgid "Showing %s results for %s."
 msgstr "Mostrando %s resultados para %s."
 
 msgid "Module"
-msgstr "Modulo"
+msgstr "Module"
 
 msgid "Displays the slider in a template module position."
 msgstr "Muestra el slider en una posición de módulo de tu plantilla."
@@ -4985,12 +4995,13 @@ msgstr "¡El ID de la app está vacío. Por favor ingresa ese valor!"
 #, php-format
 msgid ""
 "%1$s allows HTTPS Redirect URIs only! You must move your site to HTTPS in "
-"order to use this generator! - %2$s How to get SSL for my WordPress site? "
-"%3$s"
+"order to use this generator!"
 msgstr ""
 "%1$s permite solo URIs de redireccionamiento HTTPS. ¡Puedes mover tu sitio a "
-"HTTPS para poder utilizar este generador! %2$s ¿Cómo usar SSL para mi sitio "
-"en WordPress? %3$s"
+"HTTPS para poder utilizar este generador!"
+
+msgid "How to get SSL for my website?"
+msgstr "¿Cómo usar SSL para mi sitio?"
 
 #, php-format
 msgid ""
@@ -5113,7 +5124,7 @@ msgid "Folder"
 msgstr "Carpeta"
 
 msgid "Images in folder"
-msgstr "Imagenes en el directorio"
+msgstr "Imágenes en la carpeta"
 
 msgid "Images in folder and subfolders"
 msgstr "Imágenes en la carpeta y subcarpetas"
@@ -5122,7 +5133,10 @@ msgid "Videos in folder"
 msgstr "Videos en carpeta"
 
 msgid "Source folder"
-msgstr "Directorio origen"
+msgstr "Carpeta de origen"
+
+msgid "Filename based exclusion"
+msgstr "Excluir basado en el nombre del archivo"
 
 msgid "Remove resized images"
 msgstr "Remover imágenes redimensionadas"
@@ -5138,6 +5152,28 @@ msgstr ""
 "ejemplo, \"mifotografia.jpg\" permanecerá en los resultados del generador, "
 "mientras que \"mifotografia-120x120.jpg\" será removida, ya que es la misma "
 "imagen, pero en un tamaño más pequeño."
+
+msgid "Filename has to contain"
+msgstr "El nombre del archivo debe contener"
+
+msgid ""
+"Only those images will be asked down, which have the given texts within "
+"their filenames. You can write down multiple texts separated by comma."
+msgstr ""
+"Solo se llamarán las imágenes que contengan el texto que especifiques en su "
+"nombre de archivo. Puedes escribir múltiples parámetros separándolos con una "
+"coma."
+
+msgid "Filename cannot contain"
+msgstr "El nombre del archivo no debe contener"
+
+msgid ""
+"Only those images will be asked down, which don't have the given texts "
+"within their filenames. You can write down multiple texts separated by comma."
+msgstr ""
+"Solo se llamarán las imágenes que no contengan el texto que especifiques en "
+"su nombre de archivo. Puedes escribir múltiples parámetros separándolos con "
+"una coma."
 
 msgid "Filename"
 msgstr "Nombre de archivo"
@@ -5161,6 +5197,41 @@ msgid ""
 msgstr ""
 "Dirección incorrecta. Esta es la dirección de la carpeta de medios y subida "
 "de archivos por defecto, trata navegar desde aquí:"
+
+msgid "The App ID and the Secret is empty!"
+msgstr "¡Los parámetros \"App ID\" y \"Secret\" están vacíos!"
+
+msgid "The token will expire at:"
+msgstr "El tocken expirará en:"
+
+msgid "Access token was not returned.Please check the credentials!"
+msgstr ""
+"El token de acceso no devolvió ningún resultado. ¡Por favor comprueba las "
+"credenciales!"
+
+msgid "The token expired. Please request new token!"
+msgstr "¡El token expiró. Por favor solicite uno nuevo!"
+
+msgid "The token will expire in two days! Please refresh the token!"
+msgstr "¡El token expirará en dos días!. ¡Por favor solicita uno nuevo!"
+
+msgid "Refresh Token"
+msgstr "Actualizar token"
+
+msgid "Refresh"
+msgstr "Recargar"
+
+msgid "Album loading method"
+msgstr "Método de carga del álbum"
+
+msgid "Load first images only"
+msgstr "Cargar solo las primeras imágenes"
+
+msgid "Load album images separately"
+msgstr "Cargar imágenes del álbum por separado"
+
+msgid "Load Album images as record data"
+msgstr "Cargar imágenes del álbum como datos de registro"
 
 msgid "JSON from url"
 msgstr "JSON desde una url"
@@ -5585,40 +5656,6 @@ msgid "Show parent products only"
 msgstr "Mostrar solo los productos principales"
 
 #, php-format
-msgid "Creates slides from %1$s events."
-msgstr "Crea slides desde los eventos de %1$s."
-
-msgid "Create custom date variables"
-msgstr "Crear variables de fecha personalizadas"
-
-msgid ""
-"You can write any date format (http://php.net/manual/en/function.date.php) "
-"in separate lines, and new variables will be created for them."
-msgstr ""
-"Puedes escribir cualquier formato de fecha (http://php.net/manual/en/"
-"function.date.php) en líneas separadas y nuevas variables se crearán para "
-"ellos."
-
-msgid ""
-"Write the original text, like 'Monday' then two | signs, and the text you "
-"want it to be translated to, for example 'Montag'. Together: Monday||Montag"
-msgstr ""
-"Escribe el texto original, como 'Monday' seguido por dos signos |, y después "
-"el texto que quieres al que se traduzca. Ejemplo: Monday||Lunes"
-
-msgid "Event start date"
-msgstr "Fecha de inicio del evento"
-
-msgid "Event end date"
-msgstr "Fecha de finalización del evento"
-
-msgid "Event creation date"
-msgstr "Fecha de creación del evento"
-
-msgid "Event modification date"
-msgstr "Fecha de modificación del evento"
-
-#, php-format
 msgid "Creates slides from %1$s galleries."
 msgstr "Crea slides desde las galerías de %1$s."
 
@@ -5641,6 +5678,10 @@ msgstr ""
 
 msgid "No options given"
 msgstr "No se ingresaron opciones"
+
+#, php-format
+msgid "Creates slides from %1$s events."
+msgstr "Crea slides desde los eventos de %1$s."
 
 msgid "Exclude event IDs (One ID per line)"
 msgstr "Excluir IDs de eventos (un ID por línea)"
@@ -5698,8 +5739,20 @@ msgstr "Locales"
 msgid "Hide From Event Listings"
 msgstr "Ocultar de los listados de eventos"
 
+msgid "Event start date"
+msgstr "Fecha de inicio del evento"
+
+msgid "Event end date"
+msgstr "Fecha de finalización del evento"
+
 msgid "Event cost"
 msgstr "Costo del evento"
+
+msgid "Event creation date"
+msgstr "Fecha de creación del evento"
+
+msgid "Event modification date"
+msgstr "Fecha de modificación del evento"
 
 msgid "Metakey name"
 msgstr "Nombre de la clave meta"
@@ -5933,13 +5986,13 @@ msgid "Grow rotate"
 msgstr "Girar creciendo"
 
 msgid "Pendulum"
-msgstr "Pendulo"
+msgstr "Péndulo"
 
 msgid "Pendulum 3D"
-msgstr "Pendulo 3D"
+msgstr "Péndulo 3D"
 
 msgid "Vertical pendulum 3D"
-msgstr "Pendulo vertical 3D"
+msgstr "Péndulo vertical 3D"
 
 msgid "Before text"
 msgstr "Antes del texto"
@@ -6816,6 +6869,25 @@ msgstr "Color de la pista"
 
 msgid "Bar color"
 msgstr "Color de la barra"
+
+#~ msgid "Create custom date variables"
+#~ msgstr "Crear variables de fecha personalizadas"
+
+#~ msgid ""
+#~ "You can write any date format (http://php.net/manual/en/function.date."
+#~ "php) in separate lines, and new variables will be created for them."
+#~ msgstr ""
+#~ "Puedes escribir cualquier formato de fecha (http://php.net/manual/en/"
+#~ "function.date.php) en líneas separadas y nuevas variables se crearán para "
+#~ "ellos."
+
+#~ msgid ""
+#~ "Write the original text, like 'Monday' then two | signs, and the text you "
+#~ "want it to be translated to, for example 'Montag'. Together: Monday||"
+#~ "Montag"
+#~ msgstr ""
+#~ "Escribe el texto original, como 'Monday' seguido por dos signos |, y "
+#~ "después el texto que quieres al que se traduzca. Ejemplo: Monday||Lunes"
 
 #~ msgid "Private video"
 #~ msgstr "Video privado"

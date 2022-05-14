@@ -28,9 +28,157 @@
   object-fit: contain;
   min-height: 2.5rem;
 }
-@media only all and (max-width: 50.99rem) {
+section.fp-slideshow .slideshow-text {
+  display: flex;
+  font-size: 1rem !important;
+}
+header.fp-header .new-user-strip {
+  text-align: center;
+  margin: 0;
+  background-size: cover;
+}
+header.fp-header .new-user-strip > .container {
+  padding: 20px 12px 30px;
+}
+header.fp-header .new-user-strip .times {
+  padding-top: 13px;
+  padding-bottom: 12px;
+  border-top: 1px solid #D0D0D0;
+  margin-bottom: 0;
+  margin-top: 0;
+  font-size: 18px;
+  color: #595959;
+  font-weight: 400;
+}
+header.fp-header .new-user-strip .times b {
+  color: #2E6081;
+  text-transform: uppercase;
+  padding-right: 12px;
+}
+header.fp-header .new-user-strip a {
+  text-decoration: none;
+  color: #000000;
+}
+header.fp-header .new-user-strip a.schedule {
+  color: #647897;
+  text-decoration: underline;
+  font-weight: 500;
+}
+header.fp-header .new-user-strip h1 {
+  margin: 0 0 12px;
+}
+header.fp-header .text-bold-white {
+  font-size: 73px;
+  line-height: 88px;
+  font-family: roboto, sans-serif;
+  color: #2280B6;
+}
+header.fp-header .text-small-light {
+  font-size: 25px;
+  vertical-align: top;
+  line-height: 88px;
+  font-weight: 100;
+  color: #626262;
+}
+header.fp-header .church-name {
+  font-size: 30px;
+  vertical-align: top;
+  line-height: 33px;
+  display: inline-block;
+  padding: 11px 8px 10px 10px;
+  text-align: left;
+  font-weight: 300;
+  color: #525252;
+  text-transform: uppercase;
+  font-family: roboto, sans-serif;
+}
+header.fp-header .church-name b {
+  color: #2280B6;
+  font-weight: 300;
+}
+header.fp-header .q-mark {
+  font-weight: 300;
+}
+header.fp-header .hiddenwelcome {
+  display: none;
+}
+header.fp-header .visitorbutton {
+  display: inline-block;
+  background-color: #2280B6;
+  color: #FFFFFF;
+  padding: 5px 26px 5px 21px;
+  text-transform: uppercase;
+  font-weight: 100;
+  font-size: 19px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  border-radius: 2px;
+  font-family: "open sans", sans-serif;
+}
+header.fp-header .fade1 {
+  opacity: 1;
+  transition: opacity 0.25s ease-in-out;
+  -moz-transition: opacity 0.25s ease-in-out;
+  -webkit-transition: opacity 0.25s ease-in-out;
+}
+header.fp-header .fade1:hover {
+  opacity: 0.67;
+}
+#g-footer .g-blockcontent .g-content {
+  margin: 0.32rem;
+  padding: 0.75rem;
+}
+#g-footer .g-blockcontent .g-content h4 {
+  display: none;
+}
+#g-footer .g-blockcontent-subcontent-desc {
+  font-size: 1rem;
+}
+#g-footer * {
+  color: #ffffff;
+}
+#g-footer a {
+  text-decoration: underline;
+}
+#g-footer a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+.no-pad-vertical-g-content, .no-pad-vertical-g-content .g-content {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+html {
+  font-size: 16px;
+}
+@media (max-width: 87.99rem) {
+  html {
+    font-size: 15px;
+  }
+}
+@media (max-width: 75.99rem) {
+  html {
+    font-size: 14px;
+  }
+}
+@media (max-width: 50.99rem) {
+  html {
+    font-size: 13px;
+  }
   .g-logo img {
     height: 2.5rem;
+  }
+}
+@media (max-width: 29.99rem) {
+  html {
+    font-size: 12px;
+  }
+  header.fp-header .new-user-strip .times {
+    border-top: none;
+  }
+  header.fp-header .text-new-user {
+    display: none;
   }
 }
 /*# sourceMappingURL=custom__error.css.map */

@@ -2,6 +2,7 @@
 
 namespace Nextend\Framework;
 
+use DOMDocument;
 use Nextend\Framework\Platform\Platform;
 
 global $allowedentitynames;
@@ -594,16 +595,88 @@ class Sanitize {
         return $safe_text;
     }
 
+    public static function remove_closing_style_tag($text) {
+        $safe_text = self::check_invalid_utf8($text);
+
+        return preg_replace_callback('/<\/style.*?>/i', function () {
+            return '';
+        }, $safe_text);
+    }
+
     public static function esc_css_value($text) {
         $safe_text = self::check_invalid_utf8($text);
 
-        return preg_replace_callback('/<\/style.*?>/i', array(
-            self::class,
-            'esc_css_value_callback'
-        ), $safe_text);
+        return preg_replace_callback('/[<>]/', function () {
+            return '';
+        }, $safe_text);
     }
 
-    public static function esc_css_value_callback($a) {
-        return self::esc_html($a[0]);
+    public static function esc_css_string($cssString) {
+
+        $output = '';
+        echo "\n\n";
+
+        $pairs = explode(';', trim($cssString));
+        foreach ($pairs as $pair) {
+            if (!empty($pair)) {
+                $keyValue = explode(':', trim($pair), 2);
+                if (count($keyValue) != 2) {
+                    continue;
+                }
+                if (!preg_match('/^[a-zA-Z\-]+$/', $keyValue[0])) {
+                    continue;
+                }
+
+                $output .= $keyValue[0] . ':' . self::esc_css_value(trim($keyValue[1])) . ';';
+            }
+        }
+
+        return $output;
+    }
+
+    public static function filter_allowed_html($input, $extraTags = '') {
+
+        return self::filter_attributes_on(strip_tags($input, '<a><span><sub><sup><em><i><var><cite><b><strong><small><bdo><br><img><picture><source>' . $extraTags));
+    }
+
+    public static function remove_all_html($input) {
+
+        return strip_tags($input);
+    }
+
+    public static function filter_attributes_on($input) {
+
+        libxml_use_internal_errors(true);
+        $dom = new DOMDocument();
+        $dom->loadHTML('<div>' . self::do_mb_convert_encoding($input) . '</div>', LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        libxml_use_internal_errors(false);
+
+        for ($els = $dom->getElementsByTagname('*'), $i = $els->length - 1; $i >= 0; $i--) {
+            for ($attrs = $els->item($i)->attributes, $ii = $attrs->length - 1; $ii >= 0; $ii--) {
+                if (substr($attrs->item($ii)->name, 0, 2) === 'on') {
+                    $els->item($i)
+                        ->removeAttribute($attrs->item($ii)->name);
+                }
+            }
+        }
+
+        $output = '';
+
+        $childNodes = $dom->firstChild->childNodes;
+        if (!empty($childNodes)) {
+            foreach ($childNodes as $childNode) {
+                $output .= $dom->saveHTML($childNode);
+            }
+        }
+
+        return $output;
+    }
+
+    public static function do_mb_convert_encoding($input) {
+        if (function_exists('mb_convert_encoding')) {
+            return mb_convert_encoding($input, 'HTML-ENTITIES', 'UTF-8');
+        } else {
+            return $input;
+        }
     }
 }

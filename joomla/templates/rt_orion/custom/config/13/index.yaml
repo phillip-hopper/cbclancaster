@@ -1,5 +1,5 @@
 name: '13'
-timestamp: 1648815368
+timestamp: 1652537440
 version: 7
 preset:
   image: 'gantry-admin://images/layouts/default.png'
@@ -37,36 +37,11 @@ particles:
     position-module-7216: 'Module Instance'
   promo:
     promo-6483: Promo
-  logos:
-    logos-1631: Logos
-  infolist:
-    infolist-7988: 'Info List'
-  showcase:
-    showcase-4509: Showcase
-  iconpromo:
-    iconpromo-7044: 'Icon Promo'
-  testimonials:
-    testimonials-7527: Testimonials
-  pricingtable:
-    pricingtable-1875: 'Pricing Table'
-  comparisontable:
-    comparisontable-2623: 'Comparison Table'
-  video:
-    video-8023: Video
-  simplecontent:
-    simplecontent-6925: 'Simple Content'
-    simplecontent-9182: 'Simple Content'
-  button:
-    button-9920: Button
-    button-5829: Button
-  stories:
-    stories-4803: 'User Stories'
-  gridstatistic:
-    gridstatistic-9706: 'Grid Statistic'
-  simplemenu:
-    simplemenu-6521: 'Simple Menu'
-  newsletter:
-    newsletter-8674: Newsletter
+  custom:
+    custom-4283: 'Custom HTML'
+    custom-1448: 'Custom HTML'
+    custom-9888: 'Custom HTML'
+    custom-6768: 'Custom HTML'
   copyright:
     copyright-6729: Copyright
   mobile-menu:
@@ -80,8 +55,6 @@ inherit:
     menu-4627: menu-2872
     social-3097: social-7974
     footer: footer
-    simplecontent-9182: simplecontent-4419
-    simplemenu-6521: simplemenu-2324
-    newsletter-8674: newsletter-5881
+    custom-6768: custom-9551
     copyright: copyright
     copyright-6729: copyright-6444

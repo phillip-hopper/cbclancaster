@@ -1,5 +1,5 @@
 name: _error
-timestamp: 1648340804
+timestamp: 1652235124
 version: 7
 preset:
   image: 'gantry-admin://images/layouts/default.png'
@@ -27,7 +27,6 @@ sections:
 particles:
   simplecontent:
     simplecontent-7992: 'Simple Content'
-    simplecontent-7913: 'Simple Content'
   content:
     system-content-1560: 'Page Content'
   messages:
@@ -38,10 +37,8 @@ particles:
     menu-2179: Menu
   social:
     social-1421: Social
-  simplemenu:
-    simplemenu-6671: 'Simple Menu'
-  newsletter:
-    newsletter-2562: Newsletter
+  custom:
+    custom-6266: 'Custom HTML'
   copyright:
     copyright-2277: Copyright
   mobile-menu:
@@ -57,8 +54,6 @@ inherit:
     logo-4027: logo-3453
     menu-2179: menu-2872
     social-1421: social-7974
-    simplecontent-7913: simplecontent-4419
-    simplemenu-6671: simplemenu-2324
-    newsletter-2562: newsletter-5881
+    custom-6266: custom-9551
     copyright-2277: copyright-6444
     mobile-menu-5835: mobile-menu-2576

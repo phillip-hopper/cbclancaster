@@ -15,17 +15,22 @@
   background: #393939;
 }
 #g-container-top #g-navigation .g-content {
-  padding: 0.5rem 0 0.5rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   margin-top: 0;
   margin-bottom: 0;
 }
 #g-container-top #g-navigation .g-logo {
   max-width: 100%;
   justify-content: unset;
+  margin-right: -1.5rem;
 }
 #g-container-top #g-navigation .g-logo img {
   object-fit: contain;
   min-height: 2.5rem;
+}
+section.fp-slideshow .g-content {
+  margin-top: 0;
+  padding-top: 0;
 }
 @media only all and (max-width: 50.99rem) {
   .g-logo img {

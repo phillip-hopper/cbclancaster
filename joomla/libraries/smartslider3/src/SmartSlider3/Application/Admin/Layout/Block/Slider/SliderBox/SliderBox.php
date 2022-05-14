@@ -112,7 +112,7 @@ use Nextend\Framework\Sanitize;
     </div>
     <a class="n2_slide_box__screen_reader" href="<?php echo $this->getSimpleEditUrl(); ?>">
         <?php
-        echo n2_('Edit slider') . ': ' . Sanitize::esc_html($this->getSliderTitle());
+        echo n2_('Edit Slider') . ': ' . Sanitize::esc_html($this->getSliderTitle());
         ?>
     </a>
 </div>

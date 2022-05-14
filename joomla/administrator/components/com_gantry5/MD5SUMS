@@ -106,7 +106,7 @@ templates/ajax/filepicker.html.twig	fb06307efd7e61b4ae22d3eb81b472b1
 templates/ajax/filepicker/files.html.twig	5386da1c9f0ffa7a94e98576c0041483
 templates/ajax/filepicker/subfolders.html.twig	d3d1e02e6c48c20300f95747aae09f1b
 templates/ajax/fontpicker.html.twig	5020958fa623c8317f9ef6288a347637
-templates/ajax/icons.html.twig	fcf3e695647a583c51a8c3fc6ab6d5b7
+templates/ajax/icons.html.twig	3105516351685e3099264b73bab324e2
 templates/ajax/outline-new.html.twig	842c7fd707227d646098955423946ae3
 templates/ajax/particles-loss.html.twig	ba80de9cd1a9dfa43d86db59c1d65ec1
 templates/ajax/unsaved.html.twig	69b0adc910c1b34f08f7b9219272d582
@@ -240,6 +240,6 @@ templates/partials/outlines-list.html.twig	8cc4286d4d6c78adff4e40d4435d74a8
 templates/partials/page.html.twig	75b2371c5b46e269899d17a40a9b78ea
 templates/partials/php_unsupported.html.twig	fc9f221c528c36f9357f416eba41733a
 templates/partials/updates.html.twig	e199020e3d3aa73c4dccd17b1e9ad914
-translations/en/nucleus.yaml	abff57f4af243d6e0724559d8a2a7cb4
+translations/en/nucleus.yaml	46bf5ea881fbbc75071e757dc0abdd6a
 translations/en/platform.yaml	13fcf4359e383c9e9e382195737348c6
 yarn.lock	e553df651817f9ec84c3673f67653a2a

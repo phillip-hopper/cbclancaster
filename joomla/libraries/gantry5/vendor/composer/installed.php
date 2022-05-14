@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '5.5.12',
-        'version' => '5.5.12.0',
+        'pretty_version' => '5.5.13',
+        'version' => '5.5.13.0',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '158b0723ad743401d614d82bba269a176a0fbb3f',
+        'reference' => '2e130407583c3caff3a71f0ea3e1b010433fe282',
         'name' => 'gantry/joomla',
         'dev' => false,
     ),
@@ -38,12 +38,12 @@
             'dev_requirement' => false,
         ),
         'gantry/joomla' => array(
-            'pretty_version' => '5.5.12',
-            'version' => '5.5.12.0',
+            'pretty_version' => '5.5.13',
+            'version' => '5.5.13.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '158b0723ad743401d614d82bba269a176a0fbb3f',
+            'reference' => '2e130407583c3caff3a71f0ea3e1b010433fe282',
             'dev_requirement' => false,
         ),
         'leafo/scssphp' => array(

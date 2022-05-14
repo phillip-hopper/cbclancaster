@@ -26,13 +26,206 @@
   }
 }
 
-@media only all and (max-width: $breakpoints-tablet-container - 0.01rem) {
+section.fp-slideshow {
+  .slideshow-text {
+    display: flex;
+    font-size: 1rem !important;
+  }
+}
+
+header.fp-header {
+  .new-user-strip {
+    text-align: center;
+    margin: 0;
+    background-size: cover;
+
+    > .container {
+      padding: 20px 12px 30px
+    }
+
+    .times {
+      padding-top: 13px;
+      padding-bottom: 12px;
+      border-top: 1px solid #D0D0D0;
+      margin-bottom: 0;
+      margin-top: 0;
+      font-size: 18px;
+      color: #595959;
+      font-weight: 400;
+
+      b {
+        color: #2E6081;
+        text-transform: uppercase;
+        padding-right: 12px;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: #000000;
+
+
+      &.schedule {
+        color: #647897;
+        text-decoration: underline;
+        font-weight: 500;
+      }
+    }
+
+    h1 {
+      margin: 0 0 12px;
+    }
+  }
+
+  .text-bold-white {
+    font-size: 73px;
+    line-height: 88px;
+    font-family: roboto, sans-serif;
+    color: #2280B6;
+  }
+
+  .text-small-light {
+    font-size: 25px;
+    vertical-align: top;
+    line-height: 88px;
+    font-weight: 100;
+    color: #626262;
+  }
+
+  .church-name {
+    font-size: 30px;
+    vertical-align: top;
+    line-height: 33px;
+    display: inline-block;
+    padding: 11px 8px 10px 10px;
+    text-align: left;
+    font-weight: 300;
+    color: #525252;
+    text-transform: uppercase;
+    font-family: roboto, sans-serif;
+
+    b {
+      color: #2280B6;
+      font-weight: 300;
+    }
+  }
+
+  .q-mark {
+    font-weight: 300;
+  }
+
+  .hiddenwelcome {
+    display: none;
+  }
+
+  .visitorbutton {
+    display: inline-block;
+    background-color: #2280B6;
+    color: #FFFFFF;
+    padding: 5px 26px 5px 21px;
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 19px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -khtml-border-radius: 2px;
+    border-radius: 2px;
+    font-family: "open sans", sans-serif;
+  }
+
+  .fade1 {
+    opacity: 1;
+    transition: opacity 0.25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+
+    &:hover {
+      opacity: 0.67;
+    }
+  }
+}
+
+#g-footer {
+
+  .g-blockcontent .g-content {
+    margin: 0.32rem;
+    padding: 0.75rem;
+
+    h4 {
+      display: none;
+    }
+  }
+
+  .g-blockcontent-subcontent-desc {
+    font-size: 1rem;
+  }
+
+  * {
+    color: #ffffff;
+  }
+
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      color: #ffffff;
+      text-decoration: none;
+    }
+  }
+
+}
+
+.no-pad-vertical-g-content, .no-pad-vertical-g-content .g-content {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+html {
+  font-size: 16px;
+}
+
+//noinspection SassScssResolvedByNameOnly
+@media (max-width: $breakpoints-large-desktop-container - 0.01rem) {
+  html {
+    font-size: 15px;
+  }
+}
+
+//noinspection SassScssResolvedByNameOnly
+@media (max-width: $breakpoints-desktop-container - 0.01rem) {
+  html {
+    font-size: 14px;
+  }
+}
+
+//noinspection SassScssResolvedByNameOnly
+@media (max-width: $breakpoints-tablet-container - 0.01rem) {
+  html {
+    font-size: 13px;
+  }
+
   .g-logo {
     img {
       height: 2.5rem;
     }
   }
 }
+
+//noinspection SassScssResolvedByNameOnly
+@media (max-width: $breakpoints-large-mobile-container - 0.01rem) {
+  html {
+    font-size: 12px;
+  }
+
+  header.fp-header {
+    .new-user-strip {
+      .times { border-top: none; }
+    }
+
+    .text-new-user { display: none; }
+  }
+}
+
 
 //@mixin breakpoint($breakpoint, $media: all) {
 //  @if $breakpoint == large-desktop-range {

@@ -1,5 +1,6 @@
 # CBC Lancaster Website
 
+## Test site: cbc.skeeterbait.com
 
 ## Prerequisites
 1. PHP 8.1

@@ -1,0 +1,2 @@
+prod:
+	./deploy prod

@@ -1,0 +1,23 @@
+{
+  "name": "cbclancaster/website",
+  "description": "",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "config": {
+    "platform": {
+      "php": "8.1"
+    },
+    "preferred-install": {
+      "*": "dist"
+    }
+  },
+  "authors": [
+    {
+      "name": "Phil Hopper",
+      "email": "phopper1964@gmail.com"
+    }
+  ],
+  "require-dev": {
+    "deployer/dist": "^6.8"
+  }
+}

@@ -15,3 +15,4 @@
 /joomla/media/cache/*
 !/joomla/media/cache/index.html
 /joomla/templates/rt_orion/favicon.ico
+/vendor/

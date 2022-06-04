@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/joomla/libraries/gantry5/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/joomla/libraries/gantry5/vendor/pimple/pimple" />
+      <path value="$PROJECT_DIR$/joomla/libraries/gantry5/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/joomla/libraries/gantry5/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/joomla/libraries/gantry5/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/joomla/libraries/gantry5/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/joomla/libraries/gantry5/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/joomla/libraries/gantry5/vendor/scssphp/scssphp" />
+      <path value="$PROJECT_DIR$/joomla/libraries/gantry5/vendor/rockettheme/toolbox" />
+      <path value="$PROJECT_DIR$/joomla/libraries/gantry5/vendor/leafo/scssphp" />
+      <path value="$PROJECT_DIR$/joomla/libraries/gantry5/vendor/erusev/parsedown-extra" />
+      <path value="$PROJECT_DIR$/joomla/libraries/gantry5/vendor/erusev/parsedown" />
+      <path value="$PROJECT_DIR$/joomla/libraries/gantry5/vendor/composer" />
+      <path value="$PROJECT_DIR$/joomla/libraries/gantry5/vendor/filp/whoops" />
+    </include_path>
+  </component>
   <component name="PhpUnit">
     <phpunit_settings>
       <PhpUnitSettings custom_loader_path="$PROJECT_DIR$/vendor/autoload.php" />

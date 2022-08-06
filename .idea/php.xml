@@ -16,6 +16,7 @@
       <path value="$PROJECT_DIR$/joomla/libraries/gantry5/vendor/erusev/parsedown" />
       <path value="$PROJECT_DIR$/joomla/libraries/gantry5/vendor/composer" />
       <path value="$PROJECT_DIR$/joomla/libraries/gantry5/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/vendor/deployer" />
     </include_path>
   </component>
   <component name="PhpUnit">

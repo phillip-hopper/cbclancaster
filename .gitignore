@@ -5,14 +5,14 @@
 /joomla/web.config.txt
 /joomla/LICENSE.txt
 /joomla/README.txt
-/joomla/images/
 /joomla/configuration.php
 /joomla/htaccess.txt
 /joomla/templates/rt_orion/favicon.ico
 
-/joomla/tmp/
 /joomla/administrator/cache/
 /joomla/administrator/logs/
 /joomla/cache/
+/joomla/files/
+/joomla/images/
 /joomla/media/cache/
-
+/joomla/tmp/

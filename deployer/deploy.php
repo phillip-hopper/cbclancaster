@@ -1,6 +1,5 @@
 <?php
-/** @noinspection FileHeaderInspection */
-/** @noinspection PhpUnhandledExceptionInspection */
+/** @noinspection PhpStrFunctionsInspection */
 /** @noinspection PhpUndefinedFunctionInspection */
 /** @noinspection PhpIncludeInspection */
 /** @noinspection PhpMethodParametersCountMismatchInspection */
@@ -24,19 +23,22 @@ set('repository', 'git@github.com:phillip-hopper/cbclancaster.git');
 set('git_tty', false);
 
 // Shared files/dirs between deploys
-set('shared_files', []);
-set('shared_dirs', ['cache', 'config', 'logs', 'images', 'files']);
-set('clear_paths', ['cache/*']);
 set('shared_files_ex', [
     ['config/configuration.php', 'joomla/configuration.php']
 ]);
+
 set('shared_dirs_ex', [
     ['images', 'joomla/images'],
-    ['files', 'joomla/files']
+    ['files', 'joomla/files'],
+	['cache', 'joomla/cache'],
+	['media-cache', 'joomla/media/cache'],
+	['tmp', 'joomla/tmp'],
+	['admin-cache', '/joomla/administrator/cache'],
+	['admin-logs', '/joomla/administrator/logs']
 ]);
 
 // Writable dirs by web server
-set('writable_dirs', ['cache', 'logs', 'images', 'files']);
+set('writable_dirs', ['cache', 'images', 'files', 'media-cache', 'tmp', 'admin-cache', 'admin-logs']);
 
 
 // Hosts
@@ -100,7 +102,8 @@ task('deploy:shared_ex', function () {
         foreach (get('shared_dirs_ex') as $b) {
             if ($a[0] !== $b[0] && strpos(rtrim($a[0], '/') . '/', rtrim($b[0], '/') . '/') === 0) {
                 if ($a[1] == $b[1]) {
-                    throw new Exception("Can not share same dirs `$a[1]` and `$b[1]`.");
+	                /** @noinspection PhpUnhandledExceptionInspection */
+	                throw new Exception("Can not share same dirs `$a[1]` and `$b[1]`.");
                 }
             }
         }
@@ -205,7 +208,7 @@ task('deploy:update_code_ex', function () {
         try {
             // NB: 19 SEP 2019: Phil Hopper // run("$git clone $at $recursive $quiet --reference {{previous_release}} --dissociate $repository  {{release_path}} 2>&1", $options);
             run("ssh-agent sh -c 'ssh-add ~/.ssh/id_rsa; $git clone $at $recursive $quiet --reference {{previous_release}} --dissociate $repository  {{release_path}} 2>&1'", $options);
-        } catch (Throwable $exception) {
+        } catch (Throwable) {
             // If {{deploy_path}}/releases/{$releases[1]} has a failed git clone, is empty, shallow etc, git would throw error and give up. So we're forcing it to act without reference in this situation
             // NB: 19 SEP 2019: Phil Hopper // run("$git clone $at $recursive $quiet $repository {{release_path}} 2>&1", $options);
             run("ssh-agent sh -c 'ssh-add ~/.ssh/id_rsa; $git clone $at $recursive $quiet $repository {{release_path}} 2>&1'", $options);
@@ -239,10 +242,8 @@ task('deploy', [
     'deploy:lock',
     'deploy:release',
     'deploy:update_code_ex',
-    'deploy:shared',
     'deploy:shared_ex',
     'deploy:writable',
-//    'deploy:create_symlinks',
     'deploy:resource_symlink',
     'deploy:clear_paths',
     'deploy:symlink',

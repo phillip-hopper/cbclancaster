@@ -39,7 +39,19 @@ $options = array(
 
 Js::addInline('new _N2.SlidesManager(' . json_encode($options) . ', ' . json_encode($parameters) . ', ' . (defined('N2_IMAGE_UPLOAD_DISABLE') ? 1 : 0) . ", '" . $this->createAjaxUrl(array('browse/upload')) . "', 'slider" . $sliderObj->sliderId . "');");
 
+$slideCount            = 0;
+$hasPublishedGenerator = false;
+foreach ($slides as $slide) {
+    if ($slide['published']) {
+        $slideCount++;
+        if (!empty($slide['generator_id'])) {
+            $hasPublishedGenerator = true;
+        }
+    }
+}
+
 Js::addGlobalInline('document.documentElement.setAttribute("data-slides", "' . count($slides) . '");');
+Js::addGlobalInline('document.documentElement.setAttribute("data-published-regular-slides", "' . $slideCount . '");');
 ?>
 
 <script>
@@ -68,7 +80,7 @@ Js::addGlobalInline('document.documentElement.setAttribute("data-slides", "' . c
     ?>
 </script>
 
-<div class="<?php echo $this->getClass(); ?>" data-breadcrumbopener="<?php echo $this->hasBreadcrumbOpener() ? 1 : 0; ?>">
+<div class="<?php echo esc_attr($this->getClass()); ?>" data-breadcrumbopener="<?php echo $this->hasBreadcrumbOpener() ? 1 : 0; ?>">
     <div class="n2_slide_manager__inner">
         <?php
 
@@ -86,10 +98,10 @@ Js::addGlobalInline('document.documentElement.setAttribute("data-slides", "' . c
             <div class="n2_slide_manager__box n2_slide_manager__add_slide">
                 <i class="n2_slide_manager__add_slide_icon ssi_48 ssi_48--plus"></i>
                 <div class="n2_slide_manager__add_slide_label n2_slide_manager__add_slide_label--add-slide">
-                    <?php echo n2_('Add slide'); ?>
+                    <?php n2_e('Add slide'); ?>
                 </div>
                 <div class="n2_slide_manager__add_slide_label n2_slide_manager__add_slide_label--close">
-                    <?php echo n2_('Close'); ?>
+                    <?php n2_e('Close'); ?>
                 </div>
             </div>
 
@@ -99,10 +111,21 @@ Js::addGlobalInline('document.documentElement.setAttribute("data-slides", "' . c
                 ?>
                 <div class="n2_slide_manager__box n2_slide_manager__block_notice">
                     <div class="n2_slide_box__footer_title n2_slide_manager__block_notice_description">
-                        <?php echo n2_('Block must contain only one slide. Need more?'); ?>
+                        <?php n2_e('Block must contain only one slide. Need more?'); ?>
                     </div>
-                    <a class="n2_slide_manager__block_notice_button" href="<?php echo $sliderEditUrl; ?>#changeslidertype">
-                        <?php echo n2_('Convert to slider'); ?>
+                    <a class="n2_slide_manager__block_notice_button" href="<?php echo esc_url($sliderEditUrl); ?>#changeslidertype">
+                        <?php n2_e('Convert to slider'); ?>
+                    </a>
+                </div>
+            <?php
+            elseif (!$hasPublishedGenerator):
+                ?>
+                <div class="n2_slide_manager__box n2_slide_manager__autoplay_notice n2_form_element--hidden" data-field="autoplay-single-slide-notice">
+                    <div class="n2_slide_box__footer_title n2_slide_manager__autoplay_notice_description">
+                        <?php n2_e('Single slides are duplicated while autoplay is used.'); ?>
+                    </div>
+                    <a class="n2_slide_manager__autoplay_notice_button" href="#n2_top_bar_main_1" onclick="_N2.$('.n2_form__tab_button[data-related-tab=n2_form__tab_slider_autoplay]').trigger('click');">
+                        <?php n2_e('autoplay settings'); ?>
                     </a>
                 </div>
             <?php
@@ -130,21 +153,21 @@ Js::addGlobalInline('document.documentElement.setAttribute("data-slides", "' . c
             <div class="n2_slide_manager__box n2_slide_manager__dummy_slide">
                 <i class="n2_slide_manager__dummy_slide_icon ssi_48 ssi_48--image"></i>
                 <div class="n2_slide_manager__dummy_slide_label">
-                    <?php echo n2_('Slide one'); ?>
+                    <?php n2_e('Slide one'); ?>
                 </div>
             </div>
             <?php if ($sliderType != 'block'): ?>
                 <div class="n2_slide_manager__box n2_slide_manager__dummy_slide">
                     <i class="n2_slide_manager__dummy_slide_icon ssi_48 ssi_48--image"></i>
                     <div class="n2_slide_manager__dummy_slide_label">
-                        <?php echo n2_('Slide two'); ?>
+                        <?php n2_e('Slide two'); ?>
                     </div>
                 </div>
             <?php endif; ?>
             <div class="n2_slide_manager__box n2_slide_manager__dummy_slide">
                 <i class="n2_slide_manager__dummy_slide_icon ssi_48 ssi_48--drop"></i>
                 <div class="n2_slide_manager__dummy_slide_label">
-                    <?php echo n2_('Drop images here'); ?>
+                    <?php n2_e('Drop images here'); ?>
                 </div>
             </div>
         </div>

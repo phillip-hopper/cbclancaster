@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: VERSION\n"
-"POT-Creation-Date: 2021-07-23 09:55+0200\n"
-"PO-Revision-Date: 2021-07-23 10:01+0200\n"
+"POT-Creation-Date: 2022-05-13 07:44+0200\n"
+"PO-Revision-Date: 2022-05-17 12:54+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -22,14 +22,6 @@ msgid "CURL disabled in your php.ini configuration. Please enable it!"
 msgstr ""
 
 msgid "Unable to contact with the licensing server, please try again later!"
-msgstr ""
-
-msgctxt "Default Google font family for admin"
-msgid "Montserrat"
-msgstr ""
-
-msgctxt "Default Google font charset for admin"
-msgid "latin"
 msgstr ""
 
 msgid "You are not allowed to upload!"
@@ -181,6 +173,14 @@ msgstr ""
 msgid "You can load Google Fonts on the frontend."
 msgstr ""
 
+msgid "Save fonts locally"
+msgstr ""
+
+msgid ""
+"You can store the used Google Fonts on your server. This way all Google "
+"Fonts will load from your own domain."
+msgstr ""
+
 msgid "Backend"
 msgstr ""
 
@@ -196,53 +196,6 @@ msgstr ""
 
 msgid "Normal"
 msgstr "Normaali"
-
-msgid "Character set"
-msgstr ""
-
-msgctxt "Character set"
-msgid "Latin"
-msgstr ""
-
-msgctxt "Character set"
-msgid "Latin Extended"
-msgstr ""
-
-msgctxt "Character set"
-msgid "Greek"
-msgstr ""
-
-msgctxt "Character set"
-msgid "Greek Extended"
-msgstr ""
-
-msgctxt "Character set"
-msgid "Cyrillic"
-msgstr ""
-
-msgctxt "Character set"
-msgid "Devanagari"
-msgstr ""
-
-msgctxt "Character set"
-msgid "Arabic"
-msgstr ""
-
-msgctxt "Character set"
-msgid "Khmer"
-msgstr ""
-
-msgctxt "Character set"
-msgid "Telugu"
-msgstr ""
-
-msgctxt "Character set"
-msgid "Vietnamese"
-msgstr ""
-
-msgctxt "Default font sets"
-msgid "latin"
-msgstr ""
 
 msgid "Choose"
 msgstr "Valitse"
@@ -1177,14 +1130,22 @@ msgstr "Ryhmät"
 msgid "Set"
 msgstr "aseta"
 
+msgid "Edit"
+msgstr "Muokkaa"
+
+msgid "Group"
+msgstr "Ryhmä"
+
+#, fuzzy
+#| msgid "Slider"
+msgid "Edit Slider"
+msgstr "Slideri"
+
 msgid "Up"
 msgstr ""
 
 msgid "Insert group"
 msgstr "Syötä ryhmä"
-
-msgid "Group"
-msgstr "Ryhmä"
 
 msgid "Move to trash"
 msgstr ""
@@ -1235,6 +1196,32 @@ msgstr "Poista diaesitys"
 #| msgid "Delete slider"
 msgid "delete this slide"
 msgstr "Poista diaesitys"
+
+msgid "Max width"
+msgstr "Maksimi leveys"
+
+msgid "Margin"
+msgstr "Marginaali"
+
+#, fuzzy
+#| msgid "Top"
+msgid "top"
+msgstr "Ylhäällä"
+
+#, fuzzy
+#| msgid "Light"
+msgid "right"
+msgstr "Vaaela"
+
+#, fuzzy
+#| msgid "Bottom"
+msgid "bottom"
+msgstr "Alhaalla"
+
+#, fuzzy
+#| msgid "To left"
+msgid "left"
+msgstr "Vasemmalle"
 
 msgid "Animations"
 msgstr "Animaatiot"
@@ -1482,6 +1469,11 @@ msgstr ""
 msgid "JavaScript callbacks"
 msgstr "JavaScript kutsut"
 
+#, fuzzy
+#| msgid "Loading animation"
+msgid "Loading animation waiting time"
+msgstr "Latausanimaatio"
+
 msgid "Post IDs"
 msgstr ""
 
@@ -1489,6 +1481,19 @@ msgid "one per line"
 msgstr ""
 
 msgid "The cache of the posts with the given ID will be cleared upon save."
+msgstr ""
+
+#, fuzzy
+#| msgid "Callback url"
+msgid "Fallback slider"
+msgstr "Takaisinkutsu url"
+
+msgid "ID or Alias"
+msgstr ""
+
+msgid ""
+"Select another slider by its ID or Alias that displays if your current "
+"slider has no published slides."
 msgstr ""
 
 msgid "Thumbnail"
@@ -1568,9 +1573,6 @@ msgstr "Täyttötila"
 msgid "Align"
 msgstr "Kohdista"
 
-msgid "Margin"
-msgstr "Marginaali"
-
 msgid "Puts a fix margin around your slider."
 msgstr ""
 
@@ -1583,6 +1585,11 @@ msgstr "Optimoi"
 msgid "Loading"
 msgstr "Lataa"
 
+#, fuzzy
+#| msgid "Loading"
+msgid "Loading type"
+msgstr "Lataa"
+
 msgid "Instant"
 msgstr ""
 
@@ -1591,11 +1598,6 @@ msgstr ""
 
 msgid "After delay"
 msgstr ""
-
-#, fuzzy
-#| msgid "Loading"
-msgid "Loading type"
-msgstr "Lataa"
 
 msgid ""
 "If your slider is above the fold, you can load it immediately. Otherwise, "
@@ -1787,6 +1789,11 @@ msgid ""
 "If the size of your image is not the same as your slider's, you can improve "
 "the result with the filling modes."
 msgstr ""
+
+#, fuzzy
+#| msgid "Background color"
+msgid "Background Blur"
+msgstr "Taustaväri"
 
 msgid "Randomize"
 msgstr "Satunnaista"
@@ -2074,14 +2081,17 @@ msgstr ""
 msgid "Why upgrade to Smart Slider 3 Pro?"
 msgstr ""
 
-msgid "120+ slider templates"
+#, php-format
+msgid "%d+ slider templates"
 msgstr ""
 
 msgid "Full slide library access"
 msgstr ""
 
-msgid "20 new layers"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Heading layer"
+msgid "%d new layers"
+msgstr "Otsikkotaso"
 
 msgid "Extra advanced options"
 msgstr ""
@@ -2149,9 +2159,6 @@ msgstr "Liukuväri"
 
 msgid "Color end"
 msgstr "Värin loppu"
-
-msgid "Max width"
-msgstr "Maksimi leveys"
 
 msgid "Position"
 msgstr "Sijainti"
@@ -2327,6 +2334,11 @@ msgid ""
 "background correctly."
 msgstr ""
 
+#, fuzzy
+#| msgid "Background color"
+msgid "Background blur"
+msgstr "Taustaväri"
+
 msgid "Blur"
 msgstr "Sumennus"
 
@@ -2485,9 +2497,6 @@ msgstr "Skaalaa ylöspäin"
 msgid "Scale down"
 msgstr "Skaalaa alaspäin"
 
-msgid "Edit"
-msgstr "Muokkaa"
-
 msgid "Static overlay"
 msgstr ""
 
@@ -2543,8 +2552,10 @@ msgstr "Liuku ylös"
 msgid "Drop images here"
 msgstr ""
 
-msgid "Edit slider"
-msgstr ""
+#, fuzzy
+#| msgid "Search"
+msgid "Search Project"
+msgstr "Etsi"
 
 #, fuzzy
 #| msgid "View records"
@@ -2576,7 +2587,29 @@ msgstr "Vanhin Ensin"
 msgid "Export"
 msgstr "Vie"
 
+#, fuzzy
+#| msgid "Showcase"
+msgid "Show"
+msgstr "Näyteikkuna"
+
+#, php-format
+msgid "Showing %s to %s of %s projects"
+msgstr ""
+
+msgid "No projects to show"
+msgstr ""
+
 msgid "New project"
+msgstr ""
+
+msgid "Sorry we couldn’t find any matches"
+msgstr ""
+
+msgid "Please try searching with another term."
+msgstr ""
+
+#, php-format
+msgid "Showing %s results for %s."
 msgstr ""
 
 msgid "Module"
@@ -3104,8 +3137,8 @@ msgstr "Generaattori asetukset"
 msgid "Cache expiration"
 msgstr "Välimuistin vanheneminen"
 
-msgid "hours"
-msgstr "tunnit"
+msgid "Hours"
+msgstr "Tunnit"
 
 msgid "Start index"
 msgstr "Aloitus indexi"
@@ -3200,19 +3233,19 @@ msgid "Add column"
 msgstr ""
 
 msgid "Year"
-msgstr ""
+msgstr "Vuosi"
 
 msgid "Month"
-msgstr ""
+msgstr "Kuukausi"
 
 msgid "Day"
-msgstr ""
+msgstr "Päivä"
 
 msgid "Hour"
-msgstr ""
+msgstr "Tunti"
 
 msgid "Minute"
-msgstr ""
+msgstr "Minuutti"
 
 msgid "Stack"
 msgstr "Pinoa"
@@ -3576,13 +3609,18 @@ msgstr ""
 msgid "Whole group"
 msgstr "Koko ryhmä"
 
-msgid "Select slider"
+#, fuzzy
+#| msgid "Select slider"
+msgid "Select Slider"
 msgstr "Valitse slideri"
 
 msgid "OR"
 msgstr "TAI"
 
-msgid "Select A Slider"
+msgid "Insert a slider into your content"
+msgstr ""
+
+msgid "Select the slider you want to insert."
 msgstr ""
 
 msgctxt "Button layer default text"
@@ -3733,13 +3771,6 @@ msgid "When not visible"
 msgstr ""
 
 msgid "You can pause the video when the visitor scrolls away from the slider"
-msgstr ""
-
-msgid "Private video"
-msgstr ""
-
-msgid ""
-"Turn it on to remove the admin warning that your video is not accessible."
 msgstr ""
 
 msgid "Display"
@@ -3917,17 +3948,17 @@ msgstr ""
 "Jos poistat tämän asetuksen käytöstä, et voi vaihtaa viimeisestä diasta "
 "ensimmäiseen."
 
+msgid ""
+"Background animations only work on the slide background images, which have "
+"Fill selected at their Fill mode. They don't affect any images if the "
+"background parallax is enabled."
+msgstr ""
+
 msgid "Shifted"
 msgstr "Siirretty"
 
 msgid "The background and the main animation plays simultaneously or shifted."
 msgstr ""
-
-msgid "Loop single slide"
-msgstr "Yhden dian silmukka"
-
-msgid "In case of one slide, it repeats the animation of the slide."
-msgstr "Yhden dian tapauksessa toistaa dian animaation"
 
 msgid "Slider CSS Preset"
 msgstr ""
@@ -4074,6 +4105,42 @@ msgid "Random elastic"
 msgstr "Random elastinen"
 
 msgid "My text animations"
+msgstr ""
+
+msgid "Morph - Wave"
+msgstr ""
+
+msgid "Morph - Brush"
+msgstr ""
+
+msgid "Morph - Flow"
+msgstr ""
+
+msgid "Morph - Noise"
+msgstr ""
+
+msgid "Distortion - Mosaic"
+msgstr ""
+
+msgid "Distortion - Triangle"
+msgstr ""
+
+msgid "Distortion - Flow"
+msgstr ""
+
+msgid "Distortion - Warp"
+msgstr ""
+
+msgid "Distortion - Storm"
+msgstr ""
+
+msgid "Distortion - Wave"
+msgstr ""
+
+msgid "Distortion - Shard"
+msgstr ""
+
+msgid "Distortion - Noise"
 msgstr ""
 
 msgid "Slices - Single"
@@ -4470,9 +4537,6 @@ msgstr "Tekstipalkki"
 msgid "Bullets"
 msgstr "Luodit"
 
-msgid "Bullet"
-msgstr ""
-
 msgid "Side"
 msgstr "Vieressä"
 
@@ -4671,40 +4735,22 @@ msgstr ""
 msgid "Sparkling"
 msgstr ""
 
-msgid "Curve 1"
-msgstr ""
-
-msgid "Curve 2"
-msgstr ""
-
-msgid "Curve 3"
-msgstr ""
-
-msgid "Curve 4"
+#, php-format
+msgid "Curve %d"
 msgstr ""
 
 msgid "Curves"
 msgstr ""
 
-msgid "Fan 1"
-msgstr ""
-
-msgid "Fan 2"
-msgstr ""
-
-msgid "Fan 3"
+#, php-format
+msgid "Fan %d"
 msgstr ""
 
 msgid "Hills"
 msgstr ""
 
-msgid "Incline 1"
-msgstr ""
-
-msgid "Incline 2"
-msgstr ""
-
-msgid "Incline 3"
+#, php-format
+msgid "Incline %d"
 msgstr ""
 
 msgid "Inverse arrow"
@@ -4716,25 +4762,28 @@ msgstr ""
 msgid "Slopes"
 msgstr ""
 
-msgid "Tilt 1"
+#, php-format
+msgid "Tilt %d"
 msgstr ""
 
-msgid "Tilt 2"
+#, php-format
+msgid "Triangle %d"
 msgstr ""
 
-msgid "Triangle 1"
-msgstr ""
-
-msgid "Triangle 2"
-msgstr ""
-
-msgid "Wave 1"
-msgstr ""
-
-msgid "Wave 2"
+#, php-format
+msgid "Wave %d"
 msgstr ""
 
 msgid "Waves"
+msgstr ""
+
+#, fuzzy, php-format
+#| msgid "Columns"
+msgid "Columns %d"
+msgstr "Kolumnit"
+
+#, php-format
+msgid "Paper %d"
 msgstr ""
 
 msgid "2 Colors"
@@ -4758,8 +4807,10 @@ msgstr ""
 #, php-format
 msgid ""
 "%1$s allows HTTPS Redirect URIs only! You must move your site to HTTPS in "
-"order to use this generator! - %2$s How to get SSL for my WordPress site? "
-"%3$s"
+"order to use this generator!"
+msgstr ""
+
+msgid "How to get SSL for my website?"
 msgstr ""
 
 #, php-format
@@ -4885,6 +4936,11 @@ msgstr ""
 msgid "Source folder"
 msgstr "Lähdekansio"
 
+#, fuzzy
+#| msgid "Slide name and description"
+msgid "Filename based exclusion"
+msgstr "Diaesityksen nimi ja kuvaus"
+
 msgid "Remove resized images"
 msgstr ""
 
@@ -4893,6 +4949,22 @@ msgid ""
 "pattern in the end of their file names. For example, \"myimage.jpg\" will "
 "stay in the generator result, but \"myimage-120x120.jpg\" will be removed, "
 "because it's the same image, just in a smaller size."
+msgstr ""
+
+msgid "Filename has to contain"
+msgstr ""
+
+msgid ""
+"Only those images will be asked down, which have the given texts within "
+"their filenames. You can write down multiple texts separated by comma."
+msgstr ""
+
+msgid "Filename cannot contain"
+msgstr ""
+
+msgid ""
+"Only those images will be asked down, which don't have the given texts "
+"within their filenames. You can write down multiple texts separated by comma."
 msgstr ""
 
 msgid "Filename"
@@ -4912,6 +4984,45 @@ msgstr ""
 msgid ""
 "Wrong path. This is the default upload/media folder path, so try to navigate "
 "from here:"
+msgstr ""
+
+msgid "The App ID and the Secret is empty!"
+msgstr ""
+
+msgid "The token will expire at:"
+msgstr ""
+
+msgid "Access token was not returned.Please check the credentials!"
+msgstr ""
+
+#, fuzzy
+#| msgid "The token expired. Please request new token! "
+msgid "The token expired. Please request new token!"
+msgstr "Avain vanheni. Ole hyvä ja pyydä uutta avainta! "
+
+#, fuzzy
+#| msgid "The token expired. Please request new token! "
+msgid "The token will expire in two days! Please refresh the token!"
+msgstr "Avain vanheni. Ole hyvä ja pyydä uutta avainta! "
+
+#, fuzzy
+#| msgid "Request token"
+msgid "Refresh Token"
+msgstr "Pyydä avainta"
+
+msgid "Refresh"
+msgstr ""
+
+msgid "Album loading method"
+msgstr ""
+
+msgid "Load first images only"
+msgstr ""
+
+msgid "Load album images separately"
+msgstr ""
+
+msgid "Load Album images as record data"
 msgstr ""
 
 msgid "JSON from url"
@@ -4948,6 +5059,11 @@ msgstr ""
 
 msgid "Images"
 msgstr "Kuvat"
+
+#, fuzzy
+#| msgid "Offset"
+msgid "Offset hours"
+msgstr "Offset"
 
 msgid "Timezone offset in hours. For example: +2 or -7."
 msgstr ""
@@ -4993,54 +5109,6 @@ msgstr ""
 #, php-format
 msgid "Creates slides from %1$s content."
 msgstr ""
-
-msgid "Items"
-msgstr "Kohteet"
-
-msgid "Locations"
-msgstr "Sijainnit"
-
-msgid "Types"
-msgstr ""
-
-msgid "Expired"
-msgstr "Vanhentunut"
-
-msgid "Started"
-msgstr "Aloitettu"
-
-msgid "Auction"
-msgstr ""
-
-msgid "Negotiable price"
-msgstr ""
-
-msgid "Blocked by User"
-msgstr ""
-
-msgid "Paid"
-msgstr ""
-
-msgid "Buynow"
-msgstr ""
-
-msgid "Menu item (item ID)"
-msgstr ""
-
-msgid ""
-"Your url will point to the item within this menu item. You will only get a "
-"good result, if you will pick one of your DJ Classifields menu items or "
-"leave it on 'Default'."
-msgstr ""
-
-msgid "Start date"
-msgstr "Aoituspäivämäärä"
-
-msgid "Expiration date"
-msgstr ""
-
-msgid "Price"
-msgstr "Hinta"
 
 msgid "Include subcategories"
 msgstr "Sisällytä alakategoriat"
@@ -5092,6 +5160,9 @@ msgstr ""
 
 msgid "Banned user IDs"
 msgstr ""
+
+msgid "Started"
+msgstr "Aloitettu"
 
 msgid "Ended"
 msgstr "Lopetettu"
@@ -5176,11 +5247,17 @@ msgstr ""
 msgid "Manufacturer language"
 msgstr ""
 
+msgid "Price"
+msgstr "Hinta"
+
 msgid "Product name"
 msgstr "Tuotteen nimi"
 
 msgid "Product ID"
 msgstr "Tuote ID"
+
+msgid "Locations"
+msgstr "Sijainnit"
 
 msgid "Recurring"
 msgstr ""
@@ -5196,6 +5273,12 @@ msgstr ""
 
 msgid "Only not recurring events"
 msgstr ""
+
+msgid "Menu item (item ID)"
+msgstr ""
+
+msgid "Start date"
+msgstr "Aoituspäivämäärä"
 
 msgid "End date"
 msgstr "Lopetuspäivämäärä"
@@ -5239,6 +5322,15 @@ msgstr ""
 msgid "Only display items with these IDs"
 msgstr ""
 
+msgid ""
+"Timezone offset in hours. For example: +2 or -7. If you leave it empty, "
+"Joomla's System -> Global Configuration -> Server -> Server Time Zone "
+"setting will be used."
+msgstr ""
+"Aikavyöhyke offset tunteina. Esim. +2 tai -7. Jos jätät tyhjäksi, Joomlan "
+"järjestelmä -> Globaalit asetukset -> Palvelin -> Palvelimen Aikavyöhyke "
+"asetusta käytetään."
+
 msgid "Brand"
 msgstr ""
 
@@ -5277,17 +5369,11 @@ msgstr ""
 msgid "Date language"
 msgstr ""
 
-msgid "Offset value"
+msgid "Date variable offset"
 msgstr ""
 
-msgid ""
-"Timezone offset in hours. For example: +2 or -7. If you leave it empty, "
-"Joomla's System -> Global Configuration -> Server -> Server Time Zone "
-"setting will be used."
+msgid "Date filter offset"
 msgstr ""
-"Aikavyöhyke offset tunteina. Esim. +2 tai -7. Jos jätät tyhjäksi, Joomlan "
-"järjestelmä -> Globaalit asetukset -> Palvelin -> Palvelimen Aikavyöhyke "
-"asetusta käytetään."
 
 msgid "Status"
 msgstr "Tila"
@@ -5298,6 +5384,9 @@ msgstr ""
 msgid "Ask down all product images"
 msgstr ""
 
+msgid "Items"
+msgstr "Kohteet"
+
 msgid "View item"
 msgstr ""
 
@@ -5307,15 +5396,6 @@ msgstr "Näytetty"
 msgid "View image"
 msgstr "Näytä kuva"
 
-msgid "Supplier"
-msgstr ""
-
-msgid "On sale"
-msgstr "Alennuksessa"
-
-msgid "Discount price"
-msgstr "Alennushinta"
-
 msgid "All day event"
 msgstr "Kokopäivän tapahtuma"
 
@@ -5324,39 +5404,6 @@ msgstr ""
 
 msgid "Show parent products only"
 msgstr ""
-
-#, php-format
-msgid "Creates slides from %1$s events."
-msgstr ""
-
-msgid "Create custom date variables"
-msgstr ""
-
-msgid ""
-"You can write any date format (http://php.net/manual/en/function.date.php) "
-"in separate lines, and new variables will be created for them."
-msgstr ""
-"Voit kirjottaa minkä tahansa päivämäärämuodon (http://php.net/manual/en/"
-"function.date.php) eri riveille ja niille luodaan uudet muuttujat."
-
-msgid ""
-"Write the original text, like 'Monday' then two | signs, and the text you "
-"want it to be translated to, for example 'Montag'. Together: Monday||Montag"
-msgstr ""
-"Kirjoita alkuperäinen teksti, kuten 'Maanantai' sitten kaksi | merkkiä, ja "
-"teksti johon haluat sen kääntää, kuten, 'Monday'. Yhdessä: Maanantai||Monday"
-
-msgid "Event start date"
-msgstr "Tapahtuman aloituspäivämäärä"
-
-msgid "Event end date"
-msgstr "Tapahtuman lopetuspäivämäärä"
-
-msgid "Event creation date"
-msgstr "Tapahtuman luomispäivämäärä"
-
-msgid "Event modification date"
-msgstr "Tapahtuman muokkauspäivämäärä"
 
 #, php-format
 msgid "Creates slides from %1$s galleries."
@@ -5378,6 +5425,10 @@ msgid ""
 msgstr ""
 
 msgid "No options given"
+msgstr ""
+
+#, php-format
+msgid "Creates slides from %1$s events."
 msgstr ""
 
 msgid "Exclude event IDs (One ID per line)"
@@ -5434,8 +5485,20 @@ msgstr ""
 msgid "Hide From Event Listings"
 msgstr "Piilota tapahtumalistuksista"
 
+msgid "Event start date"
+msgstr "Tapahtuman aloituspäivämäärä"
+
+msgid "Event end date"
+msgstr "Tapahtuman lopetuspäivämäärä"
+
 msgid "Event cost"
 msgstr "Tapahtuman hinta"
+
+msgid "Event creation date"
+msgstr "Tapahtuman luomispäivämäärä"
+
+msgid "Event modification date"
+msgstr "Tapahtuman muokkauspäivämäärä"
 
 msgid "Metakey name"
 msgstr ""
@@ -5480,6 +5543,14 @@ msgstr "Alavalikko rajoite"
 
 msgid "No limit"
 msgstr ""
+
+#, fuzzy
+#| msgid "Include subcategories"
+msgid "Hide empty categories"
+msgstr "Sisällytä alakategoriat"
+
+msgid "Yes"
+msgstr "Kyllä"
 
 msgid "Downloadable"
 msgstr "Ladattava"
@@ -5665,6 +5736,14 @@ msgstr "Heiluri 3D"
 msgid "Vertical pendulum 3D"
 msgstr "Vertikaali heiluri 3D"
 
+msgid "We are Passionate About"
+msgstr ""
+
+msgid ""
+"Amazing Food\n"
+"Great Hospitality"
+msgstr ""
+
 msgid "Before text"
 msgstr ""
 
@@ -5746,6 +5825,126 @@ msgstr ""
 msgid "Time"
 msgstr ""
 
+#, fuzzy
+#| msgid "Size"
+msgid "Icon Size"
+msgstr "Koko"
+
+#, fuzzy
+#| msgid "Before"
+msgid "Before After"
+msgstr "Ennen"
+
+#, fuzzy
+#| msgid "Left"
+msgid "Left top"
+msgstr "Vasemmalle"
+
+#, fuzzy
+#| msgid "Center"
+msgid "Center top"
+msgstr "Keskelle"
+
+#, fuzzy
+#| msgid "Right"
+msgid "Right top"
+msgstr "Oikealle"
+
+#, fuzzy
+#| msgid "Slider center"
+msgid "Left center"
+msgstr "Diaesitys keski"
+
+#, fuzzy
+#| msgid "Center"
+msgid "Right Center"
+msgstr "Keskelle"
+
+#, fuzzy
+#| msgid "To bottom"
+msgid "Left bottom"
+msgstr "Alas"
+
+#, fuzzy
+#| msgid "Curtain to bottom"
+msgid "Center bottom"
+msgstr "Verho alas"
+
+#, fuzzy
+#| msgid "To bottom"
+msgid "Right bottom"
+msgstr "Alas"
+
+#, fuzzy
+#| msgid "Before"
+msgid "Before Image"
+msgstr "Ennen"
+
+#, fuzzy
+#| msgid "Cover image"
+msgid "After Image"
+msgstr "Kansikuva"
+
+msgid "Labels"
+msgstr ""
+
+#, fuzzy
+#| msgid "Show label"
+msgid "Show Label"
+msgstr "Näytä etiketti"
+
+msgid "Always"
+msgstr ""
+
+#, fuzzy
+#| msgid "Before"
+msgid "Before label"
+msgstr "Ennen"
+
+#, fuzzy
+#| msgid "Previous label"
+msgid "After label"
+msgstr "Edellinen etiketti"
+
+msgid "Behavior"
+msgstr ""
+
+#, fuzzy
+#| msgid "Interval"
+msgid "Interaction"
+msgstr "Aikaväli"
+
+#, fuzzy
+#| msgid "Slider"
+msgid "Divider"
+msgstr "Slideri"
+
+msgid "Line"
+msgstr ""
+
+#, fuzzy
+#| msgid "Caption"
+msgid "Show Caption"
+msgstr "Kuvateksti"
+
+#, fuzzy
+#| msgid "Caption"
+msgid "Caption text"
+msgstr "Kuvateksti"
+
+msgid "Before image alt tag"
+msgstr ""
+
+#, fuzzy
+#| msgid "Average rating"
+msgid "After image alt tag"
+msgstr "Keskimääräinen luokitus"
+
+#, fuzzy
+#| msgid "Optimize"
+msgid "Optimize images"
+msgstr "Optimoi"
+
 msgid "Full"
 msgstr "Täysi"
 
@@ -5779,9 +5978,6 @@ msgstr "Aktiivinen väri"
 msgid "Stroke width"
 msgstr "Viivan leveys"
 
-msgid "Labels"
-msgstr ""
-
 msgid "Inner before"
 msgstr ""
 
@@ -5794,67 +5990,120 @@ msgstr "Pre"
 msgid "Animation duration"
 msgstr "Animaation kesto"
 
-msgid "Circle 1"
+#, fuzzy
+#| msgid "Counter"
+msgid "Countdown"
+msgstr "Laskuri"
+
+msgid "Days"
+msgstr "Päivät"
+
+msgid "Minutes"
+msgstr "Pöytäkirja"
+
+msgid "Seconds"
+msgstr "Sekuntia"
+
+#, fuzzy
+#| msgid "First slide changed."
+msgid "Use slide schedule"
+msgstr "Ensimmäinen dia vaihdettu"
+
+msgid "You can use the \"Unpublished on\" date of the slide itself."
 msgstr ""
 
-msgid "Circle 2"
+msgid "Use Slide Schedule"
 msgstr ""
 
-msgid "Circle 3"
+msgid "Go to Slide → Content tab and set the Unpublish on date for the slide."
 msgstr ""
 
-msgid "Curly 1"
+msgid ""
+"Displays the days, hours, minutes and seconds texts under the counter "
+"numbers. To display the labels in your own language, translate the texts in "
+"the language files."
 msgstr ""
 
-msgid "Curly 2"
+msgid "Gap"
 msgstr ""
 
-msgid "Highlight 1"
+msgid "Creates vertical and horizontal distance between the counter elements."
 msgstr ""
 
-msgid "Highlight 2"
+#, fuzzy
+#| msgid "Tablet scale"
+msgid "Tablet style"
+msgstr "Tabletin skaalaus"
+
+msgid "Set custom Gap and Column for tablet."
 msgstr ""
 
-msgid "Highlight 3"
+#, fuzzy
+#| msgid "Mobile scale"
+msgid "Mobile style"
+msgstr "Mobiili skaalaus"
+
+msgid "Set custom Gap and Column for mobile."
 msgstr ""
 
-msgid "Line Through 1"
+msgid "Action when ends"
 msgstr ""
 
-msgid "Line Through 2"
+#, fuzzy
+#| msgid "No animation"
+msgid "No action"
+msgstr "Ei animaatiota"
+
+#, fuzzy
+#| msgid "Heading layer"
+msgid "Hide layer"
+msgstr "Otsikkotaso"
+
+msgid "Redirect to URL"
 msgstr ""
 
-msgid "Line Through 3"
+msgid "Choose what happens after the counter reached zero."
 msgstr ""
 
-msgid "Rectangle 1"
+msgid "This page is"
 msgstr ""
 
-msgid "Rectangle 2"
+msgid "Amazing"
 msgstr ""
 
-msgid "Underline 1"
+#, fuzzy, php-format
+#| msgid "Circle"
+msgid "Circle %d"
+msgstr "Ympyrä"
+
+#, php-format
+msgid "Curly %d"
 msgstr ""
 
-msgid "Underline 2"
+#, php-format
+msgid "Highlight %d"
 msgstr ""
 
-msgid "Underline 3"
+#, fuzzy, php-format
+#| msgid "Line height"
+msgid "Line Through %d"
+msgstr "Riviväli"
+
+#, fuzzy, php-format
+#| msgid "Rectangle Blue"
+msgid "Rectangle %d"
+msgstr "Suorakulmio Sininen"
+
+#, php-format
+msgid "Underline %d"
 msgstr ""
 
-msgid "Underline double 1"
+#, php-format
+msgid "Underline double %d"
 msgstr ""
 
-msgid "Underline double 2"
-msgstr ""
-
-msgid "ZigZag 1"
-msgstr ""
-
-msgid "ZigZag 2"
-msgstr ""
-
-msgid "ZigZag 3"
+#, php-format
+msgid "ZigZag %d"
 msgstr ""
 
 msgid "Highlighted text"
@@ -5870,6 +6119,9 @@ msgid "Loop delay"
 msgstr ""
 
 msgid "HTML"
+msgstr ""
+
+msgid "Empty element"
 msgstr ""
 
 msgid ""
@@ -5982,19 +6234,11 @@ msgstr ""
 msgid "Icon not found"
 msgstr "Ikonia ei löydy"
 
-#, fuzzy
-#| msgid "Previous label"
-msgid "Aria label"
-msgstr "Edellinen etiketti"
-
 #, php-format
 msgid "Enter an %1$s aria-label attribute %2$s that describes the link."
 msgstr ""
 
 msgid "Iframe"
-msgstr ""
-
-msgid "iframe"
 msgstr ""
 
 msgid ""
@@ -6003,18 +6247,17 @@ msgid ""
 "only suggest using this layer if you are a developer!"
 msgstr ""
 
-msgid "iframe url"
+#, fuzzy
+#| msgid "iframe url"
+msgid "Iframe url"
 msgstr "iframe url"
-
-msgid "Yes"
-msgstr "Kyllä"
 
 msgid "You can disable the scroll on the iframe content."
 msgstr ""
 
 #, fuzzy
 #| msgid "iframe url"
-msgid "iframe title"
+msgid "Iframe title"
 msgstr "iframe url"
 
 msgid "Image area"
@@ -6350,9 +6593,8 @@ msgstr ""
 
 #, php-format
 msgid ""
-"%1$s %2$s does not support the full screen API %3$s so other elements of the "
-"page may overlap the slider in Fullscreen mode. To avoid such problems, we "
-"suggest hiding the Fullscreen control from mobile view!"
+"%1$s does not support the full screen API. For this reason the full screen "
+"button will not appear on %1$s devices."
 msgstr ""
 
 msgid "Indicator"
@@ -6366,6 +6608,37 @@ msgstr ""
 
 msgid "Bar color"
 msgstr ""
+
+#~ msgid "Loop single slide"
+#~ msgstr "Yhden dian silmukka"
+
+#~ msgid "In case of one slide, it repeats the animation of the slide."
+#~ msgstr "Yhden dian tapauksessa toistaa dian animaation"
+
+#~ msgid "Expired"
+#~ msgstr "Vanhentunut"
+
+#~ msgid "On sale"
+#~ msgstr "Alennuksessa"
+
+#~ msgid "Discount price"
+#~ msgstr "Alennushinta"
+
+#~ msgid ""
+#~ "You can write any date format (http://php.net/manual/en/function.date."
+#~ "php) in separate lines, and new variables will be created for them."
+#~ msgstr ""
+#~ "Voit kirjottaa minkä tahansa päivämäärämuodon (http://php.net/manual/en/"
+#~ "function.date.php) eri riveille ja niille luodaan uudet muuttujat."
+
+#~ msgid ""
+#~ "Write the original text, like 'Monday' then two | signs, and the text you "
+#~ "want it to be translated to, for example 'Montag'. Together: Monday||"
+#~ "Montag"
+#~ msgstr ""
+#~ "Kirjoita alkuperäinen teksti, kuten 'Maanantai' sitten kaksi | merkkiä, "
+#~ "ja teksti johon haluat sen kääntää, kuten, 'Monday'. Yhdessä: Maanantai||"
+#~ "Monday"
 
 #~ msgid "Available by date"
 #~ msgstr "Saatavissa päivämäärän mukaan"
@@ -6402,17 +6675,8 @@ msgstr ""
 #~ msgid "Absolute position"
 #~ msgstr "Hiiren saapuminen sijaintiin"
 
-#~ msgid "Loading animation"
-#~ msgstr "Latausanimaatio"
-
 #~ msgid "Hide until complete load"
 #~ msgstr "Piilota kunnes täysin ladattu"
-
-#~ msgid "Tablet scale"
-#~ msgstr "Tabletin skaalaus"
-
-#~ msgid "Mobile scale"
-#~ msgstr "Mobiili skaalaus"
 
 #~ msgid "Background image dynamic height"
 #~ msgstr "Taustakuvan dynaaminen korkeus"

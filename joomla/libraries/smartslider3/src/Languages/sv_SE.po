@@ -1,9 +1,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-03-21 15:38+0100\n"
-"PO-Revision-Date: 2022-04-06 13:43+0200\n"
+"POT-Creation-Date: 2022-05-13 07:44+0200\n"
+"PO-Revision-Date: 2022-05-17 14:01+0200\n"
+"Last-Translator: \n"
 "Language-Team: \n"
+"Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,8 +15,6 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: ;n2_;n2_e;n2_n:1,2;n2_en:1,2;n2_x:1,2c;n2_ex:1,2c\n"
 "X-Poedit-Flags-xgettext: --no-location\n"
-"Last-Translator: \n"
-"Language: sv_SE\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: Framework/Asset/Builder/cache\n"
 
@@ -4938,54 +4938,6 @@ msgstr ""
 msgid "Creates slides from %1$s content."
 msgstr ""
 
-msgid "Items"
-msgstr ""
-
-msgid "Locations"
-msgstr ""
-
-msgid "Types"
-msgstr ""
-
-msgid "Expired"
-msgstr ""
-
-msgid "Started"
-msgstr ""
-
-msgid "Auction"
-msgstr ""
-
-msgid "Negotiable price"
-msgstr ""
-
-msgid "Blocked by User"
-msgstr ""
-
-msgid "Paid"
-msgstr ""
-
-msgid "Buynow"
-msgstr ""
-
-msgid "Menu item (item ID)"
-msgstr ""
-
-msgid ""
-"Your url will point to the item within this menu item. You will only get a "
-"good result, if you will pick one of your DJ Classifields menu items or "
-"leave it on 'Default'."
-msgstr ""
-
-msgid "Start date"
-msgstr ""
-
-msgid "Expiration date"
-msgstr ""
-
-msgid "Price"
-msgstr ""
-
 msgid "Include subcategories"
 msgstr ""
 
@@ -5035,6 +4987,9 @@ msgid "Separate them by comma."
 msgstr ""
 
 msgid "Banned user IDs"
+msgstr ""
+
+msgid "Started"
 msgstr ""
 
 msgid "Ended"
@@ -5118,10 +5073,16 @@ msgstr ""
 msgid "Manufacturer language"
 msgstr ""
 
+msgid "Price"
+msgstr ""
+
 msgid "Product name"
 msgstr ""
 
 msgid "Product ID"
+msgstr ""
+
+msgid "Locations"
 msgstr ""
 
 msgid "Recurring"
@@ -5137,6 +5098,12 @@ msgid "Only recurring event parents"
 msgstr ""
 
 msgid "Only not recurring events"
+msgstr ""
+
+msgid "Menu item (item ID)"
+msgstr ""
+
+msgid "Start date"
 msgstr ""
 
 msgid "End date"
@@ -5240,6 +5207,9 @@ msgstr ""
 msgid "Ask down all product images"
 msgstr ""
 
+msgid "Items"
+msgstr ""
+
 msgid "View item"
 msgstr ""
 
@@ -5247,15 +5217,6 @@ msgid "Viewed"
 msgstr ""
 
 msgid "View image"
-msgstr ""
-
-msgid "Supplier"
-msgstr ""
-
-msgid "On sale"
-msgstr ""
-
-msgid "Discount price"
 msgstr ""
 
 msgid "All day event"
@@ -5596,6 +5557,14 @@ msgstr ""
 msgid "Vertical pendulum 3D"
 msgstr ""
 
+msgid "We are Passionate About"
+msgstr ""
+
+msgid ""
+"Amazing Food\n"
+"Great Hospitality"
+msgstr ""
+
 msgid "Before text"
 msgstr ""
 
@@ -5861,6 +5830,12 @@ msgstr ""
 msgid "Choose what happens after the counter reached zero."
 msgstr ""
 
+msgid "This page is"
+msgstr ""
+
+msgid "Amazing"
+msgstr ""
+
 #, php-format
 msgid "Circle %d"
 msgstr ""
@@ -5906,6 +5881,9 @@ msgid "Loop delay"
 msgstr ""
 
 msgid "HTML"
+msgstr ""
+
+msgid "Empty element"
 msgstr ""
 
 msgid ""

@@ -6,31 +6,6 @@
   "license": "GPL-2.0-or-later",
   "assets": [
     {
-      "name": "com_templates.admin-template-toggle-assignment",
-      "type": "script",
-      "uri": "com_templates/admin-template-toggle-assignment.min.js",
-      "dependencies": [
-        "com_templates.admin-template-toggle-assignment.es5"
-      ],
-      "attributes": {
-        "type": "module"
-      },
-      "version": "64349301646633757dc9092382b60b58d7e12d5c"
-    },
-    {
-      "name": "com_templates.admin-template-toggle-assignment.es5",
-      "type": "script",
-      "uri": "com_templates/admin-template-toggle-assignment-es5.min.js",
-      "dependencies": [
-        "core"
-      ],
-      "attributes": {
-        "nomodule": true,
-        "defer": true
-      },
-      "version": "05c5f45c0a6391f15d4df27da9f4d136090cc1a4"
-    },
-    {
       "name": "com_templates.admin-template-compare",
       "type": "script",
       "uri": "com_templates/admin-template-compare.min.js",
@@ -57,6 +32,19 @@
       "version": "9f718aaa18d4693e5c1ca24ebcc1a7ee659cb4ab"
     },
     {
+      "name": "com_templates.admin-template-toggle-assignment.es5",
+      "type": "script",
+      "uri": "com_templates/admin-template-toggle-assignment-es5.min.js",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "nomodule": true,
+        "defer": true
+      },
+      "version": "05c5f45c0a6391f15d4df27da9f4d136090cc1a4"
+    },
+    {
       "name": "com_templates.admin-template-toggle-switch.es5",
       "type": "script",
       "uri": "com_templates/admin-template-toggle-switch-es5.min.js",
@@ -70,17 +58,16 @@
       "version": "c848693feb7c555ef01d86d6c8d2b2b06ab78f96"
     },
     {
-      "name": "com_templates.admin-templates.es5",
+      "name": "com_templates.admin-template-toggle-assignment",
       "type": "script",
-      "uri": "com_templates/admin-templates-default-es5.min.js",
+      "uri": "com_templates/admin-template-toggle-assignment.min.js",
       "dependencies": [
-        "core"
+        "com_templates.admin-template-toggle-assignment.es5"
       ],
       "attributes": {
-        "nomodule": true,
-        "defer": true
+        "type": "module"
       },
-      "version": "5398eb3f677f7ffb4ed1fd08c64bf8939dc9d0af"
+      "version": "64349301646633757dc9092382b60b58d7e12d5c"
     },
     {
       "name": "com_templates.admin-template-toggle-switch",
@@ -99,6 +86,19 @@
       "type": "style",
       "uri": "com_templates/admin-templates-default.min.css",
       "version": "1bacad73db8a9b90fffd909e283d16af69cad605"
+    },
+    {
+      "name": "com_templates.admin-templates.es5",
+      "type": "script",
+      "uri": "com_templates/admin-templates-default-es5.min.js",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "nomodule": true,
+        "defer": true
+      },
+      "version": "5398eb3f677f7ffb4ed1fd08c64bf8939dc9d0af"
     },
     {
       "name": "com_templates.admin-templates",

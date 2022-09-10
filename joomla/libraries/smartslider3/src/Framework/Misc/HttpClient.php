@@ -3,10 +3,9 @@
 namespace Nextend\Framework\Misc;
 
 use Nextend\Framework\Notification\Notification;
-use Nextend\Framework\Settings;
+use Nextend\Framework\Request\Request;
 use Nextend\Framework\View\Html;
 use Nextend\SmartSlider3\Application\ApplicationSmartSlider3;
-use WP_HTTP_Proxy;
 
 class HttpClient {
 
@@ -15,12 +14,11 @@ class HttpClient {
     }
 
     public static function get($url, $options = array()) {
+        if (function_exists('curl_init') && function_exists('curl_exec')) {
 
-        $options = array_merge(array(
-            'referer' => $_SERVER['REQUEST_URI']
-        ), $options);
-
-        if (function_exists('curl_init') && function_exists('curl_exec') && Settings::get('curl', 1)) {
+            $options = array_merge(array(
+                'referer' => Request::$SERVER->getVar('REQUEST_URI')
+            ), $options);
 
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $url);
@@ -31,11 +29,6 @@ class HttpClient {
 
             if (!empty($options['referer'])) {
                 curl_setopt($ch, CURLOPT_REFERER, $options['referer']);
-            }
-
-
-            if (Settings::get('curl-clean-proxy', 0)) {
-                curl_setopt($ch, CURLOPT_PROXY, '');
             }
 
             $data = curl_exec($ch);
@@ -65,7 +58,6 @@ class HttpClient {
                 return false;
             }
 
-            return $data;
         } else {
 
             if (!ini_get('allow_url_fopen')) {
@@ -92,9 +84,10 @@ class HttpClient {
 
                 return false;
             }
-
-            return $data;
         }
+    
+
+        return $data;
     }
 
     private static function parseHeaders(array $headers, $header = null) {
@@ -118,5 +111,6 @@ class HttpClient {
         }
 
         return $output;
+    
     }
 }

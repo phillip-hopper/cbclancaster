@@ -12,7 +12,7 @@ class ToSlideID implements ParserInterface {
 
         preg_match('/([0-9]+)(,([0-1]))?/', $argument, $matches);
         if (!isset($matches[3])) {
-            $attributes['aria-role'] = 'button';
+            $attributes['role'] = 'button';
 
             $attributes['onclick'] = "n2ss.applyActionWithClick(event, 'slideToID', " . intval($matches[1]) . ");";
 

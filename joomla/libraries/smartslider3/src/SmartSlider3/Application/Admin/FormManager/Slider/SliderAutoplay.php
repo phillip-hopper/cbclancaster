@@ -57,7 +57,8 @@ class SliderAutoplay extends AbstractSliderTab {
             'relatedFieldsOn'  => array(
                 'table-rows-autoplay',
                 'table-widget-autoplay',
-                'table-widget-indicator'
+                'table-widget-indicator',
+                'autoplay-single-slide-notice'
             )
         ));
 

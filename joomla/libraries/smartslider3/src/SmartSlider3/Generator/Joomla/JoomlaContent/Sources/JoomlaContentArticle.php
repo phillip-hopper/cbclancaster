@@ -10,6 +10,7 @@ use JPluginHelper;
 use Nextend\Framework\Form\Container\ContainerTable;
 use Nextend\Framework\Form\Element\MixedField\GeneratorOrder;
 use Nextend\Framework\Form\Element\OnOff;
+use Nextend\Framework\Form\Element\Select;
 use Nextend\Framework\Form\Element\Select\Filter;
 use Nextend\Framework\Form\Element\Text;
 use Nextend\Framework\Form\Element\Text\Number;
@@ -50,7 +51,7 @@ class JoomlaContentArticle extends AbstractGenerator {
         new JoomlaContentTags($source, 'sourcetags', n2_('Tags'), 0, array(
             'isMultiple' => true
         ));
-        new JoomlaContentAccessLevels($source, 'sourceaccesslevels', 'Access level', 0, array(
+        new JoomlaContentAccessLevels($source, 'sourceaccesslevels', n2_('Access level'), 0, array(
             'isMultiple' => true
         ));
 
@@ -58,21 +59,34 @@ class JoomlaContentArticle extends AbstractGenerator {
 
         new Filter($limit, 'sourcefeatured', n2_('Featured'), 0);
         new Number($limit, 'sourceuserid', n2_('User ID'), '');
-        new Text($limit, 'sourcearticleids', 'Included article IDs', '');
-        new Text($limit, 'sourcearticleidsexcluded', 'Excluded article ids', '');
+        new Text($limit, 'sourcearticleids', n2_('Included article IDs', ''));
+        new Text($limit, 'sourcearticleidsexcluded', n2_('Excluded article IDs', ''));
         new Text($limit, 'sourcelanguage', n2_('Language'), '*');
 
         $variables = $filterGroup->createRow('variables-row');
 
-        new OnOff($variables, 'sourcefields', 'Fields', 0, array(
+        new OnOff($variables, 'sourcefields', n2_('Fields'), 0, array(
             'tipLabel'       => n2_('Extra variables'),
             'tipDescription' => n2_('Turn on these options to generate more variables for the slides.'),
             'tipLink'        => 'https://smartslider.helpscoutdocs.com/article/1864-joomla-articles-generator#fields'
         ));
-        new OnOff($variables, 'sourcetagvariables', 'Tags', 0, array(
+        new OnOff($variables, 'sourcetagvariables', n2_('Tags'), 0, array(
             'tipLabel'       => n2_('Extra variables'),
             'tipDescription' => n2_('Turn on these options to generate more variables for the slides.'),
             'tipLink'        => 'https://smartslider.helpscoutdocs.com/article/1864-joomla-articles-generator#tags-19'
+        ));
+        new Select($variables, 'removeshortcodes', n2_('Remove shortcodes'), '0', array(
+            'isMultiple'     => true,
+            'size'           => 5,
+            'options'        => array(
+                '0' => n2_('All'),
+                '1' => '{shortcode}example{/shortcode}',
+                '2' => '{shortcode}',
+                '3' => '[shortcode]example[/shortcode]',
+                '4' => '[shortcode]'
+            ),
+            'tipLabel'       => n2_('Remove shortcodes'),
+            'tipDescription' => n2_('Remove shortcodes from article description with the following patterns.')
         ));
 
         $date = $filterGroup->createRow('date-row');
@@ -121,6 +135,28 @@ class JoomlaContentArticle extends AbstractGenerator {
         }
 
         return $from;
+    }
+
+    private function removeShortcodes($content) {
+        $selection = $this->data->get('removeshortcodes', 1);
+        if ($selection !== '') {
+            $shortcodes = explode('||', $selection);
+
+            if (in_array(0, $shortcodes) || in_array(1, $shortcodes)) {
+                $content = preg_replace('/{[^{}]*?}[^{}]*?{\/.*?}/', '', $content);
+            }
+            if (in_array(0, $shortcodes) || in_array(2, $shortcodes)) {
+                $content = preg_replace('/{.*?}/', '', $content);
+            }
+            if (in_array(0, $shortcodes) || in_array(3, $shortcodes)) {
+                $content = preg_replace('/\[[^\[\]]*?][^\[\]]*?\[\/.*?]/', '', $content);
+            }
+            if (in_array(0, $shortcodes) || in_array(4, $shortcodes)) {
+                $content = preg_replace('/\[.*?]/', '', $content);
+            }
+        }
+
+        return $content;
     }
 
     protected function _getData($count, $startIndex) {
@@ -241,7 +277,7 @@ class JoomlaContentArticle extends AbstractGenerator {
             );
 
             $article       = new stdClass();
-            $article->text = Slider::removeShortcode($result[$i]['introtext']);
+            $article->text = $this->removeShortcodes(Slider::removeShortcode($result[$i]['introtext']));
             $_p            = array();
 
             JoomlaShim::triggerOnContentPrepare(array(

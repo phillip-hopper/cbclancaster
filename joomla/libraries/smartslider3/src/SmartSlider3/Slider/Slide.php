@@ -37,7 +37,12 @@ class Slide extends AbstractRenderableOwner {
 
     protected $title = '', $description = '', $thumbnail = '';
 
-    public $parameters, $background = '';
+    public $parameters;
+
+    /**
+     * @var string contains escaped html data
+     */
+    public $background = '';
 
     protected $html = '';
 
@@ -377,7 +382,7 @@ class Slide extends AbstractRenderableOwner {
                     'class'   => 'n2-ss-slide-thumbnail'
                 ));
 
-                $this->html .= Html::image($this->sliderObject->features->optimize->optimizeThumbnail($thumbnail), Sanitize::esc_attr($this->getThumbnailAltDynamic()), $attributes);
+                $this->html .= Html::image($this->sliderObject->features->optimize->optimizeThumbnail($thumbnail), esc_attr($this->getThumbnailAltDynamic()), $attributes);
             }
         }
 
@@ -424,6 +429,9 @@ class Slide extends AbstractRenderableOwner {
         return $this->parameters->get('mobilelandscape', 1);
     }
 
+    /**
+     * @return string contains escaped html data
+     */
     public function getHTML() {
         return $this->html;
     }

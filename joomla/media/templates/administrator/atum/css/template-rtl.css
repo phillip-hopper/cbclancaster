@@ -12536,9 +12536,6 @@ fieldset .alert.alert-info {
 .spacer hr {
   width: 380px;
 }
-.spacer label {
-  width: 440px;
-}
 
 td .form-control {
   display: inline-block;
@@ -14708,6 +14705,10 @@ joomla-tab[view=accordion] .col-md-3 {
   border-bottom-left-radius: 0.25rem;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+.dropdown-menu {
+  text-align: right;
 }
 
 dl,

@@ -56,9 +56,9 @@ class ControllerSliders extends AbstractControllerAdmin {
 
     protected function actionExportAll() {
         $slidersModel = new ModelSliders($this);
-        $groupID = (Request::$REQUEST->getVar('inSearch', false))?'*':Request::$REQUEST->getInt('currentGroupID', 0);
+        $groupID      = (Request::$REQUEST->getVar('inSearch', false)) ? '*' : Request::$REQUEST->getInt('currentGroupID', 0);
         $sliders      = $slidersModel->getAll($groupID, 'published');
-        $ids = Request::$REQUEST->getVar('sliders');
+        $ids          = Request::$REQUEST->getVar('sliders');
 
         $files = array();
         foreach ($sliders as $slider) {
@@ -77,7 +77,8 @@ class ControllerSliders extends AbstractControllerAdmin {
         PageFlow::cleanOutputBuffers();
         header('Content-disposition: attachment; filename=sliders_unzip_to_import.zip');
         header('Content-type: application/zip');
-        echo $zip->file();
+        // PHPCS - Contains binary zip data, so nothing to escape.
+        echo $zip->file(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         PageFlow::exitApplication();
     
     }

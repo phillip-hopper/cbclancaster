@@ -20,7 +20,7 @@ class JoomlaModule {
         if (defined('LITESPEED_ESI_SUPPORT')) {
             nextend_smartslider3($sliderId);
         } else {
-            echo 'smartslider3[' . $sliderId . ']';
+            echo 'smartslider3[' . esc_html($sliderId) . ']';
         }
     }
 }

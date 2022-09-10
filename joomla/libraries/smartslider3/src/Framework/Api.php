@@ -10,10 +10,10 @@ use Nextend\Framework\Misc\Base64;
 use Nextend\Framework\Misc\HttpClient;
 use Nextend\Framework\Notification\Notification;
 use Nextend\Framework\Platform\Platform;
+use Nextend\Framework\Request\Request;
 use Nextend\Framework\Url\Url;
 use Nextend\Framework\View\Html;
 use Nextend\SmartSlider3\Application\ApplicationSmartSlider3;
-use WP_HTTP_Proxy;
 
 class Api {
 
@@ -62,10 +62,9 @@ class Api {
                 $data = $response->body;
             }
         }
-    
 
         if (!isset($data)) {
-            if (function_exists('curl_init') && function_exists('curl_exec') && Settings::get('curl', 1)) {
+            if (function_exists('curl_init') && function_exists('curl_exec')) {
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, $api);
 
@@ -74,11 +73,8 @@ class Api {
                 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20);
                 curl_setopt($ch, CURLOPT_TIMEOUT, 30);
                 curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)');
-                curl_setopt($ch, CURLOPT_REFERER, $_SERVER['REQUEST_URI']);
+                curl_setopt($ch, CURLOPT_REFERER, Request::$SERVER->getVar('REQUEST_URI'));
 
-                if (Settings::get('curl-clean-proxy', 0)) {
-                    curl_setopt($ch, CURLOPT_PROXY, '');
-                }
                 $data        = curl_exec($ch);
                 $errorNumber = curl_errno($ch);
                 if ($errorNumber == 60 || $errorNumber == 77) {
@@ -134,6 +130,7 @@ class Api {
                 }
             }
         }
+    
 
         switch ($contentType) {
             case 'text/html; charset=UTF-8':

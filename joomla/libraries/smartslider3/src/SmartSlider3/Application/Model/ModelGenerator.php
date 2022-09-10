@@ -195,7 +195,6 @@ class ModelGenerator extends AbstractModelTable {
                 $slideBuilder->set(array(
                     'title'           => "{title}",
                     'description'     => '{description}',
-                    'href'            => '{url}',
                     'thumbnail'       => "{thumbnail}",
                     'backgroundColor' => "ffffff00",
                     'background-type' => 'color',
@@ -217,7 +216,6 @@ class ModelGenerator extends AbstractModelTable {
                 $slideBuilder->set(array(
                     'title'           => "{title}",
                     'description'     => '{description}',
-                    'href'            => '{url}',
                     'thumbnail'       => "{image200x150/1}",
                     'backgroundColor' => "ffffff00",
                     'background-type' => 'color',
@@ -235,6 +233,23 @@ class ModelGenerator extends AbstractModelTable {
                     'image'    => '{image}'
                 ));
 
+                break;
+
+            case 'video_mp4':
+                $slideBuilder->set(array(
+                    'title' => "{name}"
+                ));
+
+                $video = new BuilderComponentLayer($slideBuilder, 'video');
+                $video->set(array(
+                    'desktopportraitwidth'  => '100%',
+                    'desktopportraitheight' => '100%',
+                    'desktopportraitalign'  => 'left',
+                    'desktopportraitvalign' => 'top'
+                ));
+                $video->item->set(array(
+                    "video_mp4" => "{video}",
+                ));
                 break;
 
             case 'social_post':
@@ -316,7 +331,6 @@ class ModelGenerator extends AbstractModelTable {
                     'heading' => '{title}',
                     'font'    => Base64::encode('{"data":[{"extra":"","color":"ffffffff","size":"36||px","tshadow":"0|*|0|*|0|*|000000ff","afont":"Roboto,Arial","lineheight":"1.5","bold":0,"italic":0,"underline":0,"align":"inherit","letterspacing":"normal","wordspacing":"normal","texttransform":"none"},{"extra":""}]}')
                 ));
-                break;
                 break;
 
             case 'text_generator':

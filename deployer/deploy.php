@@ -25,21 +25,19 @@ set('git_tty', false);
 
 // Shared files/dirs between deploys
 set('shared_files', []);
-set('shared_dirs', ['cache', 'config', 'logs', 'uploads']);
+set('shared_dirs', ['cache', 'config', 'logs', 'images', 'files']);
 set('clear_paths', ['cache/*']);
 set('shared_files_ex', [
     ['config/configuration.php', 'joomla/configuration.php']
 ]);
 set('shared_dirs_ex', [
-    ['uploads', 'wordpress/wp-content/uploads'],
-    ['blogs.dir', 'wordpress/wp-content/blogs.dir']
+    ['images', 'joomla/images'],
+    ['files', 'joomla/files']
 ]);
 
 // Writable dirs by web server
-set('writable_dirs', ['cache', 'logs', 'uploads']);
+set('writable_dirs', ['cache', 'logs', 'images', 'files']);
 
-//set('composer_options', 'install --verbose --prefer-dist --no-progress --no-interaction --no-dev --optimize-autoloader');
-//set('npm_options', 'install --production');
 
 // Hosts
 set('default_stage', 'dev');
@@ -244,8 +242,6 @@ task('deploy', [
     'deploy:shared',
     'deploy:shared_ex',
     'deploy:writable',
-//    'deploy:vendors',
-//    'deploy:npm',
 //    'deploy:create_symlinks',
     'deploy:resource_symlink',
     'deploy:clear_paths',

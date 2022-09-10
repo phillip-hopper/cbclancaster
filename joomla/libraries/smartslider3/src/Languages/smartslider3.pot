@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-04-19 14:57+0200\n"
+"POT-Creation-Date: 2022-08-11 14:03+0200\n"
 "PO-Revision-Date: 2020-03-10 19:30+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.1.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: ;n2_;n2_e;n2_n:1,2;n2_en:1,2;n2_x:1,2c;n2_ex:1,2c\n"
@@ -1459,9 +1459,6 @@ msgstr ""
 msgid "Background video"
 msgstr ""
 
-msgid "Muted"
-msgstr ""
-
 msgctxt "Video/Audio play"
 msgid "Loop"
 msgstr ""
@@ -1625,14 +1622,14 @@ msgid "Global breakpoints"
 msgstr ""
 
 #, php-format
-msgid "You can use the global breakpoints, or adjust them locally here. You can configure the Global breakpoints at <a href=\"%1$s\" target=\"_blank\">Global settings</a> > General > Breakpoints"
+msgid "You can use the global breakpoints, or adjust them locally here. You can configure the Global breakpoints at %1$sGlobal settings%2$s > General > Breakpoints"
 msgstr ""
 
 msgid "Custom size"
 msgstr ""
 
 #, php-format
-msgid "Use this option to customize the aspect ratio for each device. %1$s Read more in the documentation%2$s. <b>Beware:</b> This option is rarely needed and might be hard to set properly!"
+msgid "Use this option to customize the aspect ratio for each device. %1$s Read more in the documentation%2$s. %3$sBeware:%4$s This option is rarely needed and might be hard to set properly!"
 msgstr ""
 
 msgid "Slides"
@@ -1778,10 +1775,7 @@ msgid "Get started with the Pro version now!"
 msgstr ""
 
 #, php-format
-msgid "Unable to connect to the API (%s)."
-msgstr ""
-
-msgid "See <b>Debug Information</b> for more details!"
+msgid "Unable to connect to the API (%1$s). %2$s See %3$sDebug Information%4$s for more details!"
 msgstr ""
 
 msgid "Successful connection with the API."
@@ -2326,6 +2320,12 @@ msgstr ""
 msgid "Convert to slider"
 msgstr ""
 
+msgid "Single slides are duplicated while autoplay is used."
+msgstr ""
+
+msgid "autoplay settings"
+msgstr ""
+
 msgid "Slide one"
 msgstr ""
 
@@ -2474,7 +2474,7 @@ msgid "Delete resized image cache"
 msgstr ""
 
 #, php-format
-msgid "If enabled the following folder will be <b>permanently deleted</b>: %s"
+msgid "If enabled the following folder will be %1$spermanently deleted%2$s: %3$s"
 msgstr ""
 
 msgid "Configuration"
@@ -2539,19 +2539,6 @@ msgid "Google Fonts, icon and lightbox CSS are loaded in a non-blocking way. Dis
 msgstr ""
 
 msgid "Load Font Awesome 4"
-msgstr ""
-
-msgid "API requests"
-msgstr ""
-
-#, php-format
-msgctxt "Curl"
-msgid "Use %s"
-msgstr ""
-
-#, php-format
-msgctxt "curl proxy"
-msgid "Clean %s"
 msgstr ""
 
 msgid "General settings"
@@ -2741,7 +2728,8 @@ msgstr ""
 msgid "Your server has an upload file limit at %s, so if you have bigger export file, please use the local import file method."
 msgstr ""
 
-msgid "You have to unzip your "
+#, php-format
+msgid "You have to unzip your %1$s file to find the importable *.ss3 files!"
 msgstr ""
 
 msgid "Only *.ss3 files can be uploaded!"
@@ -2779,7 +2767,7 @@ msgid "File"
 msgstr ""
 
 #, php-format
-msgid "Files with <i>.ss3</i> extension are listed from: %s"
+msgid "Files with %1$s.ss3%2$s extension are listed from: %3$s"
 msgstr ""
 
 msgid "Delete file"
@@ -2918,6 +2906,10 @@ msgstr ""
 msgid "Unable to connect to the API"
 msgstr ""
 
+#, php-format
+msgid "See %1$sDebug Information%2$s for more details!"
+msgstr ""
+
 msgid "MySQL table missing"
 msgstr ""
 
@@ -2941,6 +2933,9 @@ msgstr ""
 
 #, php-format
 msgid "This plugin breaks the filtering options of the dynamic slide generators when %1$s is set to %2$s. Also it has not received any updates since WordPress 3.9."
+msgstr ""
+
+msgid "Optimization plugins often create issues, so if you see anything wrong, follow our documentation:"
 msgstr ""
 
 msgid "Add column"
@@ -2998,19 +2993,37 @@ msgstr ""
 msgid "Tags"
 msgstr ""
 
+msgid "Access level"
+msgstr ""
+
 msgid "Featured"
 msgstr ""
 
 msgid "User ID"
 msgstr ""
 
+msgid "Included article IDs"
+msgstr ""
+
+msgid "Excluded article IDs"
+msgstr ""
+
 msgid "Language"
+msgstr ""
+
+msgid "Fields"
 msgstr ""
 
 msgid "Extra variables"
 msgstr ""
 
 msgid "Turn on these options to generate more variables for the slides."
+msgstr ""
+
+msgid "Remove shortcodes"
+msgstr ""
+
+msgid "Remove shortcodes from article description with the following patterns."
 msgstr ""
 
 msgid "Date format"
@@ -3227,9 +3240,6 @@ msgid "Creates slides from your posts in the selected categories."
 msgstr ""
 
 msgid "Categories"
-msgstr ""
-
-msgid "Remove shortcodes"
 msgstr ""
 
 msgid "You can remove shortcodes from variables to avoid 3rd party content rendering in your slider."
@@ -4669,6 +4679,9 @@ msgstr ""
 msgid "optional"
 msgstr ""
 
+msgid "Privacy status"
+msgstr ""
+
 #, php-format
 msgid "Creates slides from %1$s content."
 msgstr ""
@@ -4911,6 +4924,9 @@ msgid "Product IDs"
 msgstr ""
 
 msgid "Write the product IDs you want to display here, in the order you want them to appear in the generator. One product ID per line."
+msgstr ""
+
+msgid "Update your Ignite Gallery! Only Ignite Gallery 4.8+ versions are supported."
 msgstr ""
 
 msgid "One time events"
@@ -5277,6 +5293,14 @@ msgstr ""
 msgid "Vertical pendulum 3D"
 msgstr ""
 
+msgid "We are Passionate About"
+msgstr ""
+
+msgid ""
+"Amazing Food\n"
+"Great Hospitality"
+msgstr ""
+
 msgid "Before text"
 msgstr ""
 
@@ -5537,6 +5561,12 @@ msgstr ""
 msgid "Choose what happens after the counter reached zero."
 msgstr ""
 
+msgid "This page is"
+msgstr ""
+
+msgid "Amazing"
+msgstr ""
+
 #, php-format
 msgid "Circle %d"
 msgstr ""
@@ -5584,7 +5614,11 @@ msgstr ""
 msgid "HTML"
 msgstr ""
 
-msgid "Please note that <b>we do not support</b> the HTML layer and the 3rd party codes loaded by it. We only suggest using this layer if you are a developer. <br>Also, make sure your HTML code is valid! Invalid HTML codes can mess up the entire slide and the only way resolving this problem is deleting the slide."
+msgid "Empty element"
+msgstr ""
+
+#, php-format
+msgid "Please note that %1$swe do not support%2$s the HTML layer and the 3rd party codes loaded by it. We only suggest using this layer if you are a developer. %3$sAlso, make sure your HTML code is valid! Invalid HTML codes can mess up the entire slide and the only way resolving this problem is deleting the slide."
 msgstr ""
 
 msgid "Item"
@@ -5693,7 +5727,8 @@ msgstr ""
 msgid "Iframe"
 msgstr ""
 
-msgid "Please note, that <b>we do not support</b> customized coding! The iframe layer often needs code customizations what you have to do yourself, so we only suggest using this layer if you are a developer!"
+#, php-format
+msgid "Please note, that %1$swe do not support%2$s customized coding! The iframe layer often needs code customizations what you have to do yourself, so we only suggest using this layer if you are a developer!"
 msgstr ""
 
 msgid "Iframe url"
@@ -5709,6 +5744,9 @@ msgid "Image area"
 msgstr ""
 
 msgid "Image box"
+msgstr ""
+
+msgid "Aria label"
 msgstr ""
 
 msgid "Positions the text inside the layer. Only works with left and right layout."
@@ -5786,7 +5824,8 @@ msgstr ""
 msgid "Joomla module"
 msgstr ""
 
-msgid "Please note, that <b>we do not support</b> the Joomla module layer!<br>The loaded module often needs code customizations what you have to do yourself, so we only suggest using this layer if you are a developer!"
+#, php-format
+msgid "Please note, that %1$swe do not support%2$s the Joomla module layer!%3$sThe loaded module often needs code customizations what you have to do yourself, so we only suggest using this layer if you are a developer!"
 msgstr ""
 
 msgid "Position name or module ID"

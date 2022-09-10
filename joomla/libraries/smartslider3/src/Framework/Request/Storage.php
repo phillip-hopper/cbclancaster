@@ -9,6 +9,7 @@ use Nextend\Framework\Request\Parser\WordPressRequestParser;
 class Storage {
 
     public $originalStorage;
+    public $returnOriginal;
     public $storage;
 
     /**
@@ -16,12 +17,13 @@ class Storage {
      */
     public $parserInstance;
 
-    public function __construct($data) {
+    public function __construct($data, $returnOriginal = false) {
         $this->parserInstance = new JoomlaRequestParser();
     
 
 
         $this->originalStorage = $data;
+        $this->returnOriginal  = $returnOriginal;
         $this->storage         = array();
     }
 
@@ -30,13 +32,17 @@ class Storage {
     }
 
     protected function get($var, $default = false) {
-        if (isset($this->storage[$var])) {
-            return $this->storage[$var];
+        if (!$this->returnOriginal) {
+            if (isset($this->storage[$var])) {
+                return $this->storage[$var];
+            } else if (isset($this->originalStorage[$var])) {
+
+                $this->storage[$var] = $this->parserInstance->parseData($this->originalStorage[$var]);
+
+                return $this->storage[$var];
+            }
         } else if (isset($this->originalStorage[$var])) {
-
-            $this->storage[$var] = $this->parserInstance->parseData($this->originalStorage[$var]);
-
-            return $this->storage[$var];
+            return $this->originalStorage[$var];
         }
 
         return $default;

@@ -18,6 +18,8 @@
       <excludeFolder url="file://$MODULE_DIR$/joomla/libraries/gantry5/vendor/erusev/parsedown" />
       <excludeFolder url="file://$MODULE_DIR$/joomla/libraries/gantry5/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/joomla/libraries/gantry5/vendor/filp/whoops" />
+      <excludeFolder url="file://$MODULE_DIR$/config" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

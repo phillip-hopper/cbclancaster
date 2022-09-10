@@ -11,6 +11,7 @@ use JPluginHelper;
 use JText;
 use JUri;
 use Nextend\Framework\PageFlow;
+use Nextend\Framework\Request\Request;
 use Nextend\SmartSlider3\Application\ApplicationSmartSlider3;
 use Nextend\SmartSlider3\Install\Install;
 use Nextend\SmartSlider3\Settings;
@@ -23,7 +24,7 @@ class AdministratorComponent {
 
         $this->checkAcl();
 
-        if (!isset($_GET['keepalive'])) {
+        if (!Request::$GET->getInt('keepalive')) {
 
             /**
              * Required for the license activation to work.
@@ -41,7 +42,7 @@ class AdministratorComponent {
             $applicationType = ApplicationSmartSlider3::getInstance()
                                                       ->getApplicationTypeAdmin();
 
-            $isAjax = isset($_GET['nextendajax']) && $_GET['nextendajax'];
+            $isAjax = Request::$GET->getInt('nextendajax');
 
             $applicationType->processRequest('sliders', 'gettingstarted', $isAjax);
 
@@ -50,7 +51,7 @@ class AdministratorComponent {
                 _N2.r('$', function () {
                     var $ = _N2.$;
                     var __keepAlive = function () {
-                        $.get('<?php echo JURI::current();?>?option=com_smartslider3&keepalive=1', function () {
+                        $.get('<?php echo esc_url(JURI::current() . '?option=com_smartslider3&keepalive=1');?>', function () {
                             setTimeout(__keepAlive, 300000);
                         });
                     };

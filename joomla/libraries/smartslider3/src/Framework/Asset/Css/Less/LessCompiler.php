@@ -1482,7 +1482,7 @@ class LessCompiler {
                 $width    = strlen($colorStr) == 3 ? 16 : 256;
 
                 for ($i = 3; $i > 0; $i--) { // 3 2 1
-                    $t   = $num % $width;
+                    $t   = fmod($num, $width);
                     $num /= $width;
 
                     $c[$i] = $t * (256 / $width) + $t * floor(16 / $width);

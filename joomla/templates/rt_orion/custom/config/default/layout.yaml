@@ -14,9 +14,8 @@ layout:
       -
         /navigation/:
           -
-            - 'logo-3453 20'
-            - 'menu-2872 60'
-            - 'social-7974 20'
+            - 'logo-3453 30'
+            - 'menu-2872 70'
     -
       -
         /slideshow/:
@@ -186,25 +185,11 @@ content:
   logo-3453:
     title: 'Logo / Image'
     attributes:
-      image: 'gantry-media://logos/white-logo-200.png'
+      image: 'gantry-media://logos/color-logo.svg'
       link: '1'
       svg: ''
       text: ''
       title: ''
-  menu-2872:
-    block:
-      variations: center
-  social-7974:
-    attributes:
-      items:
-        -
-          icon: 'fa fa-facebook fa-fw'
-          text: ''
-          link: 'https://www.facebook.com/CovenantBaptistChurch'
-          name: Facebook
-    block:
-      class: hidden-phone
-      variations: align-right
   position-position-6661:
     title: 'Slideshow A'
     attributes:

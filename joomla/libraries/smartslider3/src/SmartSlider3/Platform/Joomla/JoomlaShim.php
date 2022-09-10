@@ -9,6 +9,7 @@ use Joomla\CMS\Factory;
 use Joomla\Event\Event;
 use JPluginHelper;
 use Nextend\Framework\Pattern\SingletonTrait;
+use Nextend\Security\Joomla\JoomlaSecurity;
 use Nextend\SmartSlider3\Settings;
 use ReflectionFunction;
 
@@ -20,6 +21,8 @@ class JoomlaShim {
 
     protected function init() {
         self::$isJoomla4 = version_compare(JVERSION, '4', '>=') ? 1 : 0;
+
+        JoomlaSecurity::getInstance();
     }
 
     public static function getDispatcher() {
@@ -42,6 +45,7 @@ class JoomlaShim {
             $excludedPlugins[] = 'plgcontentarkcontent';
             $excludedPlugins[] = 'plgcontentosyoutube';
             $excludedPlugins[] = 'plgsystemt4';
+            $excludedPlugins[] = 'plgcontentfields';
         }
 
         return $excludedPlugins;

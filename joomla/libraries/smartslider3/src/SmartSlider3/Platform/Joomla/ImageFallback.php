@@ -4,6 +4,7 @@ namespace Nextend\SmartSlider3\Platform\Joomla;
 
 use JURI;
 use Nextend\Framework\Filesystem\Filesystem;
+use Nextend\Framework\Request\Request;
 
 class ImageFallback {
 
@@ -95,7 +96,7 @@ class ImageFallback {
             '\\\\'
         ), '', $url);
 
-        $domain = $_SERVER['HTTP_HOST'];
+        $domain = Request::$SERVER->getVar('HTTP_HOST');
 
         return !(substr($url, 0, strlen($domain)) === $domain);
     }
@@ -110,7 +111,7 @@ class ImageFallback {
 
     static public function imageUrlExists($imageUrl) {
         if (substr($imageUrl, 0, 2) == '//' || substr($imageUrl, 0, 2) == '\\\\') {
-            $imageUrl = (empty($_SERVER['HTTPS']) ? "http:" : "https:") . $imageUrl;
+            $imageUrl = (strtolower(Request::$SERVER->getCmd('HTTPS', 'off')) != 'off' ? "https:" : "http:") . $imageUrl;
         }
 
         return Filesystem::existsFile(Filesystem::absoluteURLToPath(urldecode($imageUrl)));

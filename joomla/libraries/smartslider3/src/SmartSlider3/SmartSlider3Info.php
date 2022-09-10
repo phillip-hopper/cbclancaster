@@ -7,6 +7,7 @@ use Nextend\Framework\Api;
 use Nextend\Framework\Asset\Js\Js;
 use Nextend\Framework\Notification\Notification;
 use Nextend\Framework\Platform\Platform;
+use Nextend\Framework\Request\Request;
 use Nextend\Framework\Url\Url;
 use Nextend\Framework\Url\UrlHelper;
 use Nextend\SmartSlider3\Application\ApplicationSmartSlider3;
@@ -14,15 +15,15 @@ use Nextend\SmartSlider3\Application\Model\ModelLicense;
 
 class SmartSlider3Info {
 
-    public static $version = '3.5.1.6';
+    public static $version = '3.5.1.9';
 
     public static $channel = 'stable';
 
-    public static $revision = '5610dfb7e242f0a6a09daa1d6f8ea084401c1eb6';
+    public static $revision = 'e122aaff11bdb7dcf3f29d7722c73a9a6f51f552';
 
-    public static $revisionShort = '5610dfb7';
+    public static $revisionShort = 'e122aaff';
 
-    public static $branch = 'release-3.5.1.6';
+    public static $branch = 'release-3.5.1.9';
 
     public static $completeVersion;
 
@@ -114,13 +115,13 @@ class SmartSlider3Info {
     public static function getDomain() {
         $domain = parse_url(Url::getSiteUri(), PHP_URL_HOST);
         if (empty($domain)) {
-            if (isset($_SERVER['HTTP_HOST'])) {
+            if (Request::$SERVER->getVar('HTTP_HOST') !== null) {
 
-                $domain = $_SERVER['HTTP_HOST'];
+                $domain = Request::$SERVER->getVar('HTTP_HOST');
             }
-            if (empty($domain) && isset($_SERVER['SERVER_NAME'])) {
+            if (empty($domain) && Request::$SERVER->getVar('SERVER_NAME') !== null) {
 
-                $domain = $_SERVER['SERVER_NAME'];
+                $domain = Request::$SERVER->getVar('SERVER_NAME');
             }
         }
 

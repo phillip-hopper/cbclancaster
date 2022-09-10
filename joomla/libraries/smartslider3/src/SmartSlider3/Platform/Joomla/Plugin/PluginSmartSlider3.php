@@ -8,7 +8,6 @@ use ArtxPage;
 use EshopHelper;
 use JFactory;
 use Joomla\CMS\Application\SiteApplication;
-use Joomla\CMS\Document\Document;
 use JPlugin;
 use Nextend\Framework\Asset\AssetManager;
 use Nextend\SmartSlider3\Platform\Joomla\Joomla3Assets;
@@ -44,13 +43,28 @@ class PluginSmartSlider3 extends JPlugin {
              */
             $application = JFactory::getApplication();
             if ($application->isClient('site')) {
-                $request = $application->input->request;
-                if (!JFactory::getUser()->guest && (($application->get('frontediting', 1) && $request->get('option') == 'com_content' && $request->get('view') == 'form' && $request->get('layout') == 'edit' && $application->input->getInt('a_id') > 0) || ($request->get('option') == 'com_quix' && ($request->get('layout') == 'edit') || $request->get('builder') == 'frontend')) || $request->get('type') == 'rss') {
+                $request   = $application->input->request;
+                $isAllowed = true;
 
+                if (!JFactory::getUser()->guest) {
+
+                    if ($application->get('frontediting', 1) && $request->get('option') == 'com_content' && $request->get('view') == 'form' && $request->get('layout') == 'edit' && $application->input->getInt('a_id') > 0) {
+                        //Joomla 3 frontend article editing
+                        $isAllowed = false;
+
+                    } else if ($request->get('option') == 'com_quix' && $request->get('layout') == 'edit' || $request->get('builder') == 'frontend') {
+                        //Quix Visual Builder
+                        $isAllowed = false;
+
+                    } else if ($application->input->get('option') == 'com_sppagebuilder' && $application->input->get('layout') == 'edit') {
+                        //SP Page Builder - @see SSDEV-3640
+                        $isAllowed = false;
+                    }
+                }
+
+                if ($request->get('type') == 'rss') {
+                    //RSS feed
                     $isAllowed = false;
-                } else {
-
-                    $isAllowed = true;
                 }
             } else {
                 $isAllowed = false;
@@ -122,8 +136,13 @@ class PluginSmartSlider3 extends JPlugin {
 
         ob_start();
         if (class_exists('\\Nextend\\Framework\\Asset\\AssetManager', false)) {
-            echo AssetManager::getCSS();
-            echo AssetManager::getJs();
+
+
+            // PHPCS - Content already escaped
+            echo AssetManager::getCSS(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+            // PHPCS - Content already escaped
+            echo AssetManager::getJs(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         }
         $head = ob_get_clean();
         if (!empty($head)) {

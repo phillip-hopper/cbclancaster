@@ -147,7 +147,6 @@ html[dir=rtl] .infobar-leave-active {
 .media-sidebar {
   flex: 0 0 280px;
   padding: 1rem;
-  overflow-y: auto;
 }
 
 .media-breadcrumb {
@@ -430,11 +429,22 @@ html[dir=rtl] .infobar-leave-active {
 }
 
 .image-cropped {
-  padding-bottom: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  aspect-ratio: 1/1;
+  max-width: 100%;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
   border-radius: 0.25rem;
+}
+
+.image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1/1;
+  max-width: 100%;
+  height: auto;
+  color: #9d9d9d;
 }
 
 .file-background, .folder-background {
@@ -744,7 +754,9 @@ html[dir=rtl] .infobar-leave-active {
 }
 
 .media-toolbar {
-  position: relative;
+  position: sticky;
+  top: 67px;
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   padding: 0;
@@ -752,7 +764,7 @@ html[dir=rtl] .infobar-leave-active {
   border-bottom: 1px solid var(--template-bg-dark-7);
   -webkit-border-start: 1px solid var(--template-bg-dark-7);
           border-inline-start: 1px solid var(--template-bg-dark-7);
-  border-radius: 0.25rem 0.25rem 0 0;
+  border-radius: 0 0.25rem 0 0;
   box-shadow: 0 -1px 0 0 var(--template-bg-dark-7);
 }
 .media-toolbar input {
@@ -841,6 +853,10 @@ ul.media-tree:empty {
 }
 
 .media-disk {
+  position: sticky;
+  top: 75px;
+  left: 0;
+  display: block;
   margin-bottom: 10px;
 }
 

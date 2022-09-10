@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-23 09:55+0200\n"
-"PO-Revision-Date: 2021-07-23 10:02+0200\n"
+"POT-Creation-Date: 2022-05-13 07:44+0200\n"
+"PO-Revision-Date: 2022-05-17 14:14+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.0.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: ;n2_;n2_e;n2_n:1,2;n2_en:1,2;n2_x:1,2c;n2_ex:1,2c\n"
 "X-Poedit-Flags-xgettext: --no-location\n"
@@ -26,14 +26,6 @@ msgstr "CURLがphp.iniで無効になっています。有効に変更してく�
 msgid "Unable to contact with the licensing server, please try again later!"
 msgstr ""
 "ライセンスサーバーにアクセスできません。しばらく経ってからお試しください。"
-
-msgctxt "Default Google font family for admin"
-msgid "Montserrat"
-msgstr "モントセラト"
-
-msgctxt "Default Google font charset for admin"
-msgid "latin"
-msgstr "ラテン語"
 
 msgid "You are not allowed to upload!"
 msgstr "アップロードが許可されていません！"
@@ -186,6 +178,14 @@ msgstr "フロントエンド"
 msgid "You can load Google Fonts on the frontend."
 msgstr ""
 
+msgid "Save fonts locally"
+msgstr ""
+
+msgid ""
+"You can store the used Google Fonts on your server. This way all Google "
+"Fonts will load from your own domain."
+msgstr ""
+
 msgid "Backend"
 msgstr "バックエンド"
 
@@ -201,53 +201,6 @@ msgstr "斜体"
 
 msgid "Normal"
 msgstr "通常"
-
-msgid "Character set"
-msgstr "文字セット"
-
-msgctxt "Character set"
-msgid "Latin"
-msgstr "ラテン語"
-
-msgctxt "Character set"
-msgid "Latin Extended"
-msgstr "ラテン語拡張"
-
-msgctxt "Character set"
-msgid "Greek"
-msgstr "ギリシャ語"
-
-msgctxt "Character set"
-msgid "Greek Extended"
-msgstr "ギリシャ語拡張"
-
-msgctxt "Character set"
-msgid "Cyrillic"
-msgstr "キリル文字"
-
-msgctxt "Character set"
-msgid "Devanagari"
-msgstr "インド文字"
-
-msgctxt "Character set"
-msgid "Arabic"
-msgstr "アラビア語"
-
-msgctxt "Character set"
-msgid "Khmer"
-msgstr "クメール語"
-
-msgctxt "Character set"
-msgid "Telugu"
-msgstr "テルグ語"
-
-msgctxt "Character set"
-msgid "Vietnamese"
-msgstr "ベトナム語"
-
-msgctxt "Default font sets"
-msgid "latin"
-msgstr "ラテン語"
 
 msgid "Choose"
 msgstr "選択"
@@ -1189,14 +1142,22 @@ msgstr ""
 msgid "Set"
 msgstr "設定"
 
+msgid "Edit"
+msgstr "編集"
+
+msgid "Group"
+msgstr "グループ"
+
+#, fuzzy
+#| msgid "Slider"
+msgid "Edit Slider"
+msgstr "スライダー"
+
 msgid "Up"
 msgstr ""
 
 msgid "Insert group"
 msgstr "グループを挿入"
-
-msgid "Group"
-msgstr "グループ"
 
 msgid "Move to trash"
 msgstr ""
@@ -1247,6 +1208,32 @@ msgstr "スライダーを削除"
 #| msgid "Delete slider"
 msgid "delete this slide"
 msgstr "スライダーを削除"
+
+msgid "Max width"
+msgstr "最大幅"
+
+msgid "Margin"
+msgstr "マージン（外側の余白）"
+
+#, fuzzy
+#| msgid "Top"
+msgid "top"
+msgstr "上"
+
+#, fuzzy
+#| msgid "Light"
+msgid "right"
+msgstr "細い"
+
+#, fuzzy
+#| msgid "Bottom"
+msgid "bottom"
+msgstr "下"
+
+#, fuzzy
+#| msgid "To left"
+msgid "left"
+msgstr "左へ"
 
 msgid "Animations"
 msgstr "アニメーション"
@@ -1494,6 +1481,11 @@ msgstr ""
 msgid "JavaScript callbacks"
 msgstr "JavaScript コールバック"
 
+#, fuzzy
+#| msgid "Loading animation"
+msgid "Loading animation waiting time"
+msgstr "読み込み時のアニメーション"
+
 msgid "Post IDs"
 msgstr "投稿ID"
 
@@ -1502,6 +1494,21 @@ msgstr "1行に1つずつ"
 
 msgid "The cache of the posts with the given ID will be cleared upon save."
 msgstr "指定されたIDを持つ投稿のキャッシュは、保存時に消去されます。"
+
+#, fuzzy
+#| msgid "Select slider"
+msgid "Fallback slider"
+msgstr "スライダーを選択"
+
+#, fuzzy
+#| msgid "Alias"
+msgid "ID or Alias"
+msgstr "別名"
+
+msgid ""
+"Select another slider by its ID or Alias that displays if your current "
+"slider has no published slides."
+msgstr ""
 
 msgid "Thumbnail"
 msgstr "サムネイル"
@@ -1580,9 +1587,6 @@ msgstr ""
 msgid "Align"
 msgstr "整列"
 
-msgid "Margin"
-msgstr "マージン（外側の余白）"
-
 msgid "Puts a fix margin around your slider."
 msgstr ""
 
@@ -1595,6 +1599,11 @@ msgstr "最適化"
 msgid "Loading"
 msgstr "読み込み"
 
+#, fuzzy
+#| msgid "Loading"
+msgid "Loading type"
+msgstr "読み込み"
+
 msgid "Instant"
 msgstr ""
 
@@ -1603,11 +1612,6 @@ msgstr ""
 
 msgid "After delay"
 msgstr ""
-
-#, fuzzy
-#| msgid "Loading"
-msgid "Loading type"
-msgstr "読み込み"
 
 msgid ""
 "If your slider is above the fold, you can load it immediately. Otherwise, "
@@ -1799,6 +1803,11 @@ msgid ""
 "If the size of your image is not the same as your slider's, you can improve "
 "the result with the filling modes."
 msgstr ""
+
+#, fuzzy
+#| msgid "Background color"
+msgid "Background Blur"
+msgstr "背景色"
 
 msgid "Randomize"
 msgstr "ランダム表示"
@@ -2096,14 +2105,17 @@ msgstr "大好きです"
 msgid "Why upgrade to Smart Slider 3 Pro?"
 msgstr ""
 
-msgid "120+ slider templates"
+#, php-format
+msgid "%d+ slider templates"
 msgstr ""
 
 msgid "Full slide library access"
 msgstr ""
 
-msgid "20 new layers"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Heading layer"
+msgid "%d new layers"
+msgstr "見出しレイヤー"
 
 msgid "Extra advanced options"
 msgstr ""
@@ -2171,9 +2183,6 @@ msgstr "グラデーション"
 
 msgid "Color end"
 msgstr ""
-
-msgid "Max width"
-msgstr "最大幅"
 
 msgid "Position"
 msgstr ""
@@ -2347,6 +2356,11 @@ msgid ""
 "background correctly."
 msgstr ""
 
+#, fuzzy
+#| msgid "Background color"
+msgid "Background blur"
+msgstr "背景色"
+
 msgid "Blur"
 msgstr "ぼかし"
 
@@ -2505,9 +2519,6 @@ msgstr "スケールアップ"
 msgid "Scale down"
 msgstr "スケールダウン"
 
-msgid "Edit"
-msgstr "編集"
-
 msgid "Static overlay"
 msgstr "静的オーバーレイ"
 
@@ -2565,8 +2576,10 @@ msgstr "上へスライド"
 msgid "Drop images here"
 msgstr "デスクトップ画像はありません！"
 
-msgid "Edit slider"
-msgstr ""
+#, fuzzy
+#| msgid "Search results only"
+msgid "Search Project"
+msgstr "検索結果のみ"
 
 #, fuzzy
 #| msgid "View tweet"
@@ -2598,7 +2611,29 @@ msgstr "古い順"
 msgid "Export"
 msgstr "エクスポート"
 
+#, fuzzy
+#| msgid "Showcase"
+msgid "Show"
+msgstr "ショーケース"
+
+#, php-format
+msgid "Showing %s to %s of %s projects"
+msgstr ""
+
+msgid "No projects to show"
+msgstr ""
+
 msgid "New project"
+msgstr ""
+
+msgid "Sorry we couldn’t find any matches"
+msgstr ""
+
+msgid "Please try searching with another term."
+msgstr ""
+
+#, php-format
+msgid "Showing %s results for %s."
 msgstr ""
 
 msgid "Module"
@@ -3127,8 +3162,8 @@ msgstr "ジェネレーター設定"
 msgid "Cache expiration"
 msgstr ""
 
-msgid "hours"
-msgstr ""
+msgid "Hours"
+msgstr "時間"
 
 msgid "Start index"
 msgstr ""
@@ -3223,19 +3258,19 @@ msgid "Add column"
 msgstr ""
 
 msgid "Year"
-msgstr ""
+msgstr "年"
 
 msgid "Month"
-msgstr ""
+msgstr "月"
 
 msgid "Day"
-msgstr ""
+msgstr "日"
 
 msgid "Hour"
-msgstr ""
+msgstr "時間"
 
 msgid "Minute"
-msgstr ""
+msgstr "分"
 
 msgid "Stack"
 msgstr "スタック"
@@ -3595,13 +3630,18 @@ msgstr ""
 msgid "Whole group"
 msgstr "グループ全体"
 
-msgid "Select slider"
+#, fuzzy
+#| msgid "Select slider"
+msgid "Select Slider"
 msgstr "スライダーを選択"
 
 msgid "OR"
 msgstr "または"
 
-msgid "Select A Slider"
+msgid "Insert a slider into your content"
+msgstr ""
+
+msgid "Select the slider you want to insert."
 msgstr ""
 
 msgctxt "Button layer default text"
@@ -3752,13 +3792,6 @@ msgid "When not visible"
 msgstr "非表示時"
 
 msgid "You can pause the video when the visitor scrolls away from the slider"
-msgstr ""
-
-msgid "Private video"
-msgstr ""
-
-msgid ""
-"Turn it on to remove the admin warning that your video is not accessible."
 msgstr ""
 
 msgid "Display"
@@ -3934,16 +3967,16 @@ msgid ""
 "last one."
 msgstr ""
 
+msgid ""
+"Background animations only work on the slide background images, which have "
+"Fill selected at their Fill mode. They don't affect any images if the "
+"background parallax is enabled."
+msgstr ""
+
 msgid "Shifted"
 msgstr ""
 
 msgid "The background and the main animation plays simultaneously or shifted."
-msgstr ""
-
-msgid "Loop single slide"
-msgstr "スライドが1枚のみの場合でもループする"
-
-msgid "In case of one slide, it repeats the animation of the slide."
 msgstr ""
 
 msgid "Slider CSS Preset"
@@ -4115,6 +4148,46 @@ msgid "Random elastic"
 msgstr "ランダム表示"
 
 msgid "My text animations"
+msgstr ""
+
+msgid "Morph - Wave"
+msgstr ""
+
+msgid "Morph - Brush"
+msgstr ""
+
+msgid "Morph - Flow"
+msgstr ""
+
+msgid "Morph - Noise"
+msgstr ""
+
+msgid "Distortion - Mosaic"
+msgstr ""
+
+#, fuzzy
+#| msgid "Slices - Triangle"
+msgid "Distortion - Triangle"
+msgstr "スライス - 三角形"
+
+msgid "Distortion - Flow"
+msgstr ""
+
+msgid "Distortion - Warp"
+msgstr ""
+
+msgid "Distortion - Storm"
+msgstr ""
+
+#, fuzzy
+#| msgid "Registration start date"
+msgid "Distortion - Wave"
+msgstr "登録開始日"
+
+msgid "Distortion - Shard"
+msgstr ""
+
+msgid "Distortion - Noise"
 msgstr ""
 
 msgid "Slices - Single"
@@ -4511,9 +4584,6 @@ msgstr "テキストバー"
 msgid "Bullets"
 msgstr "ページコントロール"
 
-msgid "Bullet"
-msgstr ""
-
 msgid "Side"
 msgstr ""
 
@@ -4712,41 +4782,26 @@ msgstr ""
 msgid "Sparkling"
 msgstr "スパークリング"
 
-msgid "Curve 1"
+#, fuzzy, php-format
+#| msgid "Curve 1"
+msgid "Curve %d"
 msgstr "カーブ1"
-
-msgid "Curve 2"
-msgstr "カーブ2"
-
-msgid "Curve 3"
-msgstr "カーブ3"
-
-msgid "Curve 4"
-msgstr "カーブ4"
 
 msgid "Curves"
 msgstr "カーブ"
 
-msgid "Fan 1"
+#, fuzzy, php-format
+#| msgid "Fan 1"
+msgid "Fan %d"
 msgstr "ファン1"
-
-msgid "Fan 2"
-msgstr "ファン2"
-
-msgid "Fan 3"
-msgstr "ファン3"
 
 msgid "Hills"
 msgstr "丘"
 
-msgid "Incline 1"
+#, fuzzy, php-format
+#| msgid "Incline 1"
+msgid "Incline %d"
 msgstr "角度上昇1"
-
-msgid "Incline 2"
-msgstr "角度上昇2"
-
-msgid "Incline 3"
-msgstr "角度上昇3"
 
 msgid "Inverse arrow"
 msgstr "逆矢印"
@@ -4757,26 +4812,32 @@ msgstr "長方形"
 msgid "Slopes"
 msgstr "傾斜"
 
-msgid "Tilt 1"
+#, fuzzy, php-format
+#| msgid "Tilt 1"
+msgid "Tilt %d"
 msgstr "傾斜1"
 
-msgid "Tilt 2"
-msgstr "傾斜2"
-
-msgid "Triangle 1"
+#, fuzzy, php-format
+#| msgid "Triangle 1"
+msgid "Triangle %d"
 msgstr "三角形1"
 
-msgid "Triangle 2"
-msgstr "三角形2"
-
-msgid "Wave 1"
+#, fuzzy, php-format
+#| msgid "Wave 1"
+msgid "Wave %d"
 msgstr "波1"
-
-msgid "Wave 2"
-msgstr "波2"
 
 msgid "Waves"
 msgstr "波"
+
+#, fuzzy, php-format
+#| msgid "Columns"
+msgid "Columns %d"
+msgstr "列"
+
+#, php-format
+msgid "Paper %d"
+msgstr ""
 
 msgid "2 Colors"
 msgstr "2色"
@@ -4799,8 +4860,10 @@ msgstr ""
 #, php-format
 msgid ""
 "%1$s allows HTTPS Redirect URIs only! You must move your site to HTTPS in "
-"order to use this generator! - %2$s How to get SSL for my WordPress site? "
-"%3$s"
+"order to use this generator!"
+msgstr ""
+
+msgid "How to get SSL for my website?"
 msgstr ""
 
 #, php-format
@@ -4928,6 +4991,9 @@ msgstr ""
 msgid "Source folder"
 msgstr ""
 
+msgid "Filename based exclusion"
+msgstr ""
+
 msgid "Remove resized images"
 msgstr ""
 
@@ -4936,6 +5002,22 @@ msgid ""
 "pattern in the end of their file names. For example, \"myimage.jpg\" will "
 "stay in the generator result, but \"myimage-120x120.jpg\" will be removed, "
 "because it's the same image, just in a smaller size."
+msgstr ""
+
+msgid "Filename has to contain"
+msgstr ""
+
+msgid ""
+"Only those images will be asked down, which have the given texts within "
+"their filenames. You can write down multiple texts separated by comma."
+msgstr ""
+
+msgid "Filename cannot contain"
+msgstr ""
+
+msgid ""
+"Only those images will be asked down, which don't have the given texts "
+"within their filenames. You can write down multiple texts separated by comma."
 msgstr ""
 
 msgid "Filename"
@@ -4955,6 +5037,39 @@ msgstr "フォルダーが見つかりません。"
 msgid ""
 "Wrong path. This is the default upload/media folder path, so try to navigate "
 "from here:"
+msgstr ""
+
+msgid "The App ID and the Secret is empty!"
+msgstr ""
+
+msgid "The token will expire at:"
+msgstr ""
+
+msgid "Access token was not returned.Please check the credentials!"
+msgstr ""
+
+msgid "The token expired. Please request new token!"
+msgstr ""
+
+msgid "The token will expire in two days! Please refresh the token!"
+msgstr ""
+
+msgid "Refresh Token"
+msgstr ""
+
+msgid "Refresh"
+msgstr ""
+
+msgid "Album loading method"
+msgstr ""
+
+msgid "Load first images only"
+msgstr ""
+
+msgid "Load album images separately"
+msgstr ""
+
+msgid "Load Album images as record data"
 msgstr ""
 
 msgid "JSON from url"
@@ -4991,6 +5106,11 @@ msgstr ""
 
 msgid "Images"
 msgstr "画像"
+
+#, fuzzy
+#| msgid "Offset"
+msgid "Offset hours"
+msgstr "オフセット"
 
 msgid "Timezone offset in hours. For example: +2 or -7."
 msgstr ""
@@ -5036,54 +5156,6 @@ msgstr "オプション"
 #, php-format
 msgid "Creates slides from %1$s content."
 msgstr ""
-
-msgid "Items"
-msgstr ""
-
-msgid "Locations"
-msgstr ""
-
-msgid "Types"
-msgstr "Types"
-
-msgid "Expired"
-msgstr "期限切れ"
-
-msgid "Started"
-msgstr ""
-
-msgid "Auction"
-msgstr "オークション"
-
-msgid "Negotiable price"
-msgstr "交渉可能な価格"
-
-msgid "Blocked by User"
-msgstr "ユーザーによってブロック"
-
-msgid "Paid"
-msgstr ""
-
-msgid "Buynow"
-msgstr "今すぐ購入"
-
-msgid "Menu item (item ID)"
-msgstr "メニューアイテム (アイテムID)"
-
-msgid ""
-"Your url will point to the item within this menu item. You will only get a "
-"good result, if you will pick one of your DJ Classifields menu items or "
-"leave it on 'Default'."
-msgstr ""
-
-msgid "Start date"
-msgstr "開始日"
-
-msgid "Expiration date"
-msgstr "期限日"
-
-msgid "Price"
-msgstr "価格"
 
 msgid "Include subcategories"
 msgstr ""
@@ -5134,6 +5206,9 @@ msgid "Separate them by comma."
 msgstr ""
 
 msgid "Banned user IDs"
+msgstr ""
+
+msgid "Started"
 msgstr ""
 
 msgid "Ended"
@@ -5221,11 +5296,17 @@ msgstr ""
 msgid "Manufacturer language"
 msgstr ""
 
+msgid "Price"
+msgstr "価格"
+
 msgid "Product name"
 msgstr "製品名"
 
 msgid "Product ID"
 msgstr "製品ID"
+
+msgid "Locations"
+msgstr ""
 
 msgid "Recurring"
 msgstr "繰り返し"
@@ -5241,6 +5322,12 @@ msgstr "定期的なイベントの親のみ"
 
 msgid "Only not recurring events"
 msgstr "定期的なイベントでない"
+
+msgid "Menu item (item ID)"
+msgstr "メニューアイテム (アイテムID)"
+
+msgid "Start date"
+msgstr "開始日"
 
 msgid "End date"
 msgstr "終了日"
@@ -5284,6 +5371,12 @@ msgstr ""
 msgid "Only display items with these IDs"
 msgstr ""
 
+msgid ""
+"Timezone offset in hours. For example: +2 or -7. If you leave it empty, "
+"Joomla's System -> Global Configuration -> Server -> Server Time Zone "
+"setting will be used."
+msgstr ""
+
 msgid "Brand"
 msgstr "ブランド"
 
@@ -5322,13 +5415,10 @@ msgstr ""
 msgid "Date language"
 msgstr ""
 
-msgid "Offset value"
+msgid "Date variable offset"
 msgstr ""
 
-msgid ""
-"Timezone offset in hours. For example: +2 or -7. If you leave it empty, "
-"Joomla's System -> Global Configuration -> Server -> Server Time Zone "
-"setting will be used."
+msgid "Date filter offset"
 msgstr ""
 
 msgid "Status"
@@ -5340,6 +5430,9 @@ msgstr "ごみ箱"
 msgid "Ask down all product images"
 msgstr ""
 
+msgid "Items"
+msgstr ""
+
 msgid "View item"
 msgstr ""
 
@@ -5349,15 +5442,6 @@ msgstr ""
 msgid "View image"
 msgstr "画像を表示"
 
-msgid "Supplier"
-msgstr "供給者"
-
-msgid "On sale"
-msgstr ""
-
-msgid "Discount price"
-msgstr ""
-
 msgid "All day event"
 msgstr ""
 
@@ -5366,35 +5450,6 @@ msgstr ""
 
 msgid "Show parent products only"
 msgstr "親のプロダクトのみ表示"
-
-#, php-format
-msgid "Creates slides from %1$s events."
-msgstr ""
-
-msgid "Create custom date variables"
-msgstr "カスタム日付変数を作成"
-
-msgid ""
-"You can write any date format (http://php.net/manual/en/function.date.php) "
-"in separate lines, and new variables will be created for them."
-msgstr ""
-
-msgid ""
-"Write the original text, like 'Monday' then two | signs, and the text you "
-"want it to be translated to, for example 'Montag'. Together: Monday||Montag"
-msgstr ""
-
-msgid "Event start date"
-msgstr "イベント開始日"
-
-msgid "Event end date"
-msgstr "イベント終了日"
-
-msgid "Event creation date"
-msgstr ""
-
-msgid "Event modification date"
-msgstr ""
 
 #, php-format
 msgid "Creates slides from %1$s galleries."
@@ -5416,6 +5471,10 @@ msgid ""
 msgstr ""
 
 msgid "No options given"
+msgstr ""
+
+#, php-format
+msgid "Creates slides from %1$s events."
 msgstr ""
 
 msgid "Exclude event IDs (One ID per line)"
@@ -5472,7 +5531,19 @@ msgstr "会場"
 msgid "Hide From Event Listings"
 msgstr ""
 
+msgid "Event start date"
+msgstr "イベント開始日"
+
+msgid "Event end date"
+msgstr "イベント終了日"
+
 msgid "Event cost"
+msgstr ""
+
+msgid "Event creation date"
+msgstr ""
+
+msgid "Event modification date"
 msgstr ""
 
 msgid "Metakey name"
@@ -5518,6 +5589,12 @@ msgstr ""
 
 msgid "No limit"
 msgstr "無制限"
+
+msgid "Hide empty categories"
+msgstr ""
+
+msgid "Yes"
+msgstr "はい"
 
 msgid "Downloadable"
 msgstr "ダウンロード可能"
@@ -5703,6 +5780,14 @@ msgstr ""
 msgid "Vertical pendulum 3D"
 msgstr ""
 
+msgid "We are Passionate About"
+msgstr ""
+
+msgid ""
+"Amazing Food\n"
+"Great Hospitality"
+msgstr ""
+
 msgid "Before text"
 msgstr "文字の前"
 
@@ -5784,6 +5869,125 @@ msgstr "進行"
 msgid "Time"
 msgstr "時間"
 
+#, fuzzy
+msgid "Icon Size"
+msgstr "大きさ"
+
+#, fuzzy
+#| msgid "Before text"
+msgid "Before After"
+msgstr "文字の前"
+
+#, fuzzy
+#| msgid "Left"
+msgid "Left top"
+msgstr "左"
+
+#, fuzzy
+#| msgid "Center"
+msgid "Center top"
+msgstr "中央"
+
+#, fuzzy
+#| msgid "Right"
+msgid "Right top"
+msgstr "右"
+
+#, fuzzy
+#| msgid "Slider center"
+msgid "Left center"
+msgstr "スライドの中央"
+
+#, fuzzy
+#| msgid "Center"
+msgid "Right Center"
+msgstr "中央"
+
+#, fuzzy
+#| msgid "To bottom"
+msgid "Left bottom"
+msgstr "上へ"
+
+#, fuzzy
+#| msgid "Fixed to bottom"
+msgid "Center bottom"
+msgstr "下端に固定"
+
+#, fuzzy
+#| msgid "To bottom"
+msgid "Right bottom"
+msgstr "上へ"
+
+#, fuzzy
+#| msgid "Before text"
+msgid "Before Image"
+msgstr "文字の前"
+
+#, fuzzy
+#| msgid "After text"
+msgid "After Image"
+msgstr "文字の後"
+
+msgid "Labels"
+msgstr ""
+
+#, fuzzy
+#| msgid "Label"
+msgid "Show Label"
+msgstr "ラベル"
+
+msgid "Always"
+msgstr ""
+
+#, fuzzy
+#| msgid "Before text"
+msgid "Before label"
+msgstr "文字の前"
+
+#, fuzzy
+#| msgid "Previous label"
+msgid "After label"
+msgstr "前のラベル"
+
+msgid "Behavior"
+msgstr ""
+
+#, fuzzy
+#| msgid "Invite only"
+msgid "Interaction"
+msgstr "招待のみ"
+
+#, fuzzy
+#| msgid "Slider"
+msgid "Divider"
+msgstr "スライダー"
+
+msgid "Line"
+msgstr ""
+
+#, fuzzy
+#| msgid "Caption"
+msgid "Show Caption"
+msgstr "キャプション"
+
+#, fuzzy
+#| msgid "Caption"
+msgid "Caption text"
+msgstr "キャプション"
+
+msgid "Before image alt tag"
+msgstr ""
+
+#, fuzzy
+#| msgid "Average rating"
+msgid "After image alt tag"
+msgstr "平均レーティング"
+
+#, fuzzy
+#| msgid "Optimize image"
+msgid "Optimize images"
+msgstr "画像を最適化"
+
 msgid "Full"
 msgstr ""
 
@@ -5817,9 +6021,6 @@ msgstr ""
 msgid "Stroke width"
 msgstr ""
 
-msgid "Labels"
-msgstr ""
-
 msgid "Inner before"
 msgstr ""
 
@@ -5832,68 +6033,128 @@ msgstr ""
 msgid "Animation duration"
 msgstr "アニメーション期間"
 
-msgid "Circle 1"
+#, fuzzy
+#| msgid "Counter"
+msgid "Countdown"
+msgstr "カウンター"
+
+msgid "Days"
+msgstr "日数"
+
+msgid "Minutes"
+msgstr "議事録"
+
+msgid "Seconds"
+msgstr "秒"
+
+#, fuzzy
+#| msgid "First slide changed."
+msgid "Use slide schedule"
+msgstr "最初のスライドが変更されました。"
+
+msgid "You can use the \"Unpublished on\" date of the slide itself."
+msgstr ""
+
+msgid "Use Slide Schedule"
+msgstr ""
+
+msgid "Go to Slide → Content tab and set the Unpublish on date for the slide."
+msgstr ""
+
+msgid ""
+"Displays the days, hours, minutes and seconds texts under the counter "
+"numbers. To display the labels in your own language, translate the texts in "
+"the language files."
+msgstr ""
+
+msgid "Gap"
+msgstr ""
+
+msgid "Creates vertical and horizontal distance between the counter elements."
+msgstr ""
+
+#, fuzzy
+#| msgid "Tablet text"
+msgid "Tablet style"
+msgstr "タブレットのテキスト"
+
+msgid "Set custom Gap and Column for tablet."
+msgstr ""
+
+#, fuzzy
+#| msgid "Mobile text"
+msgid "Mobile style"
+msgstr "モバイルのテキスト"
+
+msgid "Set custom Gap and Column for mobile."
+msgstr ""
+
+#, fuzzy
+#| msgid "Actions"
+msgid "Action when ends"
+msgstr "アクション"
+
+#, fuzzy
+#| msgid "Form action"
+msgid "No action"
+msgstr "フォームアクション"
+
+#, fuzzy
+#| msgid "Heading layer"
+msgid "Hide layer"
+msgstr "見出しレイヤー"
+
+msgid "Redirect to URL"
+msgstr ""
+
+msgid "Choose what happens after the counter reached zero."
+msgstr ""
+
+msgid "This page is"
+msgstr ""
+
+msgid "Amazing"
+msgstr ""
+
+#, fuzzy, php-format
+#| msgid "Circle 1"
+msgid "Circle %d"
 msgstr "円1"
 
-msgid "Circle 2"
-msgstr "円2"
-
-msgid "Circle 3"
-msgstr "円3"
-
-msgid "Curly 1"
+#, fuzzy, php-format
+#| msgid "Curly 1"
+msgid "Curly %d"
 msgstr "巻き1"
 
-msgid "Curly 2"
-msgstr "巻き2"
-
-msgid "Highlight 1"
+#, fuzzy, php-format
+#| msgid "Highlight 1"
+msgid "Highlight %d"
 msgstr "ハイライト1"
 
-msgid "Highlight 2"
-msgstr "ハイライト2"
-
-msgid "Highlight 3"
-msgstr "ハイライト3"
-
-msgid "Line Through 1"
+#, fuzzy, php-format
+#| msgid "Line Through 1"
+msgid "Line Through %d"
 msgstr "ラインスルー1"
 
-msgid "Line Through 2"
-msgstr "ラインスルー2"
-
-msgid "Line Through 3"
-msgstr "ラインスルー3"
-
-msgid "Rectangle 1"
+#, fuzzy, php-format
+#| msgid "Rectangle 1"
+msgid "Rectangle %d"
 msgstr "長方形1"
 
-msgid "Rectangle 2"
-msgstr "長方形2"
-
-msgid "Underline 1"
+#, fuzzy, php-format
+#| msgid "Underline 1"
+msgid "Underline %d"
 msgstr "下線1"
 
-msgid "Underline 2"
-msgstr "下線2"
-
-msgid "Underline 3"
-msgstr "下線3"
-
-msgid "Underline double 1"
+#, fuzzy, php-format
+#| msgid "Underline double 1"
+msgid "Underline double %d"
 msgstr "二重線1"
 
-msgid "Underline double 2"
-msgstr "二重線2"
-
-msgid "ZigZag 1"
+#, fuzzy, php-format
+#| msgid "ZigZag 1"
+msgid "ZigZag %d"
 msgstr "ジグザグ1"
-
-msgid "ZigZag 2"
-msgstr "ジグザグ2"
-
-msgid "ZigZag 3"
-msgstr "ジグザグ3"
 
 msgid "Highlighted text"
 msgstr "ハイライト付きテキスト"
@@ -5908,6 +6169,9 @@ msgid "Loop delay"
 msgstr "ループ遅延"
 
 msgid "HTML"
+msgstr ""
+
+msgid "Empty element"
 msgstr ""
 
 msgid ""
@@ -6017,19 +6281,11 @@ msgstr "大文字のローマ数字"
 msgid "Icon not found"
 msgstr "アイコンが見つかりません"
 
-#, fuzzy
-#| msgid "Previous label"
-msgid "Aria label"
-msgstr "前のラベル"
-
 #, php-format
 msgid "Enter an %1$s aria-label attribute %2$s that describes the link."
 msgstr ""
 
 msgid "Iframe"
-msgstr ""
-
-msgid "iframe"
 msgstr ""
 
 msgid ""
@@ -6038,18 +6294,17 @@ msgid ""
 "only suggest using this layer if you are a developer!"
 msgstr ""
 
-msgid "iframe url"
+#, fuzzy
+#| msgid "iframe url"
+msgid "Iframe url"
 msgstr "iframeのURL"
-
-msgid "Yes"
-msgstr "はい"
 
 msgid "You can disable the scroll on the iframe content."
 msgstr ""
 
 #, fuzzy
 #| msgid "iframe url"
-msgid "iframe title"
+msgid "Iframe title"
 msgstr "iframeのURL"
 
 msgid "Image area"
@@ -6387,9 +6642,8 @@ msgstr "全画面表示"
 
 #, php-format
 msgid ""
-"%1$s %2$s does not support the full screen API %3$s so other elements of the "
-"page may overlap the slider in Fullscreen mode. To avoid such problems, we "
-"suggest hiding the Fullscreen control from mobile view!"
+"%1$s does not support the full screen API. For this reason the full screen "
+"button will not appear on %1$s devices."
 msgstr ""
 
 msgid "Indicator"
@@ -6403,6 +6657,163 @@ msgstr ""
 
 msgid "Bar color"
 msgstr ""
+
+#~ msgctxt "Default Google font family for admin"
+#~ msgid "Montserrat"
+#~ msgstr "モントセラト"
+
+#~ msgctxt "Default Google font charset for admin"
+#~ msgid "latin"
+#~ msgstr "ラテン語"
+
+#~ msgid "Character set"
+#~ msgstr "文字セット"
+
+#~ msgctxt "Character set"
+#~ msgid "Latin"
+#~ msgstr "ラテン語"
+
+#~ msgctxt "Character set"
+#~ msgid "Latin Extended"
+#~ msgstr "ラテン語拡張"
+
+#~ msgctxt "Character set"
+#~ msgid "Greek"
+#~ msgstr "ギリシャ語"
+
+#~ msgctxt "Character set"
+#~ msgid "Greek Extended"
+#~ msgstr "ギリシャ語拡張"
+
+#~ msgctxt "Character set"
+#~ msgid "Cyrillic"
+#~ msgstr "キリル文字"
+
+#~ msgctxt "Character set"
+#~ msgid "Devanagari"
+#~ msgstr "インド文字"
+
+#~ msgctxt "Character set"
+#~ msgid "Arabic"
+#~ msgstr "アラビア語"
+
+#~ msgctxt "Character set"
+#~ msgid "Khmer"
+#~ msgstr "クメール語"
+
+#~ msgctxt "Character set"
+#~ msgid "Telugu"
+#~ msgstr "テルグ語"
+
+#~ msgctxt "Character set"
+#~ msgid "Vietnamese"
+#~ msgstr "ベトナム語"
+
+#~ msgctxt "Default font sets"
+#~ msgid "latin"
+#~ msgstr "ラテン語"
+
+#~ msgid "hours"
+#~ msgstr "時間"
+
+#~ msgid "Loop single slide"
+#~ msgstr "スライドが1枚のみの場合でもループする"
+
+#~ msgid "Curve 2"
+#~ msgstr "カーブ2"
+
+#~ msgid "Curve 3"
+#~ msgstr "カーブ3"
+
+#~ msgid "Curve 4"
+#~ msgstr "カーブ4"
+
+#~ msgid "Fan 2"
+#~ msgstr "ファン2"
+
+#~ msgid "Fan 3"
+#~ msgstr "ファン3"
+
+#~ msgid "Incline 2"
+#~ msgstr "角度上昇2"
+
+#~ msgid "Incline 3"
+#~ msgstr "角度上昇3"
+
+#~ msgid "Tilt 2"
+#~ msgstr "傾斜2"
+
+#~ msgid "Triangle 2"
+#~ msgstr "三角形2"
+
+#~ msgid "Wave 2"
+#~ msgstr "波2"
+
+#~ msgid "Types"
+#~ msgstr "Types"
+
+#~ msgid "Expired"
+#~ msgstr "期限切れ"
+
+#~ msgid "Auction"
+#~ msgstr "オークション"
+
+#~ msgid "Negotiable price"
+#~ msgstr "交渉可能な価格"
+
+#~ msgid "Blocked by User"
+#~ msgstr "ユーザーによってブロック"
+
+#~ msgid "Buynow"
+#~ msgstr "今すぐ購入"
+
+#~ msgid "Expiration date"
+#~ msgstr "期限日"
+
+#~ msgid "Supplier"
+#~ msgstr "供給者"
+
+#~ msgid "Create custom date variables"
+#~ msgstr "カスタム日付変数を作成"
+
+#~ msgid "Circle 2"
+#~ msgstr "円2"
+
+#~ msgid "Circle 3"
+#~ msgstr "円3"
+
+#~ msgid "Curly 2"
+#~ msgstr "巻き2"
+
+#~ msgid "Highlight 2"
+#~ msgstr "ハイライト2"
+
+#~ msgid "Highlight 3"
+#~ msgstr "ハイライト3"
+
+#~ msgid "Line Through 2"
+#~ msgstr "ラインスルー2"
+
+#~ msgid "Line Through 3"
+#~ msgstr "ラインスルー3"
+
+#~ msgid "Rectangle 2"
+#~ msgstr "長方形2"
+
+#~ msgid "Underline 2"
+#~ msgstr "下線2"
+
+#~ msgid "Underline 3"
+#~ msgstr "下線3"
+
+#~ msgid "Underline double 2"
+#~ msgstr "二重線2"
+
+#~ msgid "ZigZag 2"
+#~ msgstr "ジグザグ2"
+
+#~ msgid "ZigZag 3"
+#~ msgstr "ジグザグ3"
 
 #~ msgid "m-d-Y"
 #~ msgstr "m-d-Y"
@@ -6450,9 +6861,6 @@ msgstr ""
 #~ msgid "Read docs"
 #~ msgstr "もっと読む"
 
-#~ msgid "Loading animation"
-#~ msgstr "読み込み時のアニメーション"
-
 #~ msgid "Load jQuery on frontend"
 #~ msgstr "フロントエンドでjQueryを読み込む"
 
@@ -6464,16 +6872,6 @@ msgstr ""
 
 #~ msgid "Inline"
 #~ msgstr "インライン"
-
-#, fuzzy
-#~| msgid "Tablet text"
-#~ msgid "Tablet size"
-#~ msgstr "タブレットのテキスト"
-
-#, fuzzy
-#~| msgid "Mobile text"
-#~ msgid "Mobile size"
-#~ msgstr "モバイルのテキスト"
 
 #~ msgid "Minimum thumbnail count"
 #~ msgstr "最小サムネイル数"

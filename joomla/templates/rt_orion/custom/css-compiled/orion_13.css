@@ -515,7 +515,7 @@ html body.dir-rtl .align-right {
   }
 }
 #g-navigation .g-main-nav .g-toplevel > li > .g-menu-item-container {
-  color: #000000;
+  color: #737373;
 }
 .g-main-nav .g-toplevel > li.g-parent > .g-menu-item-container:after {
   margin-left: -13px;
@@ -524,7 +524,7 @@ html body.dir-rtl .align-right {
   margin-left: 7px;
 }
 #g-navigation .g-main-nav .g-toplevel > li:hover > .g-menu-item-container, #g-navigation .g-main-nav .g-toplevel > li.active > .g-menu-item-container {
-  color: #000000;
+  color: #3d3d3d;
 }
 .g-main-nav .g-toplevel > li > .g-menu-item-container > .g-menu-item-content {
   word-break: normal;
@@ -553,7 +553,7 @@ html body.dir-rtl .align-right {
 }
 .g-main-nav .g-dropdown {
   text-align: left;
-  background: #ffffff;
+  background: #f7f7f7;
   border-radius: 0.5rem;
   box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.25);
 }
@@ -591,7 +591,7 @@ html body.dir-rtl .align-right {
   padding: 0;
 }
 .g-main-nav .g-sublevel > li > .g-menu-item-container {
-  color: #0069e3 !important;
+  color: #737373 !important;
 }
 .g-main-nav .g-sublevel > li > .g-menu-item-container > .g-menu-item-content {
   display: inline-block;
@@ -604,15 +604,15 @@ html body.dir-rtl .align-right {
   padding-bottom: 0.5rem;
 }
 .g-main-nav .g-sublevel > li:hover > .g-menu-item-container, .g-main-nav .g-sublevel > li.active > .g-menu-item-container {
-  color: #0069e3 !important;
-  background: #d9e9fb;
+  color: #3d3d3d !important;
+  background: #fefefe;
 }
 .g-main-nav .g-sublevel > li.g-menu-item-type-particle:hover > .g-menu-item-container, .g-main-nav .g-sublevel > li.g-menu-item-type-particle.active > .g-menu-item-container {
-  color: #0069e3 !important;
-  background: #ffffff;
+  color: #737373 !important;
+  background: #f7f7f7;
 }
 .g-main-nav .g-sublevel > li.g-menu-item-type-particle a {
-  color: #0069e3 !important;
+  color: #737373 !important;
 }
 @media only all and (max-width: 50.99rem) {
   .g-main-nav .g-sublevel > li.g-menu-item-type-particle a {
@@ -2133,19 +2133,19 @@ input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focu
   }
 }
 #g-navigation {
-  color: #000000;
+  color: #737373;
   background: rgba(255, 255, 255, 0);
   position: relative;
   z-index: 100;
 }
 #g-navigation a {
-  color: #000000;
+  color: #737373;
 }
 #g-navigation .g-grid {
   align-items: center;
 }
 #g-navigation .g-logo svg {
-  fill: #000000;
+  fill: #737373;
 }
 @media print {
   #g-navigation {
@@ -2358,20 +2358,20 @@ input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focu
   }
 }
 #g-offcanvas {
-  background: #333333;
+  background: #fafafa;
   width: 13rem;
-  color: #ffffff;
+  color: #888888;
 }
 #g-offcanvas a {
-  color: #ffffff;
+  color: #888888;
 }
 #g-offcanvas h1, #g-offcanvas h2, #g-offcanvas h3, #g-offcanvas h4, #g-offcanvas h5, #g-offcanvas h6, #g-offcanvas strong {
-  color: #ffffff;
+  color: #888888;
 }
 #g-offcanvas .button {
   background: transparent;
-  border: 2px solid #ffffff !important;
-  color: #ffffff !important;
+  border: 2px solid #888888 !important;
+  color: #888888 !important;
 }
 #g-offcanvas .button:hover {
   border: 2px solid #0069e3 !important;
@@ -2440,7 +2440,7 @@ input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focu
 }
 #g-offcanvas #g-mobilemenu-container .g-toplevel > li > .g-menu-item-container > .g-menu-item-content {
   padding-left: 0.5rem;
-  color: #ffffff;
+  color: #888888;
   word-break: normal;
 }
 #g-offcanvas #g-mobilemenu-container .g-toplevel > li > .g-menu-item-container .g-menu-parent-indicator:after {
@@ -2468,10 +2468,10 @@ input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focu
   position: absolute;
 }
 #g-offcanvas #g-mobilemenu-container ul {
-  background: #333333;
+  background: #fafafa;
 }
 #g-offcanvas #g-mobilemenu-container ul > li > .g-menu-item-container {
-  color: #ffffff;
+  color: #888888;
   padding: 0.625rem;
 }
 #g-offcanvas #g-mobilemenu-container ul > li:not(.g-menu-item-type-particle):not(.g-menu-item-type-module).active > .g-menu-item-container, #g-offcanvas #g-mobilemenu-container ul > li:not(.g-menu-item-type-particle):not(.g-menu-item-type-module):hover > .g-menu-item-container {

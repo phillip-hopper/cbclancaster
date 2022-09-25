@@ -188,7 +188,7 @@ content:
   custom-1448:
     title: 'Custom HTML'
     attributes:
-      html: "<div class=\"container two-columns px-0\">\n\t<div class=\"row row-centered\">\n\t\t<div class=\"col col-12 col-sm-6 mb-4 mt-sm-4 pl-4 pr-4 pr-md-4 pr-sm-2 mt-5\">\n\t\t\t<a href=\"/media/watch-live\"><img src=\"https://cbclancaster.org/designs/images/watchlive.jpg\" class=\"fade1 w-100\"></a>\n\t\t</div>\n\t\t<div class=\"col col-12 col-sm-6 mb-4 mt-sm-4 pl-4 pr-4 pl-md-4 pl-sm-2\">\n\t\t\t<a href=\"/registrations\"><img src=\"https://cbclancaster.org/designs/images/eventregister.jpg\" class=\"fade1 w-100\"></a>\n\t\t</div>\n\t</div>\n</div>"
+      html: "<div class=\"container two-columns px-0\">\n\t<div class=\"row row-centered\">\n\t\t<div class=\"col col-12 col-sm-6 mb-4 mt-sm-4 pl-4 pr-4 pr-md-4 pr-sm-2 mt-5\">\n\t\t\t<a href=\"resources/sermons/watch-live\"><img src=\"https://cbclancaster.org/designs/images/watchlive.jpg\" class=\"fade1 w-100\"></a>\n\t\t</div>\n\t\t<div class=\"col col-12 col-sm-6 mb-4 mt-sm-4 pl-4 pr-4 pl-md-4 pl-sm-2\">\n\t\t\t<a href=\"https://cbclancaster.churchcenter.com/registrations\"><img src=\"https://cbclancaster.org/designs/images/eventregister.jpg\" class=\"fade1 w-100\"></a>\n\t\t</div>\n\t</div>\n</div>"
   custom-9888:
     title: 'Custom HTML'
     attributes:

@@ -19,7 +19,8 @@
       <excludeFolder url="file://$MODULE_DIR$/joomla/libraries/gantry5/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/joomla/libraries/gantry5/vendor/filp/whoops" />
       <excludeFolder url="file://$MODULE_DIR$/config" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/deployer/dist" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

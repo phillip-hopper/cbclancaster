@@ -30,6 +30,7 @@ $currentDate   = Factory::getDate()->format('Y-m-d H:i:s');
 $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED || $this->item->publish_up > $currentDate)
     || ($this->item->publish_down < $currentDate && $this->item->publish_down !== null);
 
+$urls = json_decode($this->item->urls);
 ?>
 
 <?php echo LayoutHelper::render('joomla.content.intro_image', $this->item); ?>
@@ -44,6 +45,19 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
     <?php if ($canEdit) : ?>
         <?php echo LayoutHelper::render('joomla.content.icons', array('params' => $params, 'item' => $this->item)); ?>
     <?php endif; ?>
+
+    <?php
+        if ($this->pageclass_sfx == 'cbc-announcements' && !empty($urls->urla)) {
+            $link_target = $urls->targeta ?: '_self';
+            $link_text = $urls->urlatext ?: 'Sign Up';
+            echo <<<HTML
+<div class="cbc-signup-button">
+    <a class="btn" href="$urls->urla" target="$link_target">$link_text</a>
+</div>
+HTML;
+
+        }
+    ?>
 
     <?php // @todo Not that elegant would be nice to group the params ?>
     <?php $useDefList = ($params->get('show_modify_date') || $params->get('show_publish_date') || $params->get('show_create_date')

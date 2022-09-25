@@ -1,4 +1,5 @@
 <?php
+/** @noinspection PhpUnusedLocalVariableInspection */
 /** @noinspection PhpStrFunctionsInspection */
 /** @noinspection PhpUndefinedFunctionInspection */
 /** @noinspection PhpIncludeInspection */
@@ -73,18 +74,7 @@ desc('Creating symlinks.');
 task('deploy:create_symlinks', function () {
 
     // create link to misc files
-    run("ln -sf {{release_path}}/site/site.php {{release_path}}/public/site.php");
-    run("ln -sf {{release_path}}/site/favicon.ico {{release_path}}/public/favicon.ico");
-    run("ln -sf {{release_path}}/site/.htaccess {{release_path}}/public/.htaccess");
-});
-
-
-desc('Creating symlink to resource files.');
-task('deploy:resource_symlink', function () {
-
-    // create link to files installed by composer
-    run("ln -sf {{release_path}}/wordpress/wp-content/plugins/wp-super-cache/advanced-cache.php {{release_path}}/wordpress/wp-content/advanced-cache.php");
-
+    run("ln -sf {{release_path}}/resources/favicon.ico {{release_path}}/joomla/templates/rt_orion/favicon.ico");
 });
 
 
@@ -208,7 +198,7 @@ task('deploy:update_code_ex', function () {
         try {
             // NB: 19 SEP 2019: Phil Hopper // run("$git clone $at $recursive $quiet --reference {{previous_release}} --dissociate $repository  {{release_path}} 2>&1", $options);
             run("ssh-agent sh -c 'ssh-add ~/.ssh/id_rsa; $git clone $at $recursive $quiet --reference {{previous_release}} --dissociate $repository  {{release_path}} 2>&1'", $options);
-        } catch (Throwable) {
+        } catch (Throwable $exception) {
             // If {{deploy_path}}/releases/{$releases[1]} has a failed git clone, is empty, shallow etc, git would throw error and give up. So we're forcing it to act without reference in this situation
             // NB: 19 SEP 2019: Phil Hopper // run("$git clone $at $recursive $quiet $repository {{release_path}} 2>&1", $options);
             run("ssh-agent sh -c 'ssh-add ~/.ssh/id_rsa; $git clone $at $recursive $quiet $repository {{release_path}} 2>&1'", $options);
@@ -244,9 +234,9 @@ task('deploy', [
     'deploy:update_code_ex',
     'deploy:shared_ex',
     'deploy:writable',
-    'deploy:resource_symlink',
     'deploy:clear_paths',
     'deploy:symlink',
+	'deploy:create_symlinks',
     'deploy:unlock',
     'cleanup',
     'success'

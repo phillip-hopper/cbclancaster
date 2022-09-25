@@ -16,7 +16,6 @@
       <path value="$PROJECT_DIR$/joomla/libraries/gantry5/vendor/erusev/parsedown" />
       <path value="$PROJECT_DIR$/joomla/libraries/gantry5/vendor/composer" />
       <path value="$PROJECT_DIR$/joomla/libraries/gantry5/vendor/filp/whoops" />
-      <path value="$PROJECT_DIR$/vendor/deployer" />
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/deployer/dist" />
     </include_path>

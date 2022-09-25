@@ -1,6 +1,6 @@
 attribs:
   id: ''
-  class: 'gantry g-offcanvas-right"'
+  class: 'gantry g-offcanvas-right'
   extra: {  }
 layout:
   sections: '3'

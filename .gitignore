@@ -16,3 +16,5 @@
 /joomla/images/
 /joomla/media/cache/
 /joomla/tmp/
+
+/test*.*

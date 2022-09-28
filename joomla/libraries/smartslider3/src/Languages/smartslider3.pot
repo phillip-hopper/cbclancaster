@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-08-11 14:03+0200\n"
+"POT-Creation-Date: 2022-09-22 15:38+0200\n"
 "PO-Revision-Date: 2020-03-10 19:30+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1265,6 +1265,9 @@ msgid "Infinite loop"
 msgstr ""
 
 msgid "Finish autoplay"
+msgstr ""
+
+msgid "The Carousel option is disabled, so the Autoplay will stop after the last slide appeared."
 msgstr ""
 
 msgid "Stop on click"
@@ -3124,10 +3127,14 @@ msgstr ""
 msgid "Field value"
 msgstr ""
 
+msgid "Field type"
+msgstr ""
+
 msgid "Meta comparison"
 msgstr ""
 
-msgid "Same as the previous option, just you can write down more comparisons. Read the \"Field name\" and \"Compare method\" out from the previous option. Example:"
+#, php-format
+msgid "You can create other comparisons based on the previous \"Post Meta Comparison\" options. Use the following format: name||compare||value||type%1$s%1$s Example:%1$spublished||=||yes||CHAR%1$s%1$sWrite one comparison per line."
 msgstr ""
 
 msgid "Post date"
@@ -3157,10 +3164,6 @@ msgstr ""
 
 #, php-format
 msgid "The selected post IDs won't appear in the generator, even if they they match the set filters. %1$s Write one ID per line."
-msgstr ""
-
-#, php-format
-msgid "You can create other comparison based on the previous \"Field name\" and \"Compare method\" options. %1$s Use the following format: published||=||yes %1$s Write one comparison per line."
 msgstr ""
 
 msgid "Post option"

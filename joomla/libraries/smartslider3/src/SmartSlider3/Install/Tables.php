@@ -243,8 +243,8 @@ class Tables {
             Database::query('ALTER TABLE ' . $tableName . ' ADD PRIMARY KEY(' . implode(', ', $colNames) . ');');
         }
 
-        if (count($colNames) == 0 && $autoIncrement) {
-            Database::query('ALTER TABLE ' . $tableName . ' MODIFY `' . $colNames . '` INT NOT NULL AUTO_INCREMENT;');
+        if (count($colNames) == 1 && $autoIncrement) {
+            Database::query('ALTER TABLE ' . $tableName . ' MODIFY `' . $colNames[0] . '` INT NOT NULL AUTO_INCREMENT;');
         }
     }
 

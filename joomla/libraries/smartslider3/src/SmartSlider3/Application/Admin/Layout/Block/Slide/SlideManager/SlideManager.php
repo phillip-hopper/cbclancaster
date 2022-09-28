@@ -124,7 +124,7 @@ Js::addGlobalInline('document.documentElement.setAttribute("data-published-regul
                     <div class="n2_slide_box__footer_title n2_slide_manager__autoplay_notice_description">
                         <?php n2_e('Single slides are duplicated while autoplay is used.'); ?>
                     </div>
-                    <a class="n2_slide_manager__autoplay_notice_button" href="#n2_top_bar_main_1" onclick="_N2.$('.n2_form__tab_button[data-related-tab=n2_form__tab_slider_autoplay]').trigger('click');">
+                    <a class="n2_slide_manager__autoplay_notice_button" href="#n2_top_bar_main_1">
                         <?php n2_e('autoplay settings'); ?>
                     </a>
                 </div>

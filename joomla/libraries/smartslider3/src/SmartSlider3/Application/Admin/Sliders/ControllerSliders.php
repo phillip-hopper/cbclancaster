@@ -60,13 +60,14 @@ class ControllerSliders extends AbstractControllerAdmin {
         $sliders      = $slidersModel->getAll($groupID, 'published');
         $ids          = Request::$REQUEST->getVar('sliders');
 
-        $files = array();
+        $files      = array();
+        $saveAsFile = count($ids) == 1 ? false : true;
         foreach ($sliders as $slider) {
             if (!empty($ids) && !in_array($slider['id'], $ids)) {
                 continue;
             }
             $export  = new ExportSlider($this, $slider['id']);
-            $files[] = $export->create(true);
+            $files[] = $export->create($saveAsFile);
         }
 
         $zip = new Creator();

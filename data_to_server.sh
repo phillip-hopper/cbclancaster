@@ -4,6 +4,7 @@ thisDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 stamp="$( date +"%Y-%m-%d_%T" )"
 dumpDir="${thisDir}/sql-backups/"
 dumpFile="${dumpDir}${stamp}_to_aws.sql"
+jicFile="${dumpDir}${stamp}_just_in_case_from_aws.sql"
 localDb="cbclancaster"
 remoteDb="cbclancaster"
 
@@ -17,6 +18,10 @@ fi
 echo "Creating ${dumpDir}"
 
 mkdir -p "${dumpDir}"
+
+echo "Backing up production data, just in case..."
+
+mysqldump --defaults-file=~/.mysql/my.digital.conf --default-character-set=utf8 --add-drop-database --routines --single-transaction --quick --result-file="${jicFile}" --databases "${remoteDb}"
 
 echo "Backing up ${localDb}"
 

@@ -15,15 +15,15 @@ use Nextend\SmartSlider3\Application\Model\ModelLicense;
 
 class SmartSlider3Info {
 
-    public static $version = '3.5.1.9';
+    public static $version = '3.5.1.10';
 
     public static $channel = 'stable';
 
-    public static $revision = 'e122aaff11bdb7dcf3f29d7722c73a9a6f51f552';
+    public static $revision = '0dda62b09e0a600c0742008efa195d76795bd974';
 
-    public static $revisionShort = 'e122aaff';
+    public static $revisionShort = '0dda62b0';
 
-    public static $branch = 'release-3.5.1.9';
+    public static $branch = 'release-3.5.1.10';
 
     public static $completeVersion;
 
@@ -157,10 +157,10 @@ class SmartSlider3Info {
                 Notification::error('Your license has <a href="https://smartslider.helpscoutdocs.com/article/1718-activation#nopackage" target="_blank">expired</a>! Get new one: <a href="https://smartslider3.com/pricing" target="_blank">smartslider3.com</a>.');
                 break;
             case 'DOMAIN_REGISTER_FAILED':
-                Notification::error('Smart Slider 3 Pro license is not registered on the current domain. Please activate this domain by following <a href="https://smartslider.helpscoutdocs.com/article/1718-activation" target="_blank">the license activation documentation</a>.');
+                Notification::error('Smart Slider 3 Pro license is not registered on the current website. Please activate this website by following <a href="https://smartslider.helpscoutdocs.com/article/1718-activation" target="_blank">the license activation documentation</a>.');
                 break;
             case 'LICENSE_INVALID':
-                Notification::error('Smart Slider 3 Pro license is not registered on the current domain. Please activate this domain by following <a href="https://smartslider.helpscoutdocs.com/article/1718-activation" target="_blank">the license activation documentation</a>.');
+                Notification::error('Smart Slider 3 Pro license is not registered on the current website. Please activate this website by following <a href="https://smartslider.helpscoutdocs.com/article/1718-activation" target="_blank">the license activation documentation</a>.');
                 ModelLicense::getInstance()
                             ->setKey('');
 

@@ -195,7 +195,7 @@ content:
     attributes:
       key: slideshow-a
     block:
-      class: ''
+      class: 'fp-slideshow no-background-image'
   position-position-7051:
     title: 'Header A'
     attributes:

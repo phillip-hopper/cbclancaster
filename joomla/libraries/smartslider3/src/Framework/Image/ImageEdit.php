@@ -558,11 +558,7 @@ class ImageEdit {
                 $extension = self::validateGDExtension($pathInfo['extension']);
             }
 
-            if (!$extension) {
-                return $originalImageUrl;
-            }
-
-            if (strtolower($extension) === 'webp' && !function_exists('imagecreatefromwebp')) {
+            if (!$extension || (strtolower($extension) === 'webp' && !function_exists('imagecreatefromwebp')) || !ini_get('allow_url_fopen')) {
                 return $originalImageUrl;
             }
 

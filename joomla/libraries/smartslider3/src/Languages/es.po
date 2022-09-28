@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-07-21 09:26+0200\n"
-"PO-Revision-Date: 2022-07-27 16:52-0300\n"
+"POT-Creation-Date: 2022-08-11 14:03+0200\n"
+"PO-Revision-Date: 2022-08-16 14:10-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -2411,18 +2411,18 @@ msgstr "Título de la imagen"
 
 msgctxt "Layer animation"
 msgid "In"
-msgstr "Dentro"
+msgstr "Entrada"
 
 msgctxt "Layer animation"
 msgid "Out"
-msgstr "Fuera"
+msgstr "Salida"
 
 msgctxt "Layer animation"
 msgid "Events"
 msgstr "Eventos"
 
 msgid "Plays in when"
-msgstr "Reproducir \"dentro\" cuando"
+msgstr "Reproducir \"Entrada\" cuando"
 
 msgid "Plays out when"
 msgstr "Reproducir \"fuera\" cuando"
@@ -2588,6 +2588,13 @@ msgstr "El bloque debe contener solo un slide. ¿Necesitas más?"
 
 msgid "Convert to slider"
 msgstr "Convertir a slider"
+
+msgid "Single slides are duplicated while autoplay is used."
+msgstr ""
+"Se duplican los slides únicos cuando la reproducción automática es activada."
+
+msgid "autoplay settings"
+msgstr "opciones de reproducción automática"
 
 msgid "Slide one"
 msgstr "Slide uno"
@@ -3055,8 +3062,11 @@ msgstr ""
 "tienes un archivo de exportación mayor utiliza el método de importación de "
 "archivos local."
 
-msgid "You have to unzip your "
-msgstr "Tienes que descomprimir tu "
+#, php-format
+msgid "You have to unzip your %1$s file to find the importable *.ss3 files!"
+msgstr ""
+"¡Debes descomprimir primero tu archivo zip %1$s para encontrar los archivos "
+"*.ss3 que debes importar!"
 
 msgid "Only *.ss3 files can be uploaded!"
 msgstr "¡Solo se pueden cargar archivos con extensión .ss3!"
@@ -3300,6 +3310,13 @@ msgstr ""
 "dinámicos cuando %1$s se establece en %2$s. Además ten en cuenta que no ha "
 "recibido ninguna actualización desde WordPress 3.9."
 
+msgid ""
+"Optimization plugins often create issues, so if you see anything wrong, "
+"follow our documentation:"
+msgstr ""
+"Los plugins de optimización suelen crear conflicto, si tienes problemas "
+"consulta nuestra documentación:"
+
 msgid "Add column"
 msgstr "Agregar columna"
 
@@ -3357,20 +3374,40 @@ msgstr ""
 msgid "Tags"
 msgstr "Etiquetas"
 
+msgid "Access level"
+msgstr "Nivel de acceso"
+
 msgid "Featured"
 msgstr "Destacado"
 
 msgid "User ID"
 msgstr "ID del usuario"
 
+msgid "Included article IDs"
+msgstr "IDs de artículos incluidos"
+
+msgid "Excluded article IDs"
+msgstr "IDs de artículos excluidos"
+
 msgid "Language"
 msgstr "Idioma"
+
+msgid "Fields"
+msgstr "Campos"
 
 msgid "Extra variables"
 msgstr "Variables extra"
 
 msgid "Turn on these options to generate more variables for the slides."
 msgstr "Activa esta opción para generar más variables de los slides."
+
+msgid "Remove shortcodes"
+msgstr "Remover shortcodes"
+
+msgid "Remove shortcodes from article description with the following patterns."
+msgstr ""
+"Remover shortcodes de la descripción de los artículos con el siguiente "
+"criterio."
 
 msgid "Date format"
 msgstr "Formato de fecha"
@@ -3638,9 +3675,6 @@ msgstr "Crea slides de tus artículos en las categorías seleccionadas."
 
 msgid "Categories"
 msgstr "Categorías"
-
-msgid "Remove shortcodes"
-msgstr "Remover shortcodes"
 
 msgid ""
 "You can remove shortcodes from variables to avoid 3rd party content "
@@ -5259,6 +5293,9 @@ msgstr "Lista de reproducción"
 msgid "optional"
 msgstr "opcional"
 
+msgid "Privacy status"
+msgstr "Estado de privacidad"
+
 #, php-format
 msgid "Creates slides from %1$s content."
 msgstr "Crea slides del contenido de %1$s."
@@ -6109,7 +6146,7 @@ msgid "Inner before"
 msgstr "Dentro antes"
 
 msgid "Inner after"
-msgstr "Dentro despúes"
+msgstr "Dentro después"
 
 msgid "Pre"
 msgstr "Antes de"
@@ -6748,6 +6785,9 @@ msgstr "Color de la pista"
 
 msgid "Bar color"
 msgstr "Color de la barra"
+
+#~ msgid "You have to unzip your "
+#~ msgstr "Tienes que descomprimir tu "
 
 #~ msgid "Muted"
 #~ msgstr "Mudo"

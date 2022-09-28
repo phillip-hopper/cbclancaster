@@ -590,12 +590,16 @@ class Slide extends AbstractRenderableOwner {
 
     private function _splitbywords($s, $start, $length) {
 
-        $len      = Str::strlen($s);
-        $posStart = max(0, $start == 0 ? 0 : Str::strpos($s, ' ', $start));
-        $posEnd   = max(0, $length > $len ? $len : Str::strpos($s, ' ', $length));
-        if ($posEnd == 0 && $length <= $len) $posEnd = $len;
+        $len = intval(Str::strlen($s));
+        if ($len > $start) {
+            $posStart = max(0, $start == 0 ? 0 : Str::strpos($s, ' ', $start));
+            $posEnd   = max(0, $length > $len ? $len : Str::strpos($s, ' ', $length));
+            if ($posEnd == 0 && $length <= $len) $posEnd = $len;
 
-        return Str::substr($s, $posStart, $posEnd);
+            return Str::substr($s, $posStart, $posEnd);
+        } else {
+            return '';
+        }
     }
 
     private function _findimage($s, $index) {

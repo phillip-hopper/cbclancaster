@@ -1,11 +1,11 @@
-# NEXTEND 02 <ramona@nextendweb.com>, 2020.
+# NEXTEND, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-05-13 07:44+0200\n"
 "PO-Revision-Date: 2022-05-17 14:19+0200\n"
-"Last-Translator: NEXTEND 02 <ramona@nextendweb.com>\n"
+"Last-Translator: NEXTEND \n"
 "Language-Team: Nextend\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"

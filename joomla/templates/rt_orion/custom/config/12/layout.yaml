@@ -83,8 +83,8 @@ structure:
     type: section
     attributes:
       boxed: ''
-      class: ''
-      variations: 'section-vertical-paddings section-horizontal-paddings'
+      class: 'no-background-image fp-slideshow'
+      variations: section-horizontal-paddings
   container-top:
     attributes:
       boxed: ''
@@ -188,8 +188,6 @@ content:
     title: 'Slideshow A'
     attributes:
       key: slideshow-a
-    block:
-      class: ''
   position-position-7051:
     title: 'Header A'
     attributes:

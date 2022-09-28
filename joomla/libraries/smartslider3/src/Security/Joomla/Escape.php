@@ -15,14 +15,16 @@ use Nextend\Framework\Platform\Platform;
  * @since 2.8.0
  *
  */
-function esc_js($text) {
-    $safe_text = wp_check_invalid_utf8($text);
-    $safe_text = _wp_specialchars($safe_text, ENT_COMPAT);
-    $safe_text = preg_replace('/&#(x)?0*(?(1)27|39);?/i', "'", stripslashes($safe_text));
-    $safe_text = str_replace("\r", '', $safe_text);
-    $safe_text = str_replace("\n", '\\n', addslashes($safe_text));
+if (!function_exists('esc_js')) {
+    function esc_js($text) {
+        $safe_text = wp_check_invalid_utf8($text);
+        $safe_text = _wp_specialchars($safe_text, ENT_COMPAT);
+        $safe_text = preg_replace('/&#(x)?0*(?(1)27|39);?/i', "'", stripslashes($safe_text));
+        $safe_text = str_replace("\r", '', $safe_text);
+        $safe_text = str_replace("\n", '\\n', addslashes($safe_text));
 
-    return $safe_text;
+        return $safe_text;
+    }
 }
 
 /**
@@ -34,11 +36,13 @@ function esc_js($text) {
  * @since 2.8.0
  *
  */
-function esc_html($text) {
-    $safe_text = wp_check_invalid_utf8($text);
-    $safe_text = _wp_specialchars($safe_text, ENT_QUOTES);
+if (!function_exists('esc_html')) {
+    function esc_html($text) {
+        $safe_text = wp_check_invalid_utf8($text);
+        $safe_text = _wp_specialchars($safe_text, ENT_QUOTES);
 
-    return $safe_text;
+        return $safe_text;
+    }
 }
 
 /**
@@ -50,11 +54,13 @@ function esc_html($text) {
  * @since 2.8.0
  *
  */
-function esc_attr($text) {
-    $safe_text = wp_check_invalid_utf8($text);
-    $safe_text = _wp_specialchars($safe_text, ENT_QUOTES);
+if (!function_exists('esc_attr')) {
+    function esc_attr($text) {
+        $safe_text = wp_check_invalid_utf8($text);
+        $safe_text = _wp_specialchars($safe_text, ENT_QUOTES);
 
-    return $safe_text;
+        return $safe_text;
+    }
 }
 
 /**
@@ -66,8 +72,10 @@ function esc_attr($text) {
  * @since 3.1.0
  *
  */
-function esc_textarea($text) {
-    return htmlspecialchars($text, ENT_QUOTES, Platform::getCharset());
+if (!function_exists('esc_textarea')) {
+    function esc_textarea($text) {
+        return htmlspecialchars($text, ENT_QUOTES, Platform::getCharset());
+    }
 }
 
 /**
@@ -79,11 +87,12 @@ function esc_textarea($text) {
  * @since 5.5.0
  *
  */
-function esc_xml($text) {
-    $safe_text = wp_check_invalid_utf8($text);
+if (!function_exists('esc_xml')) {
+    function esc_xml($text) {
+        $safe_text = wp_check_invalid_utf8($text);
 
-    $cdata_regex = '\<\!\[CDATA\[.*?\]\]\>';
-    $regex       = <<<EOF
+        $cdata_regex = '\<\!\[CDATA\[.*?\]\]\>';
+        $regex       = <<<EOF
 /
 	(?=.*?{$cdata_regex})                 # lookahead that will match anything followed by a CDATA Section
 	(?<non_cdata_followed_by_cdata>(.*?)) # the "anything" matched by the lookahead
@@ -95,21 +104,22 @@ function esc_xml($text) {
 /sx
 EOF;
 
-    $safe_text = (string)preg_replace_callback($regex, static function ($matches) {
-        if (!isset($matches[0])) {
-            return '';
-        }
+        $safe_text = (string)preg_replace_callback($regex, static function ($matches) {
+            if (!isset($matches[0])) {
+                return '';
+            }
 
-        if (isset($matches['non_cdata'])) {
-            // escape HTML entities in the non-CDATA Section.
-            return _wp_specialchars($matches['non_cdata'], ENT_XML1);
-        }
+            if (isset($matches['non_cdata'])) {
+                // escape HTML entities in the non-CDATA Section.
+                return _wp_specialchars($matches['non_cdata'], ENT_XML1);
+            }
 
-        // Return the CDATA Section unchanged, escape HTML entities in the rest.
-        return _wp_specialchars($matches['non_cdata_followed_by_cdata'], ENT_XML1) . $matches['cdata'];
-    }, $safe_text);
+            // Return the CDATA Section unchanged, escape HTML entities in the rest.
+            return _wp_specialchars($matches['non_cdata_followed_by_cdata'], ENT_XML1) . $matches['cdata'];
+        }, $safe_text);
 
-    return $safe_text;
+        return $safe_text;
+    }
 }
 
 /**
@@ -130,117 +140,119 @@ EOF;
  * @since 2.8.0
  *
  */
-function esc_url($url, $protocols = null, $_context = 'display') {
-    $original_url = $url;
+if (!function_exists('esc_url')) {
+    function esc_url($url, $protocols = null, $_context = 'display') {
+        $original_url = $url;
 
-    if ('' === $url) {
-        return $url;
+        if ('' === $url) {
+            return $url;
+        }
+
+        $url = str_replace(' ', '%20', ltrim($url));
+        $url = preg_replace('|[^a-z0-9-~+_.?#=!&;,/:%@$\|*\'()\[\]\\x80-\\xff]|i', '', $url);
+
+        if ('' === $url) {
+            return $url;
+        }
+
+        if (0 !== stripos($url, 'mailto:')) {
+            $strip = array(
+                '%0d',
+                '%0a',
+                '%0D',
+                '%0A'
+            );
+            $url   = _deep_replace($strip, $url);
+        }
+
+        $url = str_replace(';//', '://', $url);
+        /*
+         * If the URL doesn't appear to contain a scheme, we presume
+         * it needs http:// prepended (unless it's a relative link
+         * starting with /, # or ?, or a PHP file).
+         */
+        if (strpos($url, ':') === false && !in_array($url[0], array(
+                '/',
+                '#',
+                '?'
+            ), true) && !preg_match('/^[a-z0-9-]+?\.php/i', $url)) {
+            $url = 'http://' . $url;
+        }
+
+        // Replace ampersands and single quotes only when displaying.
+        if ('display' === $_context) {
+            $url = wp_kses_normalize_entities($url);
+            $url = str_replace('&amp;', '&#038;', $url);
+            $url = str_replace("'", '&#039;', $url);
+        }
+
+        if ((false !== strpos($url, '[')) || (false !== strpos($url, ']'))) {
+
+            $parsed = wp_parse_url($url);
+            $front  = '';
+
+            if (isset($parsed['scheme'])) {
+                $front .= $parsed['scheme'] . '://';
+            } elseif ('/' === $url[0]) {
+                $front .= '//';
+            }
+
+            if (isset($parsed['user'])) {
+                $front .= $parsed['user'];
+            }
+
+            if (isset($parsed['pass'])) {
+                $front .= ':' . $parsed['pass'];
+            }
+
+            if (isset($parsed['user']) || isset($parsed['pass'])) {
+                $front .= '@';
+            }
+
+            if (isset($parsed['host'])) {
+                $front .= $parsed['host'];
+            }
+
+            if (isset($parsed['port'])) {
+                $front .= ':' . $parsed['port'];
+            }
+
+            $end_dirty = str_replace($front, '', $url);
+            $end_clean = str_replace(array(
+                '[',
+                ']'
+            ), array(
+                '%5B',
+                '%5D'
+            ), $end_dirty);
+            $url       = str_replace($end_dirty, $end_clean, $url);
+
+        }
+
+        if ('/' === $url[0]) {
+            $good_protocol_url = $url;
+        } else {
+            if (!is_array($protocols)) {
+                $protocols = wp_allowed_protocols();
+            }
+            $good_protocol_url = wp_kses_bad_protocol($url, $protocols);
+            if (strtolower($good_protocol_url) != strtolower($url)) {
+                return '';
+            }
+        }
+
+        /**
+         * Filters a string cleaned and escaped for output as a URL.
+         *
+         * @param string $good_protocol_url The cleaned URL to be returned.
+         * @param string $original_url      The URL prior to cleaning.
+         * @param string $_context          If 'display', replace ampersands and single quotes only.
+         *
+         * @since 2.3.0
+         *
+         */
+        return $good_protocol_url;
     }
-
-    $url = str_replace(' ', '%20', ltrim($url));
-    $url = preg_replace('|[^a-z0-9-~+_.?#=!&;,/:%@$\|*\'()\[\]\\x80-\\xff]|i', '', $url);
-
-    if ('' === $url) {
-        return $url;
-    }
-
-    if (0 !== stripos($url, 'mailto:')) {
-        $strip = array(
-            '%0d',
-            '%0a',
-            '%0D',
-            '%0A'
-        );
-        $url   = _deep_replace($strip, $url);
-    }
-
-    $url = str_replace(';//', '://', $url);
-    /*
-	 * If the URL doesn't appear to contain a scheme, we presume
-	 * it needs http:// prepended (unless it's a relative link
-	 * starting with /, # or ?, or a PHP file).
-	 */
-    if (strpos($url, ':') === false && !in_array($url[0], array(
-            '/',
-            '#',
-            '?'
-        ), true) && !preg_match('/^[a-z0-9-]+?\.php/i', $url)) {
-        $url = 'http://' . $url;
-    }
-
-    // Replace ampersands and single quotes only when displaying.
-    if ('display' === $_context) {
-        $url = wp_kses_normalize_entities($url);
-        $url = str_replace('&amp;', '&#038;', $url);
-        $url = str_replace("'", '&#039;', $url);
-    }
-
-    if ((false !== strpos($url, '[')) || (false !== strpos($url, ']'))) {
-
-        $parsed = wp_parse_url($url);
-        $front  = '';
-
-        if (isset($parsed['scheme'])) {
-            $front .= $parsed['scheme'] . '://';
-        } elseif ('/' === $url[0]) {
-            $front .= '//';
-        }
-
-        if (isset($parsed['user'])) {
-            $front .= $parsed['user'];
-        }
-
-        if (isset($parsed['pass'])) {
-            $front .= ':' . $parsed['pass'];
-        }
-
-        if (isset($parsed['user']) || isset($parsed['pass'])) {
-            $front .= '@';
-        }
-
-        if (isset($parsed['host'])) {
-            $front .= $parsed['host'];
-        }
-
-        if (isset($parsed['port'])) {
-            $front .= ':' . $parsed['port'];
-        }
-
-        $end_dirty = str_replace($front, '', $url);
-        $end_clean = str_replace(array(
-            '[',
-            ']'
-        ), array(
-            '%5B',
-            '%5D'
-        ), $end_dirty);
-        $url       = str_replace($end_dirty, $end_clean, $url);
-
-    }
-
-    if ('/' === $url[0]) {
-        $good_protocol_url = $url;
-    } else {
-        if (!is_array($protocols)) {
-            $protocols = wp_allowed_protocols();
-        }
-        $good_protocol_url = wp_kses_bad_protocol($url, $protocols);
-        if (strtolower($good_protocol_url) != strtolower($url)) {
-            return '';
-        }
-    }
-
-    /**
-     * Filters a string cleaned and escaped for output as a URL.
-     *
-     * @param string $good_protocol_url The cleaned URL to be returned.
-     * @param string $original_url      The URL prior to cleaning.
-     * @param string $_context          If 'display', replace ampersands and single quotes only.
-     *
-     * @since 2.3.0
-     *
-     */
-    return $good_protocol_url;
 }
 
 /**
@@ -259,15 +271,17 @@ function esc_url($url, $protocols = null, $_context = 'display') {
  * @access private
  *
  */
-function _deep_replace($search, $subject) {
-    $subject = (string)$subject;
+if (!function_exists('_deep_replace')) {
+    function _deep_replace($search, $subject) {
+        $subject = (string)$subject;
 
-    $count = 1;
-    while ($count) {
-        $subject = str_replace($search, '', $subject, $count);
+        $count = 1;
+        while ($count) {
+            $subject = str_replace($search, '', $subject, $count);
+        }
+
+        return $subject;
     }
-
-    return $subject;
 }
 
 /**
@@ -296,32 +310,34 @@ function _deep_replace($search, $subject) {
  * @link  https://www.php.net/manual/en/function.parse-url.php
  *
  */
-function wp_parse_url($url, $component = -1) {
-    $to_unset = array();
-    $url      = (string)$url;
+if (!function_exists('wp_parse_url')) {
+    function wp_parse_url($url, $component = -1) {
+        $to_unset = array();
+        $url      = (string)$url;
 
-    if ('//' === substr($url, 0, 2)) {
-        $to_unset[] = 'scheme';
-        $url        = 'placeholder:' . $url;
-    } elseif ('/' === substr($url, 0, 1)) {
-        $to_unset[] = 'scheme';
-        $to_unset[] = 'host';
-        $url        = 'placeholder://placeholder' . $url;
+        if ('//' === substr($url, 0, 2)) {
+            $to_unset[] = 'scheme';
+            $url        = 'placeholder:' . $url;
+        } elseif ('/' === substr($url, 0, 1)) {
+            $to_unset[] = 'scheme';
+            $to_unset[] = 'host';
+            $url        = 'placeholder://placeholder' . $url;
+        }
+
+        $parts = parse_url($url);
+
+        if (false === $parts) {
+            // Parsing failure.
+            return $parts;
+        }
+
+        // Remove the placeholder values.
+        foreach ($to_unset as $key) {
+            unset($parts[$key]);
+        }
+
+        return _get_component_from_parsed_url_array($parts, $component);
     }
-
-    $parts = parse_url($url);
-
-    if (false === $parts) {
-        // Parsing failure.
-        return $parts;
-    }
-
-    // Remove the placeholder values.
-    foreach ($to_unset as $key) {
-        unset($parts[$key]);
-    }
-
-    return _get_component_from_parsed_url_array($parts, $component);
 }
 
 /**
@@ -344,16 +360,18 @@ function wp_parse_url($url, $component = -1) {
  * @link   https://www.php.net/manual/en/function.parse-url.php
  *
  */
-function _get_component_from_parsed_url_array($url_parts, $component = -1) {
-    if (-1 === $component) {
-        return $url_parts;
-    }
+if (!function_exists('_get_component_from_parsed_url_array')) {
+    function _get_component_from_parsed_url_array($url_parts, $component = -1) {
+        if (-1 === $component) {
+            return $url_parts;
+        }
 
-    $key = _wp_translate_php_url_constant_to_key($component);
-    if (false !== $key && is_array($url_parts) && isset($url_parts[$key])) {
-        return $url_parts[$key];
-    } else {
-        return null;
+        $key = _wp_translate_php_url_constant_to_key($component);
+        if (false !== $key && is_array($url_parts) && isset($url_parts[$key])) {
+            return $url_parts[$key];
+        } else {
+            return null;
+        }
     }
 }
 
@@ -371,21 +389,23 @@ function _get_component_from_parsed_url_array($url_parts, $component = -1) {
  * @access private
  *
  */
-function _wp_translate_php_url_constant_to_key($constant) {
-    $translation = array(
-        PHP_URL_SCHEME   => 'scheme',
-        PHP_URL_HOST     => 'host',
-        PHP_URL_PORT     => 'port',
-        PHP_URL_USER     => 'user',
-        PHP_URL_PASS     => 'pass',
-        PHP_URL_PATH     => 'path',
-        PHP_URL_QUERY    => 'query',
-        PHP_URL_FRAGMENT => 'fragment',
-    );
+if (!function_exists('_wp_translate_php_url_constant_to_key')) {
+    function _wp_translate_php_url_constant_to_key($constant) {
+        $translation = array(
+            PHP_URL_SCHEME   => 'scheme',
+            PHP_URL_HOST     => 'host',
+            PHP_URL_PORT     => 'port',
+            PHP_URL_USER     => 'user',
+            PHP_URL_PASS     => 'pass',
+            PHP_URL_PATH     => 'path',
+            PHP_URL_QUERY    => 'query',
+            PHP_URL_FRAGMENT => 'fragment',
+        );
 
-    if (isset($translation[$constant])) {
-        return $translation[$constant];
-    } else {
-        return false;
+        if (isset($translation[$constant])) {
+            return $translation[$constant];
+        } else {
+            return false;
+        }
     }
 }

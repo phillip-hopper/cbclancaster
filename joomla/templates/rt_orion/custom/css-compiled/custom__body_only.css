@@ -16,21 +16,6 @@
 .g-offcanvas-open .g-offcanvas-left #g-page-surround {
   left: 0;
 }
-#g-offcanvas {
-  box-shadow: -2px 0 6px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  border-left: 1px solid var(--color-static-gray95);
-}
-#g-offcanvas #g-mobilemenu-container .g-toplevel > li > .g-menu-item-container {
-  padding: 0.8rem 0;
-}
-#g-offcanvas #g-mobilemenu-container .g-toplevel > li.active > .g-menu-item-container > .g-menu-item-content {
-  opacity: 1;
-  color: #3d3d3d;
-}
-#g-offcanvas .g-menu-item-title {
-  font-size: 1.2rem;
-}
 .g-offcanvas-right .g-offcanvas-toggle {
   top: 30px;
   left: unset;
@@ -39,6 +24,28 @@
 .g-offcanvas-right .g-offcanvas-toggle .fa-fw {
   font-size: 30px !important;
   color: #a0a0a0;
+}
+.g-offcanvas-right #g-offcanvas {
+  box-shadow: -2px 0 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border-left: 1px solid var(--color-static-gray95);
+  left: unset;
+  right: 0;
+}
+.g-offcanvas-right #g-offcanvas #g-mobilemenu-container .g-toplevel > li > .g-menu-item-container {
+  padding: 0.8rem 0;
+}
+.g-offcanvas-right #g-offcanvas #g-mobilemenu-container .g-toplevel > li.active > .g-menu-item-container > .g-menu-item-content {
+  opacity: 1;
+  color: #3d3d3d;
+}
+.g-offcanvas-right #g-offcanvas #g-mobilemenu-container ul > li.g-menu-item-link-parent > .g-menu-item-container > .g-menu-parent-indicator {
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 0;
+}
+.g-offcanvas-right #g-offcanvas .g-menu-item-title {
+  font-size: 1.2rem;
 }
 #g-container-top #g-navigation {
   background: var(--color-static-gray98);
@@ -61,6 +68,9 @@
   object-fit: contain;
   min-height: 2.5rem;
   height: 80px;
+}
+#g-container-top #g-navigation .g-main-nav .g-toplevel {
+  justify-content: end;
 }
 section.fp-slideshow .slideshow-text {
   display: flex;
@@ -198,15 +208,17 @@ h1 {
 div.cbc-custom-page .page-header h1 {
   font-size: 2.2rem;
 }
-div.cbc-custom-items {
-  padding-left: 2rem;
-}
 div.cbc-custom-items div.cbc-custom-item .page-header h2 {
   padding-bottom: 0;
   line-height: 2.5rem;
 }
 div.our-staff {
   margin-bottom: 4rem;
+}
+div.our-staff:after {
+  display: block;
+  clear: both;
+  content: "";
 }
 div.our-staff h2 {
   font-weight: 400;
@@ -232,6 +244,46 @@ div.our-staff img {
   float: left;
   margin: 12px 40px 11px 0;
 }
+table {
+  border: none;
+}
+table tr td, table tr th {
+  border: none;
+}
+.icon-clock::before {
+  font-family: fontawesome;
+  content: "";
+  padding-right: 8px;
+  font-size: 16pt;
+  vertical-align: baseline;
+  display: inline-block;
+}
+.cbc-announcements div.cbc-custom-items .item-content.cbc-custom-item {
+  margin-bottom: 2rem;
+}
+.cbc-announcements div.cbc-custom-items .item-content.cbc-custom-item h2[itemprop=name] {
+  margin-top: 1rem;
+  text-align: center !important;
+}
+.cbc-announcements div.cbc-custom-items .item-content.cbc-custom-item .cbc-signup-button {
+  text-align: center !important;
+  margin-bottom: 1rem;
+}
+.video-container {
+  position: relative;
+  padding-bottom: 56.25% !important;
+  margin: 20px 0;
+  height: 0 !important;
+  overflow: hidden;
+}
+.video-container iframe, .video-container object, .video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
 @media (max-width: 87.99rem) {
   html {
     font-size: 15px;
@@ -252,6 +304,9 @@ div.our-staff img {
   #g-container-top #g-navigation .g-logo img {
     height: 60px;
   }
+  .row {
+    margin-left: calc(var(--bs-gutter-x) * -.5);
+  }
 }
 @media (max-width: 29.99rem) {
   html {
@@ -262,6 +317,26 @@ div.our-staff img {
   }
   header.fp-header .text-new-user {
     display: none;
+  }
+}
+@media (min-width: 30rem) {
+  .cbc-announcements div.cbc-custom-items {
+    max-width: 800px;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cbc-announcements div.cbc-custom-items .blog-item .item-image img {
+    max-width: 450px;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 76rem) {
+  div.cbc-custom-items {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 /*# sourceMappingURL=custom__body_only.css.map */

@@ -71,7 +71,7 @@ offcanvas:
   background: '#fafafa'
   text-color: '#888888'
   toggle-color: '#000000'
-  width: 13rem
+  width: 20rem
   toggle-visibility: '1'
 breakpoints:
   large-desktop-container: 88rem

@@ -2359,7 +2359,7 @@ input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focu
 }
 #g-offcanvas {
   background: #fafafa;
-  width: 13rem;
+  width: 20rem;
   color: #888888;
 }
 #g-offcanvas a {
@@ -2411,10 +2411,10 @@ input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focu
   z-index: 100000;
 }
 .g-offcanvas-open .g-offcanvas-left #g-page-surround {
-  left: 13rem;
+  left: 20rem;
 }
 .g-offcanvas-open .g-offcanvas-right #g-page-surround {
-  right: 13rem;
+  right: 20rem;
 }
 .g-offcanvas-open .dir-rtl.g-offcanvas-left #g-offcanvas {
   right: auto;
@@ -2488,7 +2488,7 @@ input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focu
   background: #005dca;
 }
 #g-offcanvas #g-mobilemenu-container ul .g-dropdown-column {
-  width: 13rem;
+  width: 20rem;
 }
 #g-offcanvas #g-mobilemenu-container ul i.fa {
   width: 0.8rem;

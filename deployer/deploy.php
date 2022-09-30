@@ -23,6 +23,9 @@ set('repository', 'git@github.com:phillip-hopper/cbclancaster.git');
 // [Optional] Allocate tty for git clone. Default value is false.
 set('git_tty', false);
 
+// we need sudo for cleanup
+set('cleanup_use_sudo', true);
+
 // Shared files/dirs between deploys
 set('shared_files_ex', [
     ['config/configuration.php', 'joomla/configuration.php']

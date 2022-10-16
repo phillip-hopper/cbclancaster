@@ -36,4 +36,6 @@ sudo apt-get install php8.1-intl
 ```bash
 ln -s `pwd`/config/configuration.php `pwd`/joomla/configuration.php
 ln -s `pwd`/resources/favicon.ico `pwd`/joomla/templates/rt_orion/favicon.ico
+ln -s `pwd`/shared/images/ `pwd`/joomla/images
+ln -s `pwd`/shared/files/ `pwd`/joomla/files
 ```

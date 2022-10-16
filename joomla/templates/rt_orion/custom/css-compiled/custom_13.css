@@ -321,6 +321,9 @@ table tr td, table tr th {
   header.fp-header .text-new-user {
     display: none;
   }
+  div.our-staff h2 {
+    clear: both;
+  }
 }
 @media (min-width: 30rem) {
   .cbc-announcements div.cbc-custom-items {

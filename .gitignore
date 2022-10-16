@@ -12,9 +12,10 @@
 /joomla/administrator/cache/
 /joomla/administrator/logs/
 /joomla/cache/
-/joomla/files/
-/joomla/images/
+/joomla/files
+/joomla/images
 /joomla/media/cache/
 /joomla/tmp/
 
 /test*.*
+/shared/

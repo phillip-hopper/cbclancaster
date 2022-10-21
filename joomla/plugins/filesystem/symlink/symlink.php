@@ -2,11 +2,11 @@
 
 /**
  * @package     Joomla.Plugin
- * @subpackage  FileSystem.CBC
+ * @subpackage  FileSystem.Symlink
  *
- * @copyright   (C) 2022 Covenant Baptist Church, Lancaster, SC.
- * @license     UNLICENSED
-
+ * @copyright   (C) 2022 Phillip Hopper
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ *
  * @phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace
  */
 
@@ -27,7 +27,7 @@ defined('_JEXEC') or die;
  *
  * @since  0.0.1
  */
-class PlgFileSystemCBC extends CMSPlugin implements ProviderInterface
+class PlgFileSystemSymlink extends CMSPlugin implements ProviderInterface
 {
     /**
      * Affects constructor behavior. If true, language files will be loaded automatically.
@@ -72,7 +72,7 @@ class PlgFileSystemCBC extends CMSPlugin implements ProviderInterface
      */
     public function getDisplayName(): string
     {
-        return Text::_('PLG_FILESYSTEM_LOCAL_DEFAULT_NAME');
+        return Text::_('PLG_FILESYSTEM_SYMLINK_DEFAULT_NAME');
     }
 
     /**
@@ -99,7 +99,7 @@ class PlgFileSystemCBC extends CMSPlugin implements ProviderInterface
                 $directoryPath = rtrim($directoryPath) . '/';
 
 	            /** @noinspection PhpFullyQualifiedNameUsageInspection */
-	            $adapter = new \Joomla\Plugin\Filesystem\CBC\Adapter\CBCAdapter(
+	            $adapter = new \Joomla\Plugin\Filesystem\Symlink\Adapter\SymlinkAdapter(
                     $directoryPath,
                     $directoryEntity->directory
                 );

@@ -2,15 +2,14 @@
 
 /**
  * @package     Joomla.Plugin
- * @subpackage  Filesystem.CBC
+ * @subpackage  FileSystem.Symlink
  *
- * @copyright   (C) 2022 Covenant Baptist Church, Lancaster, SC.
- * @license     UNLICENSED
+ * @copyright   (C) 2022 Phillip Hopper
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace Joomla\Plugin\Filesystem\CBC\Adapter;
+namespace Joomla\Plugin\Filesystem\Symlink\Adapter;
 
-use DateTimeZone;
 use Exception;
 use InvalidArgumentException;
 use Joomla\CMS\Date\Date;
@@ -41,7 +40,7 @@ defined('_JEXEC') or die;
  *
  * @since  0.0.1
  */
-class CBCAdapter implements AdapterInterface
+class SymlinkAdapter implements AdapterInterface
 {
     /**
      * The root path to gather file information from.
@@ -60,6 +59,7 @@ class CBCAdapter implements AdapterInterface
      * @since  0.0.1
      */
     private ?string $filePath = null;
+
 
     /**
      * The absolute root path in the local file system.
@@ -378,24 +378,7 @@ class CBCAdapter implements AdapterInterface
 	 */
     private function getDate($date = null): Date
     {
-        $dateObj = Factory::getDate($date);
-
-        $timezone = Factory::getApplication()->get('offset');
-        $user     = Factory::getUser();
-
-        if ($user->id) {
-            $userTimezone = $user->getParam('timezone');
-
-            if (!empty($userTimezone)) {
-                $timezone = $userTimezone;
-            }
-        }
-
-        if ($timezone) {
-            $dateObj->setTimezone(new DateTimeZone($timezone));
-        }
-
-        return $dateObj;
+        return Factory::getDate($date);
     }
 
     /**
@@ -628,7 +611,7 @@ class CBCAdapter implements AdapterInterface
 	 *
 	 * @return  string
 	 *
-	 * @throws FileNotFoundException
+	 * @throws Exception
 	 * @since   0.0.1
 	 */
     public function getUrl(string $path): string
@@ -769,17 +752,15 @@ class CBCAdapter implements AdapterInterface
         // @todo find a better way to check the input, by not writing the file to the disk
         $tmpFile = Path::clean( dirname($localPath) . '/' . uniqid() . '.' . File::getExt($name));
 
-        if (!File::write($tmpFile, $mediaContent)) {
+        if (!File::write($tmpFile, $mediaContent))
             throw new Exception(Text::_('JLIB_MEDIA_ERROR_UPLOAD_INPUT'), 500);
-        }
 
-        $can = $helper->canUpload(['name' => $name, 'size' => strlen($mediaContent), 'tmp_name' => $tmpFile], 'com_media');
+        $can = $helper->canUpload(['name' => $name, 'size' => strlen($mediaContent), 'tmp_name' => $tmpFile]);
 
         File::delete($tmpFile);
 
-        if (!$can) {
+        if (!$can)
             throw new Exception(Text::_('JLIB_MEDIA_ERROR_UPLOAD_INPUT'), 403);
-        }
     }
 
     /**
@@ -816,12 +797,6 @@ class CBCAdapter implements AdapterInterface
      */
     private function getLocalPath(string $path): string
     {
-//        try {
-//            return Path::check($this->rootPath . '/' . $path);
-//        } catch (\Exception $e) {
-//            throw new InvalidPathException($e->getMessage());
-//        }
-
 	    return rtrim($this->rootPath . '/' . $path, '\/');
     }
 }

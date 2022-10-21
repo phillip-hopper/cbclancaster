@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="plugin" group="filesystem" method="upgrade">
-	<name>plg_filesystem_cbc</name>
-	<author>Covenant Baptist Church, Lancaster, SC</author>
-	<creationDate>16 Oct 2022</creationDate>
-	<copyright>(C) 2022 Covenant Baptist Church, Lancaster, SC.</copyright>
-	<license>UNLICENSED</license>
+	<name>plg_filesystem_symlink</name>
+	<author>Phillip Hopper</author>
+	<creationDate>17 Oct 2022</creationDate>
+	<copyright>(C) 2022 Phillip Hopper</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>phopper1964@gmail.com</authorEmail>
-	<authorUrl>cbclancaster.org</authorUrl>
+	<authorUrl>https://github.com/phillip-hopper/</authorUrl>
 	<version>0.0.1</version>
-	<description>PLG_FILESYSTEM_CBC_XML_DESCRIPTION</description>
-	<namespace path="src">Joomla\Plugin\Filesystem\CBC</namespace>
+	<description>PLG_FILESYSTEM_SYMLINK_XML_DESCRIPTION</description>
+	<namespace path="src">Joomla\Plugin\Filesystem\Symlink</namespace>
 	<files>
-		<filename plugin="cbc">cbc.php</filename>
+		<filename plugin="symlink">symlink.php</filename>
 		<folder>src</folder>
 	</files>
 
 	<languages>
-		<language tag="en-GB">language/en-GB/plg_filesystem_cbc.ini</language>
-		<language tag="en-GB">language/en-GB/plg_filesystem_cbc.sys.ini</language>
+		<language tag="en-GB">language/en-GB/plg_filesystem_symlink.ini</language>
+		<language tag="en-GB">language/en-GB/plg_filesystem_symlink.sys.ini</language>
 	</languages>
 
 	<config>
@@ -26,7 +26,7 @@
 				<field
 					name="directories"
 					type="subform"
-					label="PLG_FILESYSTEM_CBC_DIRECTORIES_LABEL"
+					label="PLG_FILESYSTEM_SYMLINK_DIRECTORIES_LABEL"
 					multiple="true"
 					layout="joomla.form.field.subform.repeatable-table"
 					buttons="add,remove,move"
@@ -37,7 +37,7 @@
 							name="directory"
 							type="folderlist"
 							default="images"
-							label="PLG_FILESYSTEM_CBC_DIRECTORIES_DIRECTORY_LABEL"
+							label="PLG_FILESYSTEM_SYMLINK_DIRECTORIES_DIRECTORY_LABEL"
 							folderFilter=""
 							exclude=""
 							stripext=""

@@ -25,6 +25,7 @@ set('git_tty', false);
 
 // we need sudo for cleanup
 set('cleanup_use_sudo', true);
+set('clear_use_sudo', true);
 
 // Shared files/dirs between deploys
 set('shared_files_ex', [
@@ -40,6 +41,8 @@ set('shared_dirs_ex', [
 	['admin-cache', '/joomla/administrator/cache'],
 	['admin-logs', '/joomla/administrator/logs']
 ]);
+
+set('clear_paths', ['joomla/cache/*', 'joomla/administrator/cache/*']);
 
 // Writable dirs by web server
 set('writable_dirs', ['cache', 'images', 'files', 'media-cache', 'tmp', 'admin-cache', 'admin-logs']);
@@ -237,9 +240,9 @@ task('deploy', [
     'deploy:update_code_ex',
     'deploy:shared_ex',
     'deploy:writable',
-    'deploy:clear_paths',
     'deploy:symlink',
 	'deploy:create_symlinks',
+	'deploy:clear_paths',
     'deploy:unlock',
     'cleanup',
     'success'

@@ -655,19 +655,6 @@ trait TraitAdminUrl {
         ));
     }
 
-    /**
-     *
-     * @return string
-     */
-    public function getUrlHelpCurl() {
-        return $this->createUrl(array(
-            'help/index',
-            array(
-                'curl' => 1
-            )
-        ));
-    }
-
     public function getUrlUpdateDownload() {
         return $this->createUrl(array(
             'update/update'

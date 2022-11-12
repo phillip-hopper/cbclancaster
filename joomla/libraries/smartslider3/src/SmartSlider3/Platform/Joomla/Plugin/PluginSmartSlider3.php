@@ -48,8 +48,8 @@ class PluginSmartSlider3 extends JPlugin {
 
                 if (!JFactory::getUser()->guest) {
 
-                    if ($application->get('frontediting', 1) && $request->get('option') == 'com_content' && $request->get('view') == 'form' && $request->get('layout') == 'edit' && $application->input->getInt('a_id') > 0) {
-                        //Joomla 3 frontend article editing
+                    if ($application->get('frontediting', 1) && $request->get('view') == 'form' && $request->get('layout') == 'edit' && $application->input->getInt('a_id') > 0) {
+                        //Joomla frontend article editing
                         $isAllowed = false;
 
                     } else if ($request->get('option') == 'com_quix' && $request->get('layout') == 'edit' || $request->get('builder') == 'frontend') {

@@ -5,32 +5,26 @@
 
 .slideplus-slot {
 width: 200px;  /* preferred width for items */
-}
-
-.slideplus-aspect {
-padding-bottom: 100%;  /* preferred height for items, set value in terms of preferred width */
+aspect-ratio: 1 / 1;
 }
 
 /*
 * Caption area (customizable)
 */
 
-.slideplus-above > .slideplus-aspect,
-.slideplus-below > .slideplus-aspect {
-padding-top: 40px;  /* extra vertical space reserved for captions, always leave "padding-top" */
-}
-
+.slideplus-slot.slideplus-above,
 .slideplus-above > .slideplus-content {
-padding-top: 40px;  /* extra vertical space reserved for captions, use same value as above */
+padding-top: 40px;  /* extra vertical space reserved for captions, use same value as below */
 }
 
+.slideplus-slot.slideplus-below,
 .slideplus-below > .slideplus-content {
 padding-bottom: 40px;  /* extra vertical space reserved for captions, use same value as above */
 }
 
 .slideplus-above > .slideplus-caption,
 .slideplus-below > .slideplus-caption {
-height: 40px;  /* caption height, use the same value as for "padding-top" above */
+height: 40px;  /* caption height, use the same value as for "padding-top" and "padding-bottom" above */
 }
 
 .slideplus-top .slideplus-caption,
@@ -79,6 +73,7 @@ height: 200px;
 */
 
 .slideplus-container {
+contain: layout paint style;
 display: inline-block;
 max-width: 100%;
 }
@@ -107,13 +102,9 @@ display: flex;
 }
 
 .slideplus-slot {
+contain: layout paint size style;
 display: inline-block;
 position: relative;
-}
-
-.slideplus-aspect {
-box-sizing: border-box;
-max-width: 100%;
 }
 
 .slideplus-content, .slideplus-caption {
@@ -129,17 +120,20 @@ bottom: 0;
 }
 
 .slideplus-content > div {
-display: block;
+display: flex;
 position: relative;
 max-width: 100%;
 max-height: 100%;
 min-height: 85px;  /* make sure navigation buttons and spinner icon are visible */
-overflow: hidden;
 overflow-wrap: break-word;
 }
 
-.slideplus-content > div > * {
-vertical-align: middle;  /* remove space injected between lines consisting of inline elements */
+.slideplus-top .slideplus-content > div {
+align-items: flex-start;
+}
+
+.slideplus-bottom .slideplus-content > div {
+align-items: flex-end;
 }
 
 .slideplus-caption {
@@ -180,10 +174,11 @@ top: 0;
 bottom: 0;
 }
 
-noscript.slideplus > ul > li > img,
-.slideplus-content > div > img {
+noscript.slideplus > ul > li img,
+.slideplus-content > div img {
 max-width: 100%;
 height: auto;
+object-fit: scale-down;
 }
 
 /*

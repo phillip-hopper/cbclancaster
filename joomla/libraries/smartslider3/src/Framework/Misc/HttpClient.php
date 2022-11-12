@@ -4,8 +4,6 @@ namespace Nextend\Framework\Misc;
 
 use Nextend\Framework\Notification\Notification;
 use Nextend\Framework\Request\Request;
-use Nextend\Framework\View\Html;
-use Nextend\SmartSlider3\Application\ApplicationSmartSlider3;
 
 class HttpClient {
 
@@ -41,19 +39,7 @@ class HttpClient {
             curl_close($ch);
 
             if ($curlErrorNumber) {
-
-
-                $href = ApplicationSmartSlider3::getInstance()
-                                               ->getApplicationTypeAdmin()
-                                               ->getUrlHelpCurl();
-
-                if (!isset($options['error']) || $options['error'] !== false) {
-                    Notification::error(Html::tag('a', array(
-                        'href' => $href . '#support-form'
-                    ), n2_('Debug error')));
-
-                    Notification::error($curlErrorNumber . $error);
-                }
+                Notification::error($curlErrorNumber . $error);
 
                 return false;
             }

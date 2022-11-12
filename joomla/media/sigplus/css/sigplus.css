@@ -20,7 +20,6 @@ margin:2px !important;
 
 a.sigplus-image > img {
 border:0 none transparent !important;
-padding:0 !important;
 }
 
 /* example settings
@@ -132,6 +131,7 @@ list-style-image:none;
 
 .sigplus-gallery > ul > li {
 display:inline-block;
+position:relative;
 margin:1px;
 border:0 none transparent;
 padding:0;

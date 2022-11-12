@@ -114,11 +114,6 @@ class plgContentSigPlusNovo extends JPlugin {
 	* @param $limitstart An integer that determines the "page" of the content that is to be generated.
 	*/
 	public function onContentPrepare($context, &$article, &$params, $limitstart = 0) {
-		if ($context === 'com_finder.indexer') {
-			// skip plug-in activation when the content is being indexed
-			return false;
-		}
-
 		if (($context === 'com_content.category' || $context === 'com_content.featured') && isset($article->introtext)) {
 			// only introductory text is visible, do not make replacements elsewhere
 			if ($this->hasNoActivationTags($article->introtext)) {
@@ -130,7 +125,7 @@ class plgContentSigPlusNovo extends JPlugin {
 				return false;  // short-circuit plugin activation, plugin is not used anywhere
 			}
 		}
-		return $this->parseContent($article->text);
+		return $this->parseContent($context, $article->text);
 	}
 
 	/** True if no activation tag use occurs in the search text. */
@@ -146,7 +141,7 @@ class plgContentSigPlusNovo extends JPlugin {
 	* and replacing activation tags in article content.
 	* @param {string} $text Article (content item) text.
 	*/
-	private function parseContent(&$text) {
+	private function parseContent($context, &$text) {
 		if (SigPlusNovoTimer::shortcircuit()) {
 			return false;  // short-circuit plugin activation, allotted execution time expired, error message already printed
 		}
@@ -164,6 +159,11 @@ class plgContentSigPlusNovo extends JPlugin {
 				$configuration->service->setParameters($this->params);
 				$configuration->gallery = new SigPlusNovoGalleryParameters();
 				$configuration->gallery->setParameters($this->params);
+
+				if ($context === 'com_finder.indexer') {
+					// produce only text when the content is being indexed
+					$configuration->gallery->target_media = 'indexing';
+				}
 
 				if (SIGPLUS_LOGGING || $configuration->service->debug_server == 'verbose') {
 					SigPlusNovoLogging::setService(new SigPlusNovoHTMLLogging());

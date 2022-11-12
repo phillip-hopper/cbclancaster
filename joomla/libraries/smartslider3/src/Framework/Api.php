@@ -12,8 +12,6 @@ use Nextend\Framework\Notification\Notification;
 use Nextend\Framework\Platform\Platform;
 use Nextend\Framework\Request\Request;
 use Nextend\Framework\Url\Url;
-use Nextend\Framework\View\Html;
-use Nextend\SmartSlider3\Application\ApplicationSmartSlider3;
 
 class Api {
 
@@ -87,13 +85,6 @@ class Api {
                 curl_close($ch);
 
                 if ($curlErrorNumber) {
-                    $href = ApplicationSmartSlider3::getInstance()
-                                                   ->getApplicationTypeAdmin()
-                                                   ->getUrlHelpCurl();
-                    Notification::error(Html::tag('a', array(
-                        'href' => $href . '#support-form'
-                    ), n2_('Debug error')));
-
                     Notification::error($curlErrorNumber . $error);
 
                     return array(

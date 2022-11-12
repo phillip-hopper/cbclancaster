@@ -118,13 +118,17 @@ class JoomlaContentArticle extends AbstractGenerator {
     }
 
     public function datify($date, $format) {
-        $config   = JFactory::getConfig();
-        $timezone = new DateTimeZone($config->get('offset'));
-        $offset   = $timezone->getOffset(new DateTime);
+        if (empty($date) || $date == '0000-00-00 00:00:00') {
+            return '';
+        } else {
+            $config   = JFactory::getConfig();
+            $timezone = new DateTimeZone($config->get('offset'));
+            $offset   = $timezone->getOffset(new DateTime);
 
-        $result = date($format, strtotime($date) + $offset);
+            $result = date($format, strtotime($date) + $offset);
 
-        return $result;
+            return $result;
+        }
     }
 
     private function translate($from, $translate) {
@@ -180,6 +184,7 @@ class JoomlaContentArticle extends AbstractGenerator {
         $query .= 'usr.name AS created_by_alias, ';
         $query .= 'con.images, ';
         $query .= 'con.publish_up, ';
+        $query .= 'con.publish_down, ';
         $query .= 'con.urls, ';
         $query .= 'con.attribs ';
 
@@ -330,6 +335,8 @@ class JoomlaContentArticle extends AbstractGenerator {
                 'created_time'      => $this->translate($this->datify($result[$i]['created'], $this->data->get('sourcetimeformat', 'G:i')), $translate),
                 'publish_up_date'   => $this->translate($this->datify($result[$i]['publish_up'], $this->data->get('sourcedateformat', 'm-d-Y')), $translate),
                 'publish_up_time'   => $this->translate($this->datify($result[$i]['publish_up'], $this->data->get('sourcetimeformat', 'G:i')), $translate),
+                'publish_down_date' => $this->translate($this->datify($result[$i]['publish_down'], $this->data->get('sourcedateformat', 'm-d-Y')), $translate),
+                'publish_down_time' => $this->translate($this->datify($result[$i]['publish_down'], $this->data->get('sourcetimeformat', 'G:i')), $translate),
             );
 
             if (!empty($images)) {

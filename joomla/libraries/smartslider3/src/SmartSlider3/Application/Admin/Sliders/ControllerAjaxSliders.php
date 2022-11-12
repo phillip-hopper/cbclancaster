@@ -162,11 +162,7 @@ class ControllerAjaxSliders extends AdminAjaxController {
         $baseUrl = parse_url(Platform::getSiteUrl());
 
         if (isset($url['host']) && $url['host'] === $baseUrl['host']) {
-            $options = array(
-                'error' => true,
-            );
-
-            $content = HttpClient::get($keyword, $options);
+            $content = HttpClient::get($keyword);
             preg_match_all('/data-ssid="(?<id>[0-9]+)/', $content, $matches);
 
             foreach ($matches['id'] as $sliderID) {

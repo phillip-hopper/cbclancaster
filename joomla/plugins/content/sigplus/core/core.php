@@ -3622,7 +3622,6 @@ class SigPlusNovoCore {
 			if ($curparams->preview_crop) {
 				$imagerules['width'] = $curparams->preview_width.'px';
 				$imagerules['height'] = $curparams->preview_height.'px';
-				$imagerules['object-fit'] = 'cover';
 			}
 			$selectors = array(
 				'#'.$id.' a.sigplus-image > img' => $imagerules
@@ -3669,7 +3668,7 @@ class SigPlusNovoCore {
 				$lightbox->addStyles($selector, $curparams);
 				$lightbox->addScripts($selector, $curparams);
 			}
-			if ($caption && (!$rotator || !$rotator->isCaptionSupported())) {
+			if ($curparams->caption_visibility != 'none' && $caption && (!$rotator || !$rotator->isCaptionSupported())) {
 				$selector = '#'.$selectorid.' ul';
 				$caption->addStyles($selector, $curparams);
 				$caption->addScripts($selector, $curparams);

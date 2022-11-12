@@ -25,20 +25,6 @@ class SigPlusNovoSlidePlusRotatorEngine extends SigPlusNovoRotatorEngine {
 		return true;
 	}
 
-	private static function cssCalc($values) {
-		$values = array_filter($values, 'strlen');  // removes all NULL, FALSE and empty strings but leaves 0 (zero) values
-		switch (count($values)) {
-			case 0:
-				return false;
-			case 1:
-				$total_length = reset($values);
-				return "{$total_length}";
-			default:
-				$total_length = implode(' + ', $values);  // spaces around plus sign are mandatory in CSS
-				return "calc({$total_length})";
-		}
-	}
-
 	private static function cssPadding($padding) {
 		// check if some elements are missing
 		if ($padding['top'] === false || $padding['bottom'] === false || $padding['left'] === false || $padding['right'] === false) {
@@ -84,33 +70,10 @@ class SigPlusNovoSlidePlusRotatorEngine extends SigPlusNovoRotatorEngine {
 		$css = array();
 
 		// preferred width for items
-		$css["{$selector} .slideplus-slot"] = array('width' => $params->preview_width.'px');
-
-		// scalable component of item height
-		$scalable_size = (100*$params->preview_height/$params->preview_width).'%';  // length proportional to image dimensions
-
-		// caption height does not affect image aspect unless caption is shown above or below image
-		$caption_height_above = false;
-		$caption_height_below = false;
-		switch ($params->caption_position) {
-			case 'above':
-				$caption_height_above = $params->caption_height;
-				break;
-			case 'below':
-				$caption_height_below = $params->caption_height;
-				break;
-		}
-
-		// aspect space allocation calculated in terms of preferred width, taking into account fixed-size length components
-		$aspect_padding = array(
-			// value for CSS padding top includes space reserved for captions above images
-			'top' => self::cssCalc(array($params->preview_border_width, $params->preview_padding, $caption_height_above)),
-			// value for CSS padding bottom includes artificial height to help maintain image aspect ratio and space reserved for captions below images
-			'bottom' => self::cssCalc(array($params->preview_border_width, $params->preview_padding, $scalable_size, $caption_height_below)),
-			'left' => self::cssCalc(array($params->preview_border_width, $params->preview_padding)),
-			'right' => self::cssCalc(array($params->preview_border_width, $params->preview_padding))
+		$css["{$selector} .slideplus-slot"] = array(
+			'width' => $params->preview_width.'px',
+			'aspect-ratio' => "{$params->preview_width} / {$params->preview_height}"
 		);
-		$css["{$selector} .slideplus-aspect"] = self::cssPadding($aspect_padding);
 
 		// navigation buttons
 		if (!$params->rotator_buttons) {
@@ -156,16 +119,6 @@ class SigPlusNovoSlidePlusRotatorEngine extends SigPlusNovoRotatorEngine {
 		if ($vertalign !== false) {
 			$alignment['align-items'] = $vertalign;
 		}
-		if ($params->caption_height !== false) {
-			switch ($params->caption_position) {
-				case 'above':
-					$alignment['padding-top'] = $params->caption_height;
-					break;
-				case 'below':
-					$alignment['padding-bottom'] = $params->caption_height;
-					break;
-			}
-		}
 		if (!empty($alignment)) {
 			$css["{$selector} .slideplus-content"] = $alignment;
 		}
@@ -185,6 +138,24 @@ class SigPlusNovoSlidePlusRotatorEngine extends SigPlusNovoRotatorEngine {
 		}
 		if (!empty($caption_attributes)) {
 			$css["{$selector} .slideplus-caption"] = $caption_attributes;
+		}
+
+		// caption spacing
+		if ($params->caption_height !== false) {
+			switch ($params->caption_position) {
+				case 'above':
+					$spacing = array(
+						'padding-top' => $params->caption_height
+					);
+					break;
+				case 'below':
+					$spacing = array(
+						'padding-bottom' => $params->caption_height
+					);
+					break;
+			}
+			$css["{$selector} .slideplus-slot.slideplus-{$params->caption_position}"] = $spacing;
+			$css["{$selector} .slideplus-slot.slideplus-{$params->caption_position} > .slideplus-content"] = $spacing;
 		}
 
 		// transition animation

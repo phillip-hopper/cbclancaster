@@ -30,6 +30,12 @@
 // no direct access
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
+if ($curparams->target_media == 'indexing') {
+	print '<div class="sigplus-title">'.$title.'</div>';
+	print '<div class="sigplus-summary">'.$summary.'</div>';
+	return;
+}
+
 // HTML attribute for CSS style override
 $style_attr = $style ? ' style="'.$style.'"' : '';
 

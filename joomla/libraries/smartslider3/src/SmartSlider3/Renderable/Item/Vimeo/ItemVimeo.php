@@ -217,6 +217,11 @@ class ItemVimeo extends AbstractItem {
             'tipDescription' => n2_('Only works on videos of Vimeo Pro users.')
         ));
 
+        new OnOff($display, 'background', n2_('Remove controls'), 0, array(
+            'tipLabel'       => n2_('Remove controls'),
+            'tipDescription' => n2_('Removes the controls of the video, but it only works on videos of Vimeo Pro users.')
+        ));
+
         new OnOff($display, 'title', n2_('Title'), 1, array(
             'tipLabel'       => n2_('Title'),
             'tipDescription' => n2_('Hides the title of the video, but only if video owner allows it.')

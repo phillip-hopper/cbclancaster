@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="component" method="upgrade">
+	<name>COM_NEWSLETTER</name>
+	<!-- The following elements are optional and free of formatting constraints -->
+	<creationDate>06 NOV 2022</creationDate>
+	<author>Phillip Hopper</author>
+	<authorEmail>phopper1964@gmail.com</authorEmail>
+	<authorUrl/>
+	<copyright>Copyright (C) 2022 Covenant Baptist Church, Lancaster SC, All rights reserved.</copyright>
+	<license>UNLICENSED</license>
+	<!--  The version string is recorded in the components table -->
+	<version>0.0.1</version>
+	<!-- The description is optional and defaults to the name -->
+	<description>COM_NEWSLETTER_XML_DESCRIPTION</description>
+	<namespace path="src">CBCLancaster\Component\Newsletter</namespace>
+
+	<administration>
+		<files folder="admin">
+			<file>access.xml</file>
+			<folder>services</folder>
+			<folder>src</folder>
+		</files>
+		<languages folder="admin">
+			<language tag="en-GB">language/en-GB/com_newsletter.ini</language>
+			<language tag="en-GB">language/en-GB/com_newsletter.sys.ini</language>
+		</languages>
+	</administration>
+
+	<files folder="site">
+		<folder>src</folder>
+	</files>
+</extension>

@@ -1188,6 +1188,13 @@ class SigPlusNovoGalleryParameters extends SigPlusNovoConfigurationBase {
 	*/
 	public $open_graph = true;
 	/**
+	* Target media where the gallery is to be presented.
+	* If the gallery is for display, generated HTML content is surrounded with <noscript> tags, and expanded into
+	* an interactive gallery at run time. If the gallery is for indexing, only textual content is produced.
+	* @type {'display'|'indexing'}
+	*/
+	public $target_media = 'display';
+	/**
 	* Custom CSS class to annotate the generated gallery with.
 	*/
 	public $classname = false;
@@ -1240,8 +1247,6 @@ class SigPlusNovoGalleryParameters extends SigPlusNovoConfigurationBase {
 		// gallery layout, desired preview image count, dimensions and other preview image properties
 		switch ($this->layout) {
 			case 'hidden':
-				$this->caption_visibility = false;
-				$this->caption_position = false;
 				$this->caption = false;
 				$this->rotator = false;
 				$this->rows = false;
@@ -1354,17 +1359,11 @@ class SigPlusNovoGalleryParameters extends SigPlusNovoConfigurationBase {
 
 		// image labeling
 		$this->caption_visibility = self::as_one_of($this->caption_visibility, array('none','mouseover','always'));
-		if ($this->caption_visibility === 'none') {
-			$this->caption = false;
-		}
 		$this->caption_position = self::as_one_of($this->caption_position, array('overlay-bottom','overlay-top','bottom','top','below','above'));
 		$this->caption_height = self::as_css_measure($this->caption_height);
 		switch ($this->caption_position) {
 			case 'bottom': $this->caption_position = 'overlay-bottom'; break;
 			case 'top': $this->caption_position = 'overlay-top'; break;
-		}
-		if ($this->caption_visibility === false) {
-			$this->caption_position = false;
 		}
 		if (isset($this->caption_title)) {
 			$this->caption_title = self::as_bbcode($this->caption_title);
@@ -1455,6 +1454,8 @@ class SigPlusNovoGalleryParameters extends SigPlusNovoConfigurationBase {
 
 		// Open Graph support
 		$this->open_graph = self::as_boolean($this->open_graph);
+
+		$this->target_media = self::as_one_of($this->target_media, array('display','indexing'));
 
 		// miscellaneous advanced settings
 		$this->depth = (int) $this->depth;

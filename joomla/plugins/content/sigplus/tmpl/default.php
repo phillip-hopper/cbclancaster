@@ -35,7 +35,9 @@ if (!empty($images)) {
 	print '<div id="'.$galleryid.'" class="'.$gallerystyle.'">';
 
 	// List of images shown directly on the page
-	print '<noscript class="sigplus-gallery">';  // provide fall-back to a bare-bone gallery implementation when scripting is disabled in the browser
+	if ($curparams->target_media == 'display') {
+		print '<noscript class="sigplus-gallery">';  // provide fall-back to a bare-bone gallery implementation when scripting is disabled in the browser
+	}
 	print '<ul>';
 	for ($index = 0; $index < $limit; $index++) {
 		// no maximum preview image count set or current image index is within maximum limit
@@ -44,7 +46,9 @@ if (!empty($images)) {
 		print '</li>';
 	}
 	print '</ul>';
-	print '</noscript>';
+	if ($curparams->target_media == 'display') {
+		print '</noscript>';
+	}
 
 	// List of images that appear only in the lightbox pop-up window
 	if ($curparams->maxcount > 0 && $curparams->lightbox !== false) {

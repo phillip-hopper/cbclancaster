@@ -274,28 +274,24 @@ class Slide extends AbstractRenderableOwner {
 
             $url = ResourceTranslator::toUrl($url);
 
-            $this->linkAttributes['onclick'] = '';
-            if (strpos($url, 'javascript:') === 0) {
-                $this->linkAttributes['onclick'] = $url;
-            } else {
 
-                $url = Link::parse($url, $this->linkAttributes);
-                $this->linkAttributes['data-href'] = JRoute::_($url, false);
-                $this->linkAttributes['tabindex'] = 0;
-                $this->linkAttributes['role']     = 'button';
+            $url = Link::parse($url, $this->linkAttributes);
+            $this->linkAttributes['data-href'] = JRoute::_($url, false);
+            $this->linkAttributes['tabindex'] = 0;
+            $this->linkAttributes['role']     = 'button';
 
-                $ariaLabel = $this->parameters->get('aria-label');
-                if (!empty($ariaLabel)) {
-                    $this->linkAttributes['aria-label'] = $ariaLabel;
-                }
-
-                if (empty($this->linkAttributes['onclick']) && !isset($this->linkAttributes['data-n2-lightbox'])) {
-                    if (!empty($target) && $target != '_self') {
-                        $this->linkAttributes['data-target'] = $target;
-                    }
-                    $this->linkAttributes['data-n2click'] = "url";
-                }
+            $ariaLabel = $this->parameters->get('aria-label');
+            if (!empty($ariaLabel)) {
+                $this->linkAttributes['aria-label'] = $ariaLabel;
             }
+
+            if (!isset($this->linkAttributes['data-n2-lightbox'])) {
+                if (!empty($target) && $target != '_self') {
+                    $this->linkAttributes['data-target'] = $target;
+                }
+                $this->linkAttributes['data-n2click'] = "url";
+            }
+
             if (!isset($this->linkAttributes['style'])) {
                 $this->linkAttributes['style'] = '';
             }

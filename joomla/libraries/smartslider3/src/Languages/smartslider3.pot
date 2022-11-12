@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-09-22 15:38+0200\n"
+"POT-Creation-Date: 2022-11-07 14:53+0100\n"
 "PO-Revision-Date: 2020-03-10 19:30+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11,16 +11,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: ;n2_;n2_e;n2_n:1,2;n2_en:1,2;n2_x:1,2c;n2_ex:1,2c\n"
 "X-Poedit-Flags-xgettext: --no-location\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: Framework/Asset/Builder/cache\n"
-
-msgid "Debug error"
-msgstr ""
 
 msgid "CURL disabled in your php.ini configuration. Please enable it!"
 msgstr ""
@@ -982,7 +979,8 @@ msgstr ""
 msgid "Change slider type"
 msgstr ""
 
-msgid "Changing your slider type is irreversible. After changing your slider type, <b>you will lose all slider type related settings</b>."
+#, javascript-format
+msgid "Changing your slider type is irreversible. After changing your slider type, %syou will lose all slider type related settings%s."
 msgstr ""
 
 msgid "Slider type"
@@ -2895,6 +2893,14 @@ msgstr ""
 msgid "Export file corrupted! Slider data is missing."
 msgstr ""
 
+#, php-format
+msgid "The importing failed as the slider export contained an invalid class name: %1$s"
+msgstr ""
+
+#, php-format
+msgid "The importing failed as we are not able to unserialize the type: \"%s\""
+msgstr ""
+
 msgid "Learn more"
 msgstr ""
 
@@ -4416,6 +4422,16 @@ msgstr ""
 msgid "Ribbon"
 msgstr ""
 
+msgid "Creates slides by your custom settings."
+msgstr ""
+
+#, php-format
+msgid "You don't have custom generators yet. %1$s Check the documentation %2$s to learn how to create your own generator."
+msgstr ""
+
+msgid "No options given"
+msgstr ""
+
 msgid "The secret is empty. Please insert that value too!"
 msgstr ""
 
@@ -4985,16 +5001,6 @@ msgid "Gallery"
 msgstr ""
 
 msgid "View gallery"
-msgstr ""
-
-msgid "Creates slides by your custom settings."
-msgstr ""
-
-#, php-format
-msgid "You don't have custom generators yet. %1$s Check the documentation %2$s to learn how to create your own generator."
-msgstr ""
-
-msgid "No options given"
 msgstr ""
 
 #, php-format

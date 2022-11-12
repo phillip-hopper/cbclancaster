@@ -432,6 +432,14 @@ function SlidePlusSlider(elem, options, titleFunc) {
 	/** @type {!Array<?string>} */
 	this.captions = listnodes.map(titleFn);
 
+	/**
+	* @param {!HTMLElement} container
+	* @param {!HTMLImageElement} img
+	*/
+	function applyAspectRatio(container, img) {
+		container.style.setProperty('aspect-ratio', img.naturalWidth + ' / ' + img.naturalHeight);
+	}
+
 	// unwrap items from <li> parent, keeping attached event handlers
 	/**
 	* List of DOM elements the sliding viewpane can be populated with.
@@ -439,6 +447,20 @@ function SlidePlusSlider(elem, options, titleFunc) {
 	*/
 	let items = listnodes.map(function (/** @type {!HTMLElement} */ listitem) {
 		let container = createDivElement();
+
+		// maintain aspect ratio of that of encapsulated image
+		let img = /** @type {HTMLImageElement} */ (listitem.querySelector("img"));
+
+		if (img) {
+			if (img.complete) {
+				applyAspectRatio(container, img);
+			} else {
+				img.addEventListener('load', function () {
+					applyAspectRatio(container, /** @type {!HTMLImageElement} */ (img));
+				});
+			}
+		}
+
 		for (let child = listitem.firstChild; child; child = listitem.firstChild) {
 			container.appendChild(child);
 		}
@@ -505,10 +527,6 @@ function SlidePlusSlider(elem, options, titleFunc) {
 				let griditem = createDivElement();
 				griditem.classList.add('slideplus-slot');
 				griditem.classList.add('slideplus-' + /** @type {SlidePlusPosition} */ (self.options['captions']));
-
-				let aspect = createDivElement();
-				aspect.classList.add('slideplus-aspect');
-				griditem.appendChild(aspect);
 
 				let contentholder = createDivElement();
 				contentholder.classList.add('slideplus-content');

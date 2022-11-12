@@ -677,6 +677,13 @@ class Sanitize {
                     if (substr($attrs->item($ii)->name, 0, 2) === 'on') {
                         $els->item($i)
                             ->removeAttribute($attrs->item($ii)->name);
+
+                        continue;
+                    }
+
+                    if ($attrs->item($ii)->name === 'href' && strpos($attrs->item($ii)->value, 'javascript:') !== false) {
+                        $els->item($i)
+                            ->removeAttribute($attrs->item($ii)->name);
                     }
                 }
             }
@@ -702,7 +709,12 @@ class Sanitize {
     }
 
     public static function set_allowed_tags() {
-        $allowedposttags = array(
+
+        if (N2JOOMLA || CUSTOM_TAGS) {
+            $_allowedposttags = array();
+        }
+
+        $wpAllowedposttags = array(
             'address'    => array(),
             'a'          => array(
                 'href'     => true,
@@ -1021,7 +1033,7 @@ class Sanitize {
             ),
         );
 
-        $allowedposttags = array_map(function ($value) {
+        $wpAllowedposttags = array_map(function ($value) {
             $global_attributes = array(
                 'aria-describedby' => true,
                 'aria-details'     => true,
@@ -1048,10 +1060,10 @@ class Sanitize {
             }
 
             return $value;
-        }, $allowedposttags);
-    
+        }, $wpAllowedposttags);
 
-        self::$basicTags = array_merge_recursive($allowedposttags, array(
+
+        self::$basicTags = array_merge_recursive($_allowedposttags, $wpAllowedposttags, array(
             'div'    => array(
                 'style' => true,
             ),
@@ -1070,6 +1082,7 @@ class Sanitize {
             ),
             'a'    => array(
                 'tabindex' => true,
+                'onclick'  => true,
             ),
         ));
 

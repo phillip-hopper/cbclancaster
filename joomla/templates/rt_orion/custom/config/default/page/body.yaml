@@ -4,5 +4,5 @@ attribs:
   extra: {  }
 layout:
   sections: '3'
-body_top: ''
+body_top: "<!-- Google tag (gtag.js) -->\n<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-ZY0EMZVJLZ\"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n  gtag('config', 'G-ZY0EMZVJLZ');\n</script>"
 body_bottom: ''

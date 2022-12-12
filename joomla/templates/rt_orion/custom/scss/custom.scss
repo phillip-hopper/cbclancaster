@@ -375,6 +375,20 @@ table {
   }
 }
 
+.btn {
+  &.btn-lg {
+    font-size: 1.5rem;
+    font-weight: 400;
+    border-radius: 0.6rem;
+  }
+
+  &.btn-xl {
+    font-size: 2rem;
+    font-weight: 400;
+    border-radius: 0.8rem;
+  }
+}
+
 //noinspection SassScssResolvedByNameOnly
 @media (max-width: $breakpoints-large-desktop-container - 0.01rem) {
   html {
@@ -452,6 +466,16 @@ table {
 
         }
       }
+    }
+  }
+}
+
+//noinspection SassScssResolvedByNameOnly
+@media (min-width: $breakpoints-tablet-container) {
+  .btn {
+    &.btn-xl {
+      font-size: 1.75rem;
+      border-radius: 0.7rem;
     }
   }
 }

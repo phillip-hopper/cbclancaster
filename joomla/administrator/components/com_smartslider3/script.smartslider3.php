@@ -1,7 +1,5 @@
 <?php
 
-define('NEXTEND_INSTALL', true);
-
 class com_SmartSlider3InstallerScript {
 
     /**
@@ -146,6 +144,14 @@ class com_SmartSlider3InstallerScript {
                 $db->setQuery("DELETE FROM #__update_sites WHERE update_site_id = '" . $updateSite['update_site_id'] . "'")
                    ->execute();
             }
+        }
+
+        $storageHasSystem = !empty($db->setQuery("SHOW COLUMNS FROM #__nextend2_section_storage LIKE 'system'")
+                                      ->loadResult());
+
+        if ($storageHasSystem) {
+            $db->setQuery("ALTER TABLE `#__nextend2_section_storage` CHANGE  `system`  `isSystem` INT(11) NOT NULL DEFAULT '0'")
+               ->execute();
         }
     }
 

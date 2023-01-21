@@ -48,17 +48,24 @@ class SigPlusNovoResourceCache {
 	private $hash;
 
 	public function __construct() {
-		if (file_exists(SIGPLUS_RESOURCE_DATABASE)) {
-			$data = file_get_contents(SIGPLUS_RESOURCE_DATABASE);
+		$this->manifest = new stdClass;
+
+		if (!file_exists(SIGPLUS_RESOURCE_DATABASE)) {
+			return;
 		}
-		if (isset($data)) {
-			$this->manifest = json_decode($data);
-			if (isset($this->manifest)) {
-				$this->hash = md5($data);
-			}
-		} else {
-			$this->manifest = new stdClass;
+
+		$data = file_get_contents(SIGPLUS_RESOURCE_DATABASE);
+		if (!isset($data)) {
+			return;
 		}
+
+		$json = json_decode($data);
+		if (!isset($json)) {
+			return;
+		}
+
+		$this->manifest = $json;
+		$this->hash = md5($data);
 	}
 
 	public function __destruct() {

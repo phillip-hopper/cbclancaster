@@ -317,7 +317,7 @@ templates/layout/grid.html.twig	0511ef6713b74470a657202b2ea187bc
 templates/layout/offcanvas.html.twig	04001d9f6b7c5573236c14b9a28cfa7a
 templates/layout/section.html.twig	9fbd8525cbb293ea652d74bbf1aec361
 templates/layout/wrapper.html.twig	80575cb54b77a5b88b8299c99fda28e1
-templates/page.html.twig	0229fef74c34bb96b0f7dc95d06611f5
+templates/page.html.twig	d72c3386374c413acba5ea7ba499a755
 templates/page_head.html.twig	7733f8efba607694f6cd048229915015
 templates/partials/particle.html.twig	07935cff8475093e4c5e315985b39b99
 twig/component.html.twig	abdb4071d7588181a6c4c196436b3e5d

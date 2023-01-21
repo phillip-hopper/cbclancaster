@@ -337,6 +337,8 @@ class plgContentSigPlusNovo extends JPlugin {
 		}
 		if (is_url_http($source)) {
 			$source = safe_url_encode($source);
+		} else if (!empty($source)) {
+			$source = trim($source, '/\\');  // allow users to add leading and trailing (back)slashes but ignore them
 		}
 
 		try {

@@ -185,7 +185,7 @@ templates/layouts/css-warnings.html.twig	d45a3783788fd5a3af4d671b00570f5d
 templates/layouts/outline.html.twig	f0829764cded3f947c73b82cbcab289c
 templates/layouts/picker.html.twig	fc58fa1fd58262c24145ece873c3ebcf
 templates/layouts/position.html.twig	428ca4ca7fd3dde376d527c0f969e4f7
-templates/layouts/switcher.html.twig	b5a56c4192ff49d3bda9fddca85425df
+templates/layouts/switcher.html.twig	420b2d51f6d0f95c276c7e9dbb8e4863
 templates/menu/base.html.twig	419eb571f037dcbe48f0c34c30e5392c
 templates/menu/columns.html.twig	0eff002a7a9f4a5da819fe70b2f3ce55
 templates/menu/empty.html.twig	0d787eff5f3aac2da1d9c9447b4ec7d0
@@ -208,13 +208,13 @@ templates/pages/configurations/layouts/particle-preview.html.twig	3dab4c97ea0a10
 templates/pages/configurations/layouts/particle.html.twig	b9ab5b93ef40a53fbab5d8c52c284ef7
 templates/pages/configurations/layouts/section.html.twig	0cc0c30422977e5a007dc3dbc2a0fdc4
 templates/pages/configurations/page/atoms.html.twig	5b74349040822d5de278d15d95b9d907
-templates/pages/configurations/page/page.html.twig	ad80a54845d9a2b577c21627c820ed4e
+templates/pages/configurations/page/page.html.twig	df97bb570c519823adeb3981af986031
 templates/pages/configurations/settings/field.html.twig	1501e742cefd813d916ee3929e39c601
 templates/pages/configurations/settings/item.html.twig	162f83b2a33f91dc75e13e2a2439d46d
-templates/pages/configurations/settings/settings.html.twig	593673fbca6411313202b76faaf3cd31
+templates/pages/configurations/settings/settings.html.twig	bc9e1d6ddb34c942fe8be6af4dfc0e95
 templates/pages/configurations/styles/field.html.twig	5c29498cae8420ea02934039550553d4
 templates/pages/configurations/styles/item.html.twig	7a71b451e7d6b8182ac25a5b47ae4b6a
-templates/pages/configurations/styles/styles.html.twig	2985d659d35aa8a9fc356356f858da4c
+templates/pages/configurations/styles/styles.html.twig	2f27a89e497acac7dfe573a240922c4c
 templates/pages/custom/notification.html.twig	8867cf9da725bae7715b69681e70c8ec
 templates/pages/import/import.html.twig	40fa1b726f18504b4d90b8be66b9a05e
 templates/pages/install/install.html.twig	824aa7efa484a1e632b0ba2ea73df968

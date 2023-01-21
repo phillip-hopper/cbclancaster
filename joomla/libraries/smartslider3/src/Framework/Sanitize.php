@@ -650,7 +650,7 @@ class Sanitize {
 
     public static function filter_allowed_html($input, $extraTags = '') {
 
-        return self::filter_attributes_on(strip_tags($input, '<a><span><sub><sup><em><i><var><cite><b><strong><small><bdo><br><img><picture><source><u>' . $extraTags));
+        return self::filter_attributes_on(strip_tags($input, '<a><span><sub><sup><em><i><var><cite><b><strong><small><bdo><br><img><picture><source><u><del><bdi><ins>' . $extraTags));
     }
 
     public static function remove_all_html($input) {
@@ -751,6 +751,7 @@ class Sanitize {
                 'src'      => true,
             ),
             'b'          => array(),
+            'bdi'        => array(),
             'bdo'        => array(),
             'big'        => array(),
             'blockquote' => array(

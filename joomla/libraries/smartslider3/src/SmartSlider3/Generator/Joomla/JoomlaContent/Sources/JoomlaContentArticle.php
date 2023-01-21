@@ -341,7 +341,14 @@ class JoomlaContentArticle extends AbstractGenerator {
 
             if (!empty($images)) {
                 foreach ($images as $name => $value) {
-                    $r[$name] = ImageFallback::fallback(array($value));
+                    if (!empty($value)) {
+                        $image = ImageFallback::fallback(array($value));
+                        if (!empty($image)) {
+                            $r[$name] = $image;
+                        } else {
+                            $r[$name] = $value;
+                        }
+                    }
                 }
             }
 

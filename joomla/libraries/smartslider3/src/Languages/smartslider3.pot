@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-11-07 14:53+0100\n"
+"POT-Creation-Date: 2023-01-18 09:52+0100\n"
 "PO-Revision-Date: 2020-03-10 19:30+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.2.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: ;n2_;n2_e;n2_n:1,2;n2_en:1,2;n2_x:1,2c;n2_ex:1,2c\n"
@@ -2968,6 +2968,12 @@ msgstr ""
 msgid "Stack"
 msgstr ""
 
+msgid "Deprecation"
+msgstr ""
+
+msgid "This generator will get deprecated soon, so you shouldn't use it anymore!"
+msgstr ""
+
 msgid "No description."
 msgstr ""
 
@@ -4438,6 +4444,9 @@ msgstr ""
 msgid "The App ID is empty. Please insert that value too!"
 msgstr ""
 
+msgid "The Facebook generator will get deprecated soon, so you shouldn't use it anymore!"
+msgstr ""
+
 #, php-format
 msgid "%1$s allows HTTPS Redirect URIs only! You must move your site to HTTPS in order to use this generator!"
 msgstr ""
@@ -5628,6 +5637,9 @@ msgstr ""
 
 #, php-format
 msgid "Please note that %1$swe do not support%2$s the HTML layer and the 3rd party codes loaded by it. We only suggest using this layer if you are a developer. %3$sAlso, make sure your HTML code is valid! Invalid HTML codes can mess up the entire slide and the only way resolving this problem is deleting the slide."
+msgstr ""
+
+msgid "Repair HTML errors"
 msgstr ""
 
 msgid "Item"

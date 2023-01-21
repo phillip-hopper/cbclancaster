@@ -1426,36 +1426,29 @@ abstract class SigPlusNovoGalleryBase {
 	protected function purgeCache() {
 		switch ($this->config->service->cache_image) {
 			case 'cache':  // images are set to be generated in the Joomla cache folder
-				$thumb_folder = JPATH_CACHE.DIRECTORY_SEPARATOR.str_replace('/', DIRECTORY_SEPARATOR, $this->config->service->folder_thumb);
-				$preview_folder = JPATH_CACHE.DIRECTORY_SEPARATOR.str_replace('/', DIRECTORY_SEPARATOR, $this->config->service->folder_preview);
+				$storage_dir = JFactory::getConfig()->get('cache_path', JPATH_CACHE);
 				break;
 			case 'media':  // images are set to be generated in the Joomla media folder
-				$media_folder = JPATH_ROOT.DIRECTORY_SEPARATOR.'media'.DIRECTORY_SEPARATOR.SIGPLUS_MEDIA_FOLDER.DIRECTORY_SEPARATOR;
-				$thumb_folder = $media_folder.str_replace('/', DIRECTORY_SEPARATOR, $this->config->service->folder_thumb);
-				$preview_folder = $media_folder.str_replace('/', DIRECTORY_SEPARATOR, $this->config->service->folder_preview);
+				$storage_dir = JPATH_ROOT.DIRECTORY_SEPARATOR.'media'.DIRECTORY_SEPARATOR.SIGPLUS_MEDIA_FOLDER;
 				break;
 			default:
 				return;  // generated images are not to be cleaned automatically
 		}
 
-		if (file_exists($thumb_folder) && file_exists($preview_folder)) {
+		$thumb_folder = str_replace('/', DIRECTORY_SEPARATOR, $this->config->service->folder_thumb);
+		$preview_folder = str_replace('/', DIRECTORY_SEPARATOR, $this->config->service->folder_preview);
+		$thumb_dir = $storage_dir.DIRECTORY_SEPARATOR.$thumb_folder;
+		$preview_dir = $storage_dir.DIRECTORY_SEPARATOR.$preview_folder;
+		if (file_exists($thumb_dir) && file_exists($preview_dir)) {
 			return;  // thumb and preview folder not removed
 		}
 
 		SigPlusNovoLogging::appendStatus('Manual removal of cache folders detected.');
 		$db = JFactory::getDbo();
 
-		// escape special characters, append any character qualifier at end, quote string
-		$thumb_pattern = SigPlusNovoDatabase::sqlstartswith($thumb_folder);
-		$preview_pattern = SigPlusNovoDatabase::sqlstartswith($preview_folder);
-
 		// remove views from database with deleted image files
 		$db->setQuery(
-			'DELETE FROM '.$db->quoteName('#__sigplus_imageview').PHP_EOL.
-			'WHERE'.PHP_EOL.
-				$db->quoteName('thumb_fileurl').' LIKE '.$db->quote($thumb_pattern).' OR '.
-				$db->quoteName('preview_fileurl').' LIKE '.$db->quote($preview_pattern).' OR '.
-				$db->quoteName('retina_fileurl').' LIKE '.$db->quote($preview_pattern)
+			'DELETE FROM '.$db->quoteName('#__sigplus_imageview')
 		);
 		$db->execute();
 	}
@@ -1610,7 +1603,8 @@ abstract class SigPlusNovoLocalBase extends SigPlusNovoGalleryBase {
 	private function getGeneratedImagePath($generatedfolder, $imagepath, SigPlusNovoImageParameters $params, $action = SIGPLUS_TEST) {
 		switch ($this->config->service->cache_image) {
 			case 'cache':  // images are set to be generated in the Joomla cache folder
-				$directory = JPATH_CACHE.DIRECTORY_SEPARATOR.str_replace('/', DIRECTORY_SEPARATOR, $generatedfolder);
+				$cache_path = JFactory::getConfig()->get('cache_path', JPATH_CACHE);
+				$directory = $cache_path.DIRECTORY_SEPARATOR.str_replace('/', DIRECTORY_SEPARATOR, $generatedfolder);
 				$path = $directory.DIRECTORY_SEPARATOR.$params->getHash($imagepath, $this->config->service->base_folder);  // hash original image file paths to avoid name conflicts
 				break;
 			case 'media':  // images are set to be generated in the Joomla media folder
@@ -1945,7 +1939,7 @@ class SigPlusNovoLocalGallery extends SigPlusNovoLocalBase {
 			$labels->populate($imagefolder, $folderid);
 		} else {
 			$folderid = $folderparams->id;
-			SigPlusNovoLogging::appendStatus('Folder <code>'.$imagefolder.'</code> has not changed.');
+			SigPlusNovoLogging::appendStatus('Folder <code>'.$imagefolder.'</code> has not changed since <code>'.$lastmod.'</code>.');
 		}
 
 		return $this->populateFolderViews($folderid);
@@ -2528,7 +2522,8 @@ class SigPlusNovoRemoteImage extends SigPlusNovoGalleryBase {
 		$height = null;
 
 		// create temporary image file and extract metadata
-		if ($imagepath = tempnam(JPATH_CACHE, 'sigplus')) {
+		$cache_path = JFactory::getConfig()->get('cache_path', JPATH_CACHE);
+		if ($imagepath = tempnam($cache_path, 'sigplus')) {
 			if (file_put_contents($imagepath, $imagedata)) {
 				SigPlusNovoLogging::appendStatus('Image data has been saved to temporary file <code>'.$imagepath.'</code>.');
 
@@ -3618,10 +3613,6 @@ class SigPlusNovoCore {
 			}
 			if ($curparams->preview_padding !== false) {
 				$imagerules['padding'] = $curparams->preview_padding.' !important';
-			}
-			if ($curparams->preview_crop) {
-				$imagerules['width'] = $curparams->preview_width.'px';
-				$imagerules['height'] = $curparams->preview_height.'px';
 			}
 			$selectors = array(
 				'#'.$id.' a.sigplus-image > img' => $imagerules

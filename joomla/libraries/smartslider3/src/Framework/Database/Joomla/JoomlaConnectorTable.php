@@ -6,8 +6,10 @@ namespace Nextend\Framework\Database\Joomla;
 
 use Exception;
 use JDatabaseDriver;
+use JUri;
 use Nextend\Framework\Database\AbstractPlatformConnector;
 use Nextend\Framework\Database\AbstractPlatformConnectorTable;
+use Nextend\Framework\Notification\Notification;
 use stdClass;
 
 class JoomlaConnectorTable extends AbstractPlatformConnectorTable {
@@ -31,11 +33,7 @@ class JoomlaConnectorTable extends AbstractPlatformConnectorTable {
         $query->from(self::$connector->quoteName($this->tableName));
         $query->where(self::$connector->quoteName($this->primaryKeyColumn) . ' = ' . (is_numeric($primaryKey) ? $primaryKey : self::$db->quote($primaryKey)));
 
-        // Reset the query using our newly populated query object.
-        self::$db->setQuery($query);
-
-        // Load the results as a list of stdClass objects (see later for more options on retrieving data).
-        return self::$db->loadAssoc();
+        return $this->setQuery($query, 'loadAssoc');
     }
 
 
@@ -55,9 +53,7 @@ class JoomlaConnectorTable extends AbstractPlatformConnectorTable {
             $query->order($order);
         }
 
-        self::$db->setQuery($query);
-
-        return self::$db->loadAssoc();
+        return $this->setQuery($query, 'loadAssoc');
     }
 
     public function findAll($order = false) {
@@ -69,9 +65,7 @@ class JoomlaConnectorTable extends AbstractPlatformConnectorTable {
             $query->order($order);
         }
 
-        self::$db->setQuery($query);
-
-        return self::$db->loadAssocList();
+        return $this->setQuery($query, 'loadAssocList');
     }
 
     public function findAllByAttributes(array $attributes, $fields = false, $order = false) {
@@ -90,9 +84,7 @@ class JoomlaConnectorTable extends AbstractPlatformConnectorTable {
             $query->order($order);
         }
 
-        self::$db->setQuery($query);
-
-        return self::$db->loadAssocList();
+        return $this->setQuery($query, 'loadAssocList');
     }
 
     public function insert(array $attributes) {
@@ -131,9 +123,7 @@ class JoomlaConnectorTable extends AbstractPlatformConnectorTable {
               ->set($fields)
               ->where($where);
 
-        self::$db->setQuery($query);
-
-        return self::$db->execute();
+        return $this->setQuery($query);
     }
 
     public function updateByPk($primaryKey, array $attributes) {
@@ -151,9 +141,7 @@ class JoomlaConnectorTable extends AbstractPlatformConnectorTable {
               ->set($fields)
               ->where($conditions);
 
-        self::$db->setQuery($query);
-
-        return self::$db->execute();
+        return $this->setQuery($query);
     }
 
     public function deleteByPk($primaryKey) {
@@ -164,9 +152,7 @@ class JoomlaConnectorTable extends AbstractPlatformConnectorTable {
         $query->delete(self::$connector->quoteName($this->tableName));
         $query->where($conditions);
 
-        self::$db->setQuery($query);
-
-        return self::$db->execute();
+        return $this->setQuery($query);
     }
 
     public function deleteByAttributes(array $conditions) {
@@ -180,8 +166,42 @@ class JoomlaConnectorTable extends AbstractPlatformConnectorTable {
         $query->delete(self::$connector->quoteName($this->tableName));
         $query->where($where);
 
-        self::$db->setQuery($query);
+        return $this->setQuery($query);
+    }
 
-        return self::$db->execute();
+    public function setQuery($query, $return = 'execute') {
+        try {
+            self::$db->setQuery($query);
+
+            switch ($return) {
+                case 'execute':
+                    return self::$db->execute();
+                case 'loadAssocList':
+                    return self::$db->loadAssocList();
+                case 'loadAssoc':
+                    return self::$db->loadAssoc();
+                default:
+                    return '';
+            }
+
+        } catch (Exception $e) {
+            $currentUrl = JUri::getInstance();
+            $currentUrl->setVar('repairss3', 1);
+
+            $message = array(
+                'Unexpected database error.',
+                '',
+                '<a href="' . $currentUrl . '" class="n2_button n2_button--big n2_button--blue">' . 'Try to repair database' . '</a>',
+                '',
+                '<b>' . $e->getMessage() . '</b>',
+                $query
+            );
+            Notification::error(implode('<br>', $message), array(
+                'wide' => true
+            ));
+
+            return '';
+        }
+
     }
 }

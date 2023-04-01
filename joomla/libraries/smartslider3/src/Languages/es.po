@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-09-22 15:38+0200\n"
-"PO-Revision-Date: 2022-11-07 14:53+0100\n"
+"POT-Creation-Date: 2023-01-18 09:52+0100\n"
+"PO-Revision-Date: 2023-01-24 19:04-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -10,13 +10,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.2.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: ;n2_;n2_e;n2_n:1,2;n2_en:1,2;n2_x:1,2c;n2_ex:1,2c\n"
 "X-Poedit-Flags-xgettext: --no-location\n"
-
-msgid "Debug error"
-msgstr "Error de depuración"
 
 msgid "CURL disabled in your php.ini configuration. Please enable it!"
 msgstr ""
@@ -1026,12 +1023,13 @@ msgstr "Resultado"
 msgid "Change slider type"
 msgstr "Cambiar el tipo de slider"
 
+#, javascript-format
 msgid ""
 "Changing your slider type is irreversible. After changing your slider type, "
-"<b>you will lose all slider type related settings</b>."
+"%syou will lose all slider type related settings%s."
 msgstr ""
 "Cambiar el tipo de slider es irreversible. Tras hacer este cambio, "
-"<b>perderás todas las opciones relacionadas al tipo de slider</b>."
+"%sperderás todas las opciones relacionadas al tipo de slider%s."
 
 msgid "Slider type"
 msgstr "Tipo de slider"
@@ -3244,6 +3242,19 @@ msgstr "Usted no puede importar sliders de Smart Slider 2."
 msgid "Export file corrupted! Slider data is missing."
 msgstr "¡Archivo de exportación corrupto! Falta información del slider."
 
+#, php-format
+msgid ""
+"The importing failed as the slider export contained an invalid class name: "
+"%1$s"
+msgstr ""
+"La importación falló debido a que el slider exportado contenía un nombre de "
+"clase inválido: %1$s"
+
+#, php-format
+msgid "The importing failed as we are not able to unserialize the type: \"%s\""
+msgstr ""
+"La importación falló debido a que no revertir la seriación del tipo: \"%s\""
+
 msgid "Learn more"
 msgstr "Aprender más"
 
@@ -3344,6 +3355,14 @@ msgstr "Minuto"
 
 msgid "Stack"
 msgstr "Amontonar"
+
+msgid "Deprecation"
+msgstr "Descontinuado"
+
+msgid ""
+"This generator will get deprecated soon, so you shouldn't use it anymore!"
+msgstr ""
+"Se descontinuará pronto este generador, ¡por lo que no podrás utilizarlo más!"
 
 msgid "No description."
 msgstr "Sin descripción."
@@ -3534,9 +3553,10 @@ msgstr "Comparación Meta"
 
 #, php-format
 msgid ""
-"You can create other comparisons based on the previous \"Post Meta Comparison"
-"\" options. Use the following format: name||compare||value||type%1$s%1$s "
-"Example:%1$spublished||=||yes||CHAR%1$s%1$sWrite one comparison per line."
+"You can create other comparisons based on the previous \"Post Meta "
+"Comparison\" options. Use the following format: name||compare||value||"
+"type%1$s%1$s Example:%1$spublished||=||yes||CHAR%1$s%1$sWrite one comparison "
+"per line."
 msgstr ""
 "Puedes crear otra comparación basada en las opciones previas \"Comparación "
 "meta de artículo\". Utiliza el siguiente formato: nombre||comparar||valor||"
@@ -4961,11 +4981,32 @@ msgstr "Olas enmascaradas"
 msgid "Ribbon"
 msgstr "Listón"
 
+msgid "Creates slides by your custom settings."
+msgstr "Crea slides para tus opciones personalizadas."
+
+#, php-format
+msgid ""
+"You don't have custom generators yet. %1$s Check the documentation %2$s to "
+"learn how to create your own generator."
+msgstr ""
+"No tienes ningún generador personalizado todavía. %1$s Consulta la "
+"documentación %2$s para aprender como crear tu propio generador."
+
+msgid "No options given"
+msgstr "No se ingresaron opciones"
+
 msgid "The secret is empty. Please insert that value too!"
 msgstr "¡El texto secreto está vacío. Por favor ingresa ese valor!"
 
 msgid "The App ID is empty. Please insert that value too!"
 msgstr "¡El ID de la app está vacío. Por favor ingresa ese valor!"
+
+msgid ""
+"The Facebook generator will get deprecated soon, so you shouldn't use it "
+"anymore!"
+msgstr ""
+"El generador de Facebook será descontinuado muy pronto, ¡y no podrás "
+"utilizarlo más!"
 
 #, php-format
 msgid ""
@@ -5612,20 +5653,6 @@ msgstr "Galería"
 
 msgid "View gallery"
 msgstr "Ver galería"
-
-msgid "Creates slides by your custom settings."
-msgstr "Crea slides para tus opciones personalizadas."
-
-#, php-format
-msgid ""
-"You don't have custom generators yet. %1$s Check the documentation %2$s to "
-"learn how to create your own generator."
-msgstr ""
-"No tienes ningún generador personalizado todavía. %1$s Consulta la "
-"documentación %2$s para aprender como crear tu propio generador."
-
-msgid "No options given"
-msgstr "No se ingresaron opciones"
 
 #, php-format
 msgid "Creates slides from %1$s events."
@@ -6294,6 +6321,9 @@ msgstr ""
 "sea válido. Los códigos HTML no válidos pueden romper todo el slide y la "
 "única forma de resolverlo sería eliminarlo."
 
+msgid "Repair HTML errors"
+msgstr "Reparar errores en el HTML"
+
 msgid "Item"
 msgstr "Item"
 
@@ -6787,6 +6817,9 @@ msgstr "Color de la pista"
 
 msgid "Bar color"
 msgstr "Color de la barra"
+
+#~ msgid "Debug error"
+#~ msgstr "Error de depuración"
 
 #~ msgid ""
 #~ "Same as the previous option, just you can write down more comparisons. "

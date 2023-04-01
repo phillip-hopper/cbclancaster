@@ -187,6 +187,10 @@ class com_SmartSlider3InstallerScript {
            ->execute();
         $pro = 0;
     
+
+        if (function_exists('opcache_reset')) {
+            opcache_reset();
+        }
     }
 
     private function deleteFolder($path) {

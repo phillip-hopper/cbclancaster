@@ -27,6 +27,10 @@
       <path value="$PROJECT_DIR$/joomla/libraries/gantry5/vendor/filp/whoops" />
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/deployer/dist" />
+      <path value="$PROJECT_DIR$/joomla/libraries/gantry5/compat/vendor/composer" />
+      <path value="$PROJECT_DIR$/joomla/libraries/gantry5/compat/vendor/scssphp/scssphp" />
+      <path value="$PROJECT_DIR$/joomla/libraries/gantry5/compat/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/joomla/libraries/gantry5/compat/vendor/symfony/polyfill-ctype" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0">

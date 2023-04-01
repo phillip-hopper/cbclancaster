@@ -2,9 +2,12 @@
 
 namespace Nextend\Framework\Database\Joomla;
 
+use Exception;
 use JDatabaseDriver;
 use JFactory;
+use JUri;
 use Nextend\Framework\Database\AbstractPlatformConnector;
+use Nextend\Framework\Notification\Notification;
 
 class JoomlaConnector extends AbstractPlatformConnector {
 
@@ -32,9 +35,8 @@ class JoomlaConnector extends AbstractPlatformConnector {
                 $query     = str_replace($key, $replaceTo, $query);
             }
         }
-        $this->db->setQuery($query);
 
-        return $this->db->execute();
+        return $this->setQuery($query, 'execute');
     }
 
 
@@ -45,9 +47,8 @@ class JoomlaConnector extends AbstractPlatformConnector {
                 $query     = str_replace($key, $replaceTo, $query);
             }
         }
-        $nextend = $this->db->setQuery($query);
 
-        return $nextend->loadAssoc();
+        return $this->setQuery($query, 'loadAssoc');
     }
 
     public function queryAll($query, $attributes = false, $type = "assoc", $key = null) {
@@ -58,14 +59,11 @@ class JoomlaConnector extends AbstractPlatformConnector {
             }
         }
 
-        $nextend = $this->db->setQuery($query);
-
         if ($type == "assoc") {
-            return $nextend->loadAssocList($key);
+            return $this->setQuery($query, 'loadAssocList');
         } else {
-            return $nextend->loadObjectList($key);
+            return $this->setQuery($query, 'loadObjectList');
         }
-
     }
 
     /**
@@ -96,5 +94,42 @@ class JoomlaConnector extends AbstractPlatformConnector {
         }
 
         return 'DEFAULT CHARSET=utf8 DEFAULT COLLATE=utf8_unicode_ci';
+    }
+
+    public function setQuery($query, $return) {
+        try {
+            $nextend = $this->db->setQuery($query);
+
+            switch ($return) {
+                case 'execute':
+                    return $this->db->execute();
+                case 'loadAssoc':
+                    return $nextend->loadAssoc();
+                case 'loadAssocList':
+                    return $nextend->loadAssocList();
+                case 'loadObjectList':
+                    return $nextend->loadObjectList();
+                default:
+                    return '';
+            }
+
+        } catch (Exception $e) {
+            $currentUrl = JUri::getInstance();
+            $currentUrl->setVar('repairss3', 1);
+
+            $message = array(
+                n2_('Unexpected database error.'),
+                '',
+                '<a href="' . $currentUrl . '" class="n2_button n2_button--big n2_button--blue">' . n2_('Try to repair database') . '</a>',
+                '',
+                '<b>' . $e->getMessage() . '</b>',
+                $query
+            );
+            Notification::error(implode('<br>', $message), array(
+                'wide' => true
+            ));
+
+            return '';
+        }
     }
 }

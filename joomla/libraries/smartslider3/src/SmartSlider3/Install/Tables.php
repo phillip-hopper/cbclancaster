@@ -92,6 +92,11 @@ class Tables {
             $this->installTable($tableName, $structure);
         }
 
+        $hasIndex = Database::queryRow(Database::parsePrefix("SHOW INDEXES FROM `#__nextend2_section_storage` WHERE Key_name = 'system'"));
+        if ($hasIndex) {
+            $this->query("ALTER TABLE `#__nextend2_section_storage` DROP INDEX `system`");
+        }
+
         if ($this->hasColumn('#__nextend2_section_storage', 'system')) {
             $this->query("ALTER TABLE `#__nextend2_section_storage` CHANGE  `system`  `isSystem` INT(11) NOT NULL DEFAULT '0'");
         }
@@ -127,11 +132,17 @@ class Tables {
             $this->query("ALTER TABLE `#__nextend2_smartslider3_sliders` ADD `alias` VARCHAR( 255 ) NULL DEFAULT NULL");
         }
 
-        if ($this->hasColumn('#__nextend2_smartslider3_sliders', 'status')) {
+        $hasIndex = Database::queryRow(Database::parsePrefix("SHOW INDEXES FROM `#__nextend2_smartslider3_sliders` WHERE Key_name = 'status'"));
+        if ($hasIndex) {
             $this->query("ALTER TABLE `#__nextend2_smartslider3_sliders` DROP INDEX `status`");
-            $this->query("ALTER TABLE `#__nextend2_smartslider3_sliders` CHANGE  `status`  `slider_status` VARCHAR(50) NOT NULL DEFAULT 'published'");
-        } else if (!$this->hasColumn('#__nextend2_smartslider3_sliders', 'slider_status')) {
-            $this->query("ALTER TABLE `#__nextend2_smartslider3_sliders` ADD `slider_status` VARCHAR(50) NOT NULL DEFAULT 'published'");
+        }
+
+        if (!$this->hasColumn('#__nextend2_smartslider3_sliders', 'slider_status')) {
+            if ($this->hasColumn('#__nextend2_smartslider3_sliders', 'status')) {
+                $this->query("ALTER TABLE `#__nextend2_smartslider3_sliders` CHANGE  `status`  `slider_status` VARCHAR(50) NOT NULL DEFAULT 'published'");
+            } else {
+                $this->query("ALTER TABLE `#__nextend2_smartslider3_sliders` ADD `slider_status` VARCHAR(50) NOT NULL DEFAULT 'published'");
+            }
         }
 
         $this->query("ALTER TABLE `#__nextend2_smartslider3_sliders` CHANGE  `title`  `title` VARCHAR( 200 ) NOT NULL");

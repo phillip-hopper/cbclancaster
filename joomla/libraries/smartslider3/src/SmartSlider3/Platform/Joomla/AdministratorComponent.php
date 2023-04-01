@@ -14,6 +14,8 @@ use Nextend\Framework\PageFlow;
 use Nextend\Framework\Request\Request;
 use Nextend\SmartSlider3\Application\ApplicationSmartSlider3;
 use Nextend\SmartSlider3\Install\Install;
+use Nextend\SmartSlider3\Install\Tables;
+use Nextend\SmartSlider3\Platform\SmartSlider3Platform;
 use Nextend\SmartSlider3\Settings;
 use Nextend\SmartSlider3\SmartSlider3Info;
 use plgSystemSmartSlider3;
@@ -37,6 +39,12 @@ class AdministratorComponent {
             if (Settings::get('n2_ss3_version') != SmartSlider3Info::$completeVersion) {
 
                 Install::install();
+            } else if (Request::$REQUEST->getInt('repairss3')) {
+                Install::install();
+
+                Tables::repair();
+                header('LOCATION: ' . SmartSlider3Platform::getAdminUrl());
+                exit;
             }
 
             $applicationType = ApplicationSmartSlider3::getInstance()

@@ -14,6 +14,18 @@
       ]
     },
     {
+      "name": "com_languages.admin-language-edit-change-flag",
+      "type": "script",
+      "uri": "com_languages/admin-language-edit-change-flag.min.js",
+      "dependencies": [
+        "com_languages.admin-language-edit-change-flag.es5"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "892d148c17eeb917af72a963fcc2b2975c04b34d"
+    },
+    {
       "name": "com_languages.admin-language-edit-change-flag.es5",
       "type": "script",
       "uri": "com_languages/admin-language-edit-change-flag-es5.min.js",
@@ -56,18 +68,6 @@
       "type": "style",
       "uri": "com_languages/overrider.min.css",
       "version": "e8e2a2c9712645ecd5d100d553444772b190883a"
-    },
-    {
-      "name": "com_languages.admin-language-edit-change-flag",
-      "type": "script",
-      "uri": "com_languages/admin-language-edit-change-flag.min.js",
-      "dependencies": [
-        "com_languages.admin-language-edit-change-flag.es5"
-      ],
-      "attributes": {
-        "type": "module"
-      },
-      "version": "892d148c17eeb917af72a963fcc2b2975c04b34d"
     },
     {
       "name": "com_languages.overrider.es5",

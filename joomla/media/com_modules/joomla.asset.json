@@ -106,6 +106,18 @@
       "version": "d29c6b38afd2845dad5c4ddbea2d8168c9fdaf28"
     },
     {
+      "name": "com_modules.admin-select-modal",
+      "type": "script",
+      "uri": "com_modules/admin-select-modal.min.js",
+      "dependencies": [
+        "com_modules.admin-select-modal.es5"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "aa3711c040878f12cf91bdfcd25952eab423b6d6"
+    },
+    {
       "name": "com_modules.admin-select-modal.es5",
       "type": "script",
       "uri": "com_modules/admin-select-modal-es5.min.js",
@@ -117,18 +129,6 @@
         "defer": true
       },
       "version": "d53258fa53d0368c9a15a379df8b63ffc5ed2d17"
-    },
-    {
-      "name": "com_modules.admin-select-modal",
-      "type": "script",
-      "uri": "com_modules/admin-select-modal.min.js",
-      "dependencies": [
-        "com_modules.admin-select-modal.es5"
-      ],
-      "attributes": {
-        "type": "module"
-      },
-      "version": "aa3711c040878f12cf91bdfcd25952eab423b6d6"
     }
   ]
 }

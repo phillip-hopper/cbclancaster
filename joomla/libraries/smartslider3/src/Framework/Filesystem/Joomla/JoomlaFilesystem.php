@@ -13,7 +13,6 @@ class JoomlaFilesystem extends AbstractPlatformFilesystem {
         if ($this->_basepath == DIRECTORY_SEPARATOR) {
             $this->_basepath = '';
         }
-        $this->_cachepath = realpath(JPATH_CACHE);
 
         $this->measurePermission($this->_basepath . '/media/');
     }

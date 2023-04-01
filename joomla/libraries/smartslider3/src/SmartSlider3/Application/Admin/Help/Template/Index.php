@@ -45,6 +45,16 @@ $conflicts = $this->getConflicts();
                         <?php n2_e('Test connection'); ?>
                     </a>
                 </div>
+                <?php
+                ?>
+                <div class="n2_help_center__conflicts_test_api">
+                    <a href="<?php echo esc_url($this->getUrlHelpRepairDatabase()); ?>">
+                        <?php n2_e('Analyze & repair possible database issues'); ?>
+                    </a>
+                </div>
+                <?php
+            
+                ?>
                 <?php if (empty($conflicts)): ?>
                     <div class="n2_help_center__no_conflicts_detected"><?php n2_e('No conflicts detected.'); ?></div>
                 <?php else: ?>
@@ -132,6 +142,17 @@ $conflicts = $this->getConflicts();
                         <?php n2_e('Test connection'); ?>
                     </a>
                 </div>
+                <?php
+                ?>
+                <div class="n2_help_center__conflicts_test_api">
+                    <a href="<?php echo esc_url($this->getUrlHelpRepairDatabase()); ?>">
+                        <?php n2_e('Analyze & repair possible database issues'); ?>
+                    </a>
+                </div>
+                <?php
+            
+                ?>
+
                 <?php if (empty($conflicts)): ?>
                     <div class="n2_help_center__no_conflicts_detected"><?php n2_e('No conflicts detected.'); ?></div>
                 <?php else: ?>

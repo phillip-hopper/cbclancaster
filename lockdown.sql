@@ -1,0 +1,7 @@
+DELIMITER $$
+
+CREATE TRIGGER IF NOT EXISTS cbclancaster.tg_no_new_users BEFORE INSERT ON cbclancaster.r32kc_users
+    FOR EACH ROW
+    BEGIN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'NOT PERMITTED';
+    END $$

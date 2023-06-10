@@ -42,13 +42,13 @@ class Tables {
             )",
         'nextend2_smartslider3_sliders'      => "(
           `id`     INT(11)      NOT NULL AUTO_INCREMENT,
-          `alias`  VARCHAR(255) NULL DEFAULT NULL,
-          `title`  VARCHAR(200) NOT NULL,
+          `alias`  TEXT         NULL DEFAULT NULL,
+          `title`  TEXT         NOT NULL,
           `type`   VARCHAR(30)  NOT NULL,
           `params` MEDIUMTEXT   NOT NULL,
           `slider_status` VARCHAR(50) NOT NULL DEFAULT 'published',
           `time`   DATETIME     NOT NULL,
-          `thumbnail` VARCHAR( 255 ) NOT NULL,
+          `thumbnail` TEXT      NOT NULL,
           `ordering` INT NOT NULL DEFAULT '0',
           INDEX (`slider_status`),
           INDEX (`time`),
@@ -63,7 +63,7 @@ class Tables {
         )",
         'nextend2_smartslider3_slides'       => "(
           `id`           INT(11)      NOT NULL AUTO_INCREMENT,
-          `title`        VARCHAR(200) NOT NULL,
+          `title`        TEXT         NOT NULL,
           `slider`       INT(11)      NOT NULL,
           `publish_up`   DATETIME     NOT NULL default '1970-01-01 00:00:00',
           `publish_down` DATETIME     NOT NULL default '1970-01-01 00:00:00',
@@ -71,7 +71,7 @@ class Tables {
           `first`        INT(11)      NOT NULL,
           `slide`        LONGTEXT,
           `description`  TEXT         NOT NULL,
-          `thumbnail`    VARCHAR(255) NOT NULL,
+          `thumbnail`    TEXT         NOT NULL,
           `params`       TEXT         NOT NULL,
           `ordering`     INT(11)      NOT NULL,
           `generator_id` INT(11)      NOT NULL,
@@ -92,27 +92,15 @@ class Tables {
             $this->installTable($tableName, $structure);
         }
 
-        $hasIndex = Database::queryRow(Database::parsePrefix("SHOW INDEXES FROM `#__nextend2_section_storage` WHERE Key_name = 'system'"));
-        if ($hasIndex) {
-            $this->query("ALTER TABLE `#__nextend2_section_storage` DROP INDEX `system`");
-        }
+        self::dropIndex('#__nextend2_section_storage', 'system');
 
-        if ($this->hasColumn('#__nextend2_section_storage', 'system')) {
-            $this->query("ALTER TABLE `#__nextend2_section_storage` CHANGE  `system`  `isSystem` INT(11) NOT NULL DEFAULT '0'");
-        }
+        $this->renameColumn('#__nextend2_section_storage', 'system', 'isSystem', 'INT(11) NOT NULL DEFAULT \'0\'');
 
-        $hasIndex = Database::queryRow(Database::parsePrefix("SHOW INDEXES FROM `#__nextend2_section_storage` WHERE Key_name = 'application'"));
-        if ($hasIndex) {
-            $this->query("ALTER TABLE `#__nextend2_section_storage` DROP INDEX `application`");
-        }
+        self::dropIndex('#__nextend2_section_storage', 'application');
+        self::dropIndex('#__nextend2_section_storage', 'application_2');
 
-        $hasIndex = Database::queryRow(Database::parsePrefix("SHOW INDEXES FROM `#__nextend2_section_storage` WHERE Key_name = 'application_2'"));
-        if ($hasIndex) {
-            $this->query("ALTER TABLE `#__nextend2_section_storage` DROP INDEX `application_2`");
-        }
-
-        $this->query("ALTER TABLE `#__nextend2_section_storage` CHANGE  `section`  `section` VARCHAR( 128 ) NOT NULL");
-        $this->query("ALTER TABLE `#__nextend2_section_storage` CHANGE  `referencekey`  `referencekey` VARCHAR( 128 ) NOT NULL");
+        $this->fixColumn('#__nextend2_section_storage', 'section', 'VARCHAR(128)', 'NOT NULL');
+        $this->fixColumn('#__nextend2_section_storage', 'referencekey', 'VARCHAR(128)', 'NOT NULL');
 
         $this->query("ALTER TABLE `#__nextend2_section_storage` ADD INDEX `application` (`application`, `section`(50), `referencekey`(50))");
         $this->query("ALTER TABLE `#__nextend2_section_storage` ADD INDEX `application_2` (`application`, `section`(50))");
@@ -120,47 +108,26 @@ class Tables {
         self::fixIndex('#__nextend2_section_storage', 'isSystem');
         self::fixIndex('#__nextend2_section_storage', 'editable');
 
-        if (!$this->hasColumn('#__nextend2_smartslider3_sliders', 'thumbnail')) {
-            $this->query("ALTER TABLE `#__nextend2_smartslider3_sliders` ADD `thumbnail` VARCHAR( 255 ) NOT NULL");
-        }
+        $this->fixColumn('#__nextend2_smartslider3_sliders', 'ordering', 'INT', 'NOT NULL DEFAULT \'0\'');
 
-        if (!$this->hasColumn('#__nextend2_smartslider3_sliders', 'ordering')) {
-            $this->query("ALTER TABLE `#__nextend2_smartslider3_sliders` ADD `ordering` INT NOT NULL DEFAULT '0'");
-        }
+        self::dropIndex('#__nextend2_smartslider3_sliders', 'status');
 
-        if (!$this->hasColumn('#__nextend2_smartslider3_sliders', 'alias')) {
-            $this->query("ALTER TABLE `#__nextend2_smartslider3_sliders` ADD `alias` VARCHAR( 255 ) NULL DEFAULT NULL");
-        }
+        $this->renameColumn('#__nextend2_smartslider3_sliders', 'status', 'slider_status', 'VARCHAR(50) NOT NULL DEFAULT \'published\'');
 
-        $hasIndex = Database::queryRow(Database::parsePrefix("SHOW INDEXES FROM `#__nextend2_smartslider3_sliders` WHERE Key_name = 'status'"));
-        if ($hasIndex) {
-            $this->query("ALTER TABLE `#__nextend2_smartslider3_sliders` DROP INDEX `status`");
-        }
+        $this->fixColumn('#__nextend2_smartslider3_sliders', 'title', 'TEXT', 'NOT NULL');
+        $this->fixColumn('#__nextend2_smartslider3_sliders', 'alias', 'TEXT', 'NULL DEFAULT NULL');
+        $this->fixColumn('#__nextend2_smartslider3_sliders', 'thumbnail', 'TEXT', 'NOT NULL');
 
-        if (!$this->hasColumn('#__nextend2_smartslider3_sliders', 'slider_status')) {
-            if ($this->hasColumn('#__nextend2_smartslider3_sliders', 'status')) {
-                $this->query("ALTER TABLE `#__nextend2_smartslider3_sliders` CHANGE  `status`  `slider_status` VARCHAR(50) NOT NULL DEFAULT 'published'");
-            } else {
-                $this->query("ALTER TABLE `#__nextend2_smartslider3_sliders` ADD `slider_status` VARCHAR(50) NOT NULL DEFAULT 'published'");
-            }
-        }
+        $this->fixColumn('#__nextend2_smartslider3_slides', 'title', 'TEXT');
+        $this->fixColumn('#__nextend2_smartslider3_slides', 'thumbnail', 'TEXT');
 
-        $this->query("ALTER TABLE `#__nextend2_smartslider3_sliders` CHANGE  `title`  `title` VARCHAR( 200 ) NOT NULL");
+        $this->fixColumn('#__nextend2_smartslider3_slides', 'publish_up', 'DATETIME', 'NOT NULL DEFAULT \'1970-01-01 00:00:00\'');
+        $this->fixColumn('#__nextend2_smartslider3_slides', 'publish_down', 'DATETIME', 'NOT NULL DEFAULT \'1970-01-01 00:00:00\'');
 
         self::fixIndex('#__nextend2_smartslider3_sliders', 'slider_status');
         self::fixIndex('#__nextend2_smartslider3_sliders', 'time');
 
         self::fixIndex('#__nextend2_smartslider3_sliders_xref', 'ordering');
-
-        $this->query("ALTER TABLE `#__nextend2_smartslider3_slides` CHANGE `publish_up` `publish_up` DATETIME NOT NULL DEFAULT '1970-01-01 00:00:00'");
-        $this->query("ALTER TABLE `#__nextend2_smartslider3_slides` CHANGE `publish_down` `publish_down` DATETIME NOT NULL DEFAULT '1970-01-01 00:00:00'");
-
-        /**
-         * Fix automated publish down dates
-         *
-         * @todo Remove this in 2021
-         */
-        $this->query("UPDATE `#__nextend2_smartslider3_slides` SET `publish_down` = '1970-01-01 00:00:00' WHERE `publish_down` > '2023-04-02 00:00:00'");
 
         $this->query("DELETE FROM `#__nextend2_section_storage` WHERE `application` LIKE 'smartslider' AND `section` LIKE 'sliderChanged'");
 
@@ -171,11 +138,8 @@ class Tables {
         self::fixIndex('#__nextend2_smartslider3_slides', 'generator_id');
 
 
-        $hasIndex = Database::queryRow(Database::parsePrefix("SHOW INDEXES FROM `#__nextend2_smartslider3_slides` WHERE Key_name = 'thumbnail'"));
-        if ($hasIndex) {
-            $this->query("ALTER TABLE `#__nextend2_smartslider3_slides` DROP INDEX `thumbnail`");
-        }
-        $this->query("ALTER TABLE `#__nextend2_smartslider3_slides` ADD INDEX `thumbnail` (`thumbnail`(100))");
+        self::dropIndex('#__nextend2_smartslider3_slides', 'thumbnail');
+        self::fixIndex('#__nextend2_smartslider3_slides', 'thumbnail', 100);
 
         self::fixIndex('#__nextend2_smartslider3_slides', 'ordering');
         self::fixIndex('#__nextend2_smartslider3_slides', 'slider');
@@ -266,13 +230,55 @@ class Tables {
         }
     }
 
-    private static function fixIndex($tableName, $colName) {
+    private static function fixIndex($tableName, $colName, $limit = null) {
         $tableName = Database::parsePrefix($tableName);
 
+        if (!self::hasIndex($tableName, $colName)) {
+            Database::query("ALTER TABLE " . $tableName . " ADD INDEX `" . $colName . "` (`" . $colName . "`" . (isset($limit) ? '(' . $limit . ')' : '') . ")");
+        }
+    }
 
-        $hasIndex = Database::queryRow("SHOW INDEXES FROM " . $tableName . " WHERE Key_name = '" . $colName . "'");
-        if (!$hasIndex) {
-            Database::query("ALTER TABLE " . $tableName . " ADD INDEX `" . $colName . "` (`" . $colName . "`)");
+    private static function dropIndex($tableName, $colName) {
+        $tableName = Database::parsePrefix($tableName);
+
+        if (self::hasIndex($tableName, $colName)) {
+            Database::query("ALTER TABLE " . $tableName . " DROP INDEX `" . $colName . "`");
+        }
+
+    }
+
+    private static function hasIndex($tableName, $colName) {
+        return Database::queryRow("SHOW INDEXES FROM " . $tableName . " WHERE Key_name = '" . $colName . "'");
+    }
+
+    private static function fixType($tableName, $colName, $type, $default = '') {
+        $tableName = Database::parsePrefix($tableName);
+
+        $column = Database::queryRow(Database::parsePrefix("SHOW COLUMNS FROM " . $tableName . " LIKE '" . $colName . "'"));
+
+        if ($column['Type'] != $type) {
+            Database::query("ALTER TABLE " . $tableName . " MODIFY `" . $colName . "` " . $type . " " . $default);
+        }
+    }
+
+    //Create column if doesn't exists. If column exists, fix its type.
+    private function fixColumn($tableName, $colName, $type, $default = '') {
+        if (!$this->hasColumn($tableName, $colName)) {
+            $this->query("ALTER TABLE " . $tableName . " ADD `" . $colName . "` " . $type . " " . $default);
+
+        } else {
+            self::fixType($tableName, $colName, $type, $default);
+        }
+    }
+
+    private function renameColumn($tableName, $colFrom, $colTo, $typeAndDefault) {
+        if (!$this->hasColumn($tableName, $colTo)) {
+            if ($this->hasColumn($tableName, $colFrom)) {
+                $this->query("ALTER TABLE " . $tableName . " CHANGE  `" . $colFrom . "`  `" . $colTo . "` " . $typeAndDefault);
+
+            } else {
+                $this->query("ALTER TABLE " . $tableName . " ADD `" . $colTo . "` " . $typeAndDefault);
+            }
         }
     }
 }

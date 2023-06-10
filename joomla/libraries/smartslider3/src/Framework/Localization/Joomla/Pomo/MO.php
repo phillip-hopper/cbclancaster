@@ -12,6 +12,7 @@ namespace Nextend\Framework\Localization\Joomla\Pomo;
 class MO extends Gettext_Translations {
 
     protected $_nplurals = 2;
+    protected $_gettext_select_plural_form;
 
     /**
      * Loaded MO file.

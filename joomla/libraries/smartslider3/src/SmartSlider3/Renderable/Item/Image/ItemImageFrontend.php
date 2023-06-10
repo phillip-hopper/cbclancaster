@@ -58,7 +58,7 @@ class ItemImageFrontend extends AbstractItemFrontend {
 
         $imageAttributes = array(
             "id"    => $this->id,
-            "alt"   => htmlspecialchars($owner->fill($this->data->get('alt', ''))),
+            "alt"   => $owner->fill($this->data->get('alt', '')),
             "class" => $owner->fill($this->data->get('cssclass', ''))
         );
 
@@ -71,7 +71,7 @@ class ItemImageFrontend extends AbstractItemFrontend {
             $linkAttributes['style'] = implode(';', $linkStyles);
         }
 
-        $title = htmlspecialchars($owner->fill($this->data->get('title', '')));
+        $title = $owner->fill($this->data->get('title', ''));
         if (!empty($title)) {
             $imageAttributes['title'] = $title;
         }

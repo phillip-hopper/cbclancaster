@@ -2,7 +2,7 @@
 /*
  * @package BFStop Component (com_bfstop) for Joomla! >=2.5
  * @author Bernhard Froehler
- * @copyright (C) 2012-2021 Bernhard Froehler
+ * @copyright (C) Bernhard Froehler
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 **/
 defined('_JEXEC') or die;
@@ -15,17 +15,6 @@ if (file_exists(stream_resolve_include_path($htaccesshelper)))
 {
 	require_once($htaccesshelper);
 }
-/*
-$plugin = true;
-try
-{
-	require($htaccesshelper);
-} catch (Exception $e) {
-	printf("Exception! $e");
-	$plugin = false;
-	die("Plugin is not installed! Please install BFStop plugin!");
-}
-*/
 
 class BFStopController extends JControllerLegacy
 {

@@ -1310,14 +1310,14 @@ class Storage {
             "value"        => array(
                 'name' => n2_('Curtain to left'),
                 'data' => array(
-                    'type'        => 'Flat',
-                    'rows'        => 1,
-                    'columns'     => 25,
-                    'tiles'       => array(
+                    'type'            => 'Flat',
+                    'rows'            => 1,
+                    'columns'         => 25,
+                    'tiles'           => array(
                         'delay'    => .03,
                         'sequence' => 'BackwardCol'
                     ),
-                    'main'        => array(
+                    'main'            => array(
                         'type'     => 'next',
                         'duration' => .35,
                         'next'     => array(
@@ -1326,14 +1326,15 @@ class Storage {
                             'xP'      => -100
                         )
                     ),
-                    'invert'      => array(
+                    'invert'          => array(
                         'next' => array(
                             'xP' => 100
                         )
                     ),
-                    'invertTiles' => array(
+                    'invertTiles'     => array(
                         'sequence' => 'ForwardCol'
-                    )
+                    ),
+                    'desktopOnly' => true
                 )
             )
         ));
@@ -1344,21 +1345,22 @@ class Storage {
             "value"        => array(
                 'name' => n2_('Puzzle'),
                 'data' => array(
-                    'type'    => 'Flat',
-                    'rows'    => 5,
-                    'columns' => 7,
-                    'tiles'   => array(
+                    'type'            => 'Flat',
+                    'rows'            => 5,
+                    'columns'         => 7,
+                    'tiles'           => array(
                         'delay'    => 1,
                         'sequence' => 'Random'
                     ),
-                    'main'    => array(
+                    'main'            => array(
                         'type'     => 'next',
                         'duration' => 0.8,
                         'next'     => array(
                             'ease'    => 'easeInQuart',
                             'opacity' => 0
                         )
-                    )
+                    ),
+                    'desktopOnly' => true
                 )
             )
         ));
@@ -1453,14 +1455,14 @@ class Storage {
             "value"        => array(
                 'name' => n2_('Curtain to bottom'),
                 'data' => array(
-                    'type'        => 'Flat',
-                    'rows'        => 25,
-                    'columns'     => 1,
-                    'tiles'       => array(
+                    'type'            => 'Flat',
+                    'rows'            => 25,
+                    'columns'         => 1,
+                    'tiles'           => array(
                         'delay'    => .03,
                         'sequence' => 'ForwardRow'
                     ),
-                    'main'        => array(
+                    'main'            => array(
                         'type'     => 'next',
                         'duration' => .35,
                         'next'     => array(
@@ -1469,14 +1471,15 @@ class Storage {
                             'yP'      => 100
                         )
                     ),
-                    'invert'      => array(
+                    'invert'          => array(
                         'next' => array(
                             'yP' => -100
                         )
                     ),
-                    'invertTiles' => array(
+                    'invertTiles'     => array(
                         'sequence' => 'BackwardRow'
-                    )
+                    ),
+                    'desktopOnly' => true
                 )
             )
         ));
@@ -1487,14 +1490,14 @@ class Storage {
             "value"        => array(
                 'name' => n2_('Curtain to top'),
                 'data' => array(
-                    'type'        => 'Flat',
-                    'rows'        => 25,
-                    'columns'     => 1,
-                    'tiles'       => array(
+                    'type'            => 'Flat',
+                    'rows'            => 25,
+                    'columns'         => 1,
+                    'tiles'           => array(
                         'delay'    => .03,
                         'sequence' => 'BackwardRow'
                     ),
-                    'main'        => array(
+                    'main'            => array(
                         'type'     => 'next',
                         'duration' => .35,
                         'next'     => array(
@@ -1503,14 +1506,15 @@ class Storage {
                             'yP'      => -100
                         )
                     ),
-                    'invert'      => array(
+                    'invert'          => array(
                         'next' => array(
                             'yP' => 100
                         )
                     ),
-                    'invertTiles' => array(
+                    'invertTiles'     => array(
                         'sequence' => 'ForwardRow'
-                    )
+                    ),
+                    'desktopOnly' => true
                 )
             )
         ));
@@ -1566,14 +1570,14 @@ class Storage {
             "value"        => array(
                 'name' => n2_('Curtain to right'),
                 'data' => array(
-                    'type'        => 'Flat',
-                    'rows'        => 1,
-                    'columns'     => 25,
-                    'tiles'       => array(
+                    'type'            => 'Flat',
+                    'rows'            => 1,
+                    'columns'         => 25,
+                    'tiles'           => array(
                         'delay'    => .03,
                         'sequence' => 'ForwardCol'
                     ),
-                    'main'        => array(
+                    'main'            => array(
                         'type'     => 'next',
                         'duration' => .35,
                         'next'     => array(
@@ -1582,14 +1586,15 @@ class Storage {
                             'xP'      => 100
                         )
                     ),
-                    'invert'      => array(
+                    'invert'          => array(
                         'next' => array(
                             'xP' => -100
                         )
                     ),
-                    'invertTiles' => array(
+                    'invertTiles'     => array(
                         'sequence' => 'BackwardCol'
-                    )
+                    ),
+                    'desktopOnly' => true
                 )
             )
         ));

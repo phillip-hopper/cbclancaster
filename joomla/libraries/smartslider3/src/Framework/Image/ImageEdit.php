@@ -52,10 +52,12 @@ class ImageEdit {
             if (isset($pathInfo['extension'])) {
                 $extension = self::validateGDExtension($pathInfo['extension']);
             }
+
+            $extension = self::checkMetaExtension($originalImageUrl, $extension);
+
             if (!$extension) {
                 return $originalImageUrl;
             }
-
 
             if (strtolower($extension) === 'webp' && !function_exists('imagecreatefromwebp')) {
                 return $originalImageUrl;
@@ -262,6 +264,8 @@ class ImageEdit {
             if (isset($pathInfo['extension'])) {
                 $extension = self::validateGDExtension($pathInfo['extension']);
             }
+
+            $extension = self::checkMetaExtension($imageUrl, $extension);
 
             if (!$extension) {
                 return $originalImageUrl;
@@ -551,12 +555,13 @@ class ImageEdit {
                 return $originalImageUrl;
             }
 
-            $pathInfo = pathinfo(parse_url($imageUrl, PHP_URL_PATH));
-
+            $pathInfo  = pathinfo(parse_url($imageUrl, PHP_URL_PATH));
             $extension = false;
             if (isset($pathInfo['extension'])) {
                 $extension = self::validateGDExtension($pathInfo['extension']);
             }
+
+            $extension = self::checkMetaExtension($imageUrl, $extension);
 
             if (!$extension || (strtolower($extension) === 'webp' && !function_exists('imagecreatefromwebp')) || !ini_get('allow_url_fopen')) {
                 return $originalImageUrl;
@@ -687,5 +692,18 @@ class ImageEdit {
         }
 
         throw new Exception('Unable to scale image: ' . $imagePath);
+    }
+
+    public static function checkMetaExtension($imageUrl, $originalExtension) {
+        if (strpos($imageUrl, 'dst-jpg') !== false) {
+            return 'jpg';
+        } else if (strpos($imageUrl, 'dst-png') !== false) {
+            return 'png';
+        } else if (strpos($imageUrl, 'dst-webp') !== false) {
+            return 'webp';
+        } else {
+            // not Instagram or Facebook url
+            return $originalExtension;
+        }
     }
 }

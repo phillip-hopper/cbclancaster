@@ -2,7 +2,7 @@
 /*
  * @package BFStop Plugin (bfstop) for Joomla! >=2.5
  * @author Bernhard Froehler
- * @copyright (C) 2012-2021 Bernhard Froehler
+ * @copyright (C) Bernhard Froehler
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 **/
 defined( '_JEXEC' ) or die;
@@ -72,7 +72,7 @@ class BFStopHtAccess
 	{
 		$result = array(
 			'apacheserver' => 
-				strstr(strtolower(filter_var($_SERVER['SERVER_SOFTWARE'], FILTER_SANITIZE_STRING)), 'apache'),
+				strstr(preg_replace("/[^a-z]+/", "", strtolower($_SERVER['SERVER_SOFTWARE'])), 'apache'),
 			'found'		=> file_exists($this->path),
 			'readable'	=> is_readable($this->path),
 			'writeable'	=> is_writeable($this->path)

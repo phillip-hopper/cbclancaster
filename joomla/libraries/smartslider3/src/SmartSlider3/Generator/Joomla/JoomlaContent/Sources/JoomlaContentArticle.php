@@ -7,6 +7,7 @@ use DateTime;
 use DateTimeZone;
 use JFactory;
 use JPluginHelper;
+use Nextend\Framework\Database\Database;
 use Nextend\Framework\Form\Container\ContainerTable;
 use Nextend\Framework\Form\Element\MixedField\GeneratorOrder;
 use Nextend\Framework\Form\Element\OnOff;
@@ -58,10 +59,23 @@ class JoomlaContentArticle extends AbstractGenerator {
         $limit = $filterGroup->createRow('limit-row');
 
         new Filter($limit, 'sourcefeatured', n2_('Featured'), 0);
-        new Number($limit, 'sourceuserid', n2_('User ID'), '');
-        new Text($limit, 'sourcearticleids', n2_('Included article IDs', ''));
-        new Text($limit, 'sourcearticleidsexcluded', n2_('Excluded article IDs', ''));
-        new Text($limit, 'sourcelanguage', n2_('Language'), '*');
+        new Number($limit, 'sourceuserid', n2_('User ID'), '', array(
+            'tipLabel'       => n2_('Created by'),
+            'tipDescription' => n2_('The ID number of the article\'s author. Only one number is accepted.'),
+        ));
+        new Text($limit, 'sourcearticleids', n2_('Included article IDs'), '', array(
+            'tipLabel'       => n2_('Included article IDs'),
+            'tipDescription' => n2_('Write down article ID numbers separated by commas, to include them in the result. For example: 1,12,25'),
+        ));
+        new Text($limit, 'sourcearticleidsexcluded', n2_('Excluded article IDs'), '', array(
+            'tipLabel'       => n2_('Excluded article IDs'),
+            'tipDescription' => n2_('Write down article ID numbers separated by commas, to exclude them from the result. For example: 2,14,27'),
+        ));
+        new Text($limit, 'sourcelanguage', n2_('Language'), '*', array(
+            'tipLabel'       => n2_('Language'),
+            'tipDescription' => n2_('The language code of your articles. Multiple language codes should be separated by commas, for example: en-GB,hu-HU,es-ES'),
+            'tipLink'        => 'https://smartslider.helpscoutdocs.com/article/1879-language-filters'
+        ));
 
         $variables = $filterGroup->createRow('variables-row');
 
@@ -164,8 +178,6 @@ class JoomlaContentArticle extends AbstractGenerator {
     }
 
     protected function _getData($count, $startIndex) {
-        $db = JFactory::getDbo();
-
         $categories = array_map('intval', explode('||', $this->data->get('sourcecategories', '')));
         $tags       = array_map('intval', explode('||', $this->data->get('sourcetags', '0')));
 
@@ -226,17 +238,17 @@ class JoomlaContentArticle extends AbstractGenerator {
         }
         $language = explode(",", $this->data->get('sourcelanguage', '*'));
         if (!empty($language[0]) && $language[0] != '*') {
-            $where[] = 'con.language IN (' . implode(",", $db->quote($language)) . ') ';
+            $where[] = 'con.language IN (' . implode(",", Database::quote($language)) . ') ';
         }
 
         $articleIds = $this->data->get('sourcearticleids', '');
         if (!empty($articleIds)) {
-            $where[] = 'con.id IN (' . $articleIds . ') ';
+            $where[] = 'con.id IN (' . preg_replace("/[^0-9,]/", "", $articleIds) . ') ';
         }
 
         $articleIdsExcluded = $this->data->get('sourcearticleidsexcluded', '');
         if (!empty($articleIdsExcluded)) {
-            $where[] = 'con.id NOT IN (' . $articleIdsExcluded . ') ';
+            $where[] = 'con.id NOT IN (' . preg_replace("/[^0-9,]/", "", $articleIdsExcluded) . ') ';
         }
 
         $accessLevels = explode('||', $this->data->get('sourceaccesslevels', '*'));
@@ -255,8 +267,11 @@ class JoomlaContentArticle extends AbstractGenerator {
 
         $query .= 'LIMIT ' . $startIndex . ', ' . $count;
 
-        $db->setQuery($query);
-        $result = $db->loadAssocList();
+        $result = Database::queryAll($query);
+
+        if (empty($result)) {
+            return null;
+        }
 
         $sourceTranslate = $this->data->get('sourcetranslatedate', '');
         $translateValue  = explode('||', $sourceTranslate);
@@ -395,60 +410,63 @@ class JoomlaContentArticle extends AbstractGenerator {
 
         if (!empty($idArray)) {
             if ($this->data->get('sourcetagvariables', 0)) {
-                $query = 'SELECT t.title, c.content_item_id  FROM #__tags AS t
+                $query  = 'SELECT t.title, c.content_item_id  FROM #__tags AS t
 				  LEFT JOIN #__contentitem_tag_map AS c ON t.id = c.tag_id
 				  WHERE t.id IN (SELECT tag_id FROM #__contentitem_tag_map WHERE type_alias = \'com_content.article\' AND content_item_id IN (' . implode(',', $idArray) . '))';
-                $db->setQuery($query);
-                $result   = $db->loadAssocList();
-                $tags     = array();
-                $articles = array();
-                foreach ($result as $r) {
-                    $tags[$r['content_item_id']][] = $r['title'];
-                    $articles[]                    = $r['content_item_id'];
+                $result = Database::queryAll($query);
 
-                }
-                for ($i = 0; $i < count($data); $i++) {
-                    if (in_array($data[$i]['id'], $articles)) {
-                        $j = 1;
-                        foreach ($tags[$data[$i]['id']] as $tag) {
-                            $data[$i]['tag' . $j] = $tag;
-                            $j++;
+                if (!empty($result)) {
+                    $tags     = array();
+                    $articles = array();
+                    foreach ($result as $r) {
+                        $tags[$r['content_item_id']][] = $r['title'];
+                        $articles[]                    = $r['content_item_id'];
+
+                    }
+                    for ($i = 0; $i < count($data); $i++) {
+                        if (in_array($data[$i]['id'], $articles)) {
+                            $j = 1;
+                            foreach ($tags[$data[$i]['id']] as $tag) {
+                                $data[$i]['tag' . $j] = $tag;
+                                $j++;
+                            }
                         }
                     }
                 }
             }
 
             if ($this->data->get('sourcefields', 0)) {
-                $query = "SELECT fv.value, fv.item_id, f.title, f.type FROM #__fields_values AS fv LEFT JOIN #__fields AS f ON fv.field_id = f.id WHERE fv.item_id IN (" . implode(',', $idArray) . ")";
-                $db->setQuery($query);
-                $result    = $db->loadAssocList();
-                $AllResult = array();
-                foreach ($result as $r) {
-                    $r['title'] = htmlentities($r['title']);
-                    $keynum     = 2;
-                    while (isset($AllResult[$r['item_id']][$r['title']])) {
-                        $r['title'] = $r['title'] . $keynum;
-                        $keynum++;
-                    }
-
-                    if ($r['type'] == 'media') {
-                        $valueParts = json_decode($r['value']);
-                        if (isset($valueParts->imagefile)) {
-                            $r['value']                                          = ImageFallback::fallback(array($valueParts->imagefile));
-                            $AllResult[$r['item_id']][$r['title'] . '_alt_text'] = $valueParts->alt_text;
-                        } else {
-                            $r['value'] = ResourceTranslator::urlToResource($uri . "/" . $r["value"]);
+                $query  = "SELECT fv.value, fv.item_id, f.title, f.type FROM #__fields_values AS fv LEFT JOIN #__fields AS f ON fv.field_id = f.id WHERE fv.item_id IN (" . implode(',', $idArray) . ")";
+                $result = Database::queryAll($query);
+                if (!empty($result)) {
+                    $AllResult = array();
+                    foreach ($result as $r) {
+                        $r['title'] = htmlentities($r['title']);
+                        $keynum     = 2;
+                        while (isset($AllResult[$r['item_id']][$r['title']])) {
+                            $r['title'] = $r['title'] . $keynum;
+                            $keynum++;
                         }
+
+                        if ($r['type'] == 'media') {
+                            $valueParts = json_decode($r['value']);
+                            if (isset($valueParts->imagefile)) {
+                                $r['value']                                          = ImageFallback::fallback(array($valueParts->imagefile));
+                                $AllResult[$r['item_id']][$r['title'] . '_alt_text'] = $valueParts->alt_text;
+                            } else {
+                                $r['value'] = ResourceTranslator::urlToResource($uri . "/" . $r["value"]);
+                            }
+                        }
+
+                        $AllResult[$r['item_id']][$r['title']] = $r['value'];
                     }
 
-                    $AllResult[$r['item_id']][$r['title']] = $r['value'];
-                }
-
-                for ($i = 0; $i < count($data); $i++) {
-                    if (isset($AllResult[$data[$i]['id']])) {
-                        foreach ($AllResult[$data[$i]['id']] as $key => $value) {
-                            $key            = preg_replace('/[^a-zA-Z0-9_\x7f-\xff]*/', '', $key);
-                            $data[$i][$key] = $value;
+                    for ($i = 0; $i < count($data); $i++) {
+                        if (isset($AllResult[$data[$i]['id']])) {
+                            foreach ($AllResult[$data[$i]['id']] as $key => $value) {
+                                $key            = preg_replace('/[^a-zA-Z0-9_\x7f-\xff]*/', '', $key);
+                                $data[$i][$key] = $value;
+                            }
                         }
                     }
                 }

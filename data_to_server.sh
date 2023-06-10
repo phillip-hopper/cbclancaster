@@ -27,6 +27,13 @@ echo "Backing up ${localDb}"
 
 mysqldump --defaults-file=~/.mysql/my.local.conf --default-character-set=utf8 --add-drop-database --routines --single-transaction --quick --result-file="${dumpFile}" --databases "${localDb}"
 
+echo "Cleaning up ${localDb}"
+# shellcheck disable=SC2016
+sed -i -E 's/\/\*\!50017\sDEFINER=.+`@`(%|localhost)`\*\// /g' "${dumpFile}"
+# shellcheck disable=SC2016
+sed -i -E 's/\sDEFINER=.+`@`(%|localhost)`\s/ /g' "${dumpFile}"
+sed -i -E 's/,?NO_AUTO_CREATE_USER//g' "${dumpFile}"
+
 echo "Restoring to ${remoteDb}"
 
 mysql --defaults-file=~/.mysql/my.digital.conf --default-character-set=utf8 --database=${remoteDb} < "${dumpFile}"

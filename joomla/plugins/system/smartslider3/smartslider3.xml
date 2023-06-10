@@ -2,12 +2,12 @@
 <extension version="3.9" type="plugin" group="system" method="upgrade">
     <name>Smart Slider 3 System Plugin</name>
     <author>Nextendweb</author>
-    <creationDate>2023-02-13</creationDate>
+    <creationDate>2023-05-09</creationDate>
     <copyright>Copyright (C) 2020 Nextendweb.com. All rights reserved.</copyright>
     <license>http://www.gnu.org/licenses/gpl-3.0.txt GNU General Public License</license>
     <authorEmail>roland@nextendweb.com</authorEmail>
     <authorUrl>https://smartslider3.com</authorUrl>
-    <version>3.5.1.14</version>
+    <version>3.5.1.15</version>
     <files>
         <filename plugin="smartslider3">smartslider3.php</filename>
         <filename>index.html</filename>

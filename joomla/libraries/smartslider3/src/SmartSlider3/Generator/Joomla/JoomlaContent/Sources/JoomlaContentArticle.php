@@ -436,29 +436,22 @@ class JoomlaContentArticle extends AbstractGenerator {
             }
 
             if ($this->data->get('sourcefields', 0)) {
-                $query  = "SELECT fv.value, fv.item_id, f.title, f.type FROM #__fields_values AS fv LEFT JOIN #__fields AS f ON fv.field_id = f.id WHERE fv.item_id IN (" . implode(',', $idArray) . ")";
+                $query  = "SELECT fv.value, fv.item_id, f.name, f.type FROM #__fields_values AS fv LEFT JOIN #__fields AS f ON fv.field_id = f.id WHERE fv.item_id IN (" . implode(',', $idArray) . ")";
                 $result = Database::queryAll($query);
                 if (!empty($result)) {
                     $AllResult = array();
                     foreach ($result as $r) {
-                        $r['title'] = htmlentities($r['title']);
-                        $keynum     = 2;
-                        while (isset($AllResult[$r['item_id']][$r['title']])) {
-                            $r['title'] = $r['title'] . $keynum;
-                            $keynum++;
-                        }
-
                         if ($r['type'] == 'media') {
                             $valueParts = json_decode($r['value']);
                             if (isset($valueParts->imagefile)) {
-                                $r['value']                                          = ImageFallback::fallback(array($valueParts->imagefile));
-                                $AllResult[$r['item_id']][$r['title'] . '_alt_text'] = $valueParts->alt_text;
+                                $r['value']                                         = ImageFallback::fallback(array($valueParts->imagefile));
+                                $AllResult[$r['item_id']][$r['name'] . '_alt_text'] = $valueParts->alt_text;
                             } else {
                                 $r['value'] = ResourceTranslator::urlToResource($uri . "/" . $r["value"]);
                             }
                         }
 
-                        $AllResult[$r['item_id']][$r['title']] = $r['value'];
+                        $AllResult[$r['item_id']][$r['name']] = $r['value'];
                     }
 
                     for ($i = 0; $i < count($data); $i++) {

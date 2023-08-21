@@ -94,6 +94,23 @@ class ArrowImage extends AbstractWidgetArrow {
             )
         ));
 
+        $row4 = new FieldsetRow($container, 'widget-arrow-image-row-4');
+
+        new Text\Number($row4, 'widget-arrow-desktop-image-width', n2_('Image width - Desktop'), '', array(
+            'wide' => 4,
+            'unit' => 'px'
+        ));
+
+        new Text\Number($row4, 'widget-arrow-tablet-image-width', n2_('Image width - Tablet'), '', array(
+            'wide' => 4,
+            'unit' => 'px'
+        ));
+
+        new Text\Number($row4, 'widget-arrow-mobile-image-width', n2_('Image width - Mobile'), '', array(
+            'wide' => 4,
+            'unit' => 'px'
+        ));
+
     }
 
     public function prepareExport($export, $params) {

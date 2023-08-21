@@ -293,7 +293,7 @@ class ComponentRow extends AbstractComponent {
 
             $ariaLabel = $this->data->get('aria-label');
             if (!empty($ariaLabel)) {
-                $this->attributes['aria-label'] = $ariaLabel;
+                $this->attributes['aria-label'] = $this->owner->fill($ariaLabel);
             }
 
             if (!isset($this->attributes['onclick']) && !isset($this->attributes['data-n2-lightbox'])) {

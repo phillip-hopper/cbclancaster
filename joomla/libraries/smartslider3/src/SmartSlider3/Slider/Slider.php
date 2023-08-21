@@ -397,9 +397,7 @@ class Slider extends AbstractRenderable {
 
         $html .= Html::tag("div", $sliderAttributes, $slider);
 
-        if (!$this->params->get('optimize-jetpack-photon', 0)) {
-            AssetManager::$image->add($this->images);
-        }
+        AssetManager::$image->add($this->images);
 
         $needDivWrap = false;
 

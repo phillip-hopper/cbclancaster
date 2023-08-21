@@ -282,7 +282,7 @@ class Slide extends AbstractRenderableOwner {
 
             $ariaLabel = $this->parameters->get('aria-label');
             if (!empty($ariaLabel)) {
-                $this->linkAttributes['aria-label'] = $ariaLabel;
+                $this->linkAttributes['aria-label'] = $this->fill($ariaLabel);
             }
 
             if (!isset($this->linkAttributes['onclick']) && !isset($this->linkAttributes['data-n2-lightbox'])) {

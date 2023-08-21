@@ -287,6 +287,16 @@ table tr td, table tr th {
   height: 100%;
   border: none;
 }
+.btn.btn-lg {
+  font-size: 1.5rem;
+  font-weight: 400;
+  border-radius: 0.6rem;
+}
+.btn.btn-xl {
+  font-size: 2rem;
+  font-weight: 400;
+  border-radius: 0.8rem;
+}
 @media (max-width: 87.99rem) {
   html {
     font-size: 15px;
@@ -337,6 +347,12 @@ table tr td, table tr th {
     display: table;
     margin-left: auto;
     margin-right: auto;
+  }
+}
+@media (min-width: 51rem) {
+  .btn.btn-xl {
+    font-size: 1.75rem;
+    border-radius: 0.7rem;
   }
 }
 @media (min-width: 76rem) {

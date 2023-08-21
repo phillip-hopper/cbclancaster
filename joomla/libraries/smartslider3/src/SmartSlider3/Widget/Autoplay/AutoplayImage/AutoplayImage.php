@@ -53,6 +53,21 @@ class AutoplayImage extends AbstractWidgetAutoplay {
 
         $row2 = new FieldsetRow($container, 'widget-autoplay-image-row-2');
 
+        new Number($row2, 'widget-autoplay-desktop-image-width', n2_('Image width - Desktop'), '', array(
+            'wide' => 4,
+            'unit' => 'px'
+        ));
+
+        new Number($row2, 'widget-autoplay-tablet-image-width', n2_('Image width - Tablet'), '', array(
+            'wide' => 4,
+            'unit' => 'px'
+        ));
+
+        new Number($row2, 'widget-autoplay-mobile-image-width', n2_('Image width - Mobile'), '', array(
+            'wide' => 4,
+            'unit' => 'px'
+        ));
+
         new WidgetPosition($row2, 'widget-autoplay-position', n2_('Position'));
 
     }

@@ -1,8 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Smart Slider 3 Pro\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-18 09:52+0100\n"
-"PO-Revision-Date: 2023-05-09 14:55+0200\n"
+"PO-Revision-Date: 2023-06-09 14:37+0200\n"
 "Last-Translator: Simon Ekren Gravvold\n"
 "Language-Team: Norsk bokmål\n"
 "Language: nb_NO\n"
@@ -10,12 +11,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.3.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: ;n2_;n2_e;n2_n:1,2;n2_en:1,2;n2_x:1,2c;n2_ex:1,2c\n"
 "X-Poedit-Flags-xgettext: --no-location\n"
-"Report-Msgid-Bugs-To: \n"
 "X-Loco-Version: 2.6.4; wp-6.2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: Framework/Asset/Builder/cache\n"
@@ -94,7 +94,7 @@ msgid "Link"
 msgstr ""
 
 msgid "Button"
-msgstr ""
+msgstr "Knapp"
 
 msgid "Paragraph"
 msgstr ""
@@ -304,7 +304,7 @@ msgid "Stretch"
 msgstr ""
 
 msgid "Center"
-msgstr ""
+msgstr "Midtstilt"
 
 msgid "Slider's default"
 msgstr ""
@@ -317,7 +317,7 @@ msgid "Not %s"
 msgstr "Ikke %s"
 
 msgid "Bold"
-msgstr ""
+msgstr "Fet"
 
 msgid "Extra light"
 msgstr ""
@@ -341,7 +341,7 @@ msgid "Parent"
 msgstr ""
 
 msgid "Top"
-msgstr ""
+msgstr "Topp"
 
 msgid "Select images for devices"
 msgstr "Velg bilder for enheter"
@@ -393,16 +393,17 @@ msgid "Background color"
 msgstr "Bakgrunnsfarge"
 
 msgid "Opacity"
-msgstr ""
+msgstr "Opasitet"
 
 msgid "Padding"
 msgstr ""
 
 msgid "Border"
-msgstr ""
+msgstr "Kantlinje"
 
+#, fuzzy
 msgid "Border radius"
-msgstr ""
+msgstr "Avrundet kantlinje"
 
 msgid "Box shadow"
 msgstr ""
@@ -491,10 +492,10 @@ msgid "Done"
 msgstr "Ferdig"
 
 msgid "No file selected."
-msgstr ""
+msgstr "Ingen fil valgt."
 
 msgid "Open docs"
-msgstr ""
+msgstr "Åpne dokumenter"
 
 msgid "The changes you made will be lost if you navigate away from this page."
 msgstr ""
@@ -532,7 +533,7 @@ msgid "Group name"
 msgstr "Gruppenavn"
 
 msgid "Group created"
-msgstr "Gruppe opprettet."
+msgstr "Gruppe opprettet"
 
 msgid "Records"
 msgstr ""
@@ -741,7 +742,7 @@ msgid "Oops, Something Went Wrong"
 msgstr "Oops! Noe gikk galt"
 
 msgid "Success"
-msgstr ""
+msgstr "Suksess"
 
 msgid "Notice"
 msgstr ""
@@ -790,7 +791,7 @@ msgstr "Avansert"
 
 #, javascript-format
 msgid "Outer %s"
-msgstr ""
+msgstr "Ytre %s"
 
 msgid "Left"
 msgstr "Venstre"
@@ -799,10 +800,10 @@ msgid "Right"
 msgstr "Høyre"
 
 msgid "Middle"
-msgstr ""
+msgstr "Midtre"
 
 msgid "Bottom"
-msgstr ""
+msgstr "Nedre"
 
 msgid "Layer(s)"
 msgstr ""
@@ -844,7 +845,7 @@ msgid "Layer Animation - Reveal"
 msgstr ""
 
 msgid "Open/Close"
-msgstr ""
+msgstr "Åpne/Lukk"
 
 msgid "Content"
 msgstr "Innhold"
@@ -871,7 +872,7 @@ msgid "Row"
 msgstr ""
 
 msgid "Slide"
-msgstr ""
+msgstr "Lysbilde"
 
 msgid "Theme"
 msgstr "Tema"
@@ -957,10 +958,10 @@ msgid "This slide is hidden on the following devices: %s"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "Data"
 
 msgid "Filter"
-msgstr ""
+msgstr "Filter"
 
 msgid "No"
 msgstr "Nei"
@@ -1011,34 +1012,40 @@ msgid "Convert"
 msgstr ""
 
 msgid "What do you want to create today?"
-msgstr ""
+msgstr "Hva vil du lage i dag?"
 
 msgid ""
 "Use our powerful visual editor, or simply import one of our existing "
 "template."
 msgstr ""
+"Bruk vår kraftige visuelle editor, eller bare importer en av våre "
+"eksisterende maler."
 
 msgid "Create a New Project"
-msgstr ""
+msgstr "Opprett et nytt prosjekt"
 
 msgid ""
 "Start a new project from scratch and build exactly what you’ve imagined. You "
 "can easily customize every pixels and create anything with layers."
 msgstr ""
+"Start et nytt prosjekt fra bunnen av og bygg akkurat det du har forestilt "
+"deg. Du kan enkelt tilpasse alle piksler og lage hva som helst med lag."
 
 msgid "Start with a Template"
-msgstr ""
+msgstr "Start med en mal"
 
 msgid ""
 "Start with a template and make it your own with the innovative drag and drop "
 "interface. You can choose from hundreds of premade templates."
 msgstr ""
+"Start med en mal og gjør den til din egen med det innovative dra og slipp-"
+"grensesnittet. Du kan velge mellom hundrevis av forhåndslagde maler."
 
 msgid "or import your own files"
-msgstr ""
+msgstr "eller importer dine egne filer"
 
 msgid "Create new project"
-msgstr ""
+msgstr "Opprett et nytt prosjekt"
 
 msgid "Project type"
 msgstr "Prosjekttype"
@@ -1065,7 +1072,7 @@ msgid "Settings"
 msgstr "Innstillinger"
 
 msgid "My project"
-msgstr ""
+msgstr "Mitt prosjekt"
 
 msgid "Boxed"
 msgstr ""
@@ -1115,7 +1122,7 @@ msgid "Group"
 msgstr "Gruppe"
 
 msgid "Edit Slider"
-msgstr ""
+msgstr "Rediger lysbilde"
 
 msgid "Up"
 msgstr "Opp"
@@ -1127,13 +1134,14 @@ msgid "Move to trash"
 msgstr "Flytt til papirkurven"
 
 msgid "empty the trash"
-msgstr "Tøm papirkurven"
+msgstr "tøm papirkurven"
 
 msgid "Delete permanently"
 msgstr "Slett permanent"
 
+#, fuzzy
 msgid "delete this slider"
-msgstr ""
+msgstr "slett dette lysbildet"
 
 msgid "Publish"
 msgstr "Publiser"
@@ -1148,10 +1156,10 @@ msgid "Set as first"
 msgstr ""
 
 msgid "Convert to slide"
-msgstr ""
+msgstr "Konverter til lysbilde"
 
 msgid "Copy slide to"
-msgstr ""
+msgstr "Kopier lysbilde til"
 
 msgid "Add post"
 msgstr ""
@@ -1160,10 +1168,11 @@ msgid "Please select a Post first!"
 msgstr ""
 
 msgid "delete these slides"
-msgstr ""
+msgstr "slett disse lysbildene"
 
+#, fuzzy
 msgid "delete this slide"
-msgstr ""
+msgstr "Slett dette lysbildet"
 
 msgid "Max width"
 msgstr "Maks bredde"
@@ -1178,7 +1187,7 @@ msgid "right"
 msgstr "høyre"
 
 msgid "bottom"
-msgstr ""
+msgstr "nedre"
 
 msgid "left"
 msgstr "venstre"
@@ -1193,7 +1202,7 @@ msgid "Shape divider"
 msgstr ""
 
 msgid "Particle effect"
-msgstr ""
+msgstr "Partikkeleffekt"
 
 msgid "Layer animations"
 msgstr ""
@@ -1278,7 +1287,7 @@ msgid "To bottom"
 msgstr ""
 
 msgid "To top"
-msgstr ""
+msgstr "Til toppen"
 
 msgid "Autoplay"
 msgstr "Automatisk avspilling"
@@ -1670,7 +1679,7 @@ msgid "Background video on mobile"
 msgstr "Bakgrunnsvideo på mobil"
 
 msgid "Slider size"
-msgstr ""
+msgstr "Størrelse på lysbildene"
 
 msgid "Limit slide width"
 msgstr "Begrens lysbildebredden"
@@ -1749,7 +1758,7 @@ msgid "You can make your slides appear in the slider in a reversed order."
 msgstr ""
 
 msgid "Max count"
-msgstr ""
+msgstr "Maks antall"
 
 msgid ""
 "You can limit how many slides you want to show from your slider. It's best "
@@ -1899,7 +1908,7 @@ msgid "Hello! How can we help you today?"
 msgstr "Hallo! Hvordan kan vi hjelpe deg i dag? (Engelsk)"
 
 msgid "Search in the knowledge base"
-msgstr "Søk i kunnskapsbasen."
+msgstr "Søk i kunnskapsbasen"
 
 msgid "Documentation"
 msgstr "Dokumentasjon"
@@ -1960,7 +1969,7 @@ msgid "Read more"
 msgstr ""
 
 msgid "Need more?"
-msgstr ""
+msgstr "Trenger du mer?"
 
 msgid "Unlock all the pro features by upgrading to Smart Slider 3 Pro."
 msgstr ""
@@ -1978,7 +1987,7 @@ msgid "Your license is active"
 msgstr "Lisensen din er aktiv"
 
 msgid "Deactivate license"
-msgstr ""
+msgstr "Deaktiver lisens"
 
 msgid "Activate your license"
 msgstr ""
@@ -2034,10 +2043,10 @@ msgid "New animations & effects"
 msgstr ""
 
 msgid "Lifetime update & support"
-msgstr ""
+msgstr "Livstidsoppdatering og support"
 
 msgid "Apply"
-msgstr ""
+msgstr "Bruk"
 
 msgid "Back"
 msgstr "Tilbake"
@@ -2049,7 +2058,7 @@ msgid "Layers"
 msgstr ""
 
 msgid "Library"
-msgstr ""
+msgstr "Bibliotek"
 
 msgid "Absolute"
 msgstr ""
@@ -2095,7 +2104,7 @@ msgid "Color end"
 msgstr ""
 
 msgid "Position"
-msgstr ""
+msgstr "Posisjon"
 
 msgid "The editing mode the layer is positioned in."
 msgstr ""
@@ -2337,13 +2346,13 @@ msgid "Mouse leave"
 msgstr ""
 
 msgid "Media started"
-msgstr ""
+msgstr "Media startet"
 
 msgid "Media paused"
-msgstr ""
+msgstr "Media satt på pause"
 
 msgid "Media stopped"
-msgstr ""
+msgstr "Media stoppet"
 
 msgid "Duration"
 msgstr ""
@@ -2441,7 +2450,7 @@ msgid "Blank"
 msgstr "Blank"
 
 msgid "Post"
-msgstr ""
+msgstr "Innlegg"
 
 msgid "Dynamic slides"
 msgstr ""
@@ -2809,20 +2818,20 @@ msgid "Slider renamed."
 msgstr ""
 
 msgid "Slider saved."
-msgstr ""
+msgstr "Endringene ble lagret."
 
 #, php-format
 msgid "Import url is not valid: %s"
-msgstr ""
+msgstr "Import-URL er ikke gyldig: %s"
 
 msgid "License key required for premium features!"
-msgstr ""
+msgstr "En lisensnøkkel kreves for å kunne bruke premiumfunksjonene!"
 
 msgid "Slider imported."
 msgstr ""
 
 msgid "Import error!"
-msgstr ""
+msgstr "Importfeil!"
 
 msgid "Slide duplicated."
 msgstr ""
@@ -2899,7 +2908,7 @@ msgid "You have to unzip your %1$s file to find the importable *.ss3 files!"
 msgstr ""
 
 msgid "Only *.ss3 files can be uploaded!"
-msgstr ""
+msgstr "Kun *.ss3-filer kan lastes opp!"
 
 msgid "The imported file is not readable!"
 msgstr ""
@@ -2914,7 +2923,7 @@ msgid "Don't show again"
 msgstr "Ikke vis igjen"
 
 msgid "Import project"
-msgstr ""
+msgstr "Importer prosjekt"
 
 msgid "You can upload *.ss3 files which were exported by Smart Slider 3."
 msgstr ""
@@ -2934,7 +2943,7 @@ msgstr ""
 "bruk den lokale filopplasteren."
 
 msgid "File"
-msgstr ""
+msgstr "Fil"
 
 #, php-format
 msgid "Files with %1$s.ss3%2$s extension are listed from: %3$s"
@@ -2958,7 +2967,7 @@ msgid "Image mode"
 msgstr ""
 
 msgid "Clone"
-msgstr ""
+msgstr "Klon"
 
 msgid "Old site url"
 msgstr ""
@@ -2976,7 +2985,7 @@ msgid "Empty trash"
 msgstr "Tøm papirkurven"
 
 msgid "Slide saved."
-msgstr ""
+msgstr "Endringene ble lagret."
 
 #, php-format
 msgid "%d static slides generated."
@@ -3075,7 +3084,7 @@ msgid "The importing failed as we are not able to unserialize the type: \"%s\""
 msgstr ""
 
 msgid "Learn more"
-msgstr ""
+msgstr "Lær mer"
 
 #, php-format
 msgid "Increase %1$s in php.ini to 1000 or more. Current value: %2$s"
@@ -3095,7 +3104,7 @@ msgid "See %1$sDebug Information%2$s for more details!"
 msgstr ""
 
 msgid "MySQL table missing"
-msgstr ""
+msgstr "MySQL-tabell mangler"
 
 msgid "Your theme uses an outdated MooTools library which is not compatible."
 msgstr ""
@@ -3152,7 +3161,7 @@ msgid "Minute"
 msgstr "Minutt"
 
 msgid "Stack"
-msgstr ""
+msgstr "Stable"
 
 msgid "Deprecation"
 msgstr ""
@@ -3162,7 +3171,7 @@ msgid ""
 msgstr ""
 
 msgid "No description."
-msgstr "Ingen beskrivelse"
+msgstr "Ingen beskrivelse."
 
 msgid "Generator not found"
 msgstr ""
@@ -3244,7 +3253,7 @@ msgid "User name"
 msgstr "Brukernavn"
 
 msgid "Hits"
-msgstr ""
+msgstr "Treff"
 
 msgid "Creation time"
 msgstr ""
@@ -3285,7 +3294,7 @@ msgid "Posts by IDs"
 msgstr ""
 
 msgid "Custom"
-msgstr ""
+msgstr "Tilpass"
 
 msgid "All custom posts"
 msgstr ""
@@ -3339,9 +3348,10 @@ msgstr ""
 
 #, php-format
 msgid ""
-"You can create other comparisons based on the previous \"Post Meta Comparison"
-"\" options. Use the following format: name||compare||value||type%1$s%1$s "
-"Example:%1$spublished||=||yes||CHAR%1$s%1$sWrite one comparison per line."
+"You can create other comparisons based on the previous \"Post Meta "
+"Comparison\" options. Use the following format: name||compare||value||"
+"type%1$s%1$s Example:%1$spublished||=||yes||CHAR%1$s%1$sWrite one comparison "
+"per line."
 msgstr ""
 
 msgid "Post date"
@@ -3351,7 +3361,7 @@ msgid "Modification date"
 msgstr ""
 
 msgid "Random"
-msgstr ""
+msgstr "Tilfeldig"
 
 msgid "Given IDs"
 msgstr ""
@@ -3562,7 +3572,7 @@ msgid ""
 msgstr ""
 
 msgid "Icon"
-msgstr ""
+msgstr "Ikon"
 
 msgid "Placement"
 msgstr ""
@@ -3611,7 +3621,7 @@ msgstr ""
 
 msgctxt "Layer group"
 msgid "Media"
-msgstr ""
+msgstr "Media"
 
 msgctxt "Layer group"
 msgid "Advanced"
@@ -3619,7 +3629,7 @@ msgstr "Avansert"
 
 msgctxt "Layer"
 msgid "Missing"
-msgstr ""
+msgstr "Mangler"
 
 #, php-format
 msgid "Missing layer type: %s"
@@ -3671,7 +3681,7 @@ msgid "Volume"
 msgstr ""
 
 msgid "Mute"
-msgstr ""
+msgstr "Demp"
 
 msgid "Pause on scroll"
 msgstr ""
@@ -3732,7 +3742,7 @@ msgid "Hide YouTube logo"
 msgstr ""
 
 msgid "Centered"
-msgstr ""
+msgstr "Sentrert"
 
 msgid "Scales up and crops the video to cover the whole layer."
 msgstr ""
@@ -3744,7 +3754,7 @@ msgid "Anywhere"
 msgstr "Hvor som helst"
 
 msgid "Same channel"
-msgstr ""
+msgstr "Samme kanal"
 
 msgid ""
 "YouTube no longer allows hiding the related videos at the end of the video. "
@@ -3805,7 +3815,7 @@ msgid "Slider size is too small!"
 msgstr ""
 
 msgid "Ken Burns effect"
-msgstr ""
+msgstr "Ken Burns-effekt"
 
 msgid "Speed"
 msgstr ""
@@ -3823,10 +3833,10 @@ msgid "Super fast"
 msgstr ""
 
 msgid "Border width"
-msgstr ""
+msgstr "Kantlinjebredde"
 
 msgid "Border color"
-msgstr ""
+msgstr "Kantlinjefarge"
 
 msgid "Super fast 4x"
 msgstr ""
@@ -3839,7 +3849,7 @@ msgid "Main animation"
 msgstr ""
 
 msgid "No animation"
-msgstr ""
+msgstr "Ingen animasjon"
 
 msgid "Crossfade"
 msgstr ""
@@ -3927,10 +3937,10 @@ msgid "Rounded Black"
 msgstr ""
 
 msgid "Border White"
-msgstr ""
+msgstr "Hvit kantlinje"
 
 msgid "Border Dark"
-msgstr ""
+msgstr "Mørk kantlinje"
 
 msgid "Rectangle Green"
 msgstr ""
@@ -3954,10 +3964,10 @@ msgid "Rounded Rectangle Purple"
 msgstr ""
 
 msgid "Border Light"
-msgstr ""
+msgstr "Lys kantlinje"
 
 msgid "My styles"
-msgstr ""
+msgstr "Mine stilsett"
 
 msgid "X-small Light"
 msgstr ""
@@ -4014,7 +4024,7 @@ msgid "Random elastic"
 msgstr ""
 
 msgid "My text animations"
-msgstr ""
+msgstr "Mine tekstanimasjoner"
 
 msgid "Morph - Wave"
 msgstr ""
@@ -4029,28 +4039,28 @@ msgid "Morph - Noise"
 msgstr ""
 
 msgid "Distortion - Mosaic"
-msgstr ""
+msgstr "Fotoforvrengning - Mosaikk"
 
 msgid "Distortion - Triangle"
-msgstr ""
+msgstr "Fotoforvrengning - Trekant"
 
 msgid "Distortion - Flow"
-msgstr ""
+msgstr "Fotoforvrengning - Flyt"
 
 msgid "Distortion - Warp"
-msgstr ""
+msgstr "Fotoforvrengning - Varp"
 
 msgid "Distortion - Storm"
-msgstr ""
+msgstr "Fotoforvrengning - Storm"
 
 msgid "Distortion - Wave"
-msgstr ""
+msgstr "Fotoforvrengning - Bølge"
 
 msgid "Distortion - Shard"
-msgstr ""
+msgstr "Fotoforvrengning - Skår"
 
 msgid "Distortion - Noise"
-msgstr ""
+msgstr "Fotoforvrengning - Støy"
 
 msgid "Slices - Single"
 msgstr ""
@@ -4332,7 +4342,7 @@ msgid "To bottom right"
 msgstr ""
 
 msgid "My layouts"
-msgstr ""
+msgstr "Mine oppsett"
 
 msgctxt "Arrow direction"
 msgid "Previous"
@@ -4526,10 +4536,10 @@ msgid "Top and bottom"
 msgstr ""
 
 msgid "License key cannot be empty!"
-msgstr ""
+msgstr "Lisensnøkkel kan ikke være tom!"
 
 msgid "License key is active!"
-msgstr ""
+msgstr "Lisensnøkkelen er aktiv!"
 
 msgid "Missing sliders!"
 msgstr ""
@@ -4600,7 +4610,7 @@ msgstr ""
 
 msgctxt "Autoplay modifier"
 msgid "next slide"
-msgstr "Neste lysbilde"
+msgstr "neste lysbilde"
 
 msgid "Polygons"
 msgstr ""
@@ -4786,7 +4796,7 @@ msgid "Facebook posts"
 msgstr ""
 
 msgid "Page"
-msgstr ""
+msgstr "Side"
 
 msgid "Feed"
 msgstr ""
@@ -4876,7 +4886,7 @@ msgid ""
 msgstr ""
 
 msgid "Filename"
-msgstr ""
+msgstr "Filnavn"
 
 msgid "Creation date"
 msgstr ""
@@ -5012,7 +5022,7 @@ msgid "Creates slides from %1$s content."
 msgstr ""
 
 msgid "Include subcategories"
-msgstr ""
+msgstr "Inkluder underkategorier"
 
 msgid "Frontpage"
 msgstr ""
@@ -5048,7 +5058,7 @@ msgid "Videos"
 msgstr "Videoer"
 
 msgid "Pages"
-msgstr ""
+msgstr "Sider"
 
 msgid "Users"
 msgstr "Brukere"
@@ -5074,8 +5084,9 @@ msgstr "Hele dagen"
 msgid "Recurring events"
 msgstr ""
 
+# Litt usikker på hva som mener her. For dette kan oversettes til både åpen og åpne.
 msgid "Open"
-msgstr ""
+msgstr "Åpne"
 
 msgid "Closed"
 msgstr "Lukket"
@@ -5132,7 +5143,7 @@ msgid "On discount"
 msgstr ""
 
 msgid "In stock"
-msgstr ""
+msgstr "På lager"
 
 msgid "Currency"
 msgstr "Valuta"
@@ -5186,7 +5197,7 @@ msgid "ID"
 msgstr "ID"
 
 msgid "Discount"
-msgstr ""
+msgstr "Rabatt"
 
 msgid "Registration start date"
 msgstr ""
@@ -5310,7 +5321,7 @@ msgid "Creates slides from %1$s galleries."
 msgstr ""
 
 msgid "Gallery"
-msgstr ""
+msgstr "Galleri"
 
 msgid "View gallery"
 msgstr "Vis galleri"
@@ -5398,7 +5409,7 @@ msgid "Sorting method"
 msgstr ""
 
 msgid "Galleries"
-msgstr ""
+msgstr "Gallerier"
 
 msgid "Upload date"
 msgstr "Opplastningsdato"
@@ -5410,7 +5421,7 @@ msgid "Rate count"
 msgstr ""
 
 msgid "Hit count"
-msgstr ""
+msgstr "Antall treff"
 
 msgid "Root"
 msgstr ""
@@ -5430,7 +5441,7 @@ msgid "Submenu limit"
 msgstr ""
 
 msgid "No limit"
-msgstr ""
+msgstr "Ingen grense"
 
 msgid "Hide empty categories"
 msgstr ""
@@ -5491,7 +5502,7 @@ msgid "Regular price"
 msgstr ""
 
 msgid "Sale price"
-msgstr ""
+msgstr "Salgspris"
 
 msgid "IDs (one per line)"
 msgstr ""
@@ -5712,7 +5723,7 @@ msgid "Time"
 msgstr ""
 
 msgid "Icon Size"
-msgstr ""
+msgstr "Ikonstørrelse"
 
 msgid "Before After"
 msgstr ""
@@ -6062,14 +6073,14 @@ msgid "Upper-roman"
 msgstr ""
 
 msgid "Icon not found"
-msgstr ""
+msgstr "Ikon ikke funnet"
 
 #, php-format
 msgid "Enter an %1$s aria-label attribute %2$s that describes the link."
 msgstr ""
 
 msgid "Iframe"
-msgstr ""
+msgstr "Iframe"
 
 #, php-format
 msgid ""
@@ -6392,7 +6403,7 @@ msgid "To fullscreen"
 msgstr ""
 
 msgid "Fullscreen"
-msgstr ""
+msgstr "Fullskjerm"
 
 msgid "Exit full screen"
 msgstr ""

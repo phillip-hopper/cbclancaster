@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-05-13 07:44+0200\n"
-"PO-Revision-Date: 2022-05-17 12:57+0200\n"
+"PO-Revision-Date: 2023-06-19 18:03+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.3.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: ;n2_;n2_e;n2_n:1,2;n2_en:1,2;n2_x:1,2c;n2_ex:1,2c\n"
 "X-Poedit-Flags-xgettext: --no-location\n"
@@ -182,12 +182,15 @@ msgid "You can load Google Fonts on the frontend."
 msgstr "Vous pouvez charger des polices Google en frontend."
 
 msgid "Save fonts locally"
-msgstr ""
+msgstr "Enregistrer les polices localement"
 
 msgid ""
 "You can store the used Google Fonts on your server. This way all Google "
 "Fonts will load from your own domain."
 msgstr ""
+"Vous pouvez stocker les polices Google utilisées sur votre serveur. De cette "
+"façon, toutes les polices Google seront chargées à partir de votre propre "
+"domaine."
 
 msgid "Backend"
 msgstr "Administration"
@@ -1157,8 +1160,6 @@ msgstr "Modifier"
 msgid "Group"
 msgstr "Groupe"
 
-#, fuzzy
-#| msgid "Edit slider"
 msgid "Edit Slider"
 msgstr "Éditer le diaporama"
 
@@ -1216,25 +1217,17 @@ msgstr "Largeur maxi"
 msgid "Margin"
 msgstr "Marge externe"
 
-#, fuzzy
-#| msgid "Top"
 msgid "top"
-msgstr "Haut"
+msgstr "haut"
 
-#, fuzzy
-#| msgid "Light"
 msgid "right"
-msgstr "Clair"
+msgstr "droite"
 
-#, fuzzy
-#| msgid "Bottom"
 msgid "bottom"
-msgstr "Bas"
+msgstr "bas"
 
-#, fuzzy
-#| msgid "To left"
 msgid "left"
-msgstr "Vers la gauche"
+msgstr "gauche"
 
 msgid "Animations"
 msgstr "Animations"
@@ -1503,10 +1496,8 @@ msgstr ""
 msgid "JavaScript callbacks"
 msgstr "Call-backs Javascript"
 
-#, fuzzy
-#| msgid "Loading animation"
 msgid "Loading animation waiting time"
-msgstr "Chargement de l'animation en cours"
+msgstr "Temps d'attente de l'animation de chargement"
 
 msgid "Post IDs"
 msgstr "IDs de publication"
@@ -1519,20 +1510,18 @@ msgstr ""
 "Le cache des publications avec l’ID donné sera effacé lors de "
 "l’enregistrement."
 
-#, fuzzy
-#| msgid "Fallback language"
 msgid "Fallback slider"
-msgstr "Langue de secours"
+msgstr "Curseur de repli"
 
-#, fuzzy
-#| msgid "Alias"
 msgid "ID or Alias"
-msgstr "Alias"
+msgstr "ID ou Alias"
 
 msgid ""
 "Select another slider by its ID or Alias that displays if your current "
 "slider has no published slides."
 msgstr ""
+"Sélectionnez un autre slider par son ID ou son alias  si votre slider actuel "
+"n’a pas de slides publiés."
 
 msgid "Thumbnail"
 msgstr "Vignette"
@@ -1635,7 +1624,7 @@ msgid "Loading type"
 msgstr "Type de chargement"
 
 msgid "Instant"
-msgstr "à l’instant"
+msgstr "À l’instant"
 
 msgid "After page loaded"
 msgstr "Après le chargement de la page"
@@ -1804,8 +1793,8 @@ msgstr "Points de rupture globaux"
 #, php-format
 msgid ""
 "You can use the global breakpoints, or adjust them locally here. You can "
-"configure the Global breakpoints at <a href=\"%1$s\" target=\"_blank"
-"\">Global settings</a> > General > Breakpoints"
+"configure the Global breakpoints at <a href=\"%1$s\" "
+"target=\"_blank\">Global settings</a> > General > Breakpoints"
 msgstr ""
 "Vous pouvez utiliser les points de rupture globaux ou les ajuster localement "
 "ici. Vous pouvez configurer les points de rupture globaux dans <a "
@@ -1842,10 +1831,8 @@ msgstr ""
 "Si la taille de votre image n’est pas la même que celle de votre diaporama, "
 "vous pouvez améliorer le résultat avec les modes de remplissage."
 
-#, fuzzy
-#| msgid "Background color"
 msgid "Background Blur"
-msgstr "Couleur d'arrière-plan"
+msgstr "Flou de l’'arrière-plan"
 
 msgid "Randomize"
 msgstr "Afficher au hasard"
@@ -2156,18 +2143,16 @@ msgstr "J’aime"
 msgid "Why upgrade to Smart Slider 3 Pro?"
 msgstr "Pourquoi passer à Smart Slider 3 Pro ?"
 
-#, fuzzy, php-format
-#| msgid "120+ slider templates"
+#, php-format
 msgid "%d+ slider templates"
-msgstr "Plus de 120 modèles de diaporamas"
+msgstr "%d+ modèles de diaporamas"
 
 msgid "Full slide library access"
 msgstr "Accès complet à la bibliothèque de diapositives"
 
-#, fuzzy, php-format
-#| msgid "20 new layers"
+#, php-format
 msgid "%d new layers"
-msgstr "20 nouveaux calques"
+msgstr "%d nouveaux calques"
 
 msgid "Extra advanced options"
 msgstr "Options avancées supplémentaires"
@@ -2428,10 +2413,8 @@ msgstr ""
 "Veuillez lire le %1$sguide détaillé%2$s sur le réglage correct de l’arrière-"
 "plan de vos diapositives."
 
-#, fuzzy
-#| msgid "Background color"
 msgid "Background blur"
-msgstr "Couleur d'arrière-plan"
+msgstr "Flou de l’'arrière-plan"
 
 msgid "Blur"
 msgstr "Flou"
@@ -2640,10 +2623,8 @@ msgstr "Deuxième diapositive"
 msgid "Drop images here"
 msgstr "Glisser les images ici"
 
-#, fuzzy
-#| msgid "New project"
 msgid "Search Project"
-msgstr "Nouveau projet"
+msgstr "Rechercher un projet"
 
 msgid "View trash"
 msgstr "Voir la corbeille"
@@ -2678,23 +2659,21 @@ msgstr "Vitrine"
 msgid "Showing %s to %s of %s projects"
 msgstr ""
 
-#, fuzzy
-#| msgid "New project"
 msgid "No projects to show"
-msgstr "Nouveau projet"
+msgstr "Pas de nouveaux projets"
 
 msgid "New project"
 msgstr "Nouveau projet"
 
 msgid "Sorry we couldn’t find any matches"
-msgstr ""
+msgstr "Désolé, nous n’avons trouvé aucune correspondance"
 
 msgid "Please try searching with another term."
-msgstr ""
+msgstr "Veuillez essayer de rechercher avec un autre terme."
 
 #, php-format
 msgid "Showing %s results for %s."
-msgstr ""
+msgstr "%s résultats sur %s."
 
 msgid "Module"
 msgstr "Module"
@@ -2758,7 +2737,7 @@ msgid "Reason"
 msgstr "Raison"
 
 msgid "Framework"
-msgstr ""
+msgstr "Système"
 
 msgid "Fonts"
 msgstr "Polices"
@@ -2858,7 +2837,7 @@ msgid "Slider's inline JavaScript"
 msgstr "JavaScript en ligne du diaporama"
 
 msgid "Head"
-msgstr ""
+msgstr "En-tête"
 
 msgid "Into the slider"
 msgstr "Dans le diaporama"
@@ -3789,8 +3768,6 @@ msgstr ""
 msgid "Whole group"
 msgstr "Tout le groupe"
 
-#, fuzzy
-#| msgid "Select A Slider"
 msgid "Select Slider"
 msgstr "Sélectionnez un diaporama"
 
@@ -3798,10 +3775,10 @@ msgid "OR"
 msgstr "OU"
 
 msgid "Insert a slider into your content"
-msgstr ""
+msgstr "Insérer un diaporama dans votre contenu"
 
 msgid "Select the slider you want to insert."
-msgstr ""
+msgstr "Sélectionnez le diaporama que vous voulez insérer."
 
 msgctxt "Button layer default text"
 msgid "MORE"
@@ -3817,7 +3794,7 @@ msgid "Prevents the text from breaking into more lines"
 msgstr "Empêche le texte de se diviser en plusieurs lignes"
 
 msgid "Rel"
-msgstr ""
+msgstr "Réel"
 
 #, php-format
 msgid ""
@@ -3908,7 +3885,7 @@ msgid "Mobile text"
 msgstr "Texte sur mobile"
 
 msgid "Vimeo url or Video ID"
-msgstr ""
+msgstr "Viméo URL ou ID vidéo"
 
 msgid "Cover image"
 msgstr "Image de couverture"
@@ -4153,6 +4130,10 @@ msgid ""
 "Fill selected at their Fill mode. They don't affect any images if the "
 "background parallax is enabled."
 msgstr ""
+"Les animations d’arrière-plan ne fonctionnent que sur les images d’arrière-"
+"plan des diapositives, pour lesquelles Remplissage est sélectionné dans leur "
+"mode Remplissage. Ils n’affectent aucune image si la parallaxe d’arrière-"
+"plan est activée."
 
 msgid "Shifted"
 msgstr "Décalage"
@@ -4307,44 +4288,40 @@ msgid "My text animations"
 msgstr "Mes animations de texte"
 
 msgid "Morph - Wave"
-msgstr ""
+msgstr "Morph - Vague"
 
 msgid "Morph - Brush"
-msgstr ""
+msgstr "Morph - Brosse"
 
 msgid "Morph - Flow"
-msgstr ""
+msgstr "Morph - Flux"
 
 msgid "Morph - Noise"
-msgstr ""
+msgstr "Morph - Bruit"
 
 msgid "Distortion - Mosaic"
-msgstr ""
+msgstr "Distorsion - Mosaïque"
 
-#, fuzzy
-#| msgid "Slices - Triangle"
 msgid "Distortion - Triangle"
-msgstr "Tranches - Triangle"
+msgstr "Distorsion - Triangle"
 
 msgid "Distortion - Flow"
-msgstr ""
+msgstr "Distorsion - Flux"
 
 msgid "Distortion - Warp"
-msgstr ""
+msgstr "Distorsion - Déformation"
 
 msgid "Distortion - Storm"
-msgstr ""
+msgstr "Distorsion - Tempête"
 
-#, fuzzy
-#| msgid "Registration start date"
 msgid "Distortion - Wave"
-msgstr "Date de début d’inscription"
+msgstr "Distorsion - vague"
 
 msgid "Distortion - Shard"
-msgstr ""
+msgstr "Distorsion - Fragmenté"
 
 msgid "Distortion - Noise"
-msgstr ""
+msgstr "Distorsion - Bruit"
 
 msgid "Slices - Single"
 msgstr "Tranches - Unique"
@@ -4937,26 +4914,23 @@ msgstr ""
 msgid "Sparkling"
 msgstr "Pétillant"
 
-#, fuzzy, php-format
-#| msgid "Curve 1"
+#, php-format
 msgid "Curve %d"
-msgstr "Courbe 1"
+msgstr "Courbe %d"
 
 msgid "Curves"
 msgstr "Courbes"
 
-#, fuzzy, php-format
-#| msgid "Fan 1"
+#, php-format
 msgid "Fan %d"
-msgstr "Eventail 1"
+msgstr "Eventail %d"
 
 msgid "Hills"
 msgstr "Collines"
 
-#, fuzzy, php-format
-#| msgid "Incline 1"
+#, php-format
 msgid "Incline %d"
-msgstr "Incliné 1"
+msgstr "Inclinaison %d"
 
 msgid "Inverse arrow"
 msgstr "Flèche inversée"
@@ -4967,32 +4941,28 @@ msgstr "Rectangle"
 msgid "Slopes"
 msgstr "Pentes"
 
-#, fuzzy, php-format
-#| msgid "Tilt 1"
+#, php-format
 msgid "Tilt %d"
-msgstr "Inclinaison 1"
+msgstr "Inclinaison %d"
 
-#, fuzzy, php-format
-#| msgid "Triangle 1"
+#, php-format
 msgid "Triangle %d"
-msgstr "Triangle 1"
+msgstr "Triangle %d"
 
-#, fuzzy, php-format
-#| msgid "Wave 1"
+#, php-format
 msgid "Wave %d"
-msgstr "Vague 1"
+msgstr "Vague %d"
 
 msgid "Waves"
 msgstr "Vagues"
 
-#, fuzzy, php-format
-#| msgid "Columns"
+#, php-format
 msgid "Columns %d"
-msgstr "Colonnes"
+msgstr "Colonnes %d"
 
 #, php-format
 msgid "Paper %d"
-msgstr ""
+msgstr "Papier %d"
 
 msgid "2 Colors"
 msgstr "2 couleurs"
@@ -5012,21 +4982,16 @@ msgstr "Le secret est vide. Merci d’insérer une valeur aussi !"
 msgid "The App ID is empty. Please insert that value too!"
 msgstr "L’ID d’application est vide. Veuillez également insérer cette valeur !"
 
-#, fuzzy, php-format
-#| msgid ""
-#| "%1$s allows HTTPS Redirect URIs only! You must move your site to HTTPS in "
-#| "order to use this generator! - %2$s How to get SSL for my WordPress site? "
-#| "%3$s"
+#, php-format
 msgid ""
 "%1$s allows HTTPS Redirect URIs only! You must move your site to HTTPS in "
 "order to use this generator!"
 msgstr ""
 "%1$s n’autorise que les URI de redirection HTTPS ! Vous devez mettre votre "
-"site en HTTPS afin d’utiliser ce générateur ! - %2$s Comment obtenir SSL "
-"pour mon site WordPress ? %3$s"
+"site en HTTPS afin d’utiliser ce générateur !"
 
 msgid "How to get SSL for my website?"
-msgstr ""
+msgstr "Comment avoir SSL ?"
 
 #, php-format
 msgid ""
@@ -5037,10 +5002,10 @@ msgstr ""
 
 msgctxt "Facebook app permission"
 msgid "pages read engagement"
-msgstr ""
+msgstr "pages en lecture"
 
 msgid "Pages read engagement permission"
-msgstr ""
+msgstr "Permission lecture"
 
 msgid ""
 "You need \"pages_read_engagement\" permission if you want to access datas of "
@@ -5160,10 +5125,8 @@ msgstr "Vidéos dans le dossier"
 msgid "Source folder"
 msgstr "Répertoire source"
 
-#, fuzzy
-#| msgid "Slide name and description"
 msgid "Filename based exclusion"
-msgstr "Nom et description de la diapositive"
+msgstr "Exclusion basée sur le nom de fichier"
 
 msgid "Remove resized images"
 msgstr "Supprimer les images redimensionnées"
@@ -5181,20 +5144,26 @@ msgstr ""
 "une taille plus petite."
 
 msgid "Filename has to contain"
-msgstr ""
+msgstr "Le nom de fichier doit contenir"
 
 msgid ""
 "Only those images will be asked down, which have the given texts within "
 "their filenames. You can write down multiple texts separated by comma."
 msgstr ""
+"Seules les images seront demandées, qui ont les textes donnés dans leurs "
+"noms de fichiers. Vous pouvez écrire plusieurs textes séparés par une "
+"virgule."
 
 msgid "Filename cannot contain"
-msgstr ""
+msgstr "Le nom de fichier ne peut pas contenir"
 
 msgid ""
 "Only those images will be asked down, which don't have the given texts "
 "within their filenames. You can write down multiple texts separated by comma."
 msgstr ""
+"Seules les images qui n’ont pas les textes donnés dans leurs noms de "
+"fichiers seront demandées. Vous pouvez écrire plusieurs textes séparés par "
+"une virgule."
 
 msgid "Filename"
 msgstr "Nom de fichier"
@@ -5220,45 +5189,39 @@ msgstr ""
 "media, alors essayez de naviguer à partir d'ici :"
 
 msgid "The App ID and the Secret is empty!"
-msgstr ""
+msgstr "L’identifiant de l’application et le secret sont vides !"
 
 msgid "The token will expire at:"
-msgstr ""
+msgstr "Le jeton expirera à :"
 
 msgid "Access token was not returned.Please check the credentials!"
 msgstr ""
+"Le jeton d’accès n’a pas été renvoyé.Veuillez vérifier les informations "
+"d’identification !"
 
-#, fuzzy
-#| msgid "The token expired. Please request new token! "
 msgid "The token expired. Please request new token!"
-msgstr "Le jeton a expiré. Veuillez demander un nouveau jeton! "
+msgstr "Le jeton a expiré. Veuillez demander un nouveau jeton!"
 
-#, fuzzy
-#| msgid "The token expired. Please request new token! "
 msgid "The token will expire in two days! Please refresh the token!"
-msgstr "Le jeton a expiré. Veuillez demander un nouveau jeton! "
+msgstr "Le jeton expirera dans deux jours ! Veuillez actualiser le jeton !"
 
-#, fuzzy
-#| msgid "Request token"
 msgid "Refresh Token"
-msgstr "Demande de jetons"
+msgstr "Actualiser le jeton"
 
 msgid "Refresh"
-msgstr ""
+msgstr "Actualiser"
 
-#, fuzzy
-#| msgid "Sorting method"
 msgid "Album loading method"
-msgstr "Méthode de tri"
+msgstr "Méthode de chargement de l’album"
 
 msgid "Load first images only"
-msgstr ""
+msgstr "Charger les premières images uniquement"
 
 msgid "Load album images separately"
-msgstr ""
+msgstr "Charger les images d’album séparément"
 
 msgid "Load Album images as record data"
-msgstr ""
+msgstr "Charger les images de l’album en tant que données d’enregistrement"
 
 msgid "JSON from url"
 msgstr "JSON depuis l’Url"
@@ -5305,10 +5268,8 @@ msgstr ""
 msgid "Images"
 msgstr "Images"
 
-#, fuzzy
-#| msgid "Offset value"
 msgid "Offset hours"
-msgstr "Valeur de décalage"
+msgstr "Valeur de décalage horaire"
 
 msgid "Timezone offset in hours. For example: +2 or -7."
 msgstr "Décalage du fuseau horaire en heures. Par exemple : +2 ou -7."
@@ -5552,10 +5513,10 @@ msgid "Publish down date"
 msgstr "Date de publication"
 
 msgid "Early bird discount date"
-msgstr ""
+msgstr "Date de réduction pour réservation anticipée"
 
 msgid "Early bird discount amount"
-msgstr ""
+msgstr "Montant de la réduction pour réservation anticipée"
 
 msgid "Late fee date"
 msgstr "Frais de retard"
@@ -5617,15 +5578,13 @@ msgid "Repeating events"
 msgstr "Répétition d’événements"
 
 msgid "Date language"
-msgstr ""
+msgstr "Langue des dates"
 
-#, fuzzy
-#| msgid "Replace variables"
 msgid "Date variable offset"
-msgstr "Remplacer des variables"
+msgstr "Décalage de la variable de date"
 
 msgid "Date filter offset"
-msgstr ""
+msgstr "Décalage du filtre de date"
 
 msgid "Status"
 msgstr "Statut"
@@ -5770,7 +5729,7 @@ msgid "Galleries"
 msgstr "Galeries"
 
 msgid "Upload date"
-msgstr ""
+msgstr "Date de téléchargement"
 
 msgid "Average rating"
 msgstr "Note moyenne"
@@ -5779,7 +5738,7 @@ msgid "Rate count"
 msgstr "Taux"
 
 msgid "Hit count"
-msgstr ""
+msgstr "Compteur d’appels"
 
 msgid "Root"
 msgstr "Racine"
@@ -5803,10 +5762,8 @@ msgstr "Limite de sous-menu"
 msgid "No limit"
 msgstr "Aucune limite"
 
-#, fuzzy
-#| msgid "Include subcategories"
 msgid "Hide empty categories"
-msgstr "Inclure les sous-catégories"
+msgstr "Masquer les catégories vides"
 
 msgid "Yes"
 msgstr "Oui"
@@ -6000,12 +5957,14 @@ msgid "Vertical pendulum 3D"
 msgstr "Effet pendule 3D vertical"
 
 msgid "We are Passionate About"
-msgstr ""
+msgstr "Nous sommes passionnés de"
 
 msgid ""
 "Amazing Food\n"
 "Great Hospitality"
 msgstr ""
+"Nourriture incroyable\n"
+"Grande hospitalité"
 
 msgid "Before text"
 msgstr "Avant le texte"
@@ -6090,125 +6049,81 @@ msgstr "Progression"
 msgid "Time"
 msgstr "Heure"
 
-#, fuzzy
-#| msgid "Size"
 msgid "Icon Size"
-msgstr "Taille"
+msgstr "Taille de l’icone"
 
-#, fuzzy
-#| msgid "Before text"
 msgid "Before After"
-msgstr "Avant le texte"
+msgstr "Avant après"
 
-#, fuzzy
-#| msgid "Left to Right"
 msgid "Left top"
-msgstr "De gauche à droite"
+msgstr "Gauche haut"
 
-#, fuzzy
-#| msgid "Center"
 msgid "Center top"
-msgstr "Centrer"
+msgstr "Centre haut"
 
-#, fuzzy
-#| msgid "Right"
 msgid "Right top"
-msgstr "Droite"
+msgstr "Droite haut"
 
-#, fuzzy
-#| msgid "Help center"
 msgid "Left center"
-msgstr "Centre d’aide"
+msgstr "Gauche centre"
 
-#, fuzzy
-#| msgid "Center"
 msgid "Right Center"
-msgstr "Centrer"
+msgstr "Droite centre"
 
-#, fuzzy
-#| msgid "To bottom"
 msgid "Left bottom"
-msgstr "Vers le bas"
+msgstr "Gauche bas"
 
-#, fuzzy
-#| msgid "Curtain to bottom"
 msgid "Center bottom"
-msgstr "Rideau vers le bas"
+msgstr "Centre bas"
 
-#, fuzzy
-#| msgid "To bottom"
 msgid "Right bottom"
-msgstr "Vers le bas"
+msgstr "Droite bas"
 
-#, fuzzy
-#| msgid "Before text"
 msgid "Before Image"
-msgstr "Avant le texte"
+msgstr "Avant l’image"
 
-#, fuzzy
-#| msgid "After text"
 msgid "After Image"
-msgstr "Après le texte"
+msgstr "Après l’image"
 
 msgid "Labels"
 msgstr "Étiquettes"
 
-#, fuzzy
-#| msgid "Show label"
 msgid "Show Label"
 msgstr "Montrer l'étiquette"
 
 msgid "Always"
-msgstr ""
+msgstr "Toujours"
 
-#, fuzzy
-#| msgid "Before text"
 msgid "Before label"
 msgstr "Avant le texte"
 
-#, fuzzy
-#| msgid "Aria label"
 msgid "After label"
-msgstr "Etiquette Aria"
+msgstr "Après le texte"
 
 msgid "Behavior"
+msgstr "Comportement"
+
+msgid "Interaction"
 msgstr ""
 
-#, fuzzy
-#| msgid "Internal only"
-msgid "Interaction"
-msgstr "Interne uniquement"
-
-#, fuzzy
-#| msgid "Slider"
 msgid "Divider"
-msgstr "Diaporama"
+msgstr "Diviseur"
 
 msgid "Line"
-msgstr ""
+msgstr "Ligne"
 
-#, fuzzy
-#| msgid "Show duration"
 msgid "Show Caption"
-msgstr "Durée d’affichage"
+msgstr "Afficher la légende"
 
-#, fuzzy
-#| msgid "Caption"
 msgid "Caption text"
 msgstr "Légende"
 
-#, fuzzy
-#| msgid "Previous alt tag"
 msgid "Before image alt tag"
-msgstr "Tag (alt) précédent"
+msgstr "Avant le tag (alt)"
 
-#, fuzzy
-#| msgid "After page loaded"
 msgid "After image alt tag"
-msgstr "Après le chargement de la page"
+msgstr "Après le tag (alt)"
 
-#, fuzzy
-#| msgid "Optimize image"
 msgid "Optimize images"
 msgstr "Optimiser l'image"
 
@@ -6246,10 +6161,10 @@ msgid "Stroke width"
 msgstr "Largeur du trait"
 
 msgid "Inner before"
-msgstr ""
+msgstr "Intérieur avant"
 
 msgid "Inner after"
-msgstr ""
+msgstr "Intérieur après"
 
 msgid "Pre"
 msgstr ""
@@ -6257,8 +6172,6 @@ msgstr ""
 msgid "Animation duration"
 msgstr "Durée de l’animation"
 
-#, fuzzy
-#| msgid "Counter"
 msgid "Countdown"
 msgstr "Compteur"
 
@@ -6271,118 +6184,101 @@ msgstr "Minutes"
 msgid "Seconds"
 msgstr "Secondes"
 
-#, fuzzy
-#| msgid "First slide changed."
 msgid "Use slide schedule"
-msgstr "1ère diapositive modifiée."
+msgstr "Utiliser le programme de diapositives"
 
-#, fuzzy
-#| msgid "You can use this alias in the slider's shortcode."
 msgid "You can use the \"Unpublished on\" date of the slide itself."
-msgstr "Vous pouvez utiliser cet alias dans le shortcode du diaporama."
+msgstr ""
+"Vous pouvez utiliser la date « Non publiée le » de la diapositive elle-même."
 
 msgid "Use Slide Schedule"
-msgstr ""
+msgstr "Utiliser le programme de diapositives"
 
 msgid "Go to Slide → Content tab and set the Unpublish on date for the slide."
 msgstr ""
+"Accédez à Diapositive → onglet Contenu et définissez la date de "
+"dépublication pour la diapositive."
 
 msgid ""
 "Displays the days, hours, minutes and seconds texts under the counter "
 "numbers. To display the labels in your own language, translate the texts in "
 "the language files."
 msgstr ""
+"Affiche les textes des jours, heures, minutes et secondes sous les chiffres "
+"du compteur. Pour afficher les étiquettes dans votre propre langue, "
+"traduisez les textes dans les fichiers de langue."
 
 msgid "Gap"
-msgstr ""
+msgstr "Écart"
 
-#, fuzzy
-#| msgid "Creates space between the columns"
 msgid "Creates vertical and horizontal distance between the counter elements."
-msgstr "Crée un espace entre les colonnes"
+msgstr ""
+"Crée une distance verticale et horizontale entre les éléments du compteur."
 
-#, fuzzy
-#| msgid "Tablet scale"
 msgid "Tablet style"
-msgstr "Échelle sur tablettes"
+msgstr "Adaptation tablettes"
 
 msgid "Set custom Gap and Column for tablet."
-msgstr ""
+msgstr "Définissez un espace et une colonne personnalisés pour la tablette."
 
-#, fuzzy
-#| msgid "Mobile scale"
 msgid "Mobile style"
 msgstr "Adaptation sur mobile"
 
 msgid "Set custom Gap and Column for mobile."
-msgstr ""
+msgstr "Définissez un espace et une colonne personnalisés pour mobile."
 
 msgid "Action when ends"
-msgstr ""
+msgstr "Action à la fin"
 
-#, fuzzy
-#| msgid "Form action"
 msgid "No action"
-msgstr "Action du formulaire"
+msgstr "Pas d’action"
 
-#, fuzzy
-#| msgid "Child layers"
 msgid "Hide layer"
-msgstr "Calques enfants"
+msgstr "Masquer le calque"
 
 msgid "Redirect to URL"
-msgstr ""
+msgstr "Rediriger vers l’Url"
 
 msgid "Choose what happens after the counter reached zero."
 msgstr ""
 
-#, fuzzy
-#| msgid "The image is empty"
 msgid "This page is"
-msgstr "L’image est vide"
+msgstr "Cette page est"
 
 msgid "Amazing"
-msgstr ""
+msgstr "Incroyable"
 
-#, fuzzy, php-format
-#| msgid "Circle 1"
+#, php-format
 msgid "Circle %d"
-msgstr "Cercle 1"
+msgstr "Cercle %d"
 
-#, fuzzy, php-format
-#| msgid "Curly 1"
+#, php-format
 msgid "Curly %d"
-msgstr "Ondulé 1"
+msgstr "Ondulé %d"
 
-#, fuzzy, php-format
-#| msgid "Highlight 1"
+#, php-format
 msgid "Highlight %d"
-msgstr "Surbrillance 1"
+msgstr "Surbrillance %d"
 
-#, fuzzy, php-format
-#| msgid "Line Through 1"
+#, php-format
 msgid "Line Through %d"
-msgstr "Biffage 1"
+msgstr "Biffage %d"
 
-#, fuzzy, php-format
-#| msgid "Rectangle 1"
+#, php-format
 msgid "Rectangle %d"
-msgstr "Rectangle 1"
+msgstr "Rectangle %d"
 
-#, fuzzy, php-format
-#| msgid "Underline 1"
+#, php-format
 msgid "Underline %d"
-msgstr "Souligné 1"
+msgstr "Souligné %d"
 
-#, fuzzy, php-format
-#| msgid "Underline double 1"
+#, php-format
 msgid "Underline double %d"
-msgstr "Double souligné 1"
+msgstr "Double souligné %d"
 
-#, fuzzy, php-format
-#| msgid "ZigZag 1"
+#, php-format
 msgid "ZigZag %d"
-msgstr "Zigzag 1"
+msgstr "Zigzag %d"
 
 msgid "Highlighted text"
 msgstr "Texte mis en évidence"
@@ -6400,7 +6296,7 @@ msgid "HTML"
 msgstr ""
 
 msgid "Empty element"
-msgstr ""
+msgstr "Élément vide"
 
 msgid ""
 "Please note that <b>we do not support</b> the HTML layer and the 3rd party "
@@ -6535,18 +6431,14 @@ msgstr ""
 "code que vous devez faire vous-même, nous vous suggérons donc d’utiliser "
 "cette couche uniquement si vous êtes développeur !"
 
-#, fuzzy
-#| msgid "iframe url"
 msgid "Iframe url"
-msgstr "url de l\"iframe"
+msgstr "Url de l\"iframe"
 
 msgid "You can disable the scroll on the iframe content."
 msgstr "Vous pouvez désactiver le défilement sur le contenu de l’iframe."
 
-#, fuzzy
-#| msgid "iframe title"
 msgid "Iframe title"
-msgstr "titre de l’iframe"
+msgstr "Titre de l’iframe"
 
 msgid "Image area"
 msgstr "Zone de l’image"
@@ -6605,16 +6497,16 @@ msgid "Progress bar"
 msgstr "Barre de progression"
 
 msgid "Over"
-msgstr ""
+msgstr "Au-dessus"
 
 msgid "Transition"
 msgstr ""
 
 msgid "Front image"
-msgstr ""
+msgstr "Image avant plan"
 
 msgid "Back image"
-msgstr ""
+msgstr "Image arrière plan"
 
 msgid "Vertical flip"
 msgstr "Retournement vertical"
@@ -6623,10 +6515,10 @@ msgid "Horizontal flip"
 msgstr "Retournement Horizontal"
 
 msgid "Front image alt tag"
-msgstr ""
+msgstr "Tag image avant-plan"
 
 msgid "Back image alt tag"
-msgstr ""
+msgstr "Tag image arrière-plan"
 
 msgid "MP4 video"
 msgstr "Vidéo MP4"
@@ -6648,7 +6540,7 @@ msgstr ""
 "couche uniquement si vous êtes développeur !"
 
 msgid "Position name or module ID"
-msgstr ""
+msgstr "Nom position ou ID du module"
 
 msgid ""
 "The position name of your module (for Loadposition and Modulepos) or the "
@@ -6901,6 +6793,8 @@ msgid ""
 "%1$s does not support the full screen API. For this reason the full screen "
 "button will not appear on %1$s devices."
 msgstr ""
+"%1$s ne prend pas en charge l’API plein écran. Pour cette raison, le bouton "
+"plein écran n’apparaîtra pas sur les appareils %1$s."
 
 msgid "Indicator"
 msgstr "Barre de progression"
@@ -7243,3 +7137,4 @@ msgstr "Couleur de la barre"
 
 #~ msgid "Ticket price"
 #~ msgstr "Prix du billet"
+

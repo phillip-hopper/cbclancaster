@@ -1,5 +1,5 @@
 name: 13
-timestamp: 1693444316
+timestamp: 1694569428
 version: 7
 preset:
   image: 'gantry-admin://images/layouts/default.png'
@@ -27,6 +27,7 @@ sections:
 particles:
   module:
     position-module-7216: 'Module Instance'
+    position-module-3835: 'Module Instance'
   promo:
     promo-6483: Promo
   custom:
@@ -54,6 +55,7 @@ inherit:
     system-messages-2686: system-messages-9828
     logo-1982: logo-3453
     menu-7214: menu-2872
+    position-module-3835: position-module-9575
     custom-6768: custom-9551
     copyright-6729: copyright-6444
     mobile-menu-8164: mobile-menu-2576

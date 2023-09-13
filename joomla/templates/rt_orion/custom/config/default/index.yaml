@@ -1,5 +1,5 @@
 name: default
-timestamp: 1693444316
+timestamp: 1694569428
 version: 7
 preset:
   image: 'gantry-admin://images/layouts/default.png'
@@ -43,6 +43,8 @@ particles:
     logo-3453: 'Logo / Image'
   menu:
     menu-2872: Menu
+  module:
+    position-module-9575: 'Module Instance'
   position:
     position-position-6661: 'Slideshow A'
     position-position-7051: 'Header A'

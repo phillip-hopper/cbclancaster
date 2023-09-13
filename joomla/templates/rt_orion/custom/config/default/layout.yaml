@@ -16,6 +16,8 @@ layout:
           -
             - 'logo-3453 30'
             - 'menu-2872 70'
+          -
+            - position-module-9575
     -
       -
         /slideshow/:
@@ -190,6 +192,12 @@ content:
       svg: ''
       text: ''
       title: ''
+  position-module-9575:
+    title: 'Module Instance'
+    attributes:
+      module_id: '126'
+    block:
+      class: 'd-flex d-md-none justify-content-end'
   position-position-6661:
     title: 'Slideshow A'
     attributes:

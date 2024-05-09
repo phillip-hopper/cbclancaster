@@ -384,7 +384,7 @@ html body #g-page-surround #g-container-top {
   position: relative;
 }
 html body #g-page-surround #g-container-top:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -2112,7 +2112,7 @@ input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focu
   background-color: rgba(255, 255, 255, 0);
 }
 #g-slideshow::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -4745,7 +4745,7 @@ textarea, select[multiple=multiple], input[type="color"], input[type="date"], in
   -moz-outline-style: none;
 }
 .g-swiper.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet::after, .g-swiper.swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet::after {
-  content: '';
+  content: "";
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -4944,7 +4944,7 @@ div[class*="g-swiper-thumbs"].gallery-thumbs .swiper-slide:before {
   position: absolute;
   width: 100%;
   height: 100%;
-  content: '';
+  content: "";
   border-radius: 6px;
   transition: opacity 0.5s ease-in-out;
 }

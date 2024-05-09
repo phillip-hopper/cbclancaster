@@ -16,7 +16,7 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "1abf6dc1f82b0620ed0875c40af6c1ac55ad525b"
+      "version": "d4ee380ec2513c3870b210e6e992b406d331dcf3"
     },
     {
       "name": "com_banners.admin-banner-edit",
@@ -28,7 +28,7 @@
       "attributes": {
         "type": "module"
       },
-      "version": "8c347f87b4775d2d0af42d241ef44268115c3102"
+      "version": "86e446e5128793b8e1a32a08a22fce1ce91de837"
     }
   ]
 }

@@ -2,7 +2,7 @@
 
 namespace Nextend\Framework\Url\Joomla;
 
-use JUri;
+use Joomla\CMS\Uri\Uri;
 use Nextend\Framework\Url\AbstractPlatformUrl;
 
 class JoomlaUrl extends AbstractPlatformUrl {
@@ -11,10 +11,10 @@ class JoomlaUrl extends AbstractPlatformUrl {
 
     function __construct() {
 
-        $this->siteUrl = JURI::root();
+        $this->siteUrl = Uri::root();
 
-        $this->fullUri  = rtrim(JURI::root(), '/');
-        $this->_baseuri = rtrim(JURI::root(true), '/');
+        $this->fullUri  = rtrim(Uri::root(), '/');
+        $this->_baseuri = rtrim(Uri::root(true), '/');
 
         $this->_currentbase = $this->fullUri;
 
@@ -27,6 +27,6 @@ class JoomlaUrl extends AbstractPlatformUrl {
     }
 
     public function ajaxUri($query = '') {
-        return JUri::current();
+        return Uri::current();
     }
 }

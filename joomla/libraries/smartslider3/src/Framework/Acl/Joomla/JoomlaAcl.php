@@ -2,7 +2,7 @@
 
 namespace Nextend\Framework\Acl\Joomla;
 
-use JFactory;
+use Joomla\CMS\Factory;
 use Nextend\Framework\Acl\AbstractPlatformAcl;
 
 class JoomlaAcl extends AbstractPlatformAcl {
@@ -11,7 +11,7 @@ class JoomlaAcl extends AbstractPlatformAcl {
 
     public function __construct() {
 
-        $this->user = JFactory::getUser();
+        $this->user = Factory::getUser();
     }
 
     public function authorise($action, $MVCHelper) {

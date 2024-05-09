@@ -3,22 +3,22 @@
 namespace Nextend\Framework\Database\Joomla;
 
 use Exception;
-use JDatabaseDriver;
-use JFactory;
-use JUri;
+use Joomla\Database\DatabaseDriver;
+use Joomla\CMS\Factory;
+use Joomla\CMS\Uri\Uri;
 use Nextend\Framework\Database\AbstractPlatformConnector;
 use Nextend\Framework\Notification\Notification;
 
 class JoomlaConnector extends AbstractPlatformConnector {
 
     /**
-     * @var JDatabaseDriver
+     * @var DatabaseDriver
      */
     private $db;
 
 
     public function __construct() {
-        $this->db      = JFactory::getDbo();
+        $this->db      = Factory::getDbo();
         $this->_prefix = $this->db->getPrefix();
 
         JoomlaConnectorTable::init($this, $this->db);
@@ -114,7 +114,7 @@ class JoomlaConnector extends AbstractPlatformConnector {
             }
 
         } catch (Exception $e) {
-            $currentUrl = JUri::getInstance();
+            $currentUrl = Uri::getInstance();
             $currentUrl->setVar('repairss3', 1);
 
             $message = array(

@@ -2,7 +2,7 @@
 
 namespace Nextend\SmartSlider3\Generator\Joomla\JoomlaContent\Elements;
 
-use JFactory;
+use Joomla\CMS\Factory;
 use Nextend\Framework\Form\Element\Select;
 
 
@@ -11,7 +11,7 @@ class JoomlaContentTags extends Select {
     public function __construct($insertAt, $name = '', $label = '', $default = '', $parameters = array()) {
         parent::__construct($insertAt, $name, $label, $default, $parameters);
 
-        $db = JFactory::getDBO();
+        $db = Factory::getDBO();
 
         $query = 'SELECT id, title FROM #__tags WHERE published = 1 ORDER BY id';
 

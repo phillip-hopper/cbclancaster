@@ -4,14 +4,14 @@
 * @brief    sigplus Image Gallery Plus installer script
 * @author   Levente Hunyadi
 * @version  1.5.0
-* @remarks  Copyright (C) 2009-2017 Levente Hunyadi
+* @remarks  Copyright (C) 2009-2023 Levente Hunyadi
 * @remarks  Licensed under GNU/GPLv3, see https://www.gnu.org/licenses/gpl-3.0.html
 * @see      https://hunyadi.info.hu/projects/sigplus
 */
 
 /*
 * sigplus Image Gallery Plus plug-in for Joomla
-* Copyright 2009-2014 Levente Hunyadi
+* Copyright 2009-2023 Levente Hunyadi
 *
 * sigplus is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -33,6 +33,9 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'fields'.DIRECTORY_SEPARATOR.'constants.php';
 require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'core'.DIRECTORY_SEPARATOR.'setup.php';
 
+use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Text;
+
 define('SIGPLUS_PLUGIN_PATH', JPATH_ROOT.DIRECTORY_SEPARATOR.'plugins'.DIRECTORY_SEPARATOR.'content'.DIRECTORY_SEPARATOR.SIGPLUS_PLUGIN_FOLDER);
 define('SIGPLUS_VERSION_FILE', SIGPLUS_PLUGIN_PATH.DIRECTORY_SEPARATOR.'core'.DIRECTORY_SEPARATOR.'version.php');
 define('SIGPLUS_MANIFEST_FILE', SIGPLUS_PLUGIN_PATH.DIRECTORY_SEPARATOR.'sigplus.xml');
@@ -49,6 +52,11 @@ class plgContentSigPlusNovoInstallerScript {
 	function update($parent) { }
 
 	function preflight($type, $parent) {
+		if (version_compare(JVERSION, '4.0') < 0) {
+			$app = Factory::getApplication();
+			$app->enqueueMessage('Your version of Joomla 3.10 has reached its end of life. We no longer test new versions of sigplus with this Joomla version series. Migrate to Joomla 4 or Joomla 5 as soon as possible.', 'warning');
+		}
+
 		switch ($type) {
 			case 'install':
 			case 'discover_install':
@@ -74,8 +82,8 @@ class plgContentSigPlusNovoInstallerScript {
 
 				// raise a warning unless upgrading one Novo version to another Novo version
 				if (!$supported) {
-					$message = str_replace(array('{$current}','{$required}'), array($current, $required), JText::_('SIGPLUS_INSTALLER_MIGRATE_SETTINGS'));
-					$app = JFactory::getApplication();
+					$message = str_replace(array('{$current}','{$required}'), array($current, $required), Text::_('SIGPLUS_INSTALLER_MIGRATE_SETTINGS'));
+					$app = Factory::getApplication();
 					$app->enqueueMessage($message, 'warning');
 				}
 
@@ -100,21 +108,21 @@ class plgContentSigPlusNovoInstallerScript {
 	private static function checkDependencies() {
 		require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'core'.DIRECTORY_SEPARATOR.'librarian.php';
 
-		$app = JFactory::getApplication();
+		$app = Factory::getApplication();
 		if (!is_gd_supported() && !is_imagick_supported() && !is_gmagick_supported()) {
-			$app->enqueueMessage(JText::_('SIGPLUS_INSTALLER_LIBRARY_IMAGE'), 'warning');
+			$app->enqueueMessage(Text::_('SIGPLUS_INSTALLER_LIBRARY_IMAGE'), 'warning');
 		}
 		if (!function_exists('exif_read_data')) {
-			$app->enqueueMessage(JText::_('SIGPLUS_INSTALLER_LIBRARY_EXIF'), 'warning');
+			$app->enqueueMessage(Text::_('SIGPLUS_INSTALLER_LIBRARY_EXIF'), 'warning');
 		}
 		if (!extension_loaded('openssl')) {
-			$app->enqueueMessage(JText::_('SIGPLUS_INSTALLER_LIBRARY_OPENSSL'), 'warning');
+			$app->enqueueMessage(Text::_('SIGPLUS_INSTALLER_LIBRARY_OPENSSL'), 'warning');
 		}
 		if (!ini_get('allow_url_fopen')) {
-			$app->enqueueMessage(JText::_('SIGPLUS_INSTALLER_PHP_URL_FOPEN'), 'warning');
+			$app->enqueueMessage(Text::_('SIGPLUS_INSTALLER_PHP_URL_FOPEN'), 'warning');
 		}
 		if (!in_array('http', stream_get_wrappers(), true)) {
-			$app->enqueueMessage(JText::_('SIGPLUS_INSTALLER_PHP_HTTP_WRAPPER'), 'warning');
+			$app->enqueueMessage(Text::_('SIGPLUS_INSTALLER_PHP_HTTP_WRAPPER'), 'warning');
 		}
 	}
 
@@ -180,7 +188,11 @@ class plgContentSigPlusNovoInstallerScript {
 	}
 
 	private static function migrateConfiguration() {
-		$db = JFactory::getDbo();
+		if (version_compare(JVERSION, '4.0') >= 0) {
+			$db = Factory::getContainer()->get(Joomla\Database\DatabaseInterface::class);
+		} else {
+			$db = Factory::getDBO();
+		}
 
 		// read existing plug-in configuration settings
 		$db->setQuery('SELECT params FROM #__extensions WHERE type = '.$db->quote('plugin').' AND folder = '.$db->quote('content').' AND element = '.$db->quote('sigplus'));
@@ -493,7 +505,7 @@ class Minify_CSS_Compressor {
 	protected function _fontFamilyCB($m)
 	{
 		// Issue 210: must not eliminate WS between words in unquoted families
-		$pieces = preg_split('/(\'[^\']+\'|"[^"]+")/', $m[1], null, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
+		$pieces = preg_split('/(\'[^\']+\'|"[^"]+")/', $m[1], -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
 		$out = 'font-family:';
 		while (null !== ($piece = array_shift($pieces))) {
 			if ($piece[0] !== '"' && $piece[0] !== "'") {

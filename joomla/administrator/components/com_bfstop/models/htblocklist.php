@@ -1,18 +1,20 @@
 <?php
 /*
- * @package BFStop Component (com_bfstop) for Joomla! >=2.5
+ * @package BFStop Component (com_bfstop) for Joomla!
  * @author Bernhard Froehler
  * @copyright (C) Bernhard Froehler
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 **/
 defined('_JEXEC') or die;
 
-jimport('joomla.application.component.modellist');
+use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\MVC\Model\ListModel;
 
 require_once(JPATH_ADMINISTRATOR.'/components/com_bfstop/helpers/unblock.php');
 require_once(JPATH_SITE.'/plugins/system/bfstop/helpers/htaccess.php');
 
-class BFStopModelHTBlockList extends JModelList
+class BFStopModelHTBlockList extends ListModel
 {
 	protected $cachedHtAccessLines;
 
@@ -85,10 +87,10 @@ class BFStopModelHTBlockList extends JModelList
 
 	public function unblock($ids, $logger)
 	{
-		if (BFStopUnblockHelper::unblock(JFactory::getDBO(), $ids, 0, $logger)) {
-			return JText::_("UNBLOCK_SUCCESS");
+		if (BFStopUnblockHelper::unblockHtaccess($ids, $logger)) {
+			return Text::_("UNBLOCK_SUCCESS");
 		} else {
-			return JText::_("UNBLOCK_FAILED");
+			return Text::_("UNBLOCK_FAILED");
 		}
 	}
 

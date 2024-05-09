@@ -4,14 +4,14 @@
 * @brief    sigplus Image Gallery Plus metadata extraction
 * @author   Levente Hunyadi
 * @version  1.5.0
-* @remarks  Copyright (C) 2009-2017 Levente Hunyadi
+* @remarks  Copyright (C) 2009-2023 Levente Hunyadi
 * @remarks  Licensed under GNU/GPLv3, see https://www.gnu.org/licenses/gpl-3.0.html
 * @see      https://hunyadi.info.hu/sigplus
 */
 
 /*
 * sigplus Image Gallery Plus plug-in for Joomla
-* Copyright 2009-2017 Levente Hunyadi
+* Copyright 2009-2023 Levente Hunyadi
 *
 * sigplus is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -411,6 +411,9 @@ class SigPlusNovoMetadataServices {
 			if (isset($exifdata['SceneType']) && ord($exifdata['SceneType']) == 1) {
 				$exifdata['SceneType'] = 'Directly photographed image';
 			}
+
+			// remove section with binary data
+			unset($exifdata['ICC_Profile']);
 
 			// remove sections of little interest
 			unset($exifdata['SectionsFound']);

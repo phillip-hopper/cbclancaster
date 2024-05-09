@@ -2,7 +2,7 @@
 
 namespace Nextend\Framework\Localization\Joomla;
 
-use JFactory;
+use Joomla\CMS\Factory;
 use Nextend\Framework\Localization\AbstractLocalization;
 use Nextend\Framework\Localization\Joomla\Pomo\MO;
 use Nextend\Framework\Localization\Joomla\Pomo\NOOP_Translations;
@@ -11,7 +11,7 @@ class JoomlaLocalization extends AbstractLocalization {
 
     public function getLocale() {
 
-        $lang = JFactory::getLanguage();
+        $lang = Factory::getLanguage();
 
         return str_replace('-', '_', $lang->getTag());
     }

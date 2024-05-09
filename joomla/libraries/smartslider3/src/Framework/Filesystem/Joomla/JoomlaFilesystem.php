@@ -2,8 +2,8 @@
 
 namespace Nextend\Framework\Filesystem\Joomla;
 
-use JFile;
-use JFolder;
+use Joomla\CMS\Filesystem\File;
+use Joomla\CMS\Filesystem\Folder;
 use Nextend\Framework\Filesystem\AbstractPlatformFilesystem;
 
 class JoomlaFilesystem extends AbstractPlatformFilesystem {
@@ -34,14 +34,14 @@ class JoomlaFilesystem extends AbstractPlatformFilesystem {
     }
 
     /**
-     * Calling JFile:exists() method
+     * Calling File:exists() method
      *
      * @param $file
      *
      * @return bool
      */
     public function fileexists($file) {
-        return JFile::exists($file);
+        return File::exists($file);
     }
 
     /**
@@ -50,7 +50,7 @@ class JoomlaFilesystem extends AbstractPlatformFilesystem {
      * @return mixed
      */
     public function folders($path) {
-        return JFolder::folders($path);
+        return Folder::folders($path);
     }
 
     /**
@@ -68,7 +68,7 @@ class JoomlaFilesystem extends AbstractPlatformFilesystem {
      * @return mixed
      */
     public function createFolder($path) {
-        return JFolder::create($path, $this->dirPermission);
+        return Folder::create($path, $this->dirPermission);
     }
 
     /**
@@ -77,7 +77,7 @@ class JoomlaFilesystem extends AbstractPlatformFilesystem {
      * @return mixed
      */
     public function deleteFolder($path) {
-        return JFolder::delete($path);
+        return Folder::delete($path);
     }
 
     /**
@@ -86,7 +86,7 @@ class JoomlaFilesystem extends AbstractPlatformFilesystem {
      * @return mixed
      */
     public function existsFolder($path) {
-        return JFolder::exists($path);
+        return Folder::exists($path);
     }
 
     /**
@@ -95,7 +95,7 @@ class JoomlaFilesystem extends AbstractPlatformFilesystem {
      * @return mixed
      */
     public function files($path) {
-        return JFolder::files($path);
+        return Folder::files($path);
     }
 
     /**
@@ -104,7 +104,7 @@ class JoomlaFilesystem extends AbstractPlatformFilesystem {
      * @return mixed
      */
     public function existsFile($path) {
-        return JFile::exists($path);
+        return File::exists($path);
     }
 
     /**
@@ -114,7 +114,7 @@ class JoomlaFilesystem extends AbstractPlatformFilesystem {
      * @return mixed
      */
     public function createFile($path, $buffer) {
-        return JFile::write($path, $buffer);
+        return File::write($path, $buffer);
     }
 
 }

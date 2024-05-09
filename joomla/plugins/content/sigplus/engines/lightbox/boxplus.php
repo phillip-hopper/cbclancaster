@@ -4,13 +4,15 @@
 * @brief    sigplus Image Gallery Plus boxplusx lightweight pop-up window engine
 * @author   Levente Hunyadi
 * @version  1.5.0
-* @remarks  Copyright (C) 2009-2017 Levente Hunyadi
+* @remarks  Copyright (C) 2009-2023 Levente Hunyadi
 * @remarks  Licensed under GNU/GPLv3, see https://www.gnu.org/licenses/gpl-3.0.html
 * @see      https://hunyadi.info.hu/projects/sigplus
 */
 
 // no direct access
 defined( '_JEXEC' ) or die( 'Restricted access' );
+
+use Joomla\CMS\Factory;
 
 /**
 * Support class for the boxplusx lightweight pop-up window engine.
@@ -142,7 +144,7 @@ class SigPlusNovoBoxPlusLightboxEngine extends SigPlusNovoLightboxEngine {
 		}
 		$jsparams['navigation'] = $position;
 		$jsparams['protection'] = $params->protection;
-		$user = JFactory::getUser();
+		$user = Factory::getUser();
 		if ($params->metadata !== false && in_array($params->metadata, $user->getAuthorisedViewLevels())) {  // check if user is authorized to view metadata
 			// add Exif.js third-party plug-in to parse EXIF and IPTC metadata
 			$instance->addScript('/media/sigplus/engines/'.$this->getIdentifier().'/js/exif.js');
@@ -150,7 +152,7 @@ class SigPlusNovoBoxPlusLightboxEngine extends SigPlusNovoLightboxEngine {
 			$jsparams['metadata'] = true;
 		}
 
-		$language = JFactory::getLanguage();
+		$language = Factory::getLanguage();
 		$jsparams['dir'] = $language->isRtl() ? 'rtl' : 'ltr';
 		$jsparams = array_merge($jsparams, $params->lightbox_params);
 		$jsselector = json_encode($selector);

@@ -2,11 +2,12 @@
 
 namespace Nextend\SmartSlider3\Generator\Joomla\JoomlaContent\Sources;
 
-use ContentHelperRoute;
+use Joomla\Component\Content\Site\Helper\RouteHelper;
 use DateTime;
 use DateTimeZone;
-use JFactory;
-use JPluginHelper;
+use ContentHelperRoute;
+use Joomla\CMS\Factory;
+use Joomla\CMS\Plugin\PluginHelper;
 use Nextend\Framework\Database\Database;
 use Nextend\Framework\Form\Container\ContainerTable;
 use Nextend\Framework\Form\Element\MixedField\GeneratorOrder;
@@ -135,7 +136,7 @@ class JoomlaContentArticle extends AbstractGenerator {
         if (empty($date) || $date == '0000-00-00 00:00:00') {
             return '';
         } else {
-            $config   = JFactory::getConfig();
+            $config   = Factory::getConfig();
             $timezone = new DateTimeZone($config->get('offset'));
             $offset   = $timezone->getOffset(new DateTime);
 
@@ -208,7 +209,7 @@ class JoomlaContentArticle extends AbstractGenerator {
 
         $query .= 'LEFT JOIN #__content_frontpage AS cf ON cf.content_id = con.id ';
 
-        $jNow  = JFactory::getDate();
+        $jNow  = Factory::getDate();
         $now   = $jNow->toSql();
         $where = array(
             'con.state = 1 ',
@@ -285,7 +286,7 @@ class JoomlaContentArticle extends AbstractGenerator {
             }
         }
 
-        JPluginHelper::importPlugin('content');
+        PluginHelper::importPlugin('content');
         $uri = Url::getBaseUri();
 
         $data    = array();
@@ -337,7 +338,7 @@ class JoomlaContentArticle extends AbstractGenerator {
             ));
 
             $r += array(
-                'url'               => ContentHelperRoute::getArticleRoute($result[$i]['id'] . ':' . $result[$i]['alias'], $result[$i]['catid'] . ':' . $result[$i]['cat_alias']),
+                'url'               => JoomlaShim::$isJoomla4 ? RouteHelper::getArticleRoute($result[$i]['id'] . ':' . $result[$i]['alias'], $result[$i]['catid'] . ':' . $result[$i]['cat_alias']) : ContentHelperRoute::getArticleRoute($result[$i]['id'] . ':' . $result[$i]['alias'], $result[$i]['catid'] . ':' . $result[$i]['cat_alias']),
                 'url_label'         => n2_('View article'),
                 'category_list_url' => 'index.php?option=com_content&view=category&id=' . $result[$i]['catid'],
                 'category_blog_url' => 'index.php?option=com_content&view=category&layout=blog&id=' . $result[$i]['catid'],

@@ -2,7 +2,7 @@
 
 namespace Nextend\SmartSlider3\Generator\Joomla\JoomlaContent\Sources;
 
-use JPluginHelper;
+use Joomla\CMS\Plugin\PluginHelper;
 use Nextend\Framework\Database\Database;
 use Nextend\Framework\Form\Container\ContainerTable;
 use Nextend\Framework\Form\Element\MixedField\GeneratorOrder;
@@ -103,7 +103,7 @@ class JoomlaContentCategory extends AbstractGenerator {
 
         $result = Database::queryAll($query);
 
-        JPluginHelper::importPlugin('content');
+        PluginHelper::importPlugin('content');
 
         $data = array();
         for ($i = 0; $i < count($result); $i++) {

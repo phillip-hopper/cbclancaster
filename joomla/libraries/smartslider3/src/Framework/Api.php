@@ -5,7 +5,7 @@ namespace Nextend\Framework;
 
 
 use Exception;
-use JHttp;
+use Joomla\CMS\Http\Http;
 use Nextend\Framework\Misc\Base64;
 use Nextend\Framework\Misc\HttpClient;
 use Nextend\Framework\Notification\Notification;
@@ -35,9 +35,9 @@ class Api {
         if ($returnUrl) {
             return $api . '?' . http_build_query($posts, '', '&');
         }
-        if (class_exists('JHttp')) {
+        if (class_exists('Http')) {
 
-            $client = new JHttp();
+            $client = new Http();
             try {
                 $response = $client->post($api, http_build_query($posts, '', '&'), array('Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8'), 5);
             } catch (Exception $e) {

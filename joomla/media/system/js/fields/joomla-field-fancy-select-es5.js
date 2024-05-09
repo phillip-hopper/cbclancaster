@@ -191,6 +191,7 @@
         if (this.isDisconnected) {
           // Re init previous instance
           this.choicesInstance.init();
+          this.choicesInstance.setChoiceByValue(this.disconnectValues);
           this.isDisconnected = false;
         }
         return;
@@ -350,6 +351,8 @@
     _proto.disconnectedCallback = function disconnectedCallback() {
       // Destroy Choices instance, to unbind event listeners
       if (this.choicesInstance) {
+        // Keep selected values, because choices will reset them on re-init
+        this.disconnectValues = this.choicesInstance.getValue(true);
         this.choicesInstance.destroy();
         this.isDisconnected = true;
       }

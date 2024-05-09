@@ -25,8 +25,8 @@ class com_SmartSlider3InstallerScript {
      * installation script extending FOF's InstallScript class. We can't use a <file> tag in the manifest to install FOF
      * since the FOF installation is expected to fail if a newer version of FOF is already installed on the site.
      *
-     * @param string                   $type   Installation type (install, update, discover_install)
-     * @param JInstallerAdapterPackage $parent Parent object
+     * @param string                                      $type   Installation type (install, update, discover_install)
+     * @param Joomla\CMS\Installer\Adapter\PackageAdapter $parent Parent object
      *
      * @return  boolean  True to let the installation proceed, false to halt the installation
      */
@@ -35,7 +35,7 @@ class com_SmartSlider3InstallerScript {
         // Check the minimum PHP version
         if (!version_compare(PHP_VERSION, $this->minimumPHPVersion, 'ge')) {
             $msg = "<p>You need PHP $this->minimumPHPVersion or later to install this package</p>";
-            JLog::add($msg, JLog::WARNING, 'jerror');
+            Joomla\CMS\Log\Log::add($msg, Joomla\CMS\Log\Log::WARNING, 'jerror');
 
             return false;
         }
@@ -43,7 +43,7 @@ class com_SmartSlider3InstallerScript {
         // Check the minimum Joomla! version
         if (!version_compare(JVERSION, $this->minimumJoomlaVersion, 'ge')) {
             $msg = "<p>You need Joomla! $this->minimumJoomlaVersion or later to install this component</p>";
-            JLog::add($msg, JLog::WARNING, 'jerror');
+            Joomla\CMS\Log\Log::add($msg, Joomla\CMS\Log\Log::WARNING, 'jerror');
 
             return false;
         }
@@ -51,7 +51,7 @@ class com_SmartSlider3InstallerScript {
 
     /**
      *
-     * @param JInstallerAdapterPackage $parent
+     * @param Joomla\CMS\Installer\Adapter\PackageAdapter $parent
      */
     public function install($parent) {
 
@@ -63,7 +63,7 @@ class com_SmartSlider3InstallerScript {
 
     /**
      *
-     * @param JInstallerAdapterPackage $parent
+     * @param Joomla\CMS\Installer\Adapter\PackageAdapter $parent
      */
     public function uninstall($parent) {
 
@@ -71,7 +71,7 @@ class com_SmartSlider3InstallerScript {
 
     /**
      *
-     * @param JInstallerAdapterPackage $parent
+     * @param Joomla\CMS\Installer\Adapter\PackageAdapter $parent
      */
     public function update($parent) {
 
@@ -83,7 +83,7 @@ class com_SmartSlider3InstallerScript {
 
     /**
      *
-     * @param JInstallerAdapterPackage $parent
+     * @param Joomla\CMS\Installer\Adapter\PackageAdapter $parent
      */
     protected function installOrUpdate($parent) {
 
@@ -108,7 +108,7 @@ class com_SmartSlider3InstallerScript {
      */
     private function cleanup() {
 
-        $db = JFactory::getDBO();
+        $db = Joomla\CMS\Factory::getDBO();
 
         $db->setQuery("DELETE FROM #__assets WHERE name LIKE 'com_nextend2'")
            ->execute();
@@ -157,14 +157,14 @@ class com_SmartSlider3InstallerScript {
 
     protected function installFromPath($path) {
 
-        $installer = new JInstaller();
+        $installer = new Joomla\CMS\Installer\Installer();
         $installer->setOverwrite(true);
 
         if ($success = $installer->install($path)) {
             return true;
         }
 
-        $error = JText::sprintf('JLIB_INSTALLER_ABORT_PACK_INSTALL_ERROR_EXTENSION', 'Smart Slider 3', $path) . ' Please <a href="https://smartslider3.com/contact-us/support/" target="_blank">contact us</a> with this error!</p>';
+        $error = Joomla\CMS\Language\Text::sprintf('JLIB_INSTALLER_ABORT_PACK_INSTALL_ERROR_EXTENSION', 'Smart Slider 3', $path) . ' Please <a href="https://smartslider3.com/contact-us/support/" target="_blank">contact us</a> with this error!</p>';
         throw new RuntimeException($error);
 
         return false;
@@ -175,12 +175,12 @@ class com_SmartSlider3InstallerScript {
      * or updating your component. This is the last chance you've got to perform any additional installations, clean-up,
      * database updates and similar housekeeping functions.
      *
-     * @param string                     $type   install, update or discover_update
-     * @param JInstallerAdapterComponent $parent Parent object
+     * @param string                                      $type   install, update or discover_update
+     * @param Joomla\CMS\Installer\Adapter\PackageAdapter $parent Parent object
      */
     public function postflight($type, $parent) {
 
-        $db = JFactory::getDBO();
+        $db = Joomla\CMS\Factory::getDBO();
         $db->setQuery("UPDATE #__extensions SET enabled=1 WHERE type='plugin' AND folder LIKE 'system' AND element LIKE 'smartslider3'")
            ->execute();
         $db->setQuery("UPDATE #__extensions SET enabled=1 WHERE type='plugin' AND folder LIKE 'installer' AND element LIKE 'smartslider3'")
@@ -195,8 +195,8 @@ class com_SmartSlider3InstallerScript {
 
     private function deleteFolder($path) {
 
-        if (JFolder::exists($path)) {
-            JFolder::delete($path);
+        if (Joomla\CMS\Filesystem\Folder::exists($path)) {
+            Joomla\CMS\Filesystem\Folder::delete($path);
         }
     }
 }

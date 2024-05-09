@@ -4,14 +4,14 @@
 * @brief    sigplus Image Gallery Plus file system functions
 * @author   Levente Hunyadi
 * @version  1.5.0
-* @remarks  Copyright (C) 2009-2017 Levente Hunyadi
+* @remarks  Copyright (C) 2009-2023 Levente Hunyadi
 * @remarks  Licensed under GNU/GPLv3, see https://www.gnu.org/licenses/gpl-3.0.html
 * @see      https://hunyadi.info.hu/sigplus
 */
 
 /*
 * sigplus Image Gallery Plus plug-in for Joomla
-* Copyright 2009-2017 Levente Hunyadi
+* Copyright 2009-2023 Levente Hunyadi
 *
 * sigplus is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -936,17 +936,7 @@ function http_get_modified($url, $last_modified = null, $etag = null, $method = 
 				break;
 			} elseif (preg_match('#^Last-Modified:\s+(.+)$#iS', $header, $matches)) {
 				$timestring = $matches[1];
-				if (version_compare(PHP_VERSION, '5.3.0') >= 0) {
-					$date = DateTime::createFromFormat('D, d M Y H:i:s T', $timestring);  // parse HTTP date format (RFC 822, updated by RFC 1123)
-				} else {
-					$unixtime = strtotime($timestring);
-					if ($unixtime !== false && $unixtime !== -1) {
-						$date = new DateTime('@'.$unixtime);
-					} else {
-						$date = false;
-					}
-				}
-
+				$date = DateTime::createFromFormat('D, d M Y H:i:s T', $timestring);  // parse HTTP date format (RFC 822, updated by RFC 1123)
 				if ($date !== false) {
 					$response_headers['Last-Modified'] = $date->format('Y-m-d H:i:s');  // generate database date format
 				}

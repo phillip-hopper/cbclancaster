@@ -4,14 +4,14 @@
 * @brief    sigplus Image Gallery Plus plug-in for Joomla
 * @author   Levente Hunyadi
 * @version  1.5.0
-* @remarks  Copyright (C) 2009-2017 Levente Hunyadi
+* @remarks  Copyright (C) 2009-2023 Levente Hunyadi
 * @remarks  Licensed under GNU/GPLv3, see https://www.gnu.org/licenses/gpl-3.0.html
 * @see      https://hunyadi.info.hu/projects/sigplus
 */
 
 /*
 * sigplus Image Gallery Plus plug-in for Joomla
-* Copyright 2009-2014 Levente Hunyadi
+* Copyright 2009-2023 Levente Hunyadi
 *
 * sigplus is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -49,20 +49,18 @@ foreach ($properties as $property) {
 print '<a class="sigplus-image"'.$style_attr.' href="'.$url.'"'.$data_attr.'>';
 $title_text = strip_tags($title);
 print '<img class="sigplus-preview" src="'.htmlspecialchars($preview_url).'" width="'.$preview_width.'" height="'.$preview_height.'" alt="'.htmlspecialchars($title_text).'"';
-if (version_compare(JVERSION, '3.8.0') != 0) {  // address a bug in Joomla 3.8.0 SEF URL regular expression
-	$srcset = array();
-	if (isset($retina_url) && !empty($retina_width)) {
-		$srcset[] = htmlspecialchars($retina_url).' '.$retina_width.'w';
-	}
-	if (isset($preview_url) && !empty($preview_width)) {
-		$srcset[] = htmlspecialchars($preview_url).' '.$preview_width.'w';
-	}
-	if (isset($thumb_url) && !empty($thumb_width)) {
-		$srcset[] = htmlspecialchars($thumb_url).' '.$thumb_width.'w';
-	}
-	if (!empty($srcset)) {
-		print ' srcset="'.implode(', ', $srcset).'" sizes="'.$preview_width.'px"';
-	}
+$srcset = array();
+if (isset($retina_url) && !empty($retina_width)) {
+	$srcset[] = htmlspecialchars($retina_url).' '.$retina_width.'w';
+}
+if (isset($preview_url) && !empty($preview_width)) {
+	$srcset[] = htmlspecialchars($preview_url).' '.$preview_width.'w';
+}
+if (isset($thumb_url) && !empty($thumb_width)) {
+	$srcset[] = htmlspecialchars($thumb_url).' '.$thumb_width.'w';
+}
+if (!empty($srcset)) {
+	print ' srcset="'.implode(', ', $srcset).'" sizes="'.$preview_width.'px"';
 }
 print ' />';
 print '</a>';

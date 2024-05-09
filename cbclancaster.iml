@@ -26,6 +26,8 @@
       <excludeFolder url="file://$MODULE_DIR$/joomla/libraries/gantry5/compat/vendor/scssphp/scssphp" />
       <excludeFolder url="file://$MODULE_DIR$/joomla/libraries/gantry5/compat/vendor/symfony/polyfill-ctype" />
       <excludeFolder url="file://$MODULE_DIR$/joomla/libraries/gantry5/compat/vendor/twig/twig" />
+      <excludeFolder url="file://$MODULE_DIR$/joomla/libraries/gantry5/compat/vendor/pimple/pimple" />
+      <excludeFolder url="file://$MODULE_DIR$/joomla/libraries/gantry5/vendor/symfony/deprecation-contracts" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

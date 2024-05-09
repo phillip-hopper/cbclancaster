@@ -16,7 +16,7 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "89e6f7f8139889120a9550e67617162215582396"
+      "version": "a650d810e9b42d74301c09d743003a2f88a93ab5"
     },
     {
       "name": "com_admin.admin-help",
@@ -28,7 +28,7 @@
       "attributes": {
         "type": "module"
       },
-      "version": "d8191540d0e914610f59897704ca9b35146e05b4"
+      "version": "0191ac19fd42e7b64f15a50e00af04f408ada799"
     }
   ]
 }

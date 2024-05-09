@@ -2,21 +2,21 @@
 
 namespace Nextend\Framework\Session\Joomla;
 
-use JFactory;
+use Joomla\CMS\Factory;
 use Nextend\Framework\Session\AbstractStorage;
 
 class JoomlaStorage extends AbstractStorage {
 
     public function __construct() {
 
-        parent::__construct(JFactory::getUser()->id);
+        parent::__construct(Factory::getUser()->id);
     }
 
     /**
      * Load the whole session
      */
     protected function load() {
-        $stored = JFactory::getSession()
+        $stored = Factory::getSession()
                           ->get($this->hash);
 
         if (!is_array($stored)) {
@@ -29,7 +29,7 @@ class JoomlaStorage extends AbstractStorage {
      * Store the whole session
      */
     protected function store() {
-        $session = JFactory::getSession();
+        $session = Factory::getSession();
         if (count($this->storage) > 0) {
             $session->set($this->hash, $this->storage);
         } else {

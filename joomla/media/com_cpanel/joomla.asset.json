@@ -16,7 +16,7 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "26cff6e5baf165bee4fd7d3124fe1199867e32b7"
+      "version": "5bc10e073f2a2b5dad01951aaa7369c1750b8fb3"
     },
     {
       "name": "com_cpanel.admin-addmodule",
@@ -28,7 +28,7 @@
       "attributes": {
         "type": "module"
       },
-      "version": "c9e73b44b91f436de58aa5eb543424e3a6a67661"
+      "version": "84a7c56832dc933b6718b60858910c1028a8add6"
     },
     {
       "name": "com_cpanel.admin-cpanel.es5",
@@ -41,7 +41,7 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "1ee02b2db8931390baa93a983464bbd1c53607c0"
+      "version": "34dc661a6bd9110f8b8f13c307d705093c921b6f"
     },
     {
       "name": "com_cpanel.admin-cpanel",
@@ -53,7 +53,7 @@
       "attributes": {
         "type": "module"
       },
-      "version": "d0c778e80ef73d87cec2ae9795e8e01340066824"
+      "version": "7fc6a0ceafc7c05d88122061aafec820dffccbbd"
     },
     {
       "name": "com_cpanel.admin-system-loader.es5",
@@ -66,7 +66,7 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "4c2161a61fbfcd4827164c740d3dd8003bc97300"
+      "version": "18e45327283bc5fed60579064d1c60c02a9c436c"
     },
     {
       "name": "com_cpanel.admin-system-loader",
@@ -79,7 +79,7 @@
         "type": "module",
         "defer": true
       },
-      "version": "a21ca1e60b6547cdd2335229558a46b3cd535b7f"
+      "version": "b2d1ac8205d56eec891e1ba751e9a0680d3bb6c0"
     }
   ]
 }

@@ -4,13 +4,15 @@
 * @brief    sigplus Image Gallery Plus Bootstrap lightweight pop-up window engine
 * @author   Levente Hunyadi
 * @version  1.5.0
-* @remarks  Copyright (C) 2009-2017 Levente Hunyadi
+* @remarks  Copyright (C) 2009-2023 Levente Hunyadi
 * @remarks  Licensed under GNU/GPLv3, see https://www.gnu.org/licenses/gpl-3.0.html
 * @see      https://hunyadi.info.hu/projects/sigplus
 */
 
 // no direct access
 defined( '_JEXEC' ) or die( 'Restricted access' );
+
+use Joomla\CMS\Language\Text;
 
 /**
 * Support class for jQuery-based Bootstrap lightweight pop-up window engine, integrated into Joomla 3.0.
@@ -50,9 +52,9 @@ class SigPlusNovoBootstrapLightboxEngine extends SigPlusNovoLightboxEngine {
 		if ($uninitialized) {
 			$instance->addOnReadyScript(''
 				.'window.sigplus.bootstrap.initialize({'
-					.'previous:'.json_encode(JText::_('SIGPLUS_PREVIOUS')).','
-					.'next:'.json_encode(JText::_('SIGPLUS_NEXT')).','
-					.'close:'.json_encode(JText::_('SIGPLUS_CLOSE'))
+					.'previous:'.json_encode(Text::_('SIGPLUS_PREVIOUS')).','
+					.'next:'.json_encode(Text::_('SIGPLUS_NEXT')).','
+					.'close:'.json_encode(Text::_('SIGPLUS_CLOSE'))
 				.'});'
 			);
 			$uninitialized = false;
@@ -63,7 +65,7 @@ class SigPlusNovoBootstrapLightboxEngine extends SigPlusNovoLightboxEngine {
 			.'(function ($) {'
 				.'var items = $('.json_encode($selector).');'
 				.'items.click(function (event) {'
-					.'window.sigplus.bootstrap.show(items, $(this), '.json_encode($params->lightbox_params, JSON_FORCE_OBJECT).');'
+					.'window.sigplus.bootstrap.show(items, $(this));'
 					.'event.preventDefault();'  // prevent click event on anchor triggering default browser behavior
 				.'});'
 			.'})(jQuery);'

@@ -4,7 +4,7 @@
 namespace Nextend\SmartSlider3\Slider;
 
 
-use JRoute;
+use Joomla\CMS\Router\Route;
 use Nextend\Framework\Cast;
 use Nextend\Framework\Data\Data;
 use Nextend\Framework\FastImageSize\FastImageSize;
@@ -276,7 +276,7 @@ class Slide extends AbstractRenderableOwner {
 
 
             $url = Link::parse($url, $this->linkAttributes);
-            $this->linkAttributes['data-href'] = JRoute::_($url, false);
+            $this->linkAttributes['data-href'] = Route::_($url, false);
             $this->linkAttributes['tabindex'] = 0;
             $this->linkAttributes['role']     = 'button';
 

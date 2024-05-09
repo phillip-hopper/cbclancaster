@@ -4,13 +4,15 @@
 * @brief    sigplus Image Gallery Plus slideplus image rotator engine
 * @author   Levente Hunyadi
 * @version  1.5.0
-* @remarks  Copyright (C) 2009-2017 Levente Hunyadi
+* @remarks  Copyright (C) 2009-2023 Levente Hunyadi
 * @remarks  Licensed under GNU/GPLv3, see https://www.gnu.org/licenses/gpl-3.0.html
 * @see      https://hunyadi.info.hu/projects/sigplus
 */
 
 // no direct access
 defined( '_JEXEC' ) or die( 'Restricted access' );
+
+use Joomla\CMS\Factory;
 
 /**
 * Support class for the slideplus rotator engine, written in plain JavaScript.
@@ -163,34 +165,6 @@ class SigPlusNovoSlidePlusRotatorEngine extends SigPlusNovoRotatorEngine {
 		if ($params->rotator_duration > 0) {
 			$animation['animation-duration'] = $params->rotator_duration.'ms';
 		}
-		$easing = false;
-		switch ($params->rotator_transition) {
-			case 'linear':
-				$easing = 'linear'; break;
-			case 'quad':   // http://easings.net/#easeInOutQuad
-				$easing = 'cubic-bezier(0.455, 0.03, 0.515, 0.955)'; break;
-			case 'cubic':  // http://easings.net/#easeInOutCubic
-				$easing = 'cubic-bezier(0.645, 0.045, 0.355, 1)'; break;
-			case 'quart':  // http://easings.net/#easeInOutQuart
-				$easing = 'cubic-bezier(0.77, 0, 0.175, 1)'; break;
-			case 'quint':  // http://easings.net/#easeInOutQuint
-				$easing = 'cubic-bezier(0.86, 0, 0.07, 1)'; break;
-			case 'expo':   // http://easings.net/#easeInOutExpo
-				$easing = 'cubic-bezier(1, 0, 0, 1)'; break;
-			case 'circ':   // http://easings.net/#easeInOutCirc
-				$easing = 'cubic-bezier(0.785, 0.135, 0.15, 0.86)'; break;
-			case 'sine':   // http://easings.net/#easeInOutSine
-				$easing = 'cubic-bezier(0.445, 0.05, 0.55, 0.95)'; break;
-			case 'back':   // http://easings.net/#easeInOutBack
-				$easing = 'cubic-bezier(0.68, -0.55, 0.265, 1.55)'; break;
-			case 'bounce':   // not supported in CSS
-			case 'elastic':  // not supported in CSS
-			default:
-				break;
-		}
-		if ($easing !== false) {
-			$animation['animation-timing-function'] = $easing;
-		}
 		$css["{$selector} .slideplus-stripe"] = $animation;
 
 		$instance = SigPlusNovoEngineServices::instance();
@@ -218,6 +192,7 @@ class SigPlusNovoSlidePlusRotatorEngine extends SigPlusNovoRotatorEngine {
 		$jsparams['step'] = $params->rotator_step;
 		$jsparams['links'] = $params->rotator_links;
 		$jsparams['delay'] = $params->rotator_delay;
+		$jsparams['timing'] = $params->rotator_transition;
 		if ($params->sort_criterion == SIGPLUS_SORT_RANDOM) {
 			$jsparams['random'] = true;
 		}
@@ -228,7 +203,7 @@ class SigPlusNovoSlidePlusRotatorEngine extends SigPlusNovoRotatorEngine {
 		}
 		$jsparams['captions'] = $caption_position;
 		$jsparams['protection'] = $params->protection;
-		$language = JFactory::getLanguage();
+		$language = Factory::getLanguage();
 		$jsparams['dir'] = $language->isRtl() ? 'rtl' : 'ltr';
 		$jsparams = array_merge($jsparams, $params->rotator_params);
 		$jsparams = json_encode($jsparams);

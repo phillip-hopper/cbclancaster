@@ -32,7 +32,44 @@
 */
 const SlidePlusStep = {
 	Single: 'single',
-	Page: 'page'
+	Page: 'page',
+};
+
+/**
+* Transition effect used when the slider advances in response to navigation buttons Previous or Next.
+* @enum {string}
+*/
+const SlidePlusTransition = {
+	Slide: 'slide',
+	Fade: 'fade',
+};
+
+/**
+* Animation timing used for the transition animation effect.
+* @enum {string}
+*/
+const SlidePlusTiming = {
+	Linear: 'linear',
+	Quad: 'quad',
+	Cubic: 'cubic',
+	Quart: 'quart',
+	Quint: 'quint',
+	Expo: 'expo',
+	Circ: 'circ',
+	Sine: 'sine',
+	Back: 'back',
+	Elastic: 'elastic',
+	Bounce: 'bounce',
+};
+
+/**
+* Keyframe set used for the transition animation effect.
+* @enum {string}
+*/
+const SlidePlusProgression = {
+	Linear: 'linear',
+	Elastic: 'elastic',
+	Bounce: 'bounce',
 };
 
 /**
@@ -41,7 +78,7 @@ const SlidePlusStep = {
 */
 const SlidePlusOrientation = {
 	Horizontal: 'horizontal',
-	Vertical: 'vertical'
+	Vertical: 'vertical',
 };
 
 /**
@@ -51,7 +88,7 @@ const SlidePlusOrientation = {
 const SlidePlusLayout = {
 	Natural: 'natural',
 	Row: 'row',
-	Column: 'column'
+	Column: 'column',
 };
 
 /**
@@ -63,7 +100,7 @@ const SlidePlusPosition = {
 	Above: 'above',
 	Top: 'top',
 	Bottom: 'bottom',
-	Below: 'below'
+	Below: 'below',
 };
 
 /**
@@ -72,7 +109,7 @@ const SlidePlusPosition = {
 */
 const SlidePlusWritingSystem = {
 	LeftToRight: 'ltr',
-	RightToLeft: 'rtl'
+	RightToLeft: 'rtl',
 };
 
 /**
@@ -83,6 +120,8 @@ const SlidePlusWritingSystem = {
 * + step: Unit the slider advances in response to navigation buttons Previous or Next ['single'|'page'].
 * + loop: Whether the rotator loops around in a circular fashion [false|true].
 * + random: Whether the rotator randomizes the order of images on startup [false|true].
+* + transition: Transition effect used when the slider advances in response to navigation buttons Previous or Next ['slide'|'fade'].
+* + timing: Animation timing for the transition.
 * + orientation: Orientation of the sliding image strip ['horizontal'|'vertical'].
 * + layout: Layout of the sliding image strip ['natural'|'row'|'column'].
 * + links: Whether to show navigation links [true|false].
@@ -97,6 +136,8 @@ const SlidePlusWritingSystem = {
 *     step: SlidePlusStep,
 *     loop: boolean,
 *     random: boolean,
+*     transition: SlidePlusTransition,
+*     timing: SlidePlusTiming,
 *     orientation: SlidePlusOrientation,
 *     layout: SlidePlusLayout,
 *     captions: SlidePlusPosition,
@@ -104,7 +145,7 @@ const SlidePlusWritingSystem = {
 *     counter: boolean,
 *     protection: boolean,
 *     delay: number,
-*     dir: SlidePlusWritingSystem
+*     dir: SlidePlusWritingSystem,
 * }}
 */
 let SlidePlusOptions;
@@ -116,6 +157,8 @@ const slidePlusDefaults = {
 	'step': SlidePlusStep.Page,
 	'loop': false,
 	'random': false,
+	'transition': SlidePlusTransition.Slide,
+	'timing': SlidePlusTiming.Linear,
 	'orientation': SlidePlusOrientation.Horizontal,
 	'layout': SlidePlusLayout.Natural,
 	'captions': SlidePlusPosition.Bottom,
@@ -124,8 +167,24 @@ const slidePlusDefaults = {
 	'protection': false,
 	'delay': 0,
 	'dir': SlidePlusWritingSystem.LeftToRight,
-	'lazyload': true
+	'lazyload': true,
 };
+
+/**
+* @typedef {{
+*     t: number,
+*     p: number,
+* }}
+*/
+let SlidePlusKeyframe;
+
+/**
+* @typedef {{
+*     x: number,
+*     y: number,
+* }}
+*/
+let SlidePlusScale;
 
 /**
 * Creates an HTML <div> element.
@@ -330,44 +389,111 @@ function cloneElements(items) {
 	});
 }
 
-function generateAnimationStyleDeclarations() {
-	/**
-	* @param {string} dir
-	* @param {number} x
-	* @param {number} y
-	* @param {number} frac
-	* @return {string}
-	*/
-	function generateKeyFrame(dir, x, y, frac) {
-		return '@keyframes slideplus-push-' + dir + '-' + frac + '{' +
-			'0%{transform:translate(0,0);}' +
-			'100%{transform:translate(' + (100 * x / frac) + '%,' + (100 * y / frac) + '%);}' +
-		'}';
+/**
+* Returns the keyframe set corresponding to the transition animation.
+* @param {!SlidePlusTiming} timing Effect timing.
+* @return {!SlidePlusProgression} Effect progression.
+*/
+function getProgressionForTiming(timing) {
+	if (SlidePlusTiming.Elastic === timing) {
+		return SlidePlusProgression.Elastic;
+	} else if (SlidePlusTiming.Bounce === timing) {
+		return SlidePlusProgression.Bounce;
+	} else {
+		return SlidePlusProgression.Linear;
 	}
+}
 
-	/**
-	* @param {number} frac
-	* @return {!Array<string>}
-	*/
-	function generateKeyFrames(frac) {
-		return [
-			generateKeyFrame('left',  -1,  0, frac),
-			generateKeyFrame('right',  1,  0, frac),
-			generateKeyFrame('top',    0, -1, frac),
-			generateKeyFrame('bottom', 0,  1, frac)
-		];
-	}
+function generateAnimationStyleDeclarations() {
+	/** @type {!Map<SlidePlusProgression, Array<SlidePlusKeyframe>>} */
+	const progressions = new Map([
+		[SlidePlusProgression.Linear, [
+			{t: 0, p: 0},
+			{t: 100, p: 100},
+		]],
+		// https://easings.net/#easeInOutElastic
+		[SlidePlusProgression.Elastic, [
+			{t: 0, p: 0},
+			{t: 4, p: 0.1},
+			{t: 8, p: 0.1},
+			{t: 18, p: -0.5},
+			{t: 20, p: -0.5},
+			{t: 28, p: 2.4},
+			{t: 30, p: 2.4},
+			{t: 38, p: -10},
+			{t: 40, p: -10},
+			{t: 60, p: 110},
+			{t: 62, p: 110},
+			{t: 70, p: 97.6},
+			{t: 72, p: 97.6},
+			{t: 80, p: 100.5},
+			{t: 82, p: 100.5},
+			{t: 90, p: 99.9},
+			{t: 92, p: 99.9},
+			{t: 100, p: 100},
+		]],
+		// https://easings.net/#easeOutBounce
+		[SlidePlusProgression.Bounce, [
+			{t: 0, p: 0},
+			{t: 12, p: 10.89},
+			{t: 24, p: 43.56},
+			{t: 36, p: 98},
+			{t: 54, p: 75},
+			{t: 74, p: 98.4},
+			{t: 82, p: 93.75},
+			{t: 92, p: 99.3},
+			{t: 96, p: 98.5},
+			{t: 100, p: 100},
+		]],
+		// https://easings.net/#easeInOutBounce
+		/*
+		[SlidePlusProgression.InOutBounce, [
+			{t: 0, p: 0},
+			{t: 2, p: 1},
+			{t: 4, p: 0.3},
+			{t: 10, p: 3},
+			{t: 14, p: 1},
+			{t: 22, p: 12.4},
+			{t: 32, p: 1},
+			{t: 42, p: 40.3},
+			{t: 50, p: 50},
+			{t: 58, p: 59.7},
+			{t: 68, p: 99},
+			{t: 78, p: 87.6},
+			{t: 86, p: 99},
+			{t: 90, p: 97},
+			{t: 96, p: 99.7},
+			{t: 98, p: 99},
+			{t: 100, p: 100},
+		]],
+		*/
+	]);
+
+	/** @type {!Map<string, SlidePlusScale>} */
+	const directions = new Map([
+		['left', {x: -1, y: 0}],
+		['right', {x: 1, y: 0}],
+		['top', {x: 0, y: -1}],
+		['bottom', {x: 0, y: 1}],
+	]);
 
 	/** @type {!Array<string>} */
 	let keyframes = [];
-	for (let k = 1; k < 10; ++k) {
-		[].push.apply(keyframes, generateKeyFrames(k));
-	}
-	let rules = keyframes.join('');
+	progressions.forEach(function (progressionArray, easingName) {
+		directions.forEach(function (scale, directionName) {
+			for (let frac = 1; frac < 10; ++frac) {
+				keyframes.push('@keyframes slideplus-push-' + easingName + '-' + directionName + '-' + frac + '{\n' +
+					progressionArray.map(function (progression) {
+						return progression.t + '%{transform:translate(' + (progression.p * scale.x / frac) + '%,' + (progression.p * scale.y / frac) + '%);}';
+					}).join('\n') +
+				'\n}')
+			}
+		});
+	});
 
 	let stylesheet = document.createElement('style');
 	stylesheet.type = 'text/css';
-	stylesheet.innerText = rules;
+	stylesheet.textContent = keyframes.join('\n');
 	document.head.appendChild(stylesheet);
 }
 generateAnimationStyleDeclarations();
@@ -487,7 +613,7 @@ function SlidePlusSlider(elem, options, titleFunc) {
 	this.options['loop'] = loop;
 
 	const orientation = /** @type {SlidePlusOrientation} */ (this.options['orientation']);
-	const writingsystem = /** @type {SlidePlusWritingSystem} */ (self.options['dir']);
+	const writingsystem = /** @type {SlidePlusWritingSystem} */ (this.options['dir']);
 
 	// clone items to handle the case when the current and the successive viewport area display identical indices simultaneously
 	/** @type {!Array<!Element>} */
@@ -521,6 +647,7 @@ function SlidePlusSlider(elem, options, titleFunc) {
 	function createStripe(itemlist) {
 		let grid = createDivElement();
 		grid.classList.add('slideplus-stripe');
+		grid.classList.add('slideplus-timing-' + /** @type {SlidePlusTiming} */ (self.options['timing']));
 		for (let i = 0; i < rows; ++i) {
 			let gridrow = createDivElement();
 			for (let j = 0; j < cols; ++j) {
@@ -997,10 +1124,22 @@ SlidePlusSlider.prototype._advance = function (direction, horzdir, vertdir) {
 
 	this._cancelTimer();
 
+	const loop = /** @type {boolean} */ (this.options['loop']);
+	const transition = /** @type {SlidePlusTransition} */ (this.options['transition']);
+
+	const targetindex = this.current + direction * this._getOffset();
+	if (!loop && !this._inRange(targetindex)) {
+		return;
+	}
+
+	if (transition === SlidePlusTransition.Fade) {
+		const len = this.items.length;
+		this._jump((targetindex + len) % len);
+		return;
+	}
+
 	const rows = /** @type {number} */ (this.options['rows']);
 	const cols = /** @type {number} */ (this.options['cols']);
-	const loop = /** @type {boolean} */ (this.options['loop']);
-
 	const orientation = /** @type {SlidePlusOrientation} */ (this.options['orientation']);
 	const step = /** @type {SlidePlusStep} */ (this.options['step']);
 
@@ -1028,11 +1167,6 @@ SlidePlusSlider.prototype._advance = function (direction, horzdir, vertdir) {
 		stationarydir = horzdir;
 	}
 
-	const targetindex = this.current + direction * this._getOffset();
-	if (!loop && !this._inRange(targetindex)) {
-		return;
-	}
-
 	// arrange items in the viewport that moves in
 	this._arrange(this.successoritems, this.current + direction * rows * cols);
 
@@ -1040,9 +1174,10 @@ SlidePlusSlider.prototype._advance = function (direction, horzdir, vertdir) {
 	resetPosition(this.successorgrid);
 
 	// initiate animation sequence
-	const animation = 'slideplus-push-' + movedir + '-' + fraction;
-	this.currentgrid.style['animationName'] = animation;
-	this.successorgrid.style['animationName'] = animation;
+	const timing = /** @type {SlidePlusTiming} */ (this.options['timing']);
+	const animation = 'slideplus-push-' + getProgressionForTiming(timing) + '-' + movedir + '-' + fraction;
+	this.currentgrid.style.setProperty('animation-name', animation);
+	this.successorgrid.style.setProperty('animation-name', animation);
 	this.successorgrid.style[movedir] = '100%';
 	this.successorgrid.style[stationarydir] = '0';
 	this.successorgrid.classList.remove('slideplus-hidden');

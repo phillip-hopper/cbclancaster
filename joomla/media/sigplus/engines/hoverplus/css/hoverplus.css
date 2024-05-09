@@ -15,6 +15,10 @@
 padding:5px;
 }
 
+#hoverplus, #hoverplus * {
+box-sizing:content-box;
+}
+
 /* initial width and height for dialog */
 .hoverplus-dialog {
 width:100px;

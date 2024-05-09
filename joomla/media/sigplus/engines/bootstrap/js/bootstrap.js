@@ -16,16 +16,20 @@ window.sigplus.bootstrap.initialize = function (labels) {
 	// append Bootstrap dialog box HTML
 	var dialog = $(''
 		+   '<div id="sigplus-bootstrap" class="modal fade hide" tabindex="-1" role="dialog" aria-hidden="true">'
-		+       '<div class="modal-header">'
-		+           '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>'
-		+           '<h3 class="modal-title">sigplus</h3>'
-		+       '</div>'
-		+       '<div class="modal-body" style="max-height:none;"><img /></div>'
-		+       '<div class="modal-footer">'
+		+     '<div class="modal-dialog modal-dialog-centered modal-fullscreen-xl-down">'
+		+       '<div class="modal-content">'
+		+         '<div class="modal-header">'
+		+           '<h5 class="modal-title">sigplus</h5>'
+		+           '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>'
+		+         '</div>'
+		+         '<div class="modal-body" style="max-height:none;"><img /></div>'
+		+         '<div class="modal-footer">'
 		+           '<button class="btn previous" aria-hidden="true">'+ (labels.previous || 'Previous') +'</button>'
 		+           '<button class="btn next" aria-hidden="true">'+ (labels.next || 'Next') +'</button>'
-		+           '<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">'+ (labels.close || 'Close') +'</button>'
+		+           '<button class="btn btn-primary" data-bs-dismiss="modal" aria-hidden="true">'+ (labels.close || 'Close') +'</button>'
+		+         '</div>'
 		+       '</div>'
+		+     '</div>'
 		+   '</div>'
 	).appendTo('body');
 	var image = $('.modal-body > img', dialog);
@@ -38,7 +42,7 @@ window.sigplus.bootstrap.initialize = function (labels) {
 	function update(item) {
 		activeItem = item;
 		image.attr('src', activeItem.attr('href'));  // set image
-		title.html($('img', activeItem).attr('alt'));  // set image caption
+		title.html($('img', activeItem).attr('alt') || '&nbsp;');  // set image caption
 	}
 
 	function navigate(offset) {
@@ -55,11 +59,11 @@ window.sigplus.bootstrap.initialize = function (labels) {
 		navigate(1);
 	});
 
-	window.sigplus.bootstrap.show = function (set, item, options) {
+	window.sigplus.bootstrap.show = function (set, item) {
 		activeSet = set;
 		update(item);
 		btnPrevious.toggleClass('sigplus-hidden', set.length < 2);
 		btnNext.toggleClass('sigplus-hidden', set.length < 2);
-		dialog.modal(options);  // initialize and show modal box
+		dialog.modal('show');  // initialize and show modal box
 	}
 };

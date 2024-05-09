@@ -2,8 +2,8 @@
 
 namespace Nextend\SmartSlider3\Generator\Joomla\JoomlaContent\Elements;
 
-use JFactory;
-use JHTML;
+use Joomla\CMS\Factory;
+use Joomla\CMS\HTML\HTMLHelper;
 use Nextend\Framework\Form\Element\Select;
 
 
@@ -12,7 +12,7 @@ class JoomlaContentCategories extends Select {
     public function __construct($insertAt, $name = '', $label = '', $default = '', $parameters = array()) {
         parent::__construct($insertAt, $name, $label, $default, $parameters);
 
-        $db = JFactory::getDBO();
+        $db = Factory::getDBO();
 
         $query = 'SELECT
                     id, 
@@ -40,7 +40,7 @@ class JoomlaContentCategories extends Select {
         $this->options[0] = n2_('All');
 
         jimport('joomla.html.html.menu');
-        $options = JHTML::_('menu.treerecurse', 1, '', array(), $children, 9999, 0, 0);
+        $options = HTMLHelper::_('menu.treerecurse', 1, '', array(), $children, 9999, 0, 0);
         if (count($options)) {
             foreach ($options as $option) {
                 $this->options[$option->id] = $option->treename;

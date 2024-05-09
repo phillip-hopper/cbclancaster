@@ -4,14 +4,14 @@
 * @brief    sigplus Image Gallery Plus installer script
 * @author   Levente Hunyadi
 * @version  1.5.0
-* @remarks  Copyright (C) 2009-2017 Levente Hunyadi
+* @remarks  Copyright (C) 2009-2023 Levente Hunyadi
 * @remarks  Licensed under GNU/GPLv3, see https://www.gnu.org/licenses/gpl-3.0.html
 * @see      https://hunyadi.info.hu/projects/sigplus
 */
 
 /*
 * sigplus Image Gallery Plus module for Joomla
-* Copyright 2009-2017 Levente Hunyadi
+* Copyright 2009-2023 Levente Hunyadi
 *
 * sigplus is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -41,6 +41,8 @@ if (!defined('SIGPLUS_MEDIA_FOLDER')) {
 if (!class_exists('SigPlusNovoDatabaseSetup')) {
 	require_once JPATH_ROOT.DIRECTORY_SEPARATOR.'plugins'.DIRECTORY_SEPARATOR.'content'.DIRECTORY_SEPARATOR.SIGPLUS_PLUGIN_FOLDER.DIRECTORY_SEPARATOR.'core'.DIRECTORY_SEPARATOR.'setup.php';
 }
+
+use Joomla\CMS\Factory;
 
 class mod_SigPlusNovoInstallerScript {
 	function __construct($parent) { }
@@ -94,16 +96,37 @@ class mod_SigPlusNovoInstallerScript {
 				continue;
 			}
 
-			if (($data = file_get_contents($plugin_language_file)) !== false && ($handle = fopen($module_language_file, 'a')) !== false) {
-				fwrite($handle, "\n\n");
-				fwrite($handle, $data);
-				fclose($handle);
+			// parse language file
+			$plugin_language = parse_ini_file($plugin_language_file);
+			$module_language = parse_ini_file($module_language_file);
+			if ($plugin_language === false || $module_language === false) {
+				continue;
 			}
+
+			// concatenate language data, filtering duplicates
+			$lang_strings = array_merge($module_language, $plugin_language);
+
+			// write language file
+			$lang_data = array(
+				'; en-GB.mod_sigplus.ini'.PHP_EOL,
+				'; Copyright (C) 2009-2022 Levente Hunyadi'.PHP_EOL,
+				'; License https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL, see LICENSE.php'.PHP_EOL,
+				'; Note : All ini files need to be saved as UTF-8 - No BOM'.PHP_EOL,
+				PHP_EOL
+			);
+			foreach ($lang_strings as $lang_key => $lang_value) {
+				$lang_data[] = $lang_key.'="'.addcslashes($lang_value, '\\"').'"'.PHP_EOL;
+			}
+			file_put_contents($module_language_file, $lang_data);
 		}
 	}
 
 	private static function migrateConfiguration() {
-		$db = JFactory::getDbo();
+		if (version_compare(JVERSION, '4.0') >= 0) {
+			$db = Factory::getContainer()->get(Joomla\Database\DatabaseInterface::class);
+		} else {
+			$db = Factory::getDBO();
+		}
 
 		// iterate over existing module configuration settings
 		$db->setQuery('SELECT id FROM #__modules WHERE module = '.$db->quote('mod_sigplus'));

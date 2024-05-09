@@ -4,14 +4,14 @@
 * @brief    sigplus Image Gallery Plus base exceptions
 * @author   Levente Hunyadi
 * @version  1.5.0
-* @remarks  Copyright (C) 2009-2017 Levente Hunyadi
+* @remarks  Copyright (C) 2009-2023 Levente Hunyadi
 * @remarks  Licensed under GNU/GPLv3, see https://www.gnu.org/licenses/gpl-3.0.html
 * @see      https://hunyadi.info.hu/sigplus
 */
 
 /*
 * sigplus Image Gallery Plus plug-in for Joomla
-* Copyright 2009-2017 Levente Hunyadi
+* Copyright 2009-2023 Levente Hunyadi
 *
 * sigplus is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -30,6 +30,8 @@
 // no direct access
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
+use Joomla\CMS\Language\Text;
+
 /**
 * Triggered when an error occurs while generating a gallery.
 * This is a base class for other exception types.
@@ -40,14 +42,14 @@ class SigPlusNovoException extends Exception {
 	* @param {string} $key Error message language key.
 	*/
 	public function __construct($key) {
-		$message = '['.$key.'] '.JText::_($key);  // get localized message text
+		$message = '['.$key.'] '.Text::_($key);  // get localized message text
 		$search = array();
 		$replace = array();
 		foreach (get_object_vars($this) as $property => $value) {
 			$search[] = '{$'.$property.'}';  // replace placeholders in message text
 			$text = (string) $this->$property;
 			if (preg_match('/^[A-Z][0-9A-Z_]*$/', $text)) {  // could be a language key
-				$text = JText::_($text);
+				$text = Text::_($text);
 			}
 			$replace[] = htmlspecialchars($text);
 		}
@@ -59,7 +61,7 @@ class SigPlusNovoException extends Exception {
 	* Removes the server-specific path prefix from an absolute path, and returns a relative path.
 	*/
 	protected static function makeRelative($path) {
-		return str_replace(array(JPATH_ROOT,DIRECTORY_SEPARATOR), array(JText::_('SIGPLUS_ROOT'),'/'), $path);
+		return str_replace(array(JPATH_ROOT,DIRECTORY_SEPARATOR), array(Text::_('SIGPLUS_ROOT'),'/'), $path);
 	}
 }
 
@@ -254,7 +256,7 @@ class SigPlusNovoEngineUnavailableException extends SigPlusNovoException {
 	public function __construct($engine, $enginetype) {
 		$this->engine = $engine;
 		if ($enginetype) {
-			$this->enginetype = JText::_('SIGPLUS_ENGINE_'.strtoupper($enginetype));
+			$this->enginetype = Text::_('SIGPLUS_ENGINE_'.strtoupper($enginetype));
 		}
 		parent::__construct('SIGPLUS_EXCEPTION_ENGINE');
 	}

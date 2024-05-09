@@ -1,15 +1,16 @@
 <?php
 /*
- * @package BFStop Component (com_bfstop) for Joomla! >=2.5
+ * @package BFStop Component (com_bfstop) for Joomla!
  * @author Bernhard Froehler
  * @copyright (C) Bernhard Froehler
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 **/
 defined('_JEXEC') or die;
 
-jimport('joomla.application.component.modellist');
+use Joomla\CMS\Factory;
+use Joomla\CMS\MVC\Model\ListModel;
 
-class BFStopModelFailedLoginList extends JModelList
+class BFStopModelFailedLoginList extends ListModel
 {
 	public function __construct($config = array())
 	{
@@ -25,7 +26,7 @@ class BFStopModelFailedLoginList extends JModelList
 
 	protected function getListQuery()
 	{
-		$db = JFactory::getDBO();
+		$db = Factory::getDBO();
 		$query = $db->getQuery(true);
 		$query->select('l.id, l.username, l.ipaddress, l.logtime, l.origin');
 		$query->from('#__bfstop_failedlogin l');

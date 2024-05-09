@@ -4,10 +4,10 @@
 namespace Nextend\Framework\Platform\Joomla;
 
 
-use JComponentHelper;
-use JDocument;
-use JFactory;
-use JURI;
+use Joomla\CMS\Component\ComponentHelper;
+use Joomla\CMS\Document\Document;
+use Joomla\CMS\Factory;
+use Joomla\CMS\Uri\Uri;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Nextend\Framework\Asset\Js\Js;
@@ -20,19 +20,18 @@ class PlatformJoomla extends AbstractPlatform {
 
     public function __construct() {
 
-        if (JFactory::getApplication()
-                    ->isClient('administrator')) {
+        if (Factory::getApplication()
+                   ->isClient('administrator')) {
 
             $this->isAdmin = true;
         }
 
         // Load required UTF-8 config from Joomla
         jimport('joomla.utilities.string');
-        class_exists('JString');
 
         if (!defined('JPATH_NEXTEND_IMAGES')) {
-            define('JPATH_NEXTEND_IMAGES', '/' . trim(JComponentHelper::getParams('com_media')
-                                                                      ->get('image_path', 'images'), "/"));
+            define('JPATH_NEXTEND_IMAGES', '/' . trim(ComponentHelper::getParams('com_media')
+                                                                     ->get('image_path', 'images'), "/"));
         }
 
         Plugin::addAction('exit', array(
@@ -58,21 +57,21 @@ class PlatformJoomla extends AbstractPlatform {
 
     public function getSiteUrl() {
 
-        return JURI::root();
+        return Uri::root();
     }
 
     public function getCharset() {
 
-        return JDocument::getInstance()
-                        ->getCharset();
+        return Document::getInstance()
+                       ->getCharset();
     }
 
     public function getMysqlDate() {
 
-        $config = JFactory::getConfig();
+        $config = Factory::getConfig();
 
-        return JFactory::getDate('now', $config->get('offset'))
-                       ->toSql(true);
+        return Factory::getDate('now', $config->get('offset'))
+                      ->toSql(true);
     }
 
     public function getTimestamp() {
@@ -96,13 +95,13 @@ class PlatformJoomla extends AbstractPlatform {
 
     public function getUserEmail() {
 
-        return JFactory::getUser()->email;
+        return Factory::getUser()->email;
     }
 
     public function getDebug() {
         $debug = array();
 
-        $db    = JFactory::getDbo();
+        $db    = Factory::getDbo();
         $query = $db->getQuery(true);
         $query->select($db->quoteName(array(
             'template',
@@ -165,13 +164,13 @@ class PlatformJoomla extends AbstractPlatform {
 
     public function addKeepAlive() {
         if ($this->isAdmin) {
-            $lifetime = JFactory::getConfig()
-                                ->get('lifetime');
+            $lifetime = Factory::getConfig()
+                               ->get('lifetime');
             if (empty($lifetime)) {
                 $lifetime = 60;
             }
             $lifetime = min(max(intval($lifetime) - 1, 9), 60 * 24);
-            Js::addInline('setInterval(function(){$.ajax({url: "' . JURI::current() . '", cache: false});}, ' . ($lifetime * 60 * 1000) . ');');
+            Js::addInline('setInterval(function(){$.ajax({url: "' . Uri::current() . '", cache: false});}, ' . ($lifetime * 60 * 1000) . ');');
         }
     }
 }

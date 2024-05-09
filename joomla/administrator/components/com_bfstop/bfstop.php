@@ -1,23 +1,28 @@
 <?php
 /*
- * @package BFStop Component (com_bfstop) for Joomla! >=2.5
+ * @package BFStop Component (com_bfstop) for Joomla!
  * @author Bernhard Froehler
  * @copyright (C) Bernhard Froehler
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 **/
 defined('_JEXEC') or die;
 
-if (!JFactory::getUser()->authorise('core.manage', 'com_bfstop'))
+use Joomla\CMS\Access\Exception\NotAllowed;
+use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\MVC\Controller\BaseController;
+
+$user = Factory::getApplication()->getIdentity();
+if (!$user || !$user->authorise('core.manage', 'com_bfstop'))
 {
-	throw new JAccessExceptionNotallowed(JText::_('JERROR_ALERTNOAUTHOR'), 403);
+	throw new NotAllowed(Text::_('JERROR_ALERTNOAUTHOR'), 403);
 }
-JLoader::register('BFStopHelper', dirname(__FILE__).'/helpers/bfstop.php');
 
-jimport('joomla.application.component.controller');
 require_once(JPATH_ADMINISTRATOR.'/components/com_bfstop/helpers/log.php');
-
-$controller = JControllerLegacy::getInstance('bfstop');
-$jinput = JFactory::getApplication()->input;
+require_once(JPATH_ADMINISTRATOR.'/components/com_bfstop/helpers/polyfill.php');
+JLoader::register('BFStopToolbarHelper', dirname(__FILE__).'/helpers/toolbar.php');
+$controller = BaseController::getInstance('bfstop');
+$jinput = Factory::getApplication()->input;
 $task = $jinput->get('task', "", 'STR');
 $controller->execute($task);
 $controller->redirect();

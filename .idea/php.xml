@@ -31,6 +31,8 @@
       <path value="$PROJECT_DIR$/joomla/libraries/gantry5/compat/vendor/scssphp/scssphp" />
       <path value="$PROJECT_DIR$/joomla/libraries/gantry5/compat/vendor/twig/twig" />
       <path value="$PROJECT_DIR$/joomla/libraries/gantry5/compat/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/joomla/libraries/gantry5/compat/vendor/pimple/pimple" />
+      <path value="$PROJECT_DIR$/joomla/libraries/gantry5/vendor/symfony/deprecation-contracts" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1">
@@ -38,6 +40,7 @@
   </component>
   <component name="PhpUnit">
     <phpunit_settings>
+      <PhpUnitSettings custom_loader_path="$PROJECT_DIR$/joomla/libraries/gantry5/compat/vendor/autoload.php" />
       <PhpUnitSettings custom_loader_path="$PROJECT_DIR$/joomla/libraries/gantry5/vendor/autoload.php" />
       <PhpUnitSettings custom_loader_path="$PROJECT_DIR$/vendor/autoload.php" />
     </phpunit_settings>

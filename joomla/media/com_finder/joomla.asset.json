@@ -9,7 +9,7 @@
       "name": "com_finder.dates",
       "type": "style",
       "uri": "com_finder/dates.min.css",
-      "version": "229ab888450c27ab52a44882abe084a5155620b6"
+      "version": "9e62d33af80cca069ae326382b59430c2aa0fbd3"
     },
     {
       "name": "com_finder.filters.es5",
@@ -22,7 +22,7 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "306fd844307e82e0ff07cd95c7c7f608b6aa7462"
+      "version": "b0c4f385321b92f5d5f9e9cbef87f401424396eb"
     },
     {
       "name": "com_finder.filters",
@@ -34,25 +34,13 @@
       "attributes": {
         "type": "module"
       },
-      "version": "db387bd9ba17068d590c9475b667efbec597c6ef"
+      "version": "fb924c5f7116f71c4f5f2e0bb1a94cffdc75226f"
     },
     {
       "name": "com_finder.finder",
       "type": "style",
       "uri": "com_finder/finder.min.css",
-      "version": "0cfab6c5b1b1dfdb57201f4ae49d5bc8afdc5223"
-    },
-    {
-      "name": "com_finder.finder",
-      "type": "script",
-      "uri": "com_finder/finder.min.js",
-      "dependencies": [
-        "com_finder.finder.es5"
-      ],
-      "attributes": {
-        "type": "module"
-      },
-      "version": "c8b55661ed62db937b8d6856090adf9258c4a0fc"
+      "version": "6af9a6ab7d67d3732e41c36d6672af396c650f3f"
     },
     {
       "name": "com_finder.finder.es5",
@@ -65,7 +53,19 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "14e4c7fdce4ca11c6d12b74bad128529a294b183"
+      "version": "e6d3d1f535e33b5641e406eb08d15093e7038cc2"
+    },
+    {
+      "name": "com_finder.finder",
+      "type": "script",
+      "uri": "com_finder/finder.min.js",
+      "dependencies": [
+        "com_finder.finder.es5"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "a2c3894d062787a266d59d457ffba5481b639f64"
     },
     {
       "name": "com_finder.finder-edit.es5",
@@ -78,7 +78,7 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "2ad312f3f022664abf2d79c2270704ba4941c412"
+      "version": "c837d71356a19568e4c78938eb324245e6d6d4e1"
     },
     {
       "name": "com_finder.finder-edit",
@@ -90,7 +90,13 @@
       "attributes": {
         "type": "module"
       },
-      "version": "8136efad79e2e979f422e821abbbddc2486a0a90"
+      "version": "53a449059706c105f3195d0542ec9ecd43c8e73d"
+    },
+    {
+      "name": "com_finder.indexer",
+      "type": "style",
+      "uri": "com_finder/indexer.min.css",
+      "version": "c86a75b2567715c7c20b6d15af86f21e07230449"
     },
     {
       "name": "com_finder.indexer.es5",
@@ -103,7 +109,7 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "b92c2f809492e12e3526fa70bc120a504f85d48f"
+      "version": "3ae4d954571b5e21a3bb98c85ac405cefd4138ac"
     },
     {
       "name": "com_finder.indexer",
@@ -115,7 +121,19 @@
       "attributes": {
         "type": "module"
       },
-      "version": "bf613c5984500d1cfa88ffddb9be8bfd6073e7dd"
+      "version": "df234d53baba21009d2b085d645c98f6b07a4fdb"
+    },
+    {
+      "name": "com_finder.maps",
+      "type": "script",
+      "uri": "com_finder/maps.min.js",
+      "dependencies": [
+        "com_finder.maps.es5"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "3ec9f6999093a2ea0aca3c18a35e6b6f6862520c"
     },
     {
       "name": "com_finder.maps.es5",
@@ -128,25 +146,7 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "9e2e80806f92fcb24918eebf6211bcc55e104c2e"
-    },
-    {
-      "name": "com_finder.maps",
-      "type": "script",
-      "uri": "com_finder/maps.min.js",
-      "dependencies": [
-        "com_finder.maps.es5"
-      ],
-      "attributes": {
-        "type": "module"
-      },
-      "version": "ff16598c533e0a598992c5ad8386c4715d82723d"
-    },
-    {
-      "name": "com_finder.indexer",
-      "type": "style",
-      "uri": "com_finder/indexer.min.css",
-      "version": "ba73d85fa3f70dcee5085a1c8ae477bd42d03b33"
+      "version": "81537730caf5345765cc3b2b7e94ab65f50a3b56"
     }
   ]
 }

@@ -2,23 +2,23 @@
 
 namespace Nextend\Framework\Form\Joomla;
 
-use JSession;
+use Joomla\CMS\Session\Session;
 use Nextend\Framework\Form\Base\PlatformFormBase;
 
 class PlatformForm extends PlatformFormBase {
 
     public function tokenize() {
-        return '<input type="hidden" name="' . JSession::getFormToken() . '" value="1">';
+        return '<input type="hidden" name="' . Session::getFormToken() . '" value="1">';
     }
 
     public function tokenizeUrl() {
         $a                           = array();
-        $a[JSession::getFormToken()] = 1;
+        $a[Session::getFormToken()] = 1;
 
         return $a;
     }
 
     public function checkToken() {
-        return JSession::checkToken() || JSession::checkToken('get');
+        return Session::checkToken() || Session::checkToken('get');
     }
 }

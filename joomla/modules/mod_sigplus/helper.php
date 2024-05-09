@@ -4,14 +4,14 @@
 * @brief    sigplus Image Gallery Plus module for Joomla
 * @author   Levente Hunyadi
 * @version  1.5.0
-* @remarks  Copyright (C) 2009-2010 Levente Hunyadi
+* @remarks  Copyright (C) 2009-2023 Levente Hunyadi
 * @remarks  Licensed under GNU/GPLv3, see https://www.gnu.org/licenses/gpl-3.0.html
 * @see      https://hunyadi.info.hu/projects/sigplus
 */
 
 /*
 * sigplus Image Gallery Plus module for Joomla
-* Copyright 2009-2010 Levente Hunyadi
+* Copyright 2009-2023 Levente Hunyadi
 *
 * sigplus is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -33,6 +33,9 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.plugin.plugin');
 jimport('joomla.html.parameter');
 
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Plugin\PluginHelper;
+
 /**
 * Triggered when a mandatory dependency is missing or there is a version mismatch.
 */
@@ -48,14 +51,14 @@ class SigPlusNovoModuleDependencyException extends Exception {
 		$this->version_module = SIGPLUS_VERSION_MODULE;
 		$this->version_plugin = isset($version) ? $version : 'SIGPLUS_UNKNOWN';
 
-		$message = '['.$key.'] '.JText::_($key);  // get localized message text
+		$message = '['.$key.'] '.Text::_($key);  // get localized message text
 		$search = array();
 		$replace = array();
 		foreach (get_object_vars($this) as $property => $value) {
 			$search[] = '{$'.$property.'}';  // replace placeholders in message text
 			$text = (string) $this->$property;
 			if (preg_match('/^[A-Z][0-9A-Z_]*$/', $text)) {  // could be a language key
-				$text = JText::_($text);
+				$text = Text::_($text);
 			}
 			$replace[] = htmlspecialchars($text);
 		}
@@ -78,7 +81,7 @@ class SigPlusNovoModuleHelper {
 		self::$core = false;
 
 		// load sigplus content plug-in
-		if (!JPluginHelper::importPlugin('content', SIGPLUS_PLUGIN_FOLDER)) {
+		if (!PluginHelper::importPlugin('content', SIGPLUS_PLUGIN_FOLDER)) {
 			throw new SigPlusNovoModuleDependencyException('SIGPLUS_EXCEPTION_DEPENDENCY_MISSING');
 		}
 
@@ -91,7 +94,7 @@ class SigPlusNovoModuleHelper {
 		}
 
 		// load sigplus content plug-in parameters
-		$plugin = JPluginHelper::getPlugin('content', SIGPLUS_PLUGIN_FOLDER);
+		$plugin = PluginHelper::getPlugin('content', SIGPLUS_PLUGIN_FOLDER);
 		$params = json_decode($plugin->params);
 
 		// create configuration parameter objects

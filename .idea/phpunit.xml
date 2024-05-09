@@ -4,6 +4,7 @@
     <option name="directories">
       <list>
         <option value="$PROJECT_DIR$/joomla/libraries/gantry5/tests" />
+        <option value="$PROJECT_DIR$/joomla/libraries/gantry5/compat/tests" />
       </list>
     </option>
   </component>

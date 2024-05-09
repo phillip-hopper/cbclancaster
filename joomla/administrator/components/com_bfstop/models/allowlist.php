@@ -1,15 +1,17 @@
 <?php
 /*
- * @package BFStop Component (com_bfstop) for Joomla! >=2.5
+ * @package BFStop Component (com_bfstop) for Joomla!
  * @author Bernhard Froehler
  * @copyright (C) Bernhard Froehler
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 **/
 defined('_JEXEC') or die;
 
-jimport('joomla.application.component.modellist');
+use Joomla\CMS\Factory;
+use Joomla\CMS\Log\Log;
+use Joomla\CMS\MVC\Model\ListModel;
 
-class BFStopModelAllowList extends JModelList
+class BFStopModelAllowList extends ListModel
 {
 	public function __construct($config = array())
 	{
@@ -23,7 +25,7 @@ class BFStopModelAllowList extends JModelList
 
 	protected function getListQuery()
 	{
-		$db = JFactory::getDBO();
+		$db = Factory::getDBO();
 		$query = $db->getQuery(true);
 		$query->select('a.id, a.ipaddress, a.notes');
 		$query->from('#__bfstop_allowlist a');
@@ -42,7 +44,7 @@ class BFStopModelAllowList extends JModelList
 	public function remove($ids, $logger)
 	{
 		try {
-			$db = JFactory::getDBO();
+			$db = Factory::getDBO();
 			$query = $db->getQuery(true);
 			$conditions = array(
 				$db->quoteName('id').' IN ('.implode(", ", $ids).')'
@@ -52,7 +54,7 @@ class BFStopModelAllowList extends JModelList
 			$db->setQuery($query);
 			$db->execute();
 		} catch (RuntimeException $e) {
-			$logger->log($e->getMessage(), JLog::ERROR);
+			$logger->log($e->getMessage(), Log::ERROR);
 		}
 	}
 

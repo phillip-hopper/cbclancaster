@@ -4,13 +4,13 @@
 namespace Nextend\SmartSlider3\Platform\Joomla;
 
 
-use JDocumentHTML;
-use JFactory;
+use Joomla\CMS\Document\HtmlDocument;
+use Joomla\CMS\Factory;
 
 class Joomla3Assets {
 
     /**
-     * @var JDocumentHTML
+     * @var HtmlDocument
      */
     private $document;
 
@@ -19,7 +19,7 @@ class Joomla3Assets {
 
     public function __construct() {
 
-        $this->document = JFactory::getDocument();
+        $this->document = Factory::getDocument();
 
         $this->original['_styleSheets'] = $this->document->_styleSheets;
         $this->original['_style']       = $this->document->_style;
@@ -45,7 +45,7 @@ class Joomla3Assets {
     }
 
     /**
-     * Based on JDocumentRendererHead
+     * Based on Joomla\CMS\Document\DocumentRendererHead
      *
      * @return string
      */

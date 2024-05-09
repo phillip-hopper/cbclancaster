@@ -1,15 +1,18 @@
 <?php
 /*
- * @package BFStop Component (com_bfstop) for Joomla! >=2.5
+ * @package BFStop Component (com_bfstop) for Joomla!
  * @author Bernhard Froehler
  * @copyright (C) Bernhard Froehler
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 **/
 defined('_JEXEC') or die;
 
-jimport('joomla.application.component.controlleradmin');
+use Joomla\CMS\Factory;
+use Joomla\CMS\MVC\Controller\AdminController;
+use Joomla\CMS\Router\Route;
+use Joomla\Utilities\ArrayHelper;
 
-class BFStopControllerAllowList extends JControllerAdmin
+class BFStopControllerAllowList extends AdminController
 {
 	public function getModel($name = 'allowlist', $prefix = 'bfstopmodel', $config = [])
 	{
@@ -20,12 +23,12 @@ class BFStopControllerAllowList extends JControllerAdmin
 	public function remove()
 	{
 		$logger = getLogger();
-		$input =  JFactory::getApplication()->input;
+		$input =  Factory::getApplication()->input;
 		$ids = $input->post->get('cid', array(), 'array');
-		Joomla\Utilities\ArrayHelper::toInteger($ids);
+		ArrayHelper::toInteger($ids);
 		$model = $this->getModel('allowlist');
 		$message = $model->remove($ids, $logger);
-		$this->setRedirect(JRoute::_('index.php?option=com_bfstop&view=allowlist',false),
+		$this->setRedirect(Route::_('index.php?option=com_bfstop&view=allowlist',false),
 			$message, 'notice');
 	}
 }

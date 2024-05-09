@@ -1,11 +1,13 @@
 <?php
 /*
- * @package BFStop Plugin (bfstop) for Joomla! >=2.5
+ * @package BFStop Plugin (bfstop) for Joomla!
  * @author Bernhard Froehler
  * @copyright (C) Bernhard Froehler
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 **/
 defined( '_JEXEC' ) or die;
+
+use Joomla\CMS\Log\Log;
 
 /**
  .htaccess management class, based on the work by Jan-Paul Kleemans from
@@ -104,7 +106,6 @@ class BFStopHtAccess
 	 */
 	public function denyIP($IP)
 	{
-		if (!filter_var($IP, FILTER_VALIDATE_IP)) return false;
 		return $this->addLine('deny from ' . $IP);
 	}
 
@@ -315,7 +316,7 @@ class BFStopHtAccess
 				{
 					if (!is_null($this->logger))
 					{
-						$this->logger->log("corrupted .htaccess: BEGIN marker was found, but not END!", JLog::ERROR);
+						$this->logger->log("corrupted .htaccess: BEGIN marker was found, but not END!", Log::ERROR);
 					}
 					return false;
 				}
@@ -335,7 +336,7 @@ class BFStopHtAccess
 		}
 		if (!is_null($this->logger))
 		{
-			$this->logger->log(".htaccess file is not writable!", JLog::ERROR);
+			$this->logger->log(".htaccess file is not writable!", Log::ERROR);
 		}
 		return false;
 	}

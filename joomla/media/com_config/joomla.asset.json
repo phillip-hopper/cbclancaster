@@ -16,19 +16,7 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "74beb71a9075c5179a998b32b0c63d3a620cef4c"
-    },
-    {
-      "name": "com_config.config",
-      "type": "script",
-      "uri": "com_config/config-default.min.js",
-      "dependencies": [
-        "com_config.config.es5"
-      ],
-      "attributes": {
-        "type": "module"
-      },
-      "version": "908a538044369fb4c0aa4e36ccf50837c85afab7"
+      "version": "ec88d05778ea181a7e06a8ff9ff89d052bbf9de2"
     },
     {
       "name": "com_config.modules.es5",
@@ -41,7 +29,7 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "21db6c771cb91eb6491cac6666dea03039ec8336"
+      "version": "af347e107b55dc569c7469a6706b2858dd46a730"
     },
     {
       "name": "com_config.templates.es5",
@@ -54,7 +42,19 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "394032a4ed091d25ccbe97939c19735e2c951f27"
+      "version": "25e828c6d6e022e52910363874b06f2ab744a7dd"
+    },
+    {
+      "name": "com_config.config",
+      "type": "script",
+      "uri": "com_config/config-default.min.js",
+      "dependencies": [
+        "com_config.config.es5"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "1fe50a55ef9b0d6990c6c0d87ffb3f206a318952"
     },
     {
       "name": "com_config.modules",
@@ -66,7 +66,7 @@
       "attributes": {
         "type": "module"
       },
-      "version": "67ff688e715cc2ff7bac50be0c7074f32b53821b"
+      "version": "f52978c1ce633bc6e374ed886effe434a5f15d04"
     },
     {
       "name": "com_config.templates",
@@ -78,7 +78,7 @@
       "attributes": {
         "type": "module"
       },
-      "version": "51abea2d1ca177123d355e2667a7b9a2226a0d75"
+      "version": "58baba0d10f0b994903efb73667dd6273b195f0d"
     },
     {
       "name": "com_config.filters.es5",
@@ -91,7 +91,7 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "960855f7da30d595c1e4fd2b8692031ea4e1e852"
+      "version": "3c18391fd4db86e7f1489a96fdd519cce0404348"
     },
     {
       "name": "com_config.filters",
@@ -103,7 +103,7 @@
       "attributes": {
         "type": "module"
       },
-      "version": "d3caf024b36d9003d3bedc1fe8b7c05efc335c4e"
+      "version": "2ead1777c9585f34972272bb31bc0c28f0993f50"
     }
   ]
 }

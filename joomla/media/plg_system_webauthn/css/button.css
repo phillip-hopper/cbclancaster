@@ -1,23 +1,26 @@
-button[class*=plg_system_webauthn_login_button] {
+@charset "UTF-8";
+button[class*="plg_system_webauthn_login_button"] {
   max-height: 3rem;
-  padding: 0.25rem;
+  padding: .25rem;
 }
-button[class*=plg_system_webauthn_login_button] span[class*=icon] {
-  display: inline-block;
-  width: 1em;
-  font-size: 1.25em;
+
+button[class*="plg_system_webauthn_login_button"] span[class*="icon"] {
   text-align: center;
   vertical-align: sub;
-}
-button[class*=plg_system_webauthn_login_button] img[class*=icon] {
+  width: 1em;
+  font-size: 1.25em;
   display: inline-block;
-  height: 2.5rem;
-  padding: 0 0.25em 2px;
-  font-size: 1.5em;
+}
+
+button[class*="plg_system_webauthn_login_button"] img[class*="icon"] {
   text-align: center;
   vertical-align: middle;
+  height: 2.5rem;
+  padding: 0 .25em 2px;
+  font-size: 1.5em;
+  display: inline-block;
 }
-button[class*=plg_system_webauthn_login_button] span[class*=icon]:not(:last-child) {
-  -webkit-margin-end: 0.5em;
-          margin-inline-end: 0.5em;
+
+button[class*="plg_system_webauthn_login_button"] span[class*="icon"]:not(:last-child) {
+  margin-inline-end: .5em;
 }

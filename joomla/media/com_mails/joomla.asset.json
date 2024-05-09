@@ -6,6 +6,18 @@
   "license": "GPL-2.0-or-later",
   "assets": [
     {
+      "name": "com_mails.admin-email-template-edit",
+      "type": "script",
+      "uri": "com_mails/admin-email-template-edit.min.js",
+      "dependencies": [
+        "com_mails.admin-email-template-edit.es5"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "824fb7d7c2442843631e6e06215df336c779fb1b"
+    },
+    {
       "name": "com_mails.admin-email-template-edit.es5",
       "type": "script",
       "uri": "com_mails/admin-email-template-edit-es5.min.js",
@@ -16,19 +28,7 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "f2db3a03a64fc649f644f841556439b386f38c43"
-    },
-    {
-      "name": "com_mails.admin-email-template-edit",
-      "type": "script",
-      "uri": "com_mails/admin-email-template-edit.min.js",
-      "dependencies": [
-        "com_mails.admin-email-template-edit.es5"
-      ],
-      "attributes": {
-        "type": "module"
-      },
-      "version": "9e536a74a4b0dd2667dcd1d4b777f9727a7bcefb"
+      "version": "a50cea78ce39839d422349a90737b316905bddde"
     }
   ]
 }

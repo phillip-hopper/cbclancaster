@@ -1,45 +1,47 @@
 <?php
 /*
- * @package BFStop Component (com_bfstop) for Joomla! >=2.5
+ * @package BFStop Component (com_bfstop) for Joomla!
  * @author Bernhard Froehler
  * @copyright (C) Bernhard Froehler
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 **/
 defined('_JEXEC') or die;
 
-jimport('joomla.application.component.view');
-jimport('joomla.utilities.date');
+use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\MVC\View\HtmlView;
+use Joomla\CMS\Router\Route;
 
 require_once(JPATH_ADMINISTRATOR.'/components/com_bfstop/helpers/log.php');
 
-class BFStopViewTokenUnblock extends JViewLegacy {
+class BFStopViewTokenUnblock extends HtmlView {
 
 	function getLoginLink() {
-		return JRoute::_('index.php?option=com_users&view=login');
+		return Route::_('index.php?option=com_users&view=login');
 	}
 
 	function getPasswordResetLink() {
-		return JRoute::_('index.php?option=com_users&view=reset');
+		return Route::_('index.php?option=com_users&view=reset');
 	}
 
 	function display($tpl = null) {
 		// clear the messages still enqueued from the invalid login attempt:
-		$session = JFactory::getSession();
+		$session = Factory::getSession();
 		$session->set('application.queue', null);
 		// try to unblock:
-		$input = JFactory::getApplication()->input;
+		$input = Factory::getApplication()->input;
 		$token = $input->getString('token', '');
 		$logger = getLogger();
 		if (strcmp($token, '') != 0) {
 			$this->model = $this->getModel();
 			$unblockSuccess = $this->model->unblock($token, $logger);
 			$this->message = ($unblockSuccess)
-				? JText::sprintf('UNBLOCKTOKEN_SUCCESS',
+				? Text::sprintf('UNBLOCKTOKEN_SUCCESS',
 					$this->getLoginLink(),
 					$this->getPasswordResetLink())
-				: JText::_('UNBLOCKTOKEN_FAILED');
+				: Text::_('UNBLOCKTOKEN_FAILED');
 		} else {
-			$this->message = JText::_('UNBLOCKTOKEN_INVALID');
+			$this->message = Text::_('UNBLOCKTOKEN_INVALID');
 		}
 		parent::display($tpl);
 	}

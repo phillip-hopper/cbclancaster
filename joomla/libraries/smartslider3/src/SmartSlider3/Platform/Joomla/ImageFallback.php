@@ -2,7 +2,7 @@
 
 namespace Nextend\SmartSlider3\Platform\Joomla;
 
-use JURI;
+use Joomla\CMS\Uri\Uri;
 use Nextend\Framework\Filesystem\Filesystem;
 use Nextend\Framework\Request\Request;
 
@@ -85,7 +85,7 @@ class ImageFallback {
     }
 
     static public function siteURL() {
-        return JURI::root(false);
+        return Uri::root(false);
     }
 
     static public function isExternal($url) {

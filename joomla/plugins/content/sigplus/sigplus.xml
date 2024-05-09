@@ -2,11 +2,11 @@
 <extension type="plugin" group="content" method="upgrade">
 	<name>plg_content_sigplus</name>
 	<author>Levente Hunyadi</author>
-	<creationDate>Jan 15, 2023</creationDate>
+	<creationDate>Mar 09, 2024</creationDate>
 	<copyright>© 2009-2022 Levente Hunyadi. All rights reserved.</copyright>
 	<license>GNU/GPLv3 https://www.gnu.org/licenses/gpl-3.0.html</license>
 	<authorUrl>https://hunyadi.info.hu/projects/sigplus</authorUrl>
-	<version>1.5.0.295</version>
+	<version>1.5.0.300</version>
 	<downloadUrl>https://bitbucket.org/hunyadi/sigplus/downloads/</downloadUrl>
 	<description>SIGPLUS_DESCRIPTION</description>
 	<files>
@@ -268,7 +268,7 @@
 				<field name="caption_title_template" type="textarea" cols="40" label="SIGPLUS_CAPTION_TITLE_TEMPLATE" description="SIGPLUS_CAPTION_TITLE_TEMPLATE_DESCRIPTION" filter="raw" />
 				<field name="caption_summary_template" type="textarea" cols="40" default="{$text} ({$current}/{$total})" label="SIGPLUS_CAPTION_SUMMARY_TEMPLATE" description="SIGPLUS_CAPTION_SUMMARY_TEMPLATE_DESCRIPTION" filter="raw" />
 				<field type="spacer" label="SIGPLUS_CATEGORY_FOLDER" />
-				<field name="cache_image" type="radio" default="cache" label="SIGPLUS_CACHE_IMAGE" description="SIGPLUS_CACHE_IMAGE_DESCRIPTION">
+				<field name="cache_image" type="radio" default="media" label="SIGPLUS_CACHE_IMAGE" description="SIGPLUS_CACHE_IMAGE_DESCRIPTION">
 					<option value="cache">SIGPLUS_CACHE_JOOMLA_CACHE_FOLDER</option>
 					<option value="media">SIGPLUS_CACHE_JOOMLA_MEDIA_FOLDER</option>
 					<option value="source">SIGPLUS_CACHE_IMAGE_SOURCE_FOLDER</option>

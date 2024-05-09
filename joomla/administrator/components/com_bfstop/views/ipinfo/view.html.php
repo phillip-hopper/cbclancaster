@@ -1,26 +1,26 @@
 <?php
 /*
- * @package BFStop Component (com_bfstop) for Joomla! >=2.5
+ * @package BFStop Component (com_bfstop) for Joomla!
  * @author Bernhard Froehler
  * @copyright (C) Bernhard Froehler
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 **/
 defined('_JEXEC') or die;
 
-jimport('joomla.application.component.view');
+use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\MVC\View\HtmlView;
+use Joomla\CMS\Toolbar\ToolbarHelper;
 
-class BFStopViewIPInfo extends JViewLegacy
+class BFStopViewIPInfo extends HtmlView
 {
 	public function display($tpl = null)
 	{
-		$input = JFactory::getApplication()->input;
+		$input = Factory::getApplication()->input;
 		$this->ipAddress = $input->getString("ipaddress");
-
-		// freegeoip.net is a free and open source service, 10,000 requests allowed
+		/*
 		$error = false;
-		set_error_handler(function() {
-			$error = true;
-		});
+		set_error_handler(function() { $error = true; });
 		$details = json_decode(file_get_contents("https://freegeoip.net/json/".$this->ipAddress));
 		restore_error_handler();
 		// TODO: provide alternatives, e.g.
@@ -32,11 +32,13 @@ class BFStopViewIPInfo extends JViewLegacy
 
 		if ($error || is_null($details))
 		{
-			$this->ipInfo = JText::_("COM_BFSTOP_NO_IPINFO_AVAILABLE");
+		*/
+			$this->ipInfo = Text::_("COM_BFSTOP_NO_IPINFO_AVAILABLE");
+		/*
 		}
 		else
 		{
-			$this->ipInfo = "<pre>".JText::sprintf("COM_BFSTOP_IPINFO_DETAILS",
+			$this->ipInfo = "<pre>".Text::sprintf("COM_BFSTOP_IPINFO_DETAILS",
 				$details->ip,
 				$details->country_code,
 				$details->country_name,
@@ -46,17 +48,14 @@ class BFStopViewIPInfo extends JViewLegacy
 				$details->latitude,
 				$details->longitude)."</pre>";
 		}
+		*/
 		$this->addToolbar();
-		if (class_exists("JHtmlSidebar"))
-		{
-			$this->sidebar = JHtmlSidebar::render();
-		}
 		parent::display($tpl);
 	}
 	protected function addToolbar()
 	{
-		JToolBarHelper::title(JText::sprintf('COM_BFSTOP_HEADING_IPINFO', $this->ipAddress), 'bfstop');
-		JToolBarHelper::divider();
-		JToolBarHelper::back();
+		ToolbarHelper::title(Text::sprintf('COM_BFSTOP_HEADING_IPINFO', $this->ipAddress), 'bfstop');
+		ToolbarHelper::divider();
+		ToolbarHelper::back();
 	}
 }

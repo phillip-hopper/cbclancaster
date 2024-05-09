@@ -4,14 +4,14 @@
 * @brief    sigplus Image Gallery Plus installation and update utilities
 * @author   Levente Hunyadi
 * @version  1.5.0
-* @remarks  Copyright (C) 2009-2017 Levente Hunyadi
+* @remarks  Copyright (C) 2009-2023 Levente Hunyadi
 * @remarks  Licensed under GNU/GPLv3, see https://www.gnu.org/licenses/gpl-3.0.html
 * @see      https://hunyadi.info.hu/sigplus
 */
 
 /*
 * sigplus Image Gallery Plus plug-in for Joomla
-* Copyright 2009-2017 Levente Hunyadi
+* Copyright 2009-2023 Levente Hunyadi
 *
 * sigplus is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -33,18 +33,28 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 jimport('joomla.database.database');
 jimport('joomla.database.table');
 
+use Joomla\CMS\Factory;
+
 class SigPlusNovoDatabaseSetup {
+	private static function getDriver() {
+		if (version_compare(JVERSION, '4.0') >= 0) {
+			return Factory::getContainer()->get(Joomla\Database\DatabaseInterface::class);
+		} else {
+			return Factory::getDBO();
+		}
+	}
+
 	/**
 	* Drops and re-creates all tables in the database.
 	*/
 	public static function update() {
-		$db = JFactory::getDBO();
+		$db = self::getDriver();
 		self::executeQueryInFile(dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'sql'.DIRECTORY_SEPARATOR.'uninstall.'.$db->getServerType().'.utf8.sql');
 		self::executeQueryInFile(dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'sql'.DIRECTORY_SEPARATOR.'install.'.$db->getServerType().'.utf8.sql');
 	}
 
 	private static function executeQueryInFile($file) {
-		$db = JFactory::getDBO();
+		$db = self::getDriver();
 		$contents = file_get_contents($file);
 		if ($contents !== false) {
 			$queries = $db->splitSql($contents);
@@ -62,7 +72,7 @@ class SigPlusNovoDatabaseSetup {
 	* Populates the database.
 	*/
 	public static function populate() {
-		$db = JFactory::getDBO();
+		$db = self::getDriver();
 
 		// language codes
 		$languages = array(
@@ -108,7 +118,7 @@ class SigPlusNovoDatabaseSetup {
 	}
 
 	private static function populateTable($values, $table, $key_field, $value_field) {
-		$db = JFactory::getDBO();
+		$db = self::getDriver();
 		foreach ($values as $index => &$item) {
 			$item = '('.$index.','.$db->quote($item).')';  // e.g. ('Title')
 		}

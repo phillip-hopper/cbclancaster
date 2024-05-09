@@ -16,7 +16,7 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "5780779c6074b99b6fb29a4833c9309ebcd83609"
+      "version": "521312df4f128980315361fdd8f0c86f311baa83"
     },
     {
       "name": "com_fields.admin-field-changecontext",
@@ -28,7 +28,7 @@
       "attributes": {
         "type": "module"
       },
-      "version": "65e13e836b42704a7893584291963600a20e5006"
+      "version": "3915154140c03c01c15e8f9eee982fcfebba4dd9"
     },
     {
       "name": "com_fields.admin-field-edit.es5",
@@ -41,7 +41,7 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "c76a0cb29034fb3e18659e450c5ceb782f0bc3cc"
+      "version": "3cdc5fc587079e47d7c8c5d72c3d6a344417f8c8"
     },
     {
       "name": "com_fields.admin-field-edit",
@@ -53,7 +53,7 @@
       "attributes": {
         "type": "module"
       },
-      "version": "e75588fe93805cb6b8627b7736dbc2ac5849a14a"
+      "version": "4f65629e6e77aaafec2f0d95486ac35131da38ad"
     },
     {
       "name": "com_fields.admin-field-typehaschanged.es5",
@@ -66,7 +66,19 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "c7f83928218202420a8940be8cf60d36638d187b"
+      "version": "da02b8d7bc133c09d57132366564f37df2abd8c5"
+    },
+    {
+      "name": "com_fields.admin-field-typehaschanged",
+      "type": "script",
+      "uri": "com_fields/admin-field-typehaschanged.min.js",
+      "dependencies": [
+        "com_fields.admin-field-typehaschanged.es5"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "06635587259cf74b5c0ecfa707eef255ccf719ca"
     },
     {
       "name": "com_fields.admin-fields-batch.es5",
@@ -79,7 +91,7 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "6f05cd6110c8c8d7a6174c32fe9a5db3f3817b58"
+      "version": "0e9c156f6d588bd4b7b4655352c164984fb62389"
     },
     {
       "name": "com_fields.admin-fields-batch",
@@ -91,19 +103,7 @@
       "attributes": {
         "type": "module"
       },
-      "version": "44eacfea3b23ae0d409b1c109e0ce33bf286d191"
-    },
-    {
-      "name": "com_fields.admin-field-typehaschanged",
-      "type": "script",
-      "uri": "com_fields/admin-field-typehaschanged.min.js",
-      "dependencies": [
-        "com_fields.admin-field-typehaschanged.es5"
-      ],
-      "attributes": {
-        "type": "module"
-      },
-      "version": "dd981c7a811d35d7982f82cd4d10689fbc92f0ed"
+      "version": "3bc48073f631b4b3c14c19456b6cd86bacb972c5"
     },
     {
       "name": "com_fields.admin-fields-modal.es5",
@@ -116,7 +116,7 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "62d67a25063603ef2e07915c68d50b65f527b4d0"
+      "version": "bd07a44c5f43baf286cbdc5cbb6b7fcfd9808d6a"
     },
     {
       "name": "com_fields.admin-fields-modal",
@@ -128,7 +128,7 @@
       "attributes": {
         "type": "module"
       },
-      "version": "21cda0d5265712ca6fd9f6adb8c3fef71dec9cfe"
+      "version": "36d906c1a46bbc7d72468ab224cff648eb5eba4b"
     }
   ]
 }

@@ -4,14 +4,14 @@
 * @brief    sigplus Image Gallery Plus plug-in for Joomla
 * @author   Levente Hunyadi
 * @version  1.5.0
-* @remarks  Copyright (C) 2009-2014 Levente Hunyadi
+* @remarks  Copyright (C) 2009-2023 Levente Hunyadi
 * @remarks  Licensed under GNU/GPLv3, see https://www.gnu.org/licenses/gpl-3.0.html
 * @see      https://hunyadi.info.hu/projects/sigplus
 */
 
 /*
 * sigplus Image Gallery Plus plug-in for Joomla
-* Copyright 2009-2014 Levente Hunyadi
+* Copyright 2009-2023 Levente Hunyadi
 *
 * sigplus is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -36,6 +36,10 @@ if (!defined('SIGPLUS_VERSION_PLUGIN')) {
 
 require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'fields'.DIRECTORY_SEPARATOR.'constants.php';
 
+use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Uri\Uri;
+
 if (!defined('SIGPLUS_DEBUG')) {
 	/**
 	* Triggers debug mode.
@@ -59,7 +63,7 @@ require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'core'.DIRECTORY_SEPARATOR.'c
 /**
 * sigplus Image Gallery Plus plug-in.
 */
-class plgContentSigPlusNovo extends JPlugin {
+class plgContentSigPlusNovo extends Joomla\CMS\Plugin\CMSPlugin {
 	/** Activation tag used to produce galleries with the plug-in. */
 	private $tag_gallery = 'gallery';
 	/** Activation tag used to produce a lightbox-powered link with the plug-in. */
@@ -86,7 +90,7 @@ class plgContentSigPlusNovo extends JPlugin {
 			if (isset($this->params->$name)) {
 				return $this->params->$name;
 			}
-		} else if ($this->params instanceof JRegistry) {  // Joomla 2.5 and earlier
+		} else if ($this->params instanceof Joomla\Registry\Registry) {
 			$paramvalue = $this->params->get($name);
 			if (isset($paramvalue)) {
 				return $paramvalue;
@@ -147,7 +151,7 @@ class plgContentSigPlusNovo extends JPlugin {
 		}
 
 		// load language file for internationalized labels and error messages
-		$lang = JFactory::getLanguage();
+		$lang = Factory::getLanguage();
 		$lang->load('plg_content_sigplus', JPATH_ADMINISTRATOR);
 
 		if (!isset($this->core)) {
@@ -173,14 +177,14 @@ class plgContentSigPlusNovo extends JPlugin {
 
 				$this->core = new SigPlusNovoCore($configuration);
 			} catch (Exception $e) {
-				$app = JFactory::getApplication();
+				$app = Factory::getApplication();
 				$app->enqueueMessage($e->getMessage(), 'error');
 			}
 		}
 
 		if ($this->core !== false) {
 			if (SIGPLUS_LOGGING) {
-				SigPlusNovoLogging::appendStatus(JText::_('SIGPLUS_STATUS_LOGGING'));
+				SigPlusNovoLogging::appendStatus(Text::_('SIGPLUS_STATUS_LOGGING'));
 			}
 
 			// patterns for key/value parameter list
@@ -275,7 +279,7 @@ class plgContentSigPlusNovo extends JPlugin {
 			}
 		} catch (Exception $e) {
 			// catch all exceptions as we are inside a replace callback
-			$app = JFactory::getApplication();
+			$app = Factory::getApplication();
 			switch ($this->core->verbosityLevel()) {
 				case 'none':
 					// display no message, hide activation tag completely
@@ -283,9 +287,9 @@ class plgContentSigPlusNovo extends JPlugin {
 					break;
 				case 'laconic':
 					if ($e instanceof SigPlusNovoTimeoutException) {  // display a timeout message
-						$message = JText::_('SIGPLUS_EXCEPTION_MESSAGE_TIMEOUT');
+						$message = Text::_('SIGPLUS_EXCEPTION_MESSAGE_TIMEOUT');
 					} else {  // display a very general, uninformative message
-						$message = JText::_('SIGPLUS_EXCEPTION_MESSAGE');
+						$message = Text::_('SIGPLUS_EXCEPTION_MESSAGE');
 					}
 
 					// hide activation tag completely
@@ -352,7 +356,7 @@ class plgContentSigPlusNovo extends JPlugin {
 					jexit();  // do not produce a page
 				}
 			} catch (SigPlusNovoImageDownloadAccessException $e) {  // signal download errors but do not stop page processing
-				$app = JFactory::getApplication();
+				$app = Factory::getApplication();
 				$app->enqueueMessage($e->getMessage(), 'error');
 			}
 
@@ -402,7 +406,7 @@ class plgContentSigPlusNovo extends JPlugin {
 				$params['href'] = 'javascript:void(0);';  // artificial link target
 			} elseif (isset($params['href'])) {  // create link to (external) image
 				if (!is_url_http($params['href'])) {  // make relative URLs absolute
-					$params['href'] = JURI::base(false).$params['href'];
+					$params['href'] = Uri::base(false).$params['href'];
 				}
 				$params['href'] = safe_url_encode($params['href']);
 

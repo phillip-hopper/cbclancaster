@@ -2,12 +2,12 @@
 
 namespace Nextend\SmartSlider3\Platform\Joomla\Plugin;
 
-use JFactory;
-use JPlugin;
+use Joomla\CMS\Factory;
+use Joomla\CMS\Plugin\CMSPlugin;
 use Nextend\SmartSlider3\Application\Model\ModelLicense;
 use Nextend\SmartSlider3\SmartSlider3Info;
 
-class PluginInstallerSmartSlider3 extends JPlugin {
+class PluginInstallerSmartSlider3 extends CMSPlugin {
 
     public function onInstallerBeforePackageDownload(&$url, &$headers) {
 
@@ -20,7 +20,7 @@ class PluginInstallerSmartSlider3 extends JPlugin {
             $isActive = $license->isActive() == 'OK';
 
             if (!$isActive) {
-                JFactory::getApplication()
+                Factory::getApplication()
                         ->enqueueMessage('Update error: Smart Slider 3 Pro is not activated on your site!', 'error');
 
                 $url = SmartSlider3Info::api(array(

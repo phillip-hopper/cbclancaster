@@ -4,10 +4,9 @@ namespace Nextend\SmartSlider3\Platform\Joomla;
 
 use Exception;
 use JEventDispatcher;
-use JFactory;
 use Joomla\CMS\Factory;
 use Joomla\Event\Event;
-use JPluginHelper;
+use Joomla\CMS\Plugin\PluginHelper;
 use Nextend\Framework\Pattern\SingletonTrait;
 use Nextend\Security\Joomla\JoomlaSecurity;
 use Nextend\SmartSlider3\Settings;
@@ -54,7 +53,7 @@ class JoomlaShim {
     public static function triggerOnContentPrepare($data) {
         static $contentPluginsEnabled, $pluginsToRun = array();
 
-        JPluginHelper::importPlugin('content');
+        PluginHelper::importPlugin('content');
 
         if (!self::$isJoomla4) {
             if ($contentPluginsEnabled === null) {
@@ -62,7 +61,7 @@ class JoomlaShim {
 
                 if ($contentPluginsEnabled) {
                     $classNames = array();
-                    foreach (JPluginHelper::getPlugin('content') as $plugin) {
+                    foreach (PluginHelper::getPlugin('content') as $plugin) {
                         $classNames[] = strtolower('Plg' . $plugin->type . $plugin->name);
                     }
 
@@ -102,7 +101,7 @@ class JoomlaShim {
             if ($contentPluginsEnabled) {
 
                 $classNames = array();
-                foreach (JPluginHelper::getPlugin('content') as $plugin) {
+                foreach (PluginHelper::getPlugin('content') as $plugin) {
                     $classNames[] = strtolower('Plg' . $plugin->type . $plugin->name);
                 }
 
@@ -155,7 +154,7 @@ class JoomlaShim {
     public static function getOnContentPreparePluginsList() {
         if (!self::$isJoomla4) {
 
-            JPluginHelper::importPlugin('content');
+            PluginHelper::importPlugin('content');
 
             $dispatcher = JEventDispatcher::getInstance();
 
@@ -167,7 +166,7 @@ class JoomlaShim {
                 }
             }
 
-            foreach (JPluginHelper::getPlugin('content') as $plugin) {
+            foreach (PluginHelper::getPlugin('content') as $plugin) {
                 $className              = strtolower('Plg' . $plugin->type . $plugin->name);
                 $classNames[$className] = ucfirst($plugin->name);
             }
@@ -175,7 +174,7 @@ class JoomlaShim {
             return $classNames;
         }
 
-        JPluginHelper::importPlugin('content');
+        PluginHelper::importPlugin('content');
 
         $dispatcher = Factory::getApplication()
                              ->getDispatcher();
@@ -200,7 +199,7 @@ class JoomlaShim {
             }
         }
 
-        foreach (JPluginHelper::getPlugin('content') as $plugin) {
+        foreach (PluginHelper::getPlugin('content') as $plugin) {
             $className              = strtolower('Plg' . $plugin->type . $plugin->name);
             $classNames[$className] = ucfirst($plugin->name);
         }
@@ -215,7 +214,7 @@ class JoomlaShim {
             return $dispatcher->trigger('onInitN2Library', $args);
         }
 
-        return JFactory::getApplication()
+        return Factory::getApplication()
                        ->triggerEvent($eventName, $args);
     }
 

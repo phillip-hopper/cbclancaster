@@ -2,11 +2,12 @@
 
 namespace Nextend\Framework\Content\Joomla;
 
-use ContentHelperRoute;
+use Joomla\Component\Content\Site\Helper\RouteHelper;
 use ContentModelArticles;
-use JFactory;
+use ContentHelperRoute;
+use Joomla\CMS\Factory;
 use Joomla\Component\Content\Administrator\Model\ArticlesModel;
-use JUri;
+use Joomla\CMS\Uri\Uri;
 use Nextend\Framework\Content\AbstractPlatformContent;
 use Nextend\Framework\Data\Data;
 use Nextend\Framework\ResourceTranslator\ResourceTranslator;
@@ -56,14 +57,14 @@ class JoomlaContent extends AbstractPlatformContent {
             $images = new Data($article['images'], true);
             $image  = $images->get('image_fulltext', $images->get('image_intro', ''));
             if (!empty($image) && substr($image, 0, 2) != '//' && substr($image, 0, 4) != 'http') {
-                $image = JUri::root(false) . $image;
+                $image = Uri::root(false) . $image;
             }
 
             $result[] = array(
                 'title'       => $article['title'],
                 'description' => $article['introtext'],
                 'image'       => ResourceTranslator::urlToResource($image),
-                'link'        => ContentHelperRoute::getArticleRoute($article['id'], $article['catid'], $article['language']),
+                'link'        => JoomlaShim::$isJoomla4 ? RouteHelper::getArticleRoute($article['id'], $article['catid'], $article['language']) : ContentHelperRoute::getArticleRoute($article['id'], $article['catid'], $article['language']),
                 'info'        => $article['category_title']
             );
         }
@@ -119,13 +120,13 @@ class JoomlaContent extends AbstractPlatformContent {
         foreach ($articles as $article) {
             $result[] = array(
                 'title' => $article['title'],
-                'link'  => ContentHelperRoute::getArticleRoute($article['id'], $article['catid'], $article['language']),
+                'link'  => JoomlaShim::$isJoomla4 ? RouteHelper::getArticleRoute($article['id'], $article['catid'], $article['language']) : ContentHelperRoute::getArticleRoute($article['id'], $article['catid'], $article['language']),
                 'info'  => $article['category_title']
             );
         }
 
 
-        $db = JFactory::getDbo();
+        $db = Factory::getDbo();
         $db->setQuery('SELECT * FROM #__menu WHERE title LIKE ' . $db->quote('%' . str_replace(' ', '%', $db->escape(trim($keyword), true) . '%')) . ' AND client_id = 0 AND menutype != "" LIMIT 0,10');
         $menuItems = $db->loadAssocList();
 
@@ -154,7 +155,7 @@ class JoomlaContent extends AbstractPlatformContent {
     }
 
     private function getLangauge($language) {
-        $db    = JFactory::getDBO();
+        $db    = Factory::getDBO();
         $query = $db->getQuery(true);
 
         $link = '';

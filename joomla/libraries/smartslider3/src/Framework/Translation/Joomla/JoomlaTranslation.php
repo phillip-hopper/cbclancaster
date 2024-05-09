@@ -2,13 +2,13 @@
 
 namespace Nextend\Framework\Translation\Joomla;
 
-use JFactory;
+use Joomla\CMS\Factory;
 use Nextend\Framework\Translation\AbstractTranslation;
 
 class JoomlaTranslation extends AbstractTranslation {
 
     public function getLocale() {
-        return JFactory::getLanguage()
+        return Factory::getLanguage()
                        ->getTag();
     }
 }

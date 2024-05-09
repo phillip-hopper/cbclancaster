@@ -4,14 +4,14 @@
 * @brief    sigplus Image Gallery Plus global and local parameters
 * @author   Levente Hunyadi
 * @version  1.5.0
-* @remarks  Copyright (C) 2009-2017 Levente Hunyadi
+* @remarks  Copyright (C) 2009-2023 Levente Hunyadi
 * @remarks  Licensed under GNU/GPLv3, see https://www.gnu.org/licenses/gpl-3.0.html
 * @see      https://hunyadi.info.hu/sigplus
 */
 
 /*
 * sigplus Image Gallery Plus plug-in for Joomla
-* Copyright 2009-2017 Levente Hunyadi
+* Copyright 2009-2023 Levente Hunyadi
 *
 * sigplus is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -32,6 +32,9 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 
 require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'filesystem.php';
 require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'useragent.php';
+
+use Joomla\CMS\Factory;
+use Joomla\CMS\Uri\Uri;
 
 define('SIGPLUS_RETINA_SCALE', 2);  // default scale factor for preview images targeting retina displays
 
@@ -360,7 +363,7 @@ class SigPlusNovoConfigurationBase {
 	public $settings = null;
 
 	/**
-	* Set parameters from a JRegistry or a JSON object (typically synthesized from a JSON string).
+	* Set parameters from a Registry or a JSON object (typically synthesized from a JSON string).
 	* @param $params A value of a type such as boolean or stdClass.
 	*/
 	public function setParameters($params) {
@@ -371,7 +374,7 @@ class SigPlusNovoConfigurationBase {
 						$this->setValue($name, $params->$name);
 					}
 				}
-			} else if ($params instanceof JRegistry) {  // Joomla 2.5 and earlier
+			} else if ($params instanceof Joomla\Registry\Registry) {
 				foreach (get_object_vars($this) as $name => $value) {  // enumerate properties in class
 					$paramvalue = $params->get($name);
 					if (isset($paramvalue)) {
@@ -612,7 +615,11 @@ class SigPlusNovoConfigurationBase {
 		} elseif (is_numeric($value)) {  // numeric access level
 			$result = (int)$value;
 		} else {  // access level as string
-			$db = JFactory::getDbo();
+			if (version_compare(JVERSION, '4.0') >= 0) {
+				$db = Factory::getContainer()->get(Joomla\Database\DatabaseInterface::class);
+			} else {
+				$db = Factory::getDBO();
+			}
 			$query = $db->getQuery(true);
 			$query->select('a.id');
 			$query->from('#__viewlevels AS a');
@@ -789,7 +796,7 @@ class SigPlusNovoServiceParameters extends SigPlusNovoConfigurationBase {
 			$this->base_url = false;
 		}
 		if ($this->base_url === false && strpos($path, JPATH_ROOT.DIRECTORY_SEPARATOR) === 0) {  // starts with Joomla root folder
-			$this->base_url = JURI::base(true).str_replace(DIRECTORY_SEPARATOR, '/', substr($path, strlen(JPATH_ROOT)));  // build path relative to Joomla root
+			$this->base_url = Uri::base(true).str_replace(DIRECTORY_SEPARATOR, '/', substr($path, strlen(JPATH_ROOT)));  // build path relative to Joomla root
 		}
 
 		// verify presence of base URL
@@ -850,7 +857,7 @@ class SigPlusNovoServiceParameters extends SigPlusNovoConfigurationBase {
 * priority (near top of stack) override settings with lower priority (near bottom of stack).
 * (1) Factory values, as set in class property initializers, have the lowest precedence.
 * (2) Global values are defined in the administration back-end, and typically set using
-*     a JRegistry object.
+*     a Registry object.
 * (3) Local values are usually specified directly in the article body, with activation tag
 *     attribute values, and typically set using a parameter string of name-value pairs.
 */
@@ -1292,7 +1299,7 @@ class SigPlusNovoGalleryParameters extends SigPlusNovoConfigurationBase {
 				'right-float'
 			)
 		);
-		$language = JFactory::getLanguage();
+		$language = Factory::getLanguage();
 		$this->alignment = str_replace(array('after','before'), $language->isRTL() ? array('left','right') : array('right','left'), $this->alignment);
 
 		$this->maxcount = self::as_nonnegative_integer($this->maxcount);

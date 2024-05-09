@@ -4,12 +4,11 @@
 namespace Nextend\SmartSlider3\Platform\Joomla;
 
 
-use JAccessExceptionNotallowed;
-use JFactory;
+use Joomla\CMS\Access\Exception\NotAllowed;
 use Joomla\CMS\Factory;
-use JPluginHelper;
-use JText;
-use JUri;
+use Joomla\CMS\Plugin\PluginHelper;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Uri\Uri;
 use Nextend\Framework\PageFlow;
 use Nextend\Framework\Request\Request;
 use Nextend\SmartSlider3\Application\ApplicationSmartSlider3;
@@ -59,7 +58,7 @@ class AdministratorComponent {
                 _N2.r('$', function () {
                     var $ = _N2.$;
                     var __keepAlive = function () {
-                        $.get('<?php echo esc_url(JURI::current() . '?option=com_smartslider3&keepalive=1');?>', function () {
+                        $.get('<?php echo esc_url(Uri::current() . '?option=com_smartslider3&keepalive=1');?>', function () {
                             setTimeout(__keepAlive, 300000);
                         });
                     };
@@ -73,9 +72,9 @@ class AdministratorComponent {
 
     protected function checkAcl() {
 
-        if (!JFactory::getUser()
+        if (!Factory::getUser()
                      ->authorise('core.manage', 'com_smartslider3')) {
-            throw new JAccessExceptionNotallowed(JText::_('JERROR_ALERTNOAUTHOR'), 403);
+            throw new NotAllowed(Text::_('JERROR_ALERTNOAUTHOR'), 403);
         }
     }
 
@@ -83,7 +82,7 @@ class AdministratorComponent {
 
         if (!class_exists('plgSystemSmartSlider3')) {
 
-            $plugin = JPluginHelper::getPlugin('system', 'smartslider3');
+            $plugin = PluginHelper::getPlugin('system', 'smartslider3');
             new plgSystemSmartSlider3(JoomlaShim::getDispatcher(), (array)($plugin));
         }
     }

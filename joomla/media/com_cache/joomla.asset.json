@@ -16,7 +16,7 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "ef07050322c03d042beec08b585459c782f5ec17"
+      "version": "55733678194f649e76b375fcd00f66e027d9154a"
     },
     {
       "name": "com_cache.admin-cache",
@@ -28,7 +28,7 @@
       "attributes": {
         "type": "module"
       },
-      "version": "c944be16a682290cc72ebb04a1d47344f6c840d0"
+      "version": "589aa9e81b8bb42fed3381c882abeba7609cb78a"
     }
   ]
 }

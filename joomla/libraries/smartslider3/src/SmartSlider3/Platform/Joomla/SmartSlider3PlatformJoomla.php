@@ -4,7 +4,7 @@
 namespace Nextend\SmartSlider3\Platform\Joomla;
 
 
-use JUri;
+use Joomla\CMS\Uri\Uri;
 use Nextend\Framework\Sanitize;
 use Nextend\SmartSlider3\Platform\AbstractSmartSlider3Platform;
 
@@ -20,12 +20,12 @@ class SmartSlider3PlatformJoomla extends AbstractSmartSlider3Platform {
 
     public function getAdminUrl() {
 
-        return JUri::root() . 'administrator/index.php?option=com_smartslider3';
+        return Uri::root() . 'administrator/index.php?option=com_smartslider3';
     }
 
     public function getAdminAjaxUrl() {
 
-        return JUri::root() . 'administrator/index.php?option=com_smartslider3&nextendajax=1';
+        return Uri::root() . 'administrator/index.php?option=com_smartslider3&nextendajax=1';
     }
 
     private function initSanitize() {

@@ -1,15 +1,16 @@
 <?php
 /*
- * @package BFStop Component (com_bfstop) for Joomla! >=2.5
+ * @package BFStop Component (com_bfstop) for Joomla!
  * @author Bernhard Froehler
  * @copyright (C) Bernhard Froehler
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 **/
 defined('_JEXEC') or die;
 
-jimport('joomla.application.component.modeladmin');
+use Joomla\CMS\Factory;
+use Joomla\CMS\MVC\Model\AdminModel;
 
-class BFStopModelHTBlock extends JModelAdmin
+class BFStopModelHTBlock extends AdminModel
 {
 	public function getItem($pk = NULL)
 	{
@@ -27,7 +28,7 @@ class BFStopModelHTBlock extends JModelAdmin
 	}
 	protected function loadFormData()
 	{
-		$data = JFactory::getApplication()->getUserState('com_bfstop.edit.htblock.data', array());
+		$data = Factory::getApplication()->getUserState('com_bfstop.edit.htblock.data', array());
 		return $data;
 	}
 }

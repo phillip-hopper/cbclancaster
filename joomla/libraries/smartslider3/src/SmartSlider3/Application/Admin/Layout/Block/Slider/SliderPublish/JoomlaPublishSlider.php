@@ -5,8 +5,8 @@
 
 namespace Nextend\SmartSlider3\Application\Admin\Layout\Block\Slider\SliderPublish;
 
-use JComponentHelper;
-use JFactory;
+use Joomla\CMS\Component\ComponentHelper;
+use Joomla\CMS\Factory;
 use Nextend\Framework\Database\Database;
 
 class JoomlaPublishSlider {
@@ -18,7 +18,7 @@ class JoomlaPublishSlider {
     public function __construct($sliderID) {
         $this->sliderID   = $sliderID;
         $this->db         = Database::getInstance();
-        $this->moduleType = JComponentHelper::getComponent('com_advancedmodules', true)->enabled ? 'com_advancedmodules' : 'com_modules';
+        $this->moduleType = ComponentHelper::getComponent('com_advancedmodules', true)->enabled ? 'com_advancedmodules' : 'com_modules';
     }
 
     public function getCreateModuleLink() {
@@ -50,7 +50,7 @@ class JoomlaPublishSlider {
             }
 
             $context = 'com_modules.edit.module';
-            $app     = JFactory::getApplication();
+            $app     = Factory::getApplication();
             $app->setUserState($context . '.id', $IDs);
         }
 

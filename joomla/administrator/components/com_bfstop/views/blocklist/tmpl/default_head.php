@@ -1,11 +1,15 @@
 <?php
 /*
- * @package BFStop Component (com_bfstop) for Joomla! >=2.5
+ * @package BFStop Component (com_bfstop) for Joomla!
  * @author Bernhard Froehler
  * @copyright (C) Bernhard Froehler
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 **/
 defined('_JEXEC') or die;
+
+use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
+
 ?>
 <tr class="sortable">
 	<th width="20">
@@ -17,35 +21,38 @@ defined('_JEXEC') or die;
 		/>
 	</th>
 	<th>
-		<?php echo JHTML::_('grid.sort',
+		<?php echo HTMLHelper::_('grid.sort',
 			'COM_BFSTOP_HEADING_ID',
 			'b.id',
 			$this->sortDirection,
 			$this->sortColumn); ?>
 	</th>
 	<th>
-		<?php echo JHTML::_('grid.sort',
+		<?php echo HTMLHelper::_('grid.sort',
 			'COM_BFSTOP_HEADING_IPADDRESS',
 			'b.ipaddress',
 			$this->sortDirection,
 			$this->sortColumn); ?>
 	</th>
 	<th>
-		<?php echo JHTML::_('grid.sort',
+		<?php echo Text::_('COM_BFSTOP_HEADING_IPRANGE_INFO')?>
+	</th>
+	<th>
+		<?php echo HTMLHelper::_('grid.sort',
 			'COM_BFSTOP_HEADING_DATE',
 			'b.crdate',
 			$this->sortDirection,
 			$this->sortColumn); ?>
 	</th>
 	<th>
-		<?php echo JHTML::_('grid.sort',
+		<?php echo HTMLHelper::_('grid.sort',
 			'COM_BFSTOP_HEADING_DURATION',
 			'b.duration',
 			$this->sortDirection,
 			$this->sortColumn); ?>
 	</th>
 	<th>
-		<?php echo JHTML::_('grid.sort',
+		<?php echo HTMLHelper::_('grid.sort',
 			'COM_BFSTOP_HEADING_STATE',
 			'unblocked',
 			$this->sortDirection,

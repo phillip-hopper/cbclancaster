@@ -24,7 +24,7 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "c245aa3a31e900109edb9adf531e26911822a77c"
+      "version": "77546faa0548e68f2646d0afb04659927a0a6f37"
     },
     {
       "name": "com_categories.shared-categories-accordion",
@@ -36,13 +36,13 @@
       "attributes": {
         "type": "module"
       },
-      "version": "f2b649ad259eca8ee54071cbe78c6f788d196540"
+      "version": "e9734360c8325b13782d7f6a2f3b7344ad8a6195"
     },
     {
       "name": "com_categories.shared-categories-accordion",
       "type": "style",
       "uri": "com_categories/shared-categories-accordion.min.css",
-      "version": "9f06cdde2b1004cbc11b9eef656fc81e563992a7"
+      "version": "3edc4854f61ec5574aecfdb3df97063c835f8feb"
     }
   ]
 }

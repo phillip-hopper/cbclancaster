@@ -4,14 +4,14 @@
 * @brief    sigplus Image Gallery Plus plug-in for Joomla
 * @author   Levente Hunyadi
 * @version  1.5.0
-* @remarks  Copyright (C) 2009-2014 Levente Hunyadi
+* @remarks  Copyright (C) 2009-2023 Levente Hunyadi
 * @remarks  Licensed under GNU/GPLv3, see https://www.gnu.org/licenses/gpl-3.0.html
 * @see      https://hunyadi.info.hu/projects/sigplus
 */
 
 /*
 * sigplus Image Gallery Plus plug-in for Joomla
-* Copyright 2009-2014 Levente Hunyadi
+* Copyright 2009-2023 Levente Hunyadi
 *
 * sigplus is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -41,6 +41,11 @@ jimport('joomla.plugin.plugin');
 jimport('joomla.form.form');
 jimport('joomla.html.parameter');
 
+use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Plugin\PluginHelper;
+use Joomla\CMS\Uri\Uri;
+
 /**
 * Triggered when the sigplus content plug-in is unavailable or there is a version mismatch.
 */
@@ -51,7 +56,7 @@ class SigPlusNovoEditorDependencyException extends Exception {
 	*/
 	public function __construct() {
 		$key = 'SIGPLUS_EXCEPTION_EXTENSION';
-		$message = '['.$key.'] '.JText::_($key);  // get localized message text
+		$message = '['.$key.'] '.Text::_($key);  // get localized message text
 		parent::__construct($message);
 	}
 }
@@ -59,11 +64,11 @@ class SigPlusNovoEditorDependencyException extends Exception {
 /**
 * Editor button for sigplus.
 */
-class plgButtonSigPlusNovo extends JPlugin {
+class plgButtonSigPlusNovo extends Joomla\CMS\Plugin\CMSPlugin {
 	protected $autoloadLanguage = true;
 
 	private function importTemplateCSS($css_file) {
-		$app = JFactory::getApplication();
+		$app = Factory::getApplication();
 		$css_base_path = JPATH_BASE.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.$app->getTemplate().DIRECTORY_SEPARATOR.'css';
 		$css_file_path = $css_base_path.DIRECTORY_SEPARATOR.$css_file;
 		$css_min_file = pathinfo($css_file, PATHINFO_FILENAME).'.min.'.pathinfo($css_file, PATHINFO_EXTENSION);
@@ -74,7 +79,7 @@ class plgButtonSigPlusNovo extends JPlugin {
 			} else {
 				$css_imported_file = $css_file;
 			}
-			print '<link rel="stylesheet" href="'.JURI::base(true).'/templates/'.$app->getTemplate().'/css/'.$css_imported_file.'" type="text/css" />'.PHP_EOL;
+			print '<link rel="stylesheet" href="'.Uri::base(true).'/templates/'.$app->getTemplate().'/css/'.$css_imported_file.'" type="text/css" />'.PHP_EOL;
 		}
 	}
 
@@ -108,8 +113,8 @@ class plgButtonSigPlusNovo extends JPlugin {
 	* Displays the editor button.
 	*/
 	public function onDisplay($editorname, $asset, $author) {
-		$app = JFactory::getApplication();
-		$user = JFactory::getUser();
+		$app = Factory::getApplication();
+		$user = Factory::getUser();
 		$extension = $app->input->get('option');
 
 		// check the extension for categories (e.g. "component.section")
@@ -131,15 +136,15 @@ class plgButtonSigPlusNovo extends JPlugin {
 
 		try {
 			// load sigplus content plug-in
-			if (!JPluginHelper::importPlugin('content', SIGPLUS_PLUGIN_FOLDER)) {
+			if (!PluginHelper::importPlugin('content', SIGPLUS_PLUGIN_FOLDER)) {
 				throw new SigPlusNovoEditorDependencyException();
 			}
 
 			// load sigplus content plug-in parameters
-			$plugin = JPluginHelper::getPlugin('content', SIGPLUS_PLUGIN_FOLDER);
+			$plugin = PluginHelper::getPlugin('content', SIGPLUS_PLUGIN_FOLDER);
 
 			// load language file for internationalized labels
-			$lang = JFactory::getLanguage();
+			$lang = Factory::getLanguage();
 			$lang->load('plg_content_'.SIGPLUS_PLUGIN_FOLDER, JPATH_ADMINISTRATOR);
 
 			$xmlfile = JPATH_ROOT.DIRECTORY_SEPARATOR.'plugins'.DIRECTORY_SEPARATOR.'content'.DIRECTORY_SEPARATOR.SIGPLUS_PLUGIN_FOLDER.DIRECTORY_SEPARATOR.SIGPLUS_PLUGIN_FOLDER.'.xml';
@@ -154,7 +159,7 @@ class plgButtonSigPlusNovo extends JPlugin {
 			// regenerate dialog form if content plug-in has been upgraded
 			if (!file_exists($htmlfile) || !(filemtime($htmlfile) >= filemtime($xmlfile))) {
 				// load configuration XML file
-				$form = new JForm(SIGPLUS_PLUGIN_FOLDER);
+				$form = new Joomla\CMS\Form\Form(SIGPLUS_PLUGIN_FOLDER);
 				$form->loadFile($xmlfile, true, '/extension/config/fields');
 				$fieldSets = $form->getFieldsets('params');
 
@@ -176,7 +181,7 @@ class plgButtonSigPlusNovo extends JPlugin {
 				print '</head>'.PHP_EOL;
 				print '<body>'.PHP_EOL;
 				print '<form id="sigplus-settings-form">'.PHP_EOL;
-				print '<button id="sigplus-settings-submit" class="btn btn-primary" type="button">'.JText::_('SIGPLUS_EDITORBUTTON_INSERT').'</button>'.PHP_EOL;
+				print '<button id="sigplus-settings-submit" class="btn btn-primary" type="button">'.Text::_('SIGPLUS_EDITORBUTTON_INSERT').'</button>'.PHP_EOL;
 				foreach ($fieldSets as $name => $fieldSet) {
 					$fields = $form->getFieldset($name);
 
@@ -193,9 +198,9 @@ class plgButtonSigPlusNovo extends JPlugin {
 
 					// field group title
 					$label = !empty($fieldSet->label) ? $fieldSet->label : 'COM_PLUGINS_'.$name.'_FIELDSET_LABEL';
-					print '<h3>'.JText::_($label).'</h3>';
+					print '<h3>'.Text::_($label).'</h3>';
 					if (isset($fieldSet->description) && trim($fieldSet->description)) {
-						print '<p class="tip">'.$this->escape(JText::_($fieldSet->description)).'</p>';
+						print '<p class="tip">'.$this->escape(Text::_($fieldSet->description)).'</p>';
 					}
 
 					// field group elements
@@ -220,7 +225,7 @@ class plgButtonSigPlusNovo extends JPlugin {
 					print '</fieldset>'.PHP_EOL;
 				}
 				print '</form>'.PHP_EOL;
-				print '<p>'.JText::_('SIGPLUS_EDITORBUTTON_DOCUMENTATION').'</p>'.PHP_EOL;
+				print '<p>'.Text::_('SIGPLUS_EDITORBUTTON_DOCUMENTATION').'</p>'.PHP_EOL;
 				print '</body>'.PHP_EOL;
 				print '</html>'.PHP_EOL;
 				$html = ob_get_clean();
@@ -240,17 +245,14 @@ class plgButtonSigPlusNovo extends JPlugin {
 			unset($params->clean_database);
 
 			// allow modal window script to access default parameter values
-			$doc = JFactory::getDocument();
+			$doc = Factory::getDocument();
 			$doc->addScriptDeclaration('window.sigplus = '.json_encode($params).';');
 
 			// add modal window
-			if (version_compare(JVERSION, '4.0') < 0) {
-				JHTML::_('behavior.modal');
-			}
-			$button = new JObject;
+			$button = new Joomla\CMS\Object\CMSObject;
 			$button->class = 'btn btn-secondary';
 			$button->modal = true;
-			$app = JFactory::getApplication();
+			$app = Factory::getApplication();
 			if ($app->getName() == 'administrator') {
 				$root = '../';  // Joomla expects a relative path, leave site folder "administrator"
 			} else {
@@ -258,25 +260,17 @@ class plgButtonSigPlusNovo extends JPlugin {
 			}
 			$button->link = $root.'media/plg_button_'.SIGPLUS_PLUGIN_FOLDER.'/html/button.php?lang='.$lang->getTag().'&editor='.urlencode($editorname);
 			$button->text = 'sigplus';
-			if (version_compare(JVERSION, '4.0') >= 0) {
-				$button->name = 'sigplus';
-				$button->iconSVG = '<svg viewBox="0 0 32 32" width="24" height="24"><path d="M4 8v20h28v-20h-28zM30 24.667l-4-6.667-4.533 3.778-3.46'
-					. '7-5.778-12 10v-16h24v14.667zM8 15c0-1.657 1.343-3 3-3s3 1.343 3 3v0c0 1.657-1.343 3-3 3s-3-1.343-3-3v0zM28 4h-'
-					. '28v20h2v-18h26z"></path></svg>';
-			} else {  // Joomla 3.x
-				$button->name = 'picture';
-			}
-			if (version_compare(JVERSION, '4.0') >= 0) {
-				$button->options = array(
-					'width' => '500px',
-					'height' => '400px'
-				);
-			} else {  // Joomla 3.x
-				$button->options = "{handler: 'iframe', size: {x: 500, y: 400}}";  // must use single quotes in JSON options string
-			}
+			$button->name = 'sigplus';
+			$button->iconSVG = '<svg viewBox="0 0 32 32" width="24" height="24"><path d="M4 8v20h28v-20h-28zM30 24.667l-4-6.667-4.533 3.778-3.46'
+				. '7-5.778-12 10v-16h24v14.667zM8 15c0-1.657 1.343-3 3-3s3 1.343 3 3v0c0 1.657-1.343 3-3 3s-3-1.343-3-3v0zM28 4h-'
+				. '28v20h2v-18h26z"></path></svg>';
+			$button->options = array(
+				'width' => '500px',
+				'height' => '400px'
+			);
 			return $button;
 		} catch (Exception $e) {
-			$app = JFactory::getApplication();
+			$app = Factory::getApplication();
 			$app->enqueueMessage($e->getMessage(), 'error');
 		}
 		return false;

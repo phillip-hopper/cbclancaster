@@ -4,14 +4,14 @@
 * @brief    sigplus Image Gallery Plus image processing library list control
 * @author   Levente Hunyadi
 * @version  1.5.0
-* @remarks  Copyright (C) 2009-2017 Levente Hunyadi
+* @remarks  Copyright (C) 2009-2023 Levente Hunyadi
 * @remarks  Licensed under GNU/GPLv3, see https://www.gnu.org/licenses/gpl-3.0.html
 * @see      https://hunyadi.info.hu/projects/sigplus
 */
 
 /*
 * sigplus Image Gallery Plus plug-in for Joomla
-* Copyright 2009-2017 Levente Hunyadi
+* Copyright 2009-2023 Levente Hunyadi
 *
 * sigplus is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -30,17 +30,21 @@
 // Check to ensure this file is within the rest of the framework
 defined('JPATH_BASE') or die();
 
+require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'compat.php';
 require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'constants.php';
+
+require_once JPATH_ROOT.DIRECTORY_SEPARATOR.'plugins'.DIRECTORY_SEPARATOR.'content'.DIRECTORY_SEPARATOR.SIGPLUS_PLUGIN_FOLDER.DIRECTORY_SEPARATOR.'core'.DIRECTORY_SEPARATOR.'librarian.php';
 
 jimport('joomla.form.formfield');
 
-require_once JPATH_ROOT.DIRECTORY_SEPARATOR.'plugins'.DIRECTORY_SEPARATOR.'content'.DIRECTORY_SEPARATOR.SIGPLUS_PLUGIN_FOLDER.DIRECTORY_SEPARATOR.'core'.DIRECTORY_SEPARATOR.'librarian.php';
+use Joomla\Utilities\ArrayHelper;
+use Joomla\CMS\Language\Text;
 
 /**
 * Renders a control that lists all supported image processing libraries.
 * This class represents a user-defined control in the administration backend.
 */
-class JFormFieldImageLibraryList extends JFormField {
+class JFormFieldImageLibraryList extends SigPlusNovoFormField {
 	protected $type = 'ImageLibraryList';
 
 	/**
@@ -52,12 +56,12 @@ class JFormFieldImageLibraryList extends JFormField {
 	*/
 	private function renderHtmlSelect($options, $name, $attribs = null, $selected = null) {
 		if (is_array($attribs)) {
-			$attribs = JArrayHelper::toString($attribs);
+			$attribs = ArrayHelper::toString($attribs);
 		}
 
 		$html = '<select name="'. $name .'" '. $attribs .'>';
 		foreach ($options as $value => $textkey) {
-			$html .= '<option '.( $selected == $value ? 'selected="selected" ' : '' ).'value="'.$value.'">'.JText::_($textkey).'</option>';
+			$html .= '<option '.( $selected == $value ? 'selected="selected" ' : '' ).'value="'.$value.'">'.Text::_($textkey).'</option>';
 		}
 		$html .= '</select>';
 		return $html;
@@ -65,14 +69,14 @@ class JFormFieldImageLibraryList extends JFormField {
 
 	private function renderNone($text, $name, $attribs = null) {
 		if (is_array($attribs)) {
-			$attribs = JArrayHelper::toString($attribs);
+			$attribs = ArrayHelper::toString($attribs);
 		}
 
-		return '<span style="color:red" '.$attribs.'><input type="hidden" name="'.$name.'" value="none" />'.JText::_($text).'</span>';
+		return '<span style="color:red" '.$attribs.'><input type="hidden" name="'.$name.'" value="none" />'.Text::_($text).'</span>';
 	}
 
 	public function getInput() {
-		$class = ( isset($this->element['class']) ? 'class="'.(string)$this->element['class'].'"' : 'class="inputbox"' );
+		$class = ( isset($this->element['class']) ? 'class="'.(string)$this->element['class'].'"' : 'class="form-select"' );
 
 		// user-friendly names for image processing libraries
 		$items = array();

@@ -1,16 +1,18 @@
 <?php
 /*
- * @package BFStop Component (com_bfstop) for Joomla! >=2.5
+ * @package BFStop Component (com_bfstop) for Joomla!
  * @author Bernhard Froehler
  * @copyright (C) Bernhard Froehler
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 **/
 defined('_JEXEC') or die;
 
-jimport('joomla.application.component.model');
+use Joomla\CMS\Log\Log;
+use Joomla\CMS\MVC\Model\BaseDatabaseModel;
+
 require_once(JPATH_ADMINISTRATOR.'/components/com_bfstop/helpers/unblock.php');
 
-class BFStopModelTokenUnblock extends JModelLegacy {
+class BFStopModelTokenUnblock extends BaseDatabaseModel {
 
 	const TokenValidDays = 3;
 
@@ -26,10 +28,10 @@ class BFStopModelTokenUnblock extends JModelLegacy {
 				$this->_db->quote($token));
 			$unblockTokenEntry = $this->_db->loadObject();
 			if ($unblockTokenEntry == null) {
-				$logger->log("com_bfstop-tokenunblock: Token not found.", JLog::ERROR);
+				$logger->log("com_bfstop-tokenunblock: Token not found.", Log::ERROR);
 				return false;
 			}
-			BFStopUnblockHelper::unblock($this->_db, array($unblockTokenEntry->block_id), 1, $logger);
+			BFStopUnblockHelper::unblockDB($this->_db, array($unblockTokenEntry->block_id), 1, $logger);
 			$sql = 'DELETE FROM #__bfstop_unblock_token WHERE token='.
 					$this->_db->quote($token);
 			$this->_db->setQuery($sql);
@@ -38,12 +40,12 @@ class BFStopModelTokenUnblock extends JModelLegacy {
 		catch (RuntimeException $e)
 		{
 			$sucess = false;
-			$logger->log($e->getMessage(), JLog::ERROR);
+			$logger->log($e->getMessage(), Log::ERROR);
 		}
 		if (!$success) {
-			$logger->log("com_bfstop-tokenunblock: Could not delete unblock_token.", JLog::ERROR);
+			$logger->log("com_bfstop-tokenunblock: Could not delete unblock_token.", Log::ERROR);
 		} else  {
-			$logger->log("com_bfstop-tokenunblock: Successfully unblocked with token.", JLog::INFO);
+			$logger->log("com_bfstop-tokenunblock: Successfully unblocked with token.", Log::INFO);
 		}
 		return $success;
 	}

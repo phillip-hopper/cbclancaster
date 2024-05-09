@@ -1,17 +1,19 @@
 <?php
 /*
- * @package BFStop Component (com_bfstop) for Joomla! >=2.5
+ * @package BFStop Component (com_bfstop) for Joomla!
  * @author Bernhard Froehler
  * @copyright (C) Bernhard Froehler
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 **/
 defined('_JEXEC') or die;
 
-jimport('joomla.application.component.modellist');
+use Joomla\CMS\Factory;
+use Joomla\CMS\MVC\Model\ListModel;
 
-class BFStopModelLog extends JModelList
+const HeaderLines = 6;
+
+class BFStopModelLog extends ListModel
 {
-	private const HeaderLines = 6;
 	public function __construct($config = array())
 	{
 		$config['filter_fields'] = array(
@@ -22,7 +24,7 @@ class BFStopModelLog extends JModelList
 
 	private function getLogFilePath()
 	{
-		$application = JFactory::getApplication();
+		$application = Factory::getApplication();
 		$log_path = $application->getCfg('log_path');
 		return $log_path."/plg_system_bfstop.log.php";
 	}
@@ -37,9 +39,9 @@ class BFStopModelLog extends JModelList
 		}
 		$lineNumber = 0;
 		while (($line = fgets($logfile)) !== false &&
-			$lineNumber < (self::HeaderLines + $start + $count))
+			($count === 0 || ($lineNumber < (HeaderLines + $start + $count))))
 		{
-			if ($lineNumber >= self::HeaderLines + $start)
+			if ($lineNumber >= HeaderLines + $start)
 			{
 				$logItems = explode(" ", $line);
 				if (count($logItems) < 3)
@@ -82,7 +84,7 @@ class BFStopModelLog extends JModelList
 		{
 			$file = new \SplFileObject($this->getLogFilePath(), 'r');
 			$file->seek(PHP_INT_MAX);
-			return ($file->key()-self::HeaderLines + 1);
+			return ($file->key()-HeaderLines + 1);
 		}
 		catch (RuntimeException $e)
 		{

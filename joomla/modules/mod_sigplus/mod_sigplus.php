@@ -4,14 +4,14 @@
 * @brief    sigplus Image Gallery Plus module for Joomla
 * @author   Levente Hunyadi
 * @version  1.5.0
-* @remarks  Copyright (C) 2009-2014 Levente Hunyadi
+* @remarks  Copyright (C) 2009-2023 Levente Hunyadi
 * @remarks  Licensed under GNU/GPLv3, see https://www.gnu.org/licenses/gpl-3.0.html
 * @see      https://hunyadi.info.hu/projects/sigplus
 */
 
 /*
 * sigplus Image Gallery Plus module for Joomla
-* Copyright 2009-2014 Levente Hunyadi
+* Copyright 2009-2023 Levente Hunyadi
 *
 * sigplus is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -50,6 +50,8 @@ if (!defined('SIGPLUS_LOGGING')) {
 // include the helper file
 require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'helper.php';
 
+use Joomla\CMS\Factory;
+
 $gallery_html = false;
 
 try {
@@ -60,7 +62,7 @@ try {
 		try {
 			if ($params instanceof stdClass) {
 				$imagesource = $params->source;
-			} else if ($params instanceof JRegistry) {  // Joomla 2.5 and earlier
+			} else if ($params instanceof Joomla\Registry\Registry) {
 				$imagesource = $params->get('source');
 			}
 
@@ -70,7 +72,7 @@ try {
 					jexit();  // do not produce a page
 				}
 			} catch (SigPlusNovoImageDownloadAccessException $e) {  // signal download errors but do not stop page processing
-				$app = JFactory::getApplication();
+				$app = Factory::getApplication();
 				$app->enqueueMessage($e->getMessage(), 'error');
 			}
 
@@ -86,14 +88,9 @@ try {
 		}
 	}  // an error message has already been printed by another module instance
 } catch (Exception $e) {
-	$app = JFactory::getApplication();
+	$app = Factory::getApplication();
 	$app->enqueueMessage($e->getMessage(), 'error');
 	$gallery_html = $e->getMessage();
 }
 
-if (version_compare(JVERSION, '4.0') >= 0) {
-	$moduleclass_sfx = '';
-} else {
-	$moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'), ENT_COMPAT, 'UTF-8');
-}
-require JModuleHelper::getLayoutPath('mod_sigplus', $params->get('layout', 'default'));
+require Joomla\CMS\Helper\ModuleHelper::getLayoutPath('mod_sigplus', $params->get('layout', 'default'));

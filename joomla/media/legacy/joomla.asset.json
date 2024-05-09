@@ -6,25 +6,26 @@
   "license": "GPL-2.0-or-later",
   "assets": [
     {
+      "name": "joomla.treeselectmenu",
+      "type": "script",
+      "dependencies": [
+        "jquery",
+        "bootstrap.dropdown"
+      ],
+      "uri": "legacy/treeselectmenu.min.js",
+      "attributes": {
+        "defer": true
+      },
+      "version": "cfeea676926df40c887996afd9b4906201d58cac"
+    },
+    {
       "name": "jquery-noconflict",
       "type": "script",
       "dependencies": [
         "jquery"
       ],
       "uri": "legacy/jquery-noconflict.min.js",
-      "version": "04499b98c0305b16b373dff09fe79d1290976288"
-    },
-    {
-      "name": "joomla.treeselectmenu",
-      "type": "script",
-      "dependencies": [
-        "jquery"
-      ],
-      "uri": "legacy/treeselectmenu.min.js",
-      "attributes": {
-        "defer": true
-      },
-      "version": "16df8e6b7e30feee352d25aae16088a670c04fd4"
+      "version": "647005fc12b79b3ca2bb30c059899d5994e3e34d"
     }
   ]
 }

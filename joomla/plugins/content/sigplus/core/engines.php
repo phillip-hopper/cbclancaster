@@ -4,14 +4,14 @@
 * @brief    sigplus Image Gallery Plus javascript engine service classes
 * @author   Levente Hunyadi
 * @version  1.5.0
-* @remarks  Copyright (C) 2009-2017 Levente Hunyadi
+* @remarks  Copyright (C) 2009-2023 Levente Hunyadi
 * @remarks  Licensed under GNU/GPLv3, see https://www.gnu.org/licenses/gpl-3.0.html
 * @see      https://hunyadi.info.hu/sigplus
 */
 
 /*
 * sigplus Image Gallery Plus plug-in for Joomla
-* Copyright 2009-2017 Levente Hunyadi
+* Copyright 2009-2023 Levente Hunyadi
 *
 * sigplus is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -29,6 +29,10 @@
 
 // no direct access
 defined( '_JEXEC' ) or die( 'Restricted access' );
+
+use Joomla\CMS\Factory;
+use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Uri\Uri;
 
 define('SIGPLUS_RESOURCE_DATABASE', JPATH_CACHE.DIRECTORY_SEPARATOR.'sigplus.json');
 
@@ -137,8 +141,8 @@ class SigPlusNovoEngineServices {
 			return;
 		}
 
-		// MooTools Core is native to Joomla, modify Joomla if you wish to load it from a CDN
-		JHTML::_('behavior.framework');
+		// load MooTools Core from CDN
+		Factory::getDocument()->addScript('https://cdnjs.cloudflare.com/ajax/libs/mootools/1.4.5/mootools-core-full-nocompat-yc.min.js');
 
 		$this->mootools = true;
 	}
@@ -151,7 +155,7 @@ class SigPlusNovoEngineServices {
 			return;
 		}
 
-		JHTML::_('jquery.framework');
+		HTMLHelper::_('jquery.framework');
 
 		$this->jquery = true;
 	}
@@ -162,7 +166,7 @@ class SigPlusNovoEngineServices {
 		}
 
 		$this->addJQuery();
-		JHTML::_('bootstrap.framework');
+		HTMLHelper::_('bootstrap.framework');
 
 		$this->bootstrap = true;
 	}
@@ -197,7 +201,7 @@ class SigPlusNovoEngineServices {
 		static $customtags = array();
 
 		if (!in_array($tag, $customtags)) {
-			$document = JFactory::getDocument();
+			$document = Factory::getDocument();
 			if ($document->getType() == 'html') {  // custom tags are supported by HTML document type only
 				$document->addCustomTag($tag);
 			}
@@ -238,20 +242,20 @@ class SigPlusNovoEngineServices {
 	*/
 	private function getResourceURL($relpath) {
 		$relpath = $this->getResourceRelativePath($relpath);
-		if (parse_url(JURI::base(false), PHP_URL_HOST) != 'localhost') {
+		if (parse_url(Uri::base(false), PHP_URL_HOST) != 'localhost') {
 			$item = $this->cache->lookup($relpath);
 			if (!empty($item->hash)) {
 				$relpath .= "?v={$item->hash}";  // ensures that the URL is unique
 			}
 		}
-		return JURI::base(true).$relpath;
+		return Uri::base(true).$relpath;
 	}
 
 	/**
 	* Adds standard stylesheet references to the HTML head.
 	*/
 	public function addStandardStyles() {
-		$document = JFactory::getDocument();
+		$document = Factory::getDocument();
 		$document->addStyleSheet($this->getResourceURL('/media/sigplus/css/sigplus.css'));
 	}
 
@@ -260,7 +264,7 @@ class SigPlusNovoEngineServices {
 	*/
 	public function addStylesheet($path, $attrs = null) {
 		$url = $this->getResourceURL($path);
-		$document = JFactory::getDocument();
+		$document = Factory::getDocument();
 		if (isset($attrs)) {
 			$document->addStyleSheet($url, 'text/css', null, $attrs);
 		} else {
@@ -289,7 +293,7 @@ class SigPlusNovoEngineServices {
 		}
 
 		if (!empty($css)) {
-			$document = JFactory::getDocument();
+			$document = Factory::getDocument();
 			$document->addStyleDeclaration($css);
 		}
 	}
@@ -298,7 +302,7 @@ class SigPlusNovoEngineServices {
 	* Adds a script reference to the HTML head.
 	*/
 	public function addScript($path) {
-		$document = JFactory::getDocument();
+		$document = Factory::getDocument();
 		$document->addScript($this->getResourceURL($path), array(), array('defer' => true));
 	}
 
@@ -332,7 +336,7 @@ class SigPlusNovoEngineServices {
 	public function addOnReadyEvent() {
 		if (!empty($this->scripts)) {
 			// add script block to page
-			$document = JFactory::getDocument();
+			$document = Factory::getDocument();
 			$document->addScriptDeclaration('document.addEventListener("DOMContentLoaded", function () {'."\n".implode("\n", $this->scripts)."\n".'}, false);');
 
 			// clear "on ready" event scripts
@@ -395,7 +399,7 @@ abstract class SigPlusNovoEngine {
 		}
 
 		// add right-to-left reading order stylesheet (if available)
-		$language = JFactory::getLanguage();
+		$language = Factory::getLanguage();
 		if ($language->isRTL() && file_exists(JPATH_ROOT.DIRECTORY_SEPARATOR.'media'.DIRECTORY_SEPARATOR.SIGPLUS_MEDIA_FOLDER.DIRECTORY_SEPARATOR.'engines'.DIRECTORY_SEPARATOR.$this->getIdentifier().DIRECTORY_SEPARATOR.'css'.DIRECTORY_SEPARATOR.$this->getIdentifier().'.rtl.css')) {
 			$instance->addStylesheet('/media/sigplus/engines/'.$this->getIdentifier().'/css/'.$this->getIdentifier().'.rtl.css');
 		}

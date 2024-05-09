@@ -6,18 +6,28 @@
   "license": "GPL-2.0-or-later",
   "assets": [
     {
-      "name": "com_contenthistory.admin-compare-compare.es5",
+      "name": "com_contenthistory.admin-compare-compare",
       "type": "script",
-      "uri": "com_contenthistory/admin-compare-compare-es5.min.js",
+      "uri": "com_contenthistory/admin-compare-compare.min.js",
       "dependencies": [
-        "core",
-        "diff"
+        "com_contenthistory.admin-compare-compare.es5"
       ],
       "attributes": {
-        "nomodule": true,
-        "defer": true
+        "type": "module"
       },
-      "version": "1ed7354765d7e01a9e5103c96fab373e441ba895"
+      "version": "3a3f9134be7be982cf3705dd39b50dd47083cc06"
+    },
+    {
+      "name": "com_contenthistory.admin-history-modal",
+      "type": "script",
+      "uri": "com_contenthistory/admin-history-modal.min.js",
+      "dependencies": [
+        "com_contenthistory.admin-history-modal.es5"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "38c9a776abe63c1569786e8a4e2e6db0ec9d5ef6"
     },
     {
       "name": "com_contenthistory.admin-history-modal.es5",
@@ -30,19 +40,19 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "5efd03ad95eb8b150f0c980e35073b4e77e995e9"
+      "version": "ada35a629abc49d2c980899d78d42c5786f49ab4"
     },
     {
-      "name": "com_contenthistory.admin-history-modal",
+      "name": "com_contenthistory.admin-history-versions",
       "type": "script",
-      "uri": "com_contenthistory/admin-history-modal.min.js",
+      "uri": "com_contenthistory/admin-history-versions.min.js",
       "dependencies": [
-        "com_contenthistory.admin-history-modal.es5"
+        "com_contenthistory.admin-history-versions.es5"
       ],
       "attributes": {
         "type": "module"
       },
-      "version": "ff71d5500b2b05ce7011a513cc50b8e47b6ce961"
+      "version": "973d531805b2bf1a57af65fc7c2b00d3669b73f0"
     },
     {
       "name": "com_contenthistory.admin-history-versions.es5",
@@ -55,31 +65,21 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "28ad9360a6c9edc1da2fd18e633966726a4e26e3"
+      "version": "1f92d08e5eaf196fb3c0fb9cb1ce4943208f5353"
     },
     {
-      "name": "com_contenthistory.admin-history-versions",
+      "name": "com_contenthistory.admin-compare-compare.es5",
       "type": "script",
-      "uri": "com_contenthistory/admin-history-versions.min.js",
+      "uri": "com_contenthistory/admin-compare-compare-es5.min.js",
       "dependencies": [
-        "com_contenthistory.admin-history-versions.es5"
+        "core",
+        "diff"
       ],
       "attributes": {
-        "type": "module"
+        "nomodule": true,
+        "defer": true
       },
-      "version": "8f9a51f762f8de8053efed6ce1af27696076cc4b"
-    },
-    {
-      "name": "com_contenthistory.admin-compare-compare",
-      "type": "script",
-      "uri": "com_contenthistory/admin-compare-compare.min.js",
-      "dependencies": [
-        "com_contenthistory.admin-compare-compare.es5"
-      ],
-      "attributes": {
-        "type": "module"
-      },
-      "version": "77bfdee1f9f8ec27feaa6e2d442118f8fa02897f"
+      "version": "1a023ac8995be80c56310f6fc2c5872dc5e13a76"
     }
   ]
 }

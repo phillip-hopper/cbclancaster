@@ -16,7 +16,7 @@
       "attributes": {
         "defer": true
       },
-      "version": "2ba7d17619cb8551832b33488b50aeed1592744f"
+      "version": "bdb7df28bffa4cbab10e5ee64575658fa5c3c562"
     },
     {
       "name": "plg_multifactorauth_webauthn.webauthn.es5",
@@ -29,7 +29,7 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "8db62e5c9d39ca286ddfeeb8f35a066e2c255af7"
+      "version": "17da4e8066e1edfa5792ed94e0eb02ff437695a0"
     }
   ]
 }

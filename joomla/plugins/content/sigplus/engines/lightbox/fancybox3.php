@@ -4,13 +4,15 @@
 * @brief    sigplus Image Gallery Plus Fancybox3 lightweight pop-up window engine
 * @author   Levente Hunyadi
 * @version  1.5.0
-* @remarks  Copyright (C) 2009-2017 Levente Hunyadi
+* @remarks  Copyright (C) 2009-2023 Levente Hunyadi
 * @remarks  Licensed under GNU/GPLv3, see https://www.gnu.org/licenses/gpl-3.0.html
 * @see      https://hunyadi.info.hu/projects/sigplus
 */
 
 // no direct access
 defined( '_JEXEC' ) or die( 'Restricted access' );
+
+use Joomla\CMS\Factory;
 
 /**
 * Support class for jQuery-based Fancybox3 pop-up window engine.
@@ -31,7 +33,7 @@ class SigPlusNovoFancybox3LightboxEngine extends SigPlusNovoLightboxEngine {
 	* @param $params Gallery parameters.
 	*/
 	public function addStyles($selector, SigPlusNovoGalleryParameters $params) {
-		$document = JFactory::getDocument();
+		$document = Factory::getDocument();
 		$document->addStyleSheet('https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css');
 	}
 
@@ -45,7 +47,7 @@ class SigPlusNovoFancybox3LightboxEngine extends SigPlusNovoLightboxEngine {
 
 		$this->addDependencyScripts();
 
-		$document = JFactory::getDocument();
+		$document = Factory::getDocument();
 		$document->addScript('https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js', array(), array('defer' => true));
 
 		$jsparams = array();
@@ -62,7 +64,7 @@ class SigPlusNovoFancybox3LightboxEngine extends SigPlusNovoLightboxEngine {
 		if ($params->lightbox_thumbs === false) {
 			$jsparams['thumbs'] = false;
 		}
-		$language = JFactory::getLanguage();
+		$language = Factory::getLanguage();
 		$languagecode = substr($language->getTag(), 0, 2);
 		$jsparams['lang'] = $languagecode;
 		switch ($languagecode) {
@@ -76,7 +78,7 @@ class SigPlusNovoFancybox3LightboxEngine extends SigPlusNovoLightboxEngine {
 		}
 		$buttons = array();
 		$buttons[] = 'zoom';
-		$user = JFactory::getUser();
+		$user = Factory::getUser();
 		if ($params->download !== false && in_array($params->download, $user->getAuthorisedViewLevels())) {  // check if user is authorized to download image
 			$buttons[] = 'download';
 		}

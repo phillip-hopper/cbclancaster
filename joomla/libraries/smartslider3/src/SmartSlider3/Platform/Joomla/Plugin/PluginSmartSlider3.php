@@ -6,9 +6,9 @@ namespace Nextend\SmartSlider3\Platform\Joomla\Plugin;
 use Artx;
 use ArtxPage;
 use EshopHelper;
-use JFactory;
+use Joomla\CMS\Factory;
 use Joomla\CMS\Application\SiteApplication;
-use JPlugin;
+use Joomla\CMS\Plugin\CMSPlugin;
 use Nextend\Framework\Asset\AssetManager;
 use Nextend\SmartSlider3\Platform\Joomla\Joomla3Assets;
 use Nextend\SmartSlider3\Platform\Joomla\JoomlaShim;
@@ -20,7 +20,9 @@ jimport('joomla.plugin.plugin');
  *
  * Used in Joomla -> Plugin -> System -> Nextend2
  */
-class PluginSmartSlider3 extends JPlugin {
+class PluginSmartSlider3 extends CMSPlugin {
+
+    private $hadError = false;
 
     /*
     Artisteer jQuery fix
@@ -41,14 +43,14 @@ class PluginSmartSlider3 extends JPlugin {
             /**
              * @var SiteApplication $application
              */
-            $application = JFactory::getApplication();
+            $application = Factory::getApplication();
             if ($application->isClient('site')) {
                 $request   = $application->input->request;
                 $isAllowed = true;
 
-                if (!JFactory::getUser()->guest) {
+                if (!Factory::getUser()->guest) {
 
-                    if ($application->get('frontediting', 1) && $request->get('view') == 'form' && $request->get('layout') == 'edit' && $application->input->getInt('a_id') > 0) {
+                    if ($request->get('view') == 'form' && $request->get('layout') == 'edit' && $application->input->getInt('a_id') > 0) {
                         //Joomla frontend article editing
                         $isAllowed = false;
 
@@ -100,7 +102,7 @@ class PluginSmartSlider3 extends JPlugin {
             /**
              * @var SiteApplication $application
              */
-            $application = JFactory::getApplication();
+            $application = Factory::getApplication();
 
             $body = $application->getBody();
 
@@ -147,7 +149,7 @@ class PluginSmartSlider3 extends JPlugin {
         $head = ob_get_clean();
         if (!empty($head)) {
 
-            $application = JFactory::getApplication();
+            $application = Factory::getApplication();
             $body        = $application->getBody();
 
             $parts = preg_split('/<\/head>/', $body, 2);
@@ -159,6 +161,16 @@ class PluginSmartSlider3 extends JPlugin {
             $body = implode($head . '</head>', $parts);
 
             $application->setBody($body);
+        }
+    }
+
+    public function onError() {
+        $this->hadError = true;
+    }
+
+    public function onBeforeRespond() {
+        if ($this->hadError) {
+            $this->onAfterRender();
         }
     }
 

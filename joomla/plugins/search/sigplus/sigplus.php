@@ -4,7 +4,7 @@
 * @brief    sigplus Image Gallery Plus image search plug-in
 * @author   Levente Hunyadi
 * @version  1.5.0
-* @remarks  Copyright (C) 2009-2017 Levente Hunyadi
+* @remarks  Copyright (C) 2009-2023 Levente Hunyadi
 * @remarks  Licensed under GNU/GPLv3, see https://www.gnu.org/licenses/gpl-3.0.html
 * @see      https://hunyadi.info.hu/projects/sigplus
 */
@@ -22,6 +22,10 @@ if (!defined('SIGPLUS_MEDIA_FOLDER')) {
 jimport('joomla.plugin.plugin');
 jimport('joomla.html.parameter');
 
+use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Plugin\PluginHelper;
+
 /**
 * Triggered when the sigplus content plug-in is unavailable or there is a version mismatch.
 */
@@ -32,7 +36,7 @@ class SigPlusNovoSearchDependencyException extends Exception {
 	*/
 	public function __construct() {
 		$key = 'SIGPLUS_EXCEPTION_EXTENSION';
-		$message = '['.$key.'] '.JText::_($key);  // get localized message text
+		$message = '['.$key.'] '.Text::_($key);  // get localized message text
 		parent::__construct($message);
 	}
 }
@@ -40,7 +44,7 @@ class SigPlusNovoSearchDependencyException extends Exception {
 /**
 * sigplus image search plug-in.
 */
-class plgSearchSigPlusNovo extends JPlugin {
+class plgSearchSigPlusNovo extends Joomla\CMS\Plugin\CMSPlugin {
 	private $limit = 50;
 	private $core;
 
@@ -73,17 +77,17 @@ class plgSearchSigPlusNovo extends JPlugin {
 		}
 
 		// load language file for internationalized labels and error messages
-		$lang = JFactory::getLanguage();
+		$lang = Factory::getLanguage();
 		$lang->load('plg_search_'.SIGPLUS_PLUGIN_FOLDER, JPATH_ADMINISTRATOR);
 
 		if (!isset($this->core)) {
 			// load sigplus content plug-in
-			if (!JPluginHelper::importPlugin('content', SIGPLUS_PLUGIN_FOLDER)) {
+			if (!PluginHelper::importPlugin('content', SIGPLUS_PLUGIN_FOLDER)) {
 				throw new SigPlusNovoSearchDependencyException();
 			}
 
 			// load sigplus content plug-in parameters
-			$plugin = JPluginHelper::getPlugin('content', SIGPLUS_PLUGIN_FOLDER);
+			$plugin = PluginHelper::getPlugin('content', SIGPLUS_PLUGIN_FOLDER);
 			$params = json_decode($plugin->params);
 			$params->lightbox_thumbs = false;
 
@@ -103,14 +107,16 @@ class plgSearchSigPlusNovo extends JPlugin {
 			$this->core = new SigPlusNovoCore($configuration);
 		}
 
-		$db = JFactory::getDbo();
-
 		// determine current site language
-		$lang = JFactory::getLanguage();
+		$lang = Factory::getLanguage();
 		list($language, $country) = explode('-', $lang->getTag());  // site current language
 
 		// get the database identifier that belongs to an ISO language code
-		$db = JFactory::getDbo();
+		if (version_compare(JVERSION, '4.0') >= 0) {
+			$db = Factory::getContainer()->get(Joomla\Database\DatabaseInterface::class);
+		} else {
+			$db = Factory::getDBO();
+		}
 		$db->setQuery(
 			'SELECT'.PHP_EOL.
 				$db->quoteName('langid').PHP_EOL.
@@ -121,7 +127,6 @@ class plgSearchSigPlusNovo extends JPlugin {
 		$langid = $db->loadResult();
 
 		// get the database identifier that belongs to an ISO country code
-		$db = JFactory::getDbo();
 		$db->setQuery(
 			'SELECT'.PHP_EOL.
 				$db->quoteName('countryid').PHP_EOL.
@@ -323,7 +328,7 @@ class plgSearchSigPlusNovo extends JPlugin {
 				$url = $this->core->makeURL($row['url']);
 				$results[] = (object) array(
 					'href'        => $url,
-					'section'     => JText::_('SIGPLUS_IMAGES'),
+					'section'     => Text::_('SIGPLUS_IMAGES'),
 					'created'     => $row['filetime'],
 					'browsernav'  => '1',
 
@@ -365,11 +370,11 @@ class plgSearchSigPlusNovo extends JPlugin {
 	*/
 	public function onContentSearchAreas() {
 		// load language file for internationalized labels
-		$lang = JFactory::getLanguage();
+		$lang = Factory::getLanguage();
 		$lang->load('plg_search_'.SIGPLUS_PLUGIN_FOLDER, JPATH_ADMINISTRATOR);
 
 		$areas = array(
-			'sigplus' => JText::_('SIGPLUS_IMAGES')
+			'sigplus' => Text::_('SIGPLUS_IMAGES')
 		);
 		return $areas;
 	}

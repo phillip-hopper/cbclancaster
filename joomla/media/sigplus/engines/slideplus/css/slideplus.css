@@ -361,22 +361,71 @@ animation-name: slideplus-fade-out;
 100% { opacity: 0.0; }
 }
 
-.slideplus-push-left {
-animation-name: slideplus-push-left;
+/* https://easings.net/ */
+.slideplus-timing-linear, .slideplus-timing-elastic, .slideplus-timing-bounce {
+animation-timing-function: linear;
+}
+.slideplus-timing-sine {
+animation-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
+}
+.slideplus-timing-quad {
+animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
+}
+.slideplus-timing-cubic {
+animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+}
+.slideplus-timing-quart {
+animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+}
+.slideplus-timing-quint {
+animation-timing-function: cubic-bezier(0.83, 0, 0.17, 1);
+}
+.slideplus-timing-expo {
+animation-timing-function: cubic-bezier(0.87, 0, 0.13, 1);
+}
+.slideplus-timing-circ {
+animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
+}
+.slideplus-timing-back {
+animation-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
 
-@keyframes slideplus-push-left {
-0% { transform: translate(0, 0); }
-100% { transform: translate(-100%, 0); }
+/*
+* Keyframes for animations.
+* Included for reference only. Generated for `transform: translate(x, y)` orientations on the fly in JavaScript.
+*/
+
+@keyframes slideplus-linear {
+0% { translate: 0%; }
+100% { translate: 100%; }
 }
 
-.slideplus-push-right {
-animation-name: slideplus-push-right;
+/* https://easings.net/#easeInOutElastic */
+@keyframes slideplus-elastic {
+0% { translate: 0%; }
+4%, 8% { translate: 0.1%; }
+18%, 20% { translate: -0.5%; }
+28%, 30% { translate: -2.4%; }
+38%, 40% { translate: -10%; }
+60%, 62% { translate: 110%; }
+70%, 72% { translate: 97.6%; }
+80%, 82% { translate: 100.5%; }
+90%, 92% { translate: 99.9%; }
+100% { translate: 100%; }
 }
 
-@keyframes slideplus-push-right {
-0% { transform: translate(0, 0); }
-100% { transform: translate(100%, 0); }
+/* https://easings.net/#easeOutBounce */
+@keyframes slideplus-bounce {
+0% { translate: 0%; }
+12% { translate: 10.89%; }
+24% { translate: 43.56%; }
+36% { translate: 98%; }
+54% { translate: 75%; }
+74% { translate: 98.4%; }
+82% { translate: 93.75%; }
+92% { translate: 99.3%; }
+96% { translate: 98.5%; }
+100% { translate: 100; }
 }
 
 /*

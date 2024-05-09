@@ -4,14 +4,14 @@
 * @brief    sigplus Image Gallery Plus plug-in for Joomla
 * @author   Levente Hunyadi
 * @version  1.5.0
-* @remarks  Copyright (C) 2009-2017 Levente Hunyadi
+* @remarks  Copyright (C) 2009-2023 Levente Hunyadi
 * @remarks  Licensed under GNU/GPLv3, see https://www.gnu.org/licenses/gpl-3.0.html
 * @see      https://hunyadi.info.hu/sigplus
 */
 
 /*
 * sigplus Image Gallery Plus plug-in for Joomla
-* Copyright 2009-2017 Levente Hunyadi
+* Copyright 2009-2023 Levente Hunyadi
 *
 * sigplus is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -37,8 +37,12 @@ require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'params.php';
 require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'imagegenerator.php';
 require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'engines.php';
 
+use Joomla\CMS\Factory;
 use Joomla\CMS\Filter\InputFilter;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Plugin\PluginHelper;
 use Joomla\CMS\Router\Route;
+use Joomla\CMS\Uri\Uri;
 
 define('SIGPLUS_TEST', 0);
 define('SIGPLUS_CREATE', 1);
@@ -85,12 +89,12 @@ class SigPlusNovoHTMLLogging implements SigPlusNovoLoggingService {
 	}
 
 	public function fetch() {
-		$document = JFactory::getDocument();
+		$document = Factory::getDocument();
 
-		//$document->addScript(JURI::base(true).'/media/sigplus/js/log.js');  // language-neutral
+		//$document->addScript(Uri::base(true).'/media/sigplus/js/log.js');  // language-neutral
 		$script = file_get_contents(JPATH_ROOT.DIRECTORY_SEPARATOR.'media'.DIRECTORY_SEPARATOR.SIGPLUS_MEDIA_FOLDER.DIRECTORY_SEPARATOR.'js'.DIRECTORY_SEPARATOR.'log.js');
 		if ($script !== false) {
-			$script = str_replace(array("'Show'","'Hide'"), array("'".JText::_('JSHOW')."'","'".JText::_('JHIDE')."'"), $script);
+			$script = str_replace(array("'Show'","'Hide'"), array("'".Text::_('JSHOW')."'","'".Text::_('JHIDE')."'"), $script);
 			$document->addScriptDeclaration($script);
 		}
 
@@ -157,13 +161,13 @@ class SigPlusNovoUser {
 	* The normalized user group title for the currently logged-in user.
 	*/
 	public static function getCurrentUserGroup() {
-		$user = JFactory::getUser();
+		$user = Factory::getUser();
 		if ($user->guest) {
 			return false;
 		}
 
 		// get all groups the user is member of, but not inherited groups
-		$groups = JAccess::getGroupsByUser($user->id, false);
+		$groups = Joomla\CMS\Access\Access::getGroupsByUser($user->id, false);
 		if (count($groups) < 1) {
 			return false;  // not a member of any group
 		}
@@ -172,7 +176,7 @@ class SigPlusNovoUser {
 		$group = $groups[0];
 
 		// get the group title from the database
-		$db = JFactory::getDBO();
+		$db = SigPlusNovoDatabase::getDriver();
 		$query = $db->getQuery(true);
 		$query
 			->select('grp.title')
@@ -251,11 +255,19 @@ class SigPlusNovoDatabase {
 		}
 	}
 
+	public static function getDriver() {
+		if (version_compare(JVERSION, '4.0') >= 0) {
+			return Factory::getContainer()->get(Joomla\Database\DatabaseInterface::class);
+		} else {
+			return Factory::getDBO();
+		}
+	}
+
 	/**
 	* Quote column identifier names.
 	*/
 	private static function quoteColumns(array $cols) {
-		$db = JFactory::getDbo();
+		$db = self::getDriver();
 
 		// quote identifier names
 		foreach ($cols as &$col) {
@@ -270,7 +282,7 @@ class SigPlusNovoDatabase {
 	public static function quoteValue($value) {
 		if (is_string($value)) {
 			if (self::checkUTF8Encoding($value)) {
-				$db = JFactory::getDbo();
+				$db = self::getDriver();
 				return $db->quote($value);
 			} else {
 				return '0x'.implode(unpack("H*", $value));
@@ -285,7 +297,7 @@ class SigPlusNovoDatabase {
 	}
 
 	private static function quoteValues(array $row) {
-		$db = JFactory::getDbo();
+		$db = self::getDriver();
 		foreach ($row as &$entry) {
 			if (is_string($entry)) {
 				if (self::checkUTF8Encoding($entry)) {
@@ -306,7 +318,7 @@ class SigPlusNovoDatabase {
 	* The database identifier that belongs to an ISO language code.
 	*/
 	public static function getLanguageId($language) {
-		$db = JFactory::getDbo();
+		$db = self::getDriver();
 		$db->setQuery(
 			'SELECT'.PHP_EOL.
 				$db->quoteName('langid').PHP_EOL.
@@ -321,7 +333,7 @@ class SigPlusNovoDatabase {
 	* The database identifier that belongs to an ISO country code.
 	*/
 	public static function getCountryId($country) {
-		$db = JFactory::getDbo();
+		$db = self::getDriver();
 		$db->setQuery(
 			'SELECT'.PHP_EOL.
 				$db->quoteName('countryid').PHP_EOL.
@@ -340,7 +352,7 @@ class SigPlusNovoDatabase {
 	* @param {array} $rows A collection of values for each row to insert or overwrite existing values with.
 	*/
 	public static function getInsertBatchStatement($table, array $match_keys, array $cols, array $rows, array $keys = null, array $constants = null) {
-		$db = JFactory::getDbo();
+		$db = self::getDriver();
 
 		$table = $db->quoteName($table);
 
@@ -431,7 +443,7 @@ class SigPlusNovoDatabase {
 	*/
 	public static function insertBatch($table, array $match_keys, array $cols, array $rows, $keys = null, array $constants = null) {
 		if (($statement = self::getInsertBatchStatement($table, $match_keys, $cols, $rows, $keys, $constants)) !== false) {
-			$db = JFactory::getDbo();
+			$db = self::getDriver();
 			$db->setQuery($statement);
 			$db->execute();
 		}
@@ -447,7 +459,7 @@ class SigPlusNovoDatabase {
 	* @return {int} The auto-increment value for the updated or inserted row.
 	*/
 	public static function insertSingleUnique($table, array $match_keys, array $cols, array $values, $auto_key = null) {
-		$db = JFactory::getDbo();
+		$db = self::getDriver();
 
 		$table = $db->quoteName($table);
 
@@ -537,7 +549,7 @@ class SigPlusNovoDatabase {
 	* @return {int} The auto-increment value for the newly inserted row.
 	*/
 	public static function replaceSingle($table, array $match_keys_values, array $cols, array $values) {
-		$db = JFactory::getDbo();
+		$db = self::getDriver();
 
 		$table = $db->quoteName($table);
 
@@ -581,7 +593,7 @@ class SigPlusNovoDatabase {
 	}
 
 	public static function executeAll(array $queries) {
-		$db = JFactory::getDbo();
+		$db = self::getDriver();
 
 		foreach ($queries as $query) {
 			$db->setQuery($query);
@@ -722,7 +734,7 @@ class SigPlusNovoLabels {
 		}
 
 		if ($this->multilingual) {
-			$lang = JFactory::getLanguage();
+			$lang = Factory::getLanguage();
 			$tag = $lang->getTag();  // use site default language
 			$file = $imagefolder.DIRECTORY_SEPARATOR.$labelsname.'.'.$tag.$labelssuff;
 			if (is_file($file)) {
@@ -749,7 +761,7 @@ class SigPlusNovoLabels {
 		// read default (language-neutral) labels file
 		$file = $imagefolder.DIRECTORY_SEPARATOR.$labelsname.$labelssuff;  // filesystem path to labels file
 		if (is_file($file)) {
-			$lang = JFactory::getLanguage();
+			$lang = Factory::getLanguage();
 			$tag = $lang->getTag();  // use site default language
 			$sources[$tag] = $file;  // language tag has format hu-HU or en-GB
 		}
@@ -851,7 +863,7 @@ class SigPlusNovoLabels {
 	}
 
 	public function populate($imagefolder, $folderid) {
-		$db = JFactory::getDbo();
+		$db = SigPlusNovoDatabase::getDriver();
 		$queries = array();
 
 		// force type to prevent SQL injection
@@ -991,6 +1003,12 @@ class SigPlusNovoImageMetadata {
 				if ($keyid) {  // key maps to a numeric identifier
 					if (is_array($metavalue)) {
 						$value = implode(';', $metavalue);
+					} elseif (is_string($metavalue)) {
+						if (substr($metavalue, 0, 4) === "8BIM") {
+							// 8BIM is the signature for Photoshop Image Resource Block (IRB)
+							continue;
+						}
+						$value = $metavalue;
 					} else {
 						$value = (string) $metavalue;
 					}
@@ -1052,7 +1070,7 @@ abstract class SigPlusNovoGalleryBase {
 	}
 
 	public function update($url, $folderparams) {
-		$db = JFactory::getDbo();
+		$db = SigPlusNovoDatabase::getDriver();
 		$dbtype = $db->getServerType();
 		try {
 			switch ($dbtype) {
@@ -1091,7 +1109,7 @@ abstract class SigPlusNovoGalleryBase {
 	private function getFolder($url, $folderparams) {
 		$datetime = SigPlusNovoDatabase::sqldate($folderparams->time);
 
-		$db = JFactory::getDbo();
+		$db = SigPlusNovoDatabase::getDriver();
 		$query = $db->getQuery(true);
 		$query
 			->select(array('folderid','foldertime','entitytag'))
@@ -1191,7 +1209,7 @@ abstract class SigPlusNovoGalleryBase {
 	}
 
 	protected function getView($folderid) {
-		$db = JFactory::getDbo();
+		$db = SigPlusNovoDatabase::getDriver();
 		$folderid = (int) $folderid;
 		$hash = $this->getViewHash($folderid);
 
@@ -1227,7 +1245,7 @@ abstract class SigPlusNovoGalleryBase {
 	}
 
 	protected function cleanImageViews($imageid, $viewid) {
-		$db = JFactory::getDbo();
+		$db = SigPlusNovoDatabase::getDriver();
 		$conditions = array();
 
 		if (is_array($imageid)) {
@@ -1286,7 +1304,7 @@ abstract class SigPlusNovoGalleryBase {
 	* Removes an image from the file system that has been obsoleted by updated configuration settings.
 	*/
 	protected function cleanGeneratedImages($imageid, $viewid = null) {
-		$db = JFactory::getDbo();
+		$db = SigPlusNovoDatabase::getDriver();
 		$imageid = (int) $imageid;
 
 		if (isset($viewid)) {
@@ -1339,7 +1357,7 @@ abstract class SigPlusNovoGalleryBase {
 	*/
 	protected function purgeFolder($folderid) {
 		// purge images
-		$db = JFactory::getDbo();
+		$db = SigPlusNovoDatabase::getDriver();
 		$folderid = (int) $folderid;
 		$db->setQuery(
 			'SELECT'.PHP_EOL.
@@ -1377,7 +1395,7 @@ abstract class SigPlusNovoGalleryBase {
 		}
 
 		// purge deleted previews and thumbnails
-		$db = JFactory::getDbo();
+		$db = SigPlusNovoDatabase::getDriver();
 		$folderid = (int) $folderid;
 		$db->setQuery(
 			'SELECT'.PHP_EOL.
@@ -1426,7 +1444,7 @@ abstract class SigPlusNovoGalleryBase {
 	protected function purgeCache() {
 		switch ($this->config->service->cache_image) {
 			case 'cache':  // images are set to be generated in the Joomla cache folder
-				$storage_dir = JFactory::getConfig()->get('cache_path', JPATH_CACHE);
+				$storage_dir = Factory::getConfig()->get('cache_path', JPATH_CACHE);
 				break;
 			case 'media':  // images are set to be generated in the Joomla media folder
 				$storage_dir = JPATH_ROOT.DIRECTORY_SEPARATOR.'media'.DIRECTORY_SEPARATOR.SIGPLUS_MEDIA_FOLDER;
@@ -1444,7 +1462,7 @@ abstract class SigPlusNovoGalleryBase {
 		}
 
 		SigPlusNovoLogging::appendStatus('Manual removal of cache folders detected.');
-		$db = JFactory::getDbo();
+		$db = SigPlusNovoDatabase::getDriver();
 
 		// remove views from database with deleted image files
 		$db->setQuery(
@@ -1473,7 +1491,8 @@ abstract class SigPlusNovoLocalBase extends SigPlusNovoGalleryBase {
 
 		list($image_width, $image_height) = self::getImageSize($image_path);
 
-		$previewparams = new SigPlusNovoPreviewParameters($this->config->gallery);  // current image generation parameters
+		// current image generation parameters
+		$previewparams = new SigPlusNovoPreviewParameters($this->config->gallery);
 		$thumbparams = new SigPlusNovoThumbParameters($this->config->gallery);
 		$waterparams = new SigPlusNovoWatermarkParameters($this->config->gallery);
 
@@ -1501,16 +1520,18 @@ abstract class SigPlusNovoLocalBase extends SigPlusNovoGalleryBase {
 		$outparams = array();
 
 		// create thumbnail image
-		$thumb_path = $this->getThumbnailPath($image_path, $thumbparams, SIGPLUS_TEST);
-		if ($thumb_path === false || !(fsx::filemtime($thumb_path) >= fsx::filemtime($image_path))) {  // separate thumbnail image is required
-			$thumb_path = $this->getThumbnailPath($image_path, $thumbparams, SIGPLUS_CREATE);
-			$outparam = new stdClass();
-			$outparam->path = $thumb_path;
-			list($outparam->width, $outparam->height) = imagefitdimensions($image_width, $image_height, $thumbparams->width, $thumbparams->height, $thumbparams->crop);
-			$outparam->crop = $thumbparams->crop;
-			$outparam->quality = $thumbparams->quality;
-			$outparams[] = $outparam;
-			SigPlusNovoLogging::appendStatus('Saving thumbnail to <code>'.$thumb_path.'</code>');
+		if ($this->isThumbnailRequired($previewparams, $thumbparams)) {
+			$thumb_path = $this->getThumbnailPath($image_path, $thumbparams, SIGPLUS_TEST);
+			if ($thumb_path === false || !(fsx::filemtime($thumb_path) >= fsx::filemtime($image_path))) {  // separate thumbnail image is required
+				$thumb_path = $this->getThumbnailPath($image_path, $thumbparams, SIGPLUS_CREATE);
+				$outparam = new stdClass();
+				$outparam->path = $thumb_path;
+				list($outparam->width, $outparam->height) = imagefitdimensions($image_width, $image_height, $thumbparams->width, $thumbparams->height, $thumbparams->crop);
+				$outparam->crop = $thumbparams->crop;
+				$outparam->quality = $thumbparams->quality;
+				$outparams[] = $outparam;
+				SigPlusNovoLogging::appendStatus('Saving thumbnail to <code>'.$thumb_path.'</code>');
+			}
 		}
 
 		// create preview image
@@ -1603,7 +1624,7 @@ abstract class SigPlusNovoLocalBase extends SigPlusNovoGalleryBase {
 	private function getGeneratedImagePath($generatedfolder, $imagepath, SigPlusNovoImageParameters $params, $action = SIGPLUS_TEST) {
 		switch ($this->config->service->cache_image) {
 			case 'cache':  // images are set to be generated in the Joomla cache folder
-				$cache_path = JFactory::getConfig()->get('cache_path', JPATH_CACHE);
+				$cache_path = Factory::getConfig()->get('cache_path', JPATH_CACHE);
 				$directory = $cache_path.DIRECTORY_SEPARATOR.str_replace('/', DIRECTORY_SEPARATOR, $generatedfolder);
 				$path = $directory.DIRECTORY_SEPARATOR.$params->getHash($imagepath, $this->config->service->base_folder);  // hash original image file paths to avoid name conflicts
 				break;
@@ -1661,6 +1682,14 @@ abstract class SigPlusNovoLocalBase extends SigPlusNovoGalleryBase {
 	}
 
 	/**
+	* Test whether a separate preview and thumbnail image is required or the preview image can be re-used as a thumbnail image.
+	* @return True if separate images are required, false if parameters allow re-use.
+	*/
+	private function isThumbnailRequired(SigPlusNovoPreviewParameters $preview, SigPlusNovoThumbParameters $thumb) {
+		return $preview->width != $thumb->width || $preview->height != $thumb->height || $preview->crop != $thumb->crop || $preview->quality != $thumb->quality;
+	}
+
+	/**
 	* Updates an image database entry if necessary.
 	* @param {string} $resourcepath An absolute path to an image-like resource (e.g. an image or video).
 	* @param {string} $imagepath An absolute path to an image file (e.g. the image itself or a poster image for a video).
@@ -1671,7 +1700,7 @@ abstract class SigPlusNovoLocalBase extends SigPlusNovoGalleryBase {
 		}
 
 		// check if file has been modified since its data have been injected into the database
-		$db = JFactory::getDbo();
+		$db = SigPlusNovoDatabase::getDriver();
 		$db->setQuery('SELECT '.$db->quoteName('filetime').' FROM '.$db->quoteName('#__sigplus_image').' WHERE '.$db->quoteName('fileurl').' = '.$db->quote($resourcepath));
 		$time = $db->loadResult();
 		$filetime = fsx::filemdate($resourcepath);
@@ -1727,13 +1756,22 @@ abstract class SigPlusNovoLocalBase extends SigPlusNovoGalleryBase {
 		// generate missing images
 		$imagepath = $this->getGeneratedImages($resourcepath);
 
-		// image thumbnail path and parameters
+		// current image generation parameters
+		$previewparams = new SigPlusNovoPreviewParameters($this->config->gallery);
 		$thumbparams = new SigPlusNovoThumbParameters($this->config->gallery);
-		list($thumb_path, $thumb_time, $thumb_width, $thumb_height) = $this->getImageData($this->getThumbnailPath($imagepath, $thumbparams, SIGPLUS_TEST));
 
 		// image preview path and parameters
-		$previewparams = new SigPlusNovoPreviewParameters($this->config->gallery);
 		list($preview_path, $preview_time, $preview_width, $preview_height) = $this->getImageData($this->getPreviewPath($imagepath, $previewparams, SIGPLUS_TEST));
+
+		// image thumbnail path and parameters
+		if ($this->isThumbnailRequired($previewparams, $thumbparams)) {
+			list($thumb_path, $thumb_time, $thumb_width, $thumb_height) = $this->getImageData($this->getThumbnailPath($imagepath, $thumbparams, SIGPLUS_TEST));
+		} else {
+			$thumb_path = $preview_path;
+			$thumb_time = $preview_time;
+			$thumb_width = $preview_width;
+			$thumb_height = $preview_height;
+		}
 
 		// image preview path and parameters for retina display
 		$preview_retina_scale = $this->config->gallery->preview_retina_scale;
@@ -1792,7 +1830,7 @@ abstract class SigPlusNovoLocalBase extends SigPlusNovoGalleryBase {
 
 		$folderid = (int) $folderid;
 		$viewid = (int) $viewid;
-		$db = JFactory::getDbo();
+		$db = SigPlusNovoDatabase::getDriver();
 		$db->setQuery(
 			'SELECT'.PHP_EOL.
 				'i.'.$db->quoteName('fileurl').','.PHP_EOL.
@@ -1833,7 +1871,7 @@ class SigPlusNovoLocalGallery extends SigPlusNovoLocalBase {
 	* Removes all images and related generated images associated with a folder that has been deleted.
 	*/
 	private function purgeLocalFolder($url) {
-		$db = JFactory::getDbo();
+		$db = SigPlusNovoDatabase::getDriver();
 		$db->setQuery(
 			'SELECT '.$db->quoteName('folderid').PHP_EOL.
 			'FROM '.$db->quoteName('#__sigplus_folder').PHP_EOL.
@@ -2242,7 +2280,7 @@ class SigPlusNovoFlickrGallery extends SigPlusNovoXMLGallery {
 	}
 
 	private function populateCaptions($folderid, $captions) {
-		$db = JFactory::getDbo();
+		$db = SigPlusNovoDatabase::getDriver();
 		$queries = array();
 
 		// force type to prevent SQL injection
@@ -2259,7 +2297,7 @@ class SigPlusNovoFlickrGallery extends SigPlusNovoXMLGallery {
 			;
 
 		// fetch language and country database identifier
-		$lang = JFactory::getLanguage();
+		$lang = Factory::getLanguage();
 		$tag = $lang->getTag();  // use site default language
 		list($language, $country) = explode('-', $tag);
 		$langid = (int)SigPlusNovoDatabase::getLanguageId($language);
@@ -2373,7 +2411,7 @@ class SigPlusNovoPicasaGallery extends SigPlusNovoAtomFeedGallery {
 		}
 
 		// build URL to fetch list of photos in album
-		$uri = JURI::getInstance();
+		$uri = Uri::getInstance();
 		$scheme = $uri->isSSL() ? 'https:' : 'http:';
 		$feedurl = $scheme.'//picasaweb.google.com/data/feed/api/user/'.$userid.'/albumid/'.$albumid.'?'.http_build_query($feedquery, '', '&');
 
@@ -2522,7 +2560,7 @@ class SigPlusNovoRemoteImage extends SigPlusNovoGalleryBase {
 		$height = null;
 
 		// create temporary image file and extract metadata
-		$cache_path = JFactory::getConfig()->get('cache_path', JPATH_CACHE);
+		$cache_path = Factory::getConfig()->get('cache_path', JPATH_CACHE);
 		if ($imagepath = tempnam($cache_path, 'sigplus')) {
 			if (file_put_contents($imagepath, $imagedata)) {
 				SigPlusNovoLogging::appendStatus('Image data has been saved to temporary file <code>'.$imagepath.'</code>.');
@@ -2653,7 +2691,7 @@ class SigPlusNovoCore {
 	}
 
 	private function getFilterExpression(SigPlusNovoFilter $filter) {
-		$db = JFactory::getDbo();
+		$db = SigPlusNovoDatabase::getDriver();
 		$expr = array();
 		foreach ($filter->items as $item) {
 			if ($item instanceof SigPlusNovoFilter && !$item->is_empty()) {
@@ -2806,7 +2844,7 @@ class SigPlusNovoCore {
 		if (is_absolute_path($url)) {
 			if (strpos($url, JPATH_ROOT.DIRECTORY_SEPARATOR) === 0) {  // file is inside Joomla root folder (including cache or media cache folder)
 				$path = substr($url, strlen(JPATH_ROOT.DIRECTORY_SEPARATOR));
-				$url = JURI::base(true).'/'.path_url_encode($path);
+				$url = Uri::base(true).'/'.path_url_encode($path);
 			} elseif (strpos($url, $this->config->base_folder.DIRECTORY_SEPARATOR) === 0) {  // file is inside base folder
 				$path = substr($url, strlen($this->config->base_folder.DIRECTORY_SEPARATOR));
 				$url = $this->config->base_url.'/'.path_url_encode($path);
@@ -2815,8 +2853,8 @@ class SigPlusNovoCore {
 			}
 
 			// transform relative URLs into absolute URLs if necessary
-			if ($make_absolute && strpos($url, JURI::base(true).'/') === 0) {
-				$url = JURI::base(false).substr($url, strlen(JURI::base(true)) + 1);
+			if ($make_absolute && strpos($url, Uri::base(true).'/') === 0) {
+				$url = Uri::base(false).substr($url, strlen(Uri::base(true)) + 1);
 			}
 		}
 		return $url;
@@ -2825,7 +2863,7 @@ class SigPlusNovoCore {
 	private function getDownloadAuthorization() {
 		$curparams = $this->paramstack->top();
 
-		$user = JFactory::getUser();
+		$user = Factory::getUser();
 		if ($curparams->download !== false && in_array($curparams->download, $user->getAuthorisedViewLevels())) {  // check if user is authorized to download image
 			return true;
 		} else {
@@ -2841,13 +2879,13 @@ class SigPlusNovoCore {
 			return false;
 		}
 
-		$uri = clone JURI::getInstance();  // URL of current page
+		$uri = clone Uri::getInstance();  // URL of current page
 		$uri->setVar('sigplus', $imageid);  // add query parameter "sigplus"
 		return $uri->toString();
 	}
 
 	public function downloadImage($imagesource) {
-		$jinput = JFactory::getApplication()->input;
+		$jinput = Factory::getApplication()->input;
 		$imageid = $jinput->getInt('sigplus', 0);
 		if ($imageid <= 0) {
 			return false;
@@ -2883,7 +2921,7 @@ class SigPlusNovoCore {
 		}
 
 		// test whether image is part of the gallery
-		$db = JFactory::getDbo();
+		$db = SigPlusNovoDatabase::getDriver();
 		$imageid = (int) $imageid;
 		$db->setQuery(
 			'SELECT'.PHP_EOL.
@@ -2973,7 +3011,7 @@ class SigPlusNovoCore {
 
 		// make placeholder replacement for {$username}
 		if (strpos($imagesource, '{$username}') !== false) {
-			$user = JFactory::getUser();
+			$user = Factory::getUser();
 			if ($user->guest) {
 				throw new SigPlusNovoLoginRequiredException();
 			} else {
@@ -2983,7 +3021,7 @@ class SigPlusNovoCore {
 
 		// make placeholder replacement for {$group}
 		if (strpos($imagesource, '{$group}') !== false) {
-			$user = JFactory::getUser();
+			$user = Factory::getUser();
 			if ($user->guest) {
 				throw new SigPlusNovoLoginRequiredException();
 			} else {
@@ -3076,7 +3114,7 @@ class SigPlusNovoCore {
 		$gallerystyle = $this->getGalleryStyle();
 
 		// get properties of folder stored in the database
-		$db = JFactory::getDbo();
+		$db = SigPlusNovoDatabase::getDriver();
 		$db->setQuery('SELECT '.$db->quoteName('folderid').', '.$db->quoteName('foldertime').', '.$db->quoteName('entitytag').' FROM '.$db->quoteName('#__sigplus_folder').' WHERE '.$db->quoteName('folderurl').' = '.$db->quote($source));
 		$result = $db->loadRow();
 
@@ -3162,7 +3200,7 @@ class SigPlusNovoCore {
 		$sortorder = $db->quoteName('depthnum').' ASC, '.$sortorder;  // keep descending from topmost to bottommost in hierarchy, do not mix entries from different levels
 
 		// determine current site language
-		$lang = JFactory::getLanguage();
+		$lang = Factory::getLanguage();
 		list($language, $country) = explode('-', $lang->getTag());  // site current language
 		$langid = (int)SigPlusNovoDatabase::getLanguageId($language);
 		$countryid = (int)SigPlusNovoDatabase::getCountryId($country);
@@ -3410,7 +3448,7 @@ class SigPlusNovoCore {
 	private function printGallery($galleryid, $gallerystyle, array $images, $limit, $total) {
 		$curparams = $this->paramstack->top();  // current gallery parameters
 
-		$layout_path = JPluginHelper::getLayoutPath('content', SIGPLUS_PLUGIN_FOLDER, 'default');
+		$layout_path = PluginHelper::getLayoutPath('content', SIGPLUS_PLUGIN_FOLDER, 'default');
 		require($layout_path);
 	}
 
@@ -3486,7 +3524,7 @@ class SigPlusNovoCore {
 		$filename = basename($file_url);
 		$is_transformed_image = isset($watermark_url);
 
-		// this variable is not used directly in this function but in the layout template imported by `JPluginHelper::getLayoutPath`
+		// this variable is not used directly in this function but in the layout template imported by `PluginHelper::getLayoutPath`
 		$url = $is_transformed_image ? $watermark_url : $file_url;
 
 		$properties = array();
@@ -3513,7 +3551,7 @@ class SigPlusNovoCore {
 		$title = $this->caption_filter->clean($title, 'html');
 		$summary = $this->caption_filter->clean(self::replaceRoutedURLs($summary), 'html');
 
-		$layout_path = JPluginHelper::getLayoutPath('content', SIGPLUS_PLUGIN_FOLDER, 'item');
+		$layout_path = PluginHelper::getLayoutPath('content', SIGPLUS_PLUGIN_FOLDER, 'item');
 		require($layout_path);
 	}
 
@@ -3522,7 +3560,7 @@ class SigPlusNovoCore {
 	* This helps avoid many unnecessary `og:image` meta tags when the page has multiple galleries.
 	*/
 	private function hasOpenGraphProperties() {
-		$document = JFactory::getDocument();
+		$document = Factory::getDocument();
 		if ($document->getType() != 'html') {  // custom tags are supported by HTML document type only
 			return false;
 		}
@@ -3550,7 +3588,7 @@ class SigPlusNovoCore {
 			return;
 		}
 
-		$document = JFactory::getDocument();
+		$document = Factory::getDocument();
 		if ($document->getType() != 'html') {  // custom tags are supported by HTML document type only
 			return;
 		}
@@ -3643,8 +3681,8 @@ class SigPlusNovoCore {
 
 			if ($curparams->layout == 'flow' && $curparams->limit > 0) {
 				$jsparams['limit'] = $curparams->limit;
-				$jsparams['show_more'] = JText::_('SIGPLUS_SHOW_MORE');
-				$jsparams['no_more'] = JText::_('SIGPLUS_NO_MORE');
+				$jsparams['show_more'] = Text::_('SIGPLUS_SHOW_MORE');
+				$jsparams['no_more'] = Text::_('SIGPLUS_NO_MORE');
 				$jsparams = json_encode($jsparams, JSON_FORCE_OBJECT);
 				$instance->addScript('/media/sigplus/js/progressive.js');
 				$instance->addOnReadyScript("new ProgressiveGallery(document.getElementById({$jsid}),{$jsparams});");

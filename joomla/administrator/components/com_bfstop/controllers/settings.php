@@ -1,16 +1,20 @@
 <?php
 /*
- * @package BFStop Component (com_bfstop) for Joomla! >=2.5
+ * @package BFStop Component (com_bfstop) for Joomla!
  * @author Bernhard Froehler
  * @copyright (C) Bernhard Froehler
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 **/
 defined('_JEXEC') or die;
 
-jimport('joomla.application.component.controlleradmin');
+use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\MVC\Controller\AdminController;
+use Joomla\CMS\Router\Route;
+
 require_once(JPATH_ADMINISTRATOR.'/components/com_bfstop/helpers/params.php');
 
-class BFStopControllerSettings extends JControllerAdmin
+class BFStopControllerSettings extends AdminController
 {
 	public function getModel($name = 'settings', $prefix = 'bfstopmodel', $config=array())
 	{
@@ -36,22 +40,17 @@ class BFStopControllerSettings extends JControllerAdmin
 		{
 			$result = false;
 		} else {
-			$subject = JText::sprintf('TEST_MAIL_SUBJECT', $notifier->getSiteName());
-			$body = JText::sprintf('TEST_MAIL_BODY', $notifier->getSiteName());
-			$application = JFactory::getApplication();
-			$application->enqueueMessage(JText::sprintf("TEST_MAIL_SENT",
-					$subject,
-					$body,
-					implode(", ", $notifier->getNotifyAddresses())),
-				'notice');
+			$subject = Text::sprintf('TEST_MAIL_SUBJECT', $notifier->getSiteName());
+			$body = Text::sprintf('TEST_MAIL_BODY', $notifier->getSiteName());
+			$application = Factory::getApplication();
 			$result = $notifier->sendMail($subject, $body, $notifier->getNotifyAddresses());
 		}
-
+		$success = ($result === true);
 		// redirect back to settings view:
-		$this->setRedirect(JRoute::_('index.php?option=com_bfstop&view=settings',false),
-			$result
-				? JText::_('TEST_NOTIFICATION_SUCCESS')
-				: JText::_('TEST_NOTIFICATION_FAILED'),
+		$this->setRedirect(Route::_('index.php?option=com_bfstop&view=settings',false),
+			$success
+				? Text::_('TEST_NOTIFICATION_SUCCESS')
+				: Text::sprintf('TEST_NOTIFICATION_FAILED', $result),
 			$result
 				? 'notice'
 				: 'error'

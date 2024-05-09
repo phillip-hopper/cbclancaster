@@ -1,15 +1,15 @@
 <?php
 /*
- * @package BFStop Component (com_bfstop) for Joomla! >=2.5
+ * @package BFStop Component (com_bfstop) for Joomla!
  * @author Bernhard Froehler
  * @copyright (C) Bernhard Froehler
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 **/
 defined('_JEXEC') or die;
 
-jimport('joomla.database.table');
+use Joomla\CMS\Table\Table;
 
-class BFStopTableBlock extends JTable
+class BFStopTableBlock extends Table
 {
 	function __construct(&$db)
 	{

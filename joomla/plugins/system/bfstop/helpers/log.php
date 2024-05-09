@@ -1,11 +1,13 @@
 <?php
 /*
- * @package BFStop Plugin (bfstop) for Joomla! >=2.5
+ * @package BFStop Plugin (bfstop) for Joomla!
  * @author Bernhard Froehler
  * @copyright (C) Bernhard Froehler
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 **/
 defined('_JEXEC') or die;
+
+use Joomla\CMS\Log\Log;
 
 class BFStopLogger {
 
@@ -16,10 +18,10 @@ class BFStopLogger {
 	function __construct($log_level)
 	{
 		$this->log_level = $log_level;
-		$priorities = JLog::ALL;
+		$priorities = Log::ALL;
 		if ($log_level > self::Disabled)
 		{
-			JLog::addLogger(array(
+			Log::addLogger(array(
 				'text_file' => 'plg_system_bfstop.log.php',
 				'text_entry_format' =>
 					'{DATETIME} {PRIORITY} {MESSAGE}'
@@ -29,14 +31,14 @@ class BFStopLogger {
 		}
 	}
 
-	function isEnabled($priority = JLog::ERROR) {
+	function isEnabled($priority = Log::ERROR) {
 		return $priority <= $this->log_level;
 	}
 
 	function log($msg, $priority)
 	{
 		if ($this->isEnabled($priority)) {
-			JLog::add($msg, $priority, self::LogCategory);
+			Log::add($msg, $priority, self::LogCategory);
 		}
 	}
 }

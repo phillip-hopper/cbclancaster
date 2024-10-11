@@ -28,7 +28,7 @@
     ctx.drawImage(image, -image.naturalWidth / 2, -image.naturalHeight / 2);
 
     // The format
-    var format = Joomla.MediaManager.Edit.original.extension === 'jpg' ? 'jpeg' : 'jpg';
+    var format = Joomla.MediaManager.Edit.original.extension.toLowerCase() === 'jpg' ? 'jpeg' : Joomla.MediaManager.Edit.original.extension.toLowerCase();
 
     // The quality
     var quality = document.getElementById('jform_rotate_quality').value;

@@ -6,18 +6,6 @@
   "license": "GPL-2.0-or-later",
   "assets": [
     {
-      "name": "com_joomlaupdate.admin-update",
-      "type": "script",
-      "uri": "com_joomlaupdate/admin-update-default.min.js",
-      "dependencies": [
-        "com_joomlaupdate.admin-update-es5"
-      ],
-      "attributes": {
-        "type": "module"
-      },
-      "version": "cbbc8f9f592c08aba8dd8f8a4b994398f8a1f060"
-    },
-    {
       "name": "com_joomlaupdate.admin-update-es5",
       "type": "script",
       "uri": "com_joomlaupdate/admin-update-default-es5.min.js",
@@ -30,6 +18,18 @@
         "nomodule": true
       },
       "version": "0205c2e45b97960cf47307a2049e0824d21f2b18"
+    },
+    {
+      "name": "com_joomlaupdate.admin-update",
+      "type": "script",
+      "uri": "com_joomlaupdate/admin-update-default.min.js",
+      "dependencies": [
+        "com_joomlaupdate.admin-update-es5"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "cbbc8f9f592c08aba8dd8f8a4b994398f8a1f060"
     },
     {
       "name": "com_joomlaupdate.default-es5",

@@ -17,7 +17,7 @@
     canvas.getContext('2d').drawImage(image, 0, 0, width, height);
 
     // The format
-    var format = Joomla.MediaManager.Edit.original.extension === 'jpg' ? 'jpeg' : Joomla.MediaManager.Edit.original.extension;
+    var format = Joomla.MediaManager.Edit.original.extension.toLowerCase() === 'jpg' ? 'jpeg' : Joomla.MediaManager.Edit.original.extension.toLowerCase();
 
     // The quality
     var quality = formElements.resizeQuality.value;

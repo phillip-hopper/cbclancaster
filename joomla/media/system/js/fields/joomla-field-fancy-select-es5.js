@@ -317,8 +317,8 @@
 
           // Create and add new
           _this3.choicesInstance.setChoices([{
-            value: _this3.newItemPrefix + event.target.value,
-            label: event.target.value,
+            value: new DOMParser().parseFromString(_this3.newItemPrefix + event.target.value, 'text/html').body.textContent,
+            label: new DOMParser().parseFromString(event.target.value, 'text/html').body.textContent,
             selected: true,
             customProperties: {
               value: event.target.value // Store real value, just in case

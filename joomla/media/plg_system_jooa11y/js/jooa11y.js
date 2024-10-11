@@ -5087,6 +5087,7 @@ class Jooa11y {
   }
 }
 
+// eslint-disable-next-line import/no-unresolved
 if (!Joomla) {
   throw new Error('Joomla API is not properly initialised');
 }

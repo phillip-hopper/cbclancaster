@@ -19864,7 +19864,7 @@ var JoomlaMediaManager = (function () {
       }
     },
     methods: {
-      /* Check if the the form is valid */isValid: function isValid() {
+      /* Check if the form is valid */isValid: function isValid() {
         return this.folder;
       },
       /* Close the modal instance */close: function close() {

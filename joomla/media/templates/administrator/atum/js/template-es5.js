@@ -252,4 +252,21 @@
     }
   });
 
+  /**
+   * Close any open data-bs-toggle="collapse" when opening a data-bs-toggle="dropdown"
+   *
+   * @since 4.4
+   */
+  document.querySelectorAll('[data-bs-toggle="dropdown"]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(function (cb) {
+        var target = document.querySelector(cb.getAttribute('data-bs-target'));
+        var collapseMenu = bootstrap.Collapse.getInstance(target) || new bootstrap.Collapse(target, {
+          toggle: false
+        });
+        collapseMenu.hide();
+      });
+    });
+  });
+
 })();

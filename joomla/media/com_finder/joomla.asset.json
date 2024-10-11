@@ -43,31 +43,6 @@
       "version": "6af9a6ab7d67d3732e41c36d6672af396c650f3f"
     },
     {
-      "name": "com_finder.finder.es5",
-      "type": "script",
-      "uri": "com_finder/finder-es5.min.js",
-      "dependencies": [
-        "core"
-      ],
-      "attributes": {
-        "nomodule": true,
-        "defer": true
-      },
-      "version": "e6d3d1f535e33b5641e406eb08d15093e7038cc2"
-    },
-    {
-      "name": "com_finder.finder",
-      "type": "script",
-      "uri": "com_finder/finder.min.js",
-      "dependencies": [
-        "com_finder.finder.es5"
-      ],
-      "attributes": {
-        "type": "module"
-      },
-      "version": "a2c3894d062787a266d59d457ffba5481b639f64"
-    },
-    {
       "name": "com_finder.finder-edit.es5",
       "type": "script",
       "uri": "com_finder/finder-edit-es5.min.js",
@@ -81,6 +56,19 @@
       "version": "c837d71356a19568e4c78938eb324245e6d6d4e1"
     },
     {
+      "name": "com_finder.finder.es5",
+      "type": "script",
+      "uri": "com_finder/finder-es5.min.js",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "nomodule": true,
+        "defer": true
+      },
+      "version": "e6d3d1f535e33b5641e406eb08d15093e7038cc2"
+    },
+    {
       "name": "com_finder.finder-edit",
       "type": "script",
       "uri": "com_finder/finder-edit.min.js",
@@ -91,6 +79,18 @@
         "type": "module"
       },
       "version": "53a449059706c105f3195d0542ec9ecd43c8e73d"
+    },
+    {
+      "name": "com_finder.finder",
+      "type": "script",
+      "uri": "com_finder/finder.min.js",
+      "dependencies": [
+        "com_finder.finder.es5"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "a2c3894d062787a266d59d457ffba5481b639f64"
     },
     {
       "name": "com_finder.indexer",
@@ -124,18 +124,6 @@
       "version": "df234d53baba21009d2b085d645c98f6b07a4fdb"
     },
     {
-      "name": "com_finder.maps",
-      "type": "script",
-      "uri": "com_finder/maps.min.js",
-      "dependencies": [
-        "com_finder.maps.es5"
-      ],
-      "attributes": {
-        "type": "module"
-      },
-      "version": "3ec9f6999093a2ea0aca3c18a35e6b6f6862520c"
-    },
-    {
       "name": "com_finder.maps.es5",
       "type": "script",
       "uri": "com_finder/maps-es5.min.js",
@@ -147,6 +135,18 @@
         "defer": true
       },
       "version": "81537730caf5345765cc3b2b7e94ab65f50a3b56"
+    },
+    {
+      "name": "com_finder.maps",
+      "type": "script",
+      "uri": "com_finder/maps.min.js",
+      "dependencies": [
+        "com_finder.maps.es5"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "3ec9f6999093a2ea0aca3c18a35e6b6f6862520c"
     }
   ]
 }

@@ -19,12 +19,6 @@
       "version": "85f35c0dac2cda9548e8a5b3fd4e54d9e7d41797"
     },
     {
-      "name": "com_menus.admin-item-edit-container",
-      "type": "style",
-      "uri": "com_menus/admin-item-edit_container.min.css",
-      "version": "6e5caa8a59ab7f8557e652645d170e99a3f10d5f"
-    },
-    {
       "name": "com_menus.admin-item-edit",
       "type": "script",
       "uri": "com_menus/admin-item-edit.min.js",
@@ -35,6 +29,12 @@
         "type": "module"
       },
       "version": "17829881663dd046456aa4499783d0e5d4866dd2"
+    },
+    {
+      "name": "com_menus.admin-item-edit-container",
+      "type": "style",
+      "uri": "com_menus/admin-item-edit_container.min.css",
+      "version": "6e5caa8a59ab7f8557e652645d170e99a3f10d5f"
     },
     {
       "name": "com_menus.admin-item-edit-container.es5",
@@ -62,31 +62,6 @@
       "version": "364c2a3bf6eb0ea1c0a571746ec5fa8a4ee60700"
     },
     {
-      "name": "com_menus.admin-item-edit-modules.es5",
-      "type": "script",
-      "uri": "com_menus/admin-item-edit_modules-es5.min.js",
-      "dependencies": [
-        "core"
-      ],
-      "attributes": {
-        "nomodule": true,
-        "defer": true
-      },
-      "version": "ed8c082d56d3c653b682e8f3e24026c7c2f82301"
-    },
-    {
-      "name": "com_menus.admin-item-edit-modules",
-      "type": "script",
-      "uri": "com_menus/admin-item-edit_modules.min.js",
-      "dependencies": [
-        "com_menus.admin-item-edit-modules.es5"
-      ],
-      "attributes": {
-        "type": "module"
-      },
-      "version": "294ad078d34a3a76120a132c55311077e042b829"
-    },
-    {
       "name": "com_menus.admin-item-modal.es5",
       "type": "script",
       "uri": "com_menus/admin-item-modal-es5.min.js",
@@ -112,17 +87,16 @@
       "version": "0655665041250ab89b7617c900304e13fd4073fc"
     },
     {
-      "name": "com_menus.admin-items-modal.es5",
+      "name": "com_menus.admin-items-modal",
       "type": "script",
-      "uri": "com_menus/admin-items-modal-es5.min.js",
+      "uri": "com_menus/admin-items-modal.min.js",
       "dependencies": [
-        "core"
+        "com_menus.admin-items-modal.es5"
       ],
       "attributes": {
-        "nomodule": true,
-        "defer": true
+        "type": "module"
       },
-      "version": "43af2887e6321daf8c07b8c2bcb655eef600c788"
+      "version": "1fa7cd52c557462a176a2417a3c4959e9263124b"
     },
     {
       "name": "com_menus.admin-menus.es5",
@@ -136,6 +110,19 @@
         "defer": true
       },
       "version": "419d0e4fbde7bb5cf2da0b22082953634f02aa11"
+    },
+    {
+      "name": "com_menus.admin-items-modal.es5",
+      "type": "script",
+      "uri": "com_menus/admin-items-modal-es5.min.js",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "nomodule": true,
+        "defer": true
+      },
+      "version": "43af2887e6321daf8c07b8c2bcb655eef600c788"
     },
     {
       "name": "com_menus.admin-menus",
@@ -163,18 +150,6 @@
       "version": "9aa43513f8fa3e75fa19d4a73a3722ac32c123ea"
     },
     {
-      "name": "com_menus.admin-items-modal",
-      "type": "script",
-      "uri": "com_menus/admin-items-modal.min.js",
-      "dependencies": [
-        "com_menus.admin-items-modal.es5"
-      ],
-      "attributes": {
-        "type": "module"
-      },
-      "version": "1fa7cd52c557462a176a2417a3c4959e9263124b"
-    },
-    {
       "name": "com_menus.batch-body",
       "type": "script",
       "uri": "com_menus/default-batch-body.min.js",
@@ -185,6 +160,31 @@
         "type": "module"
       },
       "version": "74af4dfdd23a5e6fa7108834bf2969b166761b28"
+    },
+    {
+      "name": "com_menus.admin-item-edit-modules.es5",
+      "type": "script",
+      "uri": "com_menus/admin-item-edit_modules-es5.min.js",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "nomodule": true,
+        "defer": true
+      },
+      "version": "ed8c082d56d3c653b682e8f3e24026c7c2f82301"
+    },
+    {
+      "name": "com_menus.admin-item-edit-modules",
+      "type": "script",
+      "uri": "com_menus/admin-item-edit_modules.min.js",
+      "dependencies": [
+        "com_menus.admin-item-edit-modules.es5"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "294ad078d34a3a76120a132c55311077e042b829"
     }
   ]
 }

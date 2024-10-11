@@ -516,7 +516,7 @@
     _proto.upload = function upload(url, stateChangeCallback) {
       var _this3 = this,
         _JSON$stringify;
-      var format = Joomla.MediaManager.Edit.original.extension === 'jpg' ? 'jpeg' : Joomla.MediaManager.Edit.original.extension;
+      var format = Joomla.MediaManager.Edit.original.extension.toLowerCase() === 'jpg' ? 'jpeg' : Joomla.MediaManager.Edit.original.extension.toLowerCase();
       if (!format) {
         // eslint-disable-next-line prefer-destructuring
         format = /data:image\/(.+);/gm.exec(Joomla.MediaManager.Edit.original.contents)[1];

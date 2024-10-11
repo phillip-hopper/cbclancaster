@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../../',
         'aliases' => array(),
-        'reference' => '92f2ffb3c6b2ec321c660f88c207683587fbc0f0',
+        'reference' => 'f2b11456988ca5a6f53a08fa791ab6d38df0e588',
         'name' => 'joomla/joomla-cms',
         'dev' => false,
     ),
@@ -254,12 +254,12 @@
             'dev_requirement' => false,
         ),
         'joomla/filter' => array(
-            'pretty_version' => '2.0.4',
-            'version' => '2.0.4.0',
+            'pretty_version' => '2.0.5',
+            'version' => '2.0.5.0',
             'type' => 'joomla-package',
             'install_path' => __DIR__ . '/../joomla/filter',
             'aliases' => array(),
-            'reference' => '3539f6dcc8d4e9db7194db8f90bf60550a804d04',
+            'reference' => '6a2bb23f765d4060da72044d9f7ef92932d552f8',
             'dev_requirement' => false,
         ),
         'joomla/http' => array(
@@ -286,7 +286,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../../',
             'aliases' => array(),
-            'reference' => '92f2ffb3c6b2ec321c660f88c207683587fbc0f0',
+            'reference' => 'f2b11456988ca5a6f53a08fa791ab6d38df0e588',
             'dev_requirement' => false,
         ),
         'joomla/ldap' => array(

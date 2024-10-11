@@ -59,8 +59,8 @@
     var allLinks = wrapper.querySelectorAll('a.no-dropdown, a.collapse-arrow, .menu-dashboard > a');
     var currentUrl = window.location.href;
     var mainNav = document.querySelector('ul.main-nav');
-    var menuParents = [].slice.call(mainNav.querySelectorAll('li.parent > a'));
-    var subMenusClose = [].slice.call(mainNav.querySelectorAll('li.parent .close'));
+    var menuParents = [].slice.call(document.querySelectorAll('ul.main-nav li.parent > a'));
+    var subMenusClose = [].slice.call(document.querySelectorAll('ul.main-nav li.parent .close'));
 
     // Set active class
     allLinks.forEach(function (link) {

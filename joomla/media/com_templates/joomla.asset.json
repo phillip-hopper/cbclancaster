@@ -84,6 +84,12 @@
       "version": "b57d9aa8af7184e679e3d563453ad5727a3360ab"
     },
     {
+      "name": "com_templates.admin-templates",
+      "type": "style",
+      "uri": "com_templates/admin-templates-default.min.css",
+      "version": "4a534558373ece35d1d74546247d2204a0261f22"
+    },
+    {
       "name": "com_templates.admin-templates.es5",
       "type": "script",
       "uri": "com_templates/admin-templates-default-es5.min.js",
@@ -95,12 +101,6 @@
         "defer": true
       },
       "version": "535b78e7a466f38e60e2e42d3f76bf71873f57e3"
-    },
-    {
-      "name": "com_templates.admin-templates",
-      "type": "style",
-      "uri": "com_templates/admin-templates-default.min.css",
-      "version": "4a534558373ece35d1d74546247d2204a0261f22"
     },
     {
       "name": "com_templates.admin-templates",

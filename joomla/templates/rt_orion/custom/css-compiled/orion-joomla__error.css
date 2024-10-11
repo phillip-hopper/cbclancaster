@@ -1279,13 +1279,13 @@ form#rokajaxsearch > .rokajaxsearch {
   left: 0;
 }
 #roksearch_results .arrow-left:before, #roksearch_results .arrow-left-disabled:before {
-  content: '';
+  content: "";
 }
 #roksearch_results .arrow-right, #roksearch_results .arrow-right-disabled {
   left: 18px;
 }
 #roksearch_results .arrow-right:before, #roksearch_results .arrow-right-disabled:before {
-  content: '';
+  content: "";
 }
 @media only all and (max-width: 50.99rem) {
   .navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {

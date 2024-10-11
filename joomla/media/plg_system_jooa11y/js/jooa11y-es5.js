@@ -5461,7 +5461,7 @@
       return "<div class=\"jooa11y-instance jooa11y-" + CSSName[type] + "-message-container\">\n      <div role=\"region\" aria-label=\"" + [type] + "\" class=\"jooa11y-" + CSSName[type] + "-message\" lang=\"" + this.options.langCode + "\">\n          " + content + "\n      </div>\n  </div>";
     };
     return Jooa11y;
-  }();
+  }(); // eslint-disable-next-line import/no-unresolved
   if (!Joomla) {
     throw new Error('Joomla API is not properly initialised');
   }

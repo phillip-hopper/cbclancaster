@@ -31,6 +31,18 @@
       "version": "02047dda56dccdc2624e2a8361cd6cc69053b51c"
     },
     {
+      "name": "com_scheduler.admin-view-select-task-search",
+      "type": "script",
+      "uri": "com_scheduler/admin-view-select-task-search.js",
+      "dependencies": [
+        "com_scheduler.admin-view-select-task-search.es5"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "d9620d151d65b2d6afcc4abcd1e4e1f0a82f75e7"
+    },
+    {
       "name": "com_scheduler.admin-view-select-task-search.es5",
       "type": "script",
       "uri": "com_scheduler/admin-view-select-task-search-es5.js",
@@ -42,18 +54,6 @@
         "defer": true
       },
       "version": "b03f499724275407cf191bfeb9a61ac75b378b25"
-    },
-    {
-      "name": "com_scheduler.admin-view-select-task-search",
-      "type": "script",
-      "uri": "com_scheduler/admin-view-select-task-search.js",
-      "dependencies": [
-        "com_scheduler.admin-view-select-task-search.es5"
-      ],
-      "attributes": {
-        "type": "module"
-      },
-      "version": "d9620d151d65b2d6afcc4abcd1e4e1f0a82f75e7"
     },
     {
       "name": "com_scheduler.scheduler-config.es5",

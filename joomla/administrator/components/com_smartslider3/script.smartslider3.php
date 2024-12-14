@@ -188,7 +188,7 @@ class com_SmartSlider3InstallerScript {
         $pro = 0;
     
 
-        if (function_exists('opcache_reset')) {
+        if (function_exists('opcache_reset') && is_callable('opcache_reset')) {
             opcache_reset();
         }
     }

@@ -43,19 +43,6 @@
       "version": "6af9a6ab7d67d3732e41c36d6672af396c650f3f"
     },
     {
-      "name": "com_finder.finder-edit.es5",
-      "type": "script",
-      "uri": "com_finder/finder-edit-es5.min.js",
-      "dependencies": [
-        "core"
-      ],
-      "attributes": {
-        "nomodule": true,
-        "defer": true
-      },
-      "version": "c837d71356a19568e4c78938eb324245e6d6d4e1"
-    },
-    {
       "name": "com_finder.finder.es5",
       "type": "script",
       "uri": "com_finder/finder-es5.min.js",
@@ -67,18 +54,6 @@
         "defer": true
       },
       "version": "e6d3d1f535e33b5641e406eb08d15093e7038cc2"
-    },
-    {
-      "name": "com_finder.finder-edit",
-      "type": "script",
-      "uri": "com_finder/finder-edit.min.js",
-      "dependencies": [
-        "com_finder.finder-edit.es5"
-      ],
-      "attributes": {
-        "type": "module"
-      },
-      "version": "53a449059706c105f3195d0542ec9ecd43c8e73d"
     },
     {
       "name": "com_finder.finder",
@@ -93,10 +68,29 @@
       "version": "a2c3894d062787a266d59d457ffba5481b639f64"
     },
     {
-      "name": "com_finder.indexer",
-      "type": "style",
-      "uri": "com_finder/indexer.min.css",
-      "version": "c86a75b2567715c7c20b6d15af86f21e07230449"
+      "name": "com_finder.finder-edit.es5",
+      "type": "script",
+      "uri": "com_finder/finder-edit-es5.min.js",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "nomodule": true,
+        "defer": true
+      },
+      "version": "c837d71356a19568e4c78938eb324245e6d6d4e1"
+    },
+    {
+      "name": "com_finder.finder-edit",
+      "type": "script",
+      "uri": "com_finder/finder-edit.min.js",
+      "dependencies": [
+        "com_finder.finder-edit.es5"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "53a449059706c105f3195d0542ec9ecd43c8e73d"
     },
     {
       "name": "com_finder.indexer.es5",
@@ -147,6 +141,12 @@
         "type": "module"
       },
       "version": "3ec9f6999093a2ea0aca3c18a35e6b6f6862520c"
+    },
+    {
+      "name": "com_finder.indexer",
+      "type": "style",
+      "uri": "com_finder/indexer.min.css",
+      "version": "c86a75b2567715c7c20b6d15af86f21e07230449"
     }
   ]
 }

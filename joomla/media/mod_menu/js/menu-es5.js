@@ -43,32 +43,32 @@
           spanEl.addEventListener('mouseout', topLevelMouseOut(topLevelEl, settings));
         }
         topLevelEl.addEventListener('mouseover', function (_ref) {
-          var target = _ref.target;
-          var ulChild = target.querySelector('ul');
+          var currentTarget = _ref.currentTarget;
+          var ulChild = currentTarget.querySelector('ul');
           if (ulChild) {
             ulChild.setAttribute('aria-hidden', 'false');
             ulChild.classList.add(settings.menuHoverClass);
           }
         });
         topLevelEl.addEventListener('mouseout', function (_ref2) {
-          var target = _ref2.target;
-          var ulChild = target.querySelector('ul');
+          var currentTarget = _ref2.currentTarget;
+          var ulChild = currentTarget.querySelector('ul');
           if (ulChild) {
             ulChild.setAttribute('aria-hidden', 'true');
             ulChild.classList.remove(settings.menuHoverClass);
           }
         });
         topLevelEl.addEventListener('focus', function (_ref3) {
-          var target = _ref3.target;
-          var ulChild = target.querySelector('ul');
+          var currentTarget = _ref3.currentTarget;
+          var ulChild = currentTarget.querySelector('ul');
           if (ulChild) {
             ulChild.setAttribute('aria-hidden', 'true');
             ulChild.classList.add(settings.menuHoverClass);
           }
         });
         topLevelEl.addEventListener('blur', function (_ref4) {
-          var target = _ref4.target;
-          var ulChild = target.querySelector('ul');
+          var currentTarget = _ref4.currentTarget;
+          var ulChild = currentTarget.querySelector('ul');
           if (ulChild) {
             ulChild.setAttribute('aria-hidden', 'false');
             ulChild.classList.remove(settings.menuHoverClass);

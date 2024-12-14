@@ -62,6 +62,19 @@
       "version": "364c2a3bf6eb0ea1c0a571746ec5fa8a4ee60700"
     },
     {
+      "name": "com_menus.admin-item-edit-modules.es5",
+      "type": "script",
+      "uri": "com_menus/admin-item-edit_modules-es5.min.js",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "nomodule": true,
+        "defer": true
+      },
+      "version": "ed8c082d56d3c653b682e8f3e24026c7c2f82301"
+    },
+    {
       "name": "com_menus.admin-item-modal.es5",
       "type": "script",
       "uri": "com_menus/admin-item-modal-es5.min.js",
@@ -75,16 +88,17 @@
       "version": "6e2bf7aa316d33e08bc8ea68483256b93ce5fea3"
     },
     {
-      "name": "com_menus.admin-item-modal",
+      "name": "com_menus.admin-items-modal.es5",
       "type": "script",
-      "uri": "com_menus/admin-item-modal.min.js",
+      "uri": "com_menus/admin-items-modal-es5.min.js",
       "dependencies": [
-        "com_menus.admin-item-modal.es5"
+        "core"
       ],
       "attributes": {
-        "type": "module"
+        "nomodule": true,
+        "defer": true
       },
-      "version": "0655665041250ab89b7617c900304e13fd4073fc"
+      "version": "43af2887e6321daf8c07b8c2bcb655eef600c788"
     },
     {
       "name": "com_menus.admin-items-modal",
@@ -110,19 +124,6 @@
         "defer": true
       },
       "version": "419d0e4fbde7bb5cf2da0b22082953634f02aa11"
-    },
-    {
-      "name": "com_menus.admin-items-modal.es5",
-      "type": "script",
-      "uri": "com_menus/admin-items-modal-es5.min.js",
-      "dependencies": [
-        "core"
-      ],
-      "attributes": {
-        "nomodule": true,
-        "defer": true
-      },
-      "version": "43af2887e6321daf8c07b8c2bcb655eef600c788"
     },
     {
       "name": "com_menus.admin-menus",
@@ -162,17 +163,16 @@
       "version": "74af4dfdd23a5e6fa7108834bf2969b166761b28"
     },
     {
-      "name": "com_menus.admin-item-edit-modules.es5",
+      "name": "com_menus.admin-item-modal",
       "type": "script",
-      "uri": "com_menus/admin-item-edit_modules-es5.min.js",
+      "uri": "com_menus/admin-item-modal.min.js",
       "dependencies": [
-        "core"
+        "com_menus.admin-item-modal.es5"
       ],
       "attributes": {
-        "nomodule": true,
-        "defer": true
+        "type": "module"
       },
-      "version": "ed8c082d56d3c653b682e8f3e24026c7c2f82301"
+      "version": "0655665041250ab89b7617c900304e13fd4073fc"
     },
     {
       "name": "com_menus.admin-item-edit-modules",

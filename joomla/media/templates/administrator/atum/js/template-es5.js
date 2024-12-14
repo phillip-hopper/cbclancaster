@@ -261,6 +261,9 @@
     button.addEventListener('click', function () {
       document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(function (cb) {
         var target = document.querySelector(cb.getAttribute('data-bs-target'));
+        if (target.contains(button)) {
+          return;
+        }
         var collapseMenu = bootstrap.Collapse.getInstance(target) || new bootstrap.Collapse(target, {
           toggle: false
         });

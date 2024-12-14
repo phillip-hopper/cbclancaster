@@ -70,6 +70,18 @@
       "version": "490c9a9733ada84ea36c3ea08c0750b4e81580d7"
     },
     {
+      "name": "com_languages.overrider",
+      "type": "script",
+      "uri": "com_languages/overrider.min.js",
+      "dependencies": [
+        "com_languages.overrider.es5"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "72c4d238d2a1de5fbd2fc97760bf6cc8ea24a38b"
+    },
+    {
       "name": "com_languages.overrider.es5",
       "type": "script",
       "uri": "com_languages/overrider-es5.min.js",
@@ -81,18 +93,6 @@
         "defer": true
       },
       "version": "a6ffb2b277ab2cbb0d1d13b39b912079069295d2"
-    },
-    {
-      "name": "com_languages.overrider",
-      "type": "script",
-      "uri": "com_languages/overrider.min.js",
-      "dependencies": [
-        "com_languages.overrider.es5"
-      ],
-      "attributes": {
-        "type": "module"
-      },
-      "version": "72c4d238d2a1de5fbd2fc97760bf6cc8ea24a38b"
     }
   ]
 }

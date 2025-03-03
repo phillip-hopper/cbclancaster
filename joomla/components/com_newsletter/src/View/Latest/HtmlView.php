@@ -26,8 +26,8 @@ class HtmlView extends BaseHtmlView
 
 
 		header('Content-Type: application/pdf');
-		header('Content-Disposition: attachment; filename=CovenantConnect.pdf');
-		//header('Content-Disposition: inline; filename=CovenantConnect.pdf');
+		//header('Content-Disposition: attachment; filename=CovenantConnect.pdf');
+		header('Content-Disposition: inline; filename=CovenantConnect.pdf');
 		header('Expires: 0');
 		header('Cache-Control: must-revalidate');
 		header('Pragma: public');

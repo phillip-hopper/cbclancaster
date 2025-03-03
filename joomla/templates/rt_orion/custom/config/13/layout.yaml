@@ -192,6 +192,6 @@ content:
   custom-9888:
     title: 'Custom HTML'
     attributes:
-      html: "<div class=\"newstitle text-center\">\n<div class=mb-4>\n  <button type=\"button\" class=\"btn btn-xl\" onclick=\"window.location.href='/about/online-giving';\">Online Giving</button>\n</div>\n</div>\n<div class=\"newstitle text-center text-uppercase\">\n<div>\n  <span style=\"font-size: 1.8rem;\" class=\"d-block d-sm-inline mb-2 mb-sm-auto me-0 me-sm-2\"><b style=\"color: #458EC7;\">Latest</b> News</span>\n  <button type=\"button\" class=\"btn\" onclick=\"window.location.href='/announcements';\">View All Announcements</button>\n</div>\n</div>"
+      html: "<div class=\"newstitle text-center\">\n    <div class=mb-4>\n        <button type=\"button\" class=\"btn btn-xl\" onclick=\"window.location.href='/about/online-giving';\">Online Giving</button>\n    </div>\n</div>\n<div class=\"newstitle text-center text-uppercase\">\n    <div>\n        <span style=\"font-size: 1.8rem;\" class=\"d-block d-sm-inline mb-2 mb-sm-auto me-0 me-sm-2\"><b style=\"color: #458EC7;\">Latest</b> News</span>\n        <a class=\"btn\" href=\"/index.php?option=com_newsletter&view=latest;\" target=\"_blank\">View Latest Newsletter</a>\n    </div>\n</div>"
     block:
       class: 'no-pad-vertical-g-content mb-4'

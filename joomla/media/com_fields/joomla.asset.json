@@ -31,18 +31,6 @@
       "version": "3915154140c03c01c15e8f9eee982fcfebba4dd9"
     },
     {
-      "name": "com_fields.admin-field-edit",
-      "type": "script",
-      "uri": "com_fields/admin-field-edit.min.js",
-      "dependencies": [
-        "com_fields.admin-field-edit.es5"
-      ],
-      "attributes": {
-        "type": "module"
-      },
-      "version": "4f65629e6e77aaafec2f0d95486ac35131da38ad"
-    },
-    {
       "name": "com_fields.admin-field-edit.es5",
       "type": "script",
       "uri": "com_fields/admin-field-edit-es5.min.js",
@@ -54,6 +42,18 @@
         "defer": true
       },
       "version": "3cdc5fc587079e47d7c8c5d72c3d6a344417f8c8"
+    },
+    {
+      "name": "com_fields.admin-field-edit",
+      "type": "script",
+      "uri": "com_fields/admin-field-edit.min.js",
+      "dependencies": [
+        "com_fields.admin-field-edit.es5"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "4f65629e6e77aaafec2f0d95486ac35131da38ad"
     },
     {
       "name": "com_fields.admin-field-typehaschanged.es5",

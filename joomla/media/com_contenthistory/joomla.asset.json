@@ -43,6 +43,18 @@
       "version": "38c9a776abe63c1569786e8a4e2e6db0ec9d5ef6"
     },
     {
+      "name": "com_contenthistory.admin-history-versions",
+      "type": "script",
+      "uri": "com_contenthistory/admin-history-versions.min.js",
+      "dependencies": [
+        "com_contenthistory.admin-history-versions.es5"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "973d531805b2bf1a57af65fc7c2b00d3669b73f0"
+    },
+    {
       "name": "com_contenthistory.admin-history-versions.es5",
       "type": "script",
       "uri": "com_contenthistory/admin-history-versions-es5.min.js",
@@ -54,18 +66,6 @@
         "defer": true
       },
       "version": "1f92d08e5eaf196fb3c0fb9cb1ce4943208f5353"
-    },
-    {
-      "name": "com_contenthistory.admin-history-versions",
-      "type": "script",
-      "uri": "com_contenthistory/admin-history-versions.min.js",
-      "dependencies": [
-        "com_contenthistory.admin-history-versions.es5"
-      ],
-      "attributes": {
-        "type": "module"
-      },
-      "version": "973d531805b2bf1a57af65fc7c2b00d3669b73f0"
     },
     {
       "name": "com_contenthistory.admin-compare-compare.es5",
